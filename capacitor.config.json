@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "MesaSana",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
