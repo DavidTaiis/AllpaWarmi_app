@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Geolocalización</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item-divider style="text-align: center; color: black;">
+  <h4>Indica en el mapa la ubicación de la asociación</h4>
+</ion-item-divider>
+<ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
+<ion-card class="map">
+  <capacitor-google-maps #map></capacitor-google-maps>
+</ion-card>
+</ion-content>

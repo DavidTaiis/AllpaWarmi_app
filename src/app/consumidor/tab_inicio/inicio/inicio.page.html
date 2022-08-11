@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ubicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-row>
+    <ion-col style="margin-top: 8px;">
+      <ion-label >Selecciona el lugar</ion-label> 
+    </ion-col>
+    <ion-col>
+          <ion-select interface="popover" placeholder="Seleccione...">
+            <ion-select-option value="apples">Centro de acopio</ion-select-option>
+            <ion-select-option value="oranges">Huertos familiares</ion-select-option>
+            <ion-select-option value="bananas">Ferias</ion-select-option>
+          </ion-select>
+       
+    </ion-col>
+  </ion-row>
+  <ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
+  <ion-card class="map">
+  <capacitor-google-maps #map></capacitor-google-maps>
+</ion-card>
+
+</ion-content>

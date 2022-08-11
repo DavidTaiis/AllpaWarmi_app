@@ -1,0 +1,41 @@
+capacitor-google-maps {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+.map{
+    height: 40%;
+    width: 95%;
+}
+.items{
+    margin-top: 15px;
+    margin-left: 10px;
+    
+}
+.title{
+    margin-top: 15px;
+    margin-left: 10px;
+    }
+.button{
+    height: 10%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #3880FF;
+    margin:#3880FF;
+}
+.action-button{
+    text-align: center;
+    .actualizar-button{
+        --background: #FFF ;
+        width: 70%;
+       --border-radius: 5px;
+       color: #3880FF;
+       --margin: #3880FF;
+       margin-left: auto;
+    margin-right: auto;
+}
+}

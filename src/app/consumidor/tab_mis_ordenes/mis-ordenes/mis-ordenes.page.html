@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis ordenes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <div class="ion-padding" style="text-align:center;">
+      <ion-label>Fecha ordenes realizadas:</ion-label>
+  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
+</div>
+<ion-card style="border-radius: 20px;">
+    <ion-list>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="assets/img/compra.png" />
+        </ion-thumbnail>
+        <ion-label>
+        <h3>María Perez</h3>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p>05/06/2022</p>
+            </ion-col>
+            <ion-col style="text-align: right;">
+              <ion-badge color="warning" style="color: white;">Calificar</ion-badge>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+      </ion-label>
+      </ion-item>
+    </ion-list>
+    </ion-card>
+    <ion-card style="border-radius: 20px;">
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img src="assets/img/compra.png" />
+          </ion-thumbnail>
+          <ion-label>
+          <h3>Lechuga crespa</h3>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <p>2 Bultos</p>
+              </ion-col>
+              <ion-col style="text-align: right;">
+                <ion-badge color="success">Calificada</ion-badge>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+        </ion-label>
+        </ion-item>
+      </ion-list>
+      </ion-card>
+      <ion-card style="border-radius: 20px;">
+        <ion-list>
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img src="assets/img/compra.png" />
+            </ion-thumbnail>
+            <ion-label>
+            <h3>Lechuga crespa</h3>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <p>2 Bultos</p>
+                </ion-col>
+                <ion-col style="text-align: right;">
+                  <ion-badge color="success">Calificada</ion-badge>
+
+                </ion-col>
+              </ion-row>
+          </ion-grid>
+          </ion-label>
+          </ion-item>
+        </ion-list>
+        </ion-card>
+
+
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime presentation="date" id="datetime"></ion-datetime>
+  </ng-template>
+</ion-modal>
+
+</ion-content>

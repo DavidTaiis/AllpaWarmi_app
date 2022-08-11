@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Notificaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-row>
+    <ion-col style="margin-top: 8px;">
+      <ion-label >Estado</ion-label> 
+    </ion-col>
+    <ion-col>
+          <ion-select interface="popover" placeholder="Seleccione...">
+            <ion-select-option value="apples">Aceptada</ion-select-option>
+            <ion-select-option value="oranges">Rechazada</ion-select-option>
+          </ion-select>
+       
+    </ion-col>
+  </ion-row>
+<ion-card style="border-radius: 20px;">
+    <ion-list>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="assets/img/mujer.webp" />
+        </ion-thumbnail>
+        <ion-label>
+        <h3>María Perez</h3>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p>05/06/2022</p>
+            </ion-col>
+            <ion-col style="text-align: right;">
+              <ion-badge color="danger" style="color: white;">Invitación rechazada</ion-badge>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+      </ion-label>
+      </ion-item>
+    </ion-list>
+    </ion-card>
+    <ion-card style="border-radius: 20px;">
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img src="assets/img/mujer.webp" />
+          </ion-thumbnail>
+          <ion-label>
+          <h3>Lechuga crespa</h3>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <p>2 Bultos</p>
+              </ion-col>
+              <ion-col style="text-align: right;">
+                <ion-badge color="success">Invitación aceptada</ion-badge>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+        </ion-label>
+        </ion-item>
+      </ion-list>
+      </ion-card>
+      <ion-card style="border-radius: 20px;">
+        <ion-list>
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img src="assets/img/mujer.webp" />
+            </ion-thumbnail>
+            <ion-label>
+            <h3>Lechuga crespa</h3>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <p>2 Bultos</p>
+                </ion-col>
+                <ion-col style="text-align: right;">
+                  <ion-badge color="success">Invitación aceptada</ion-badge>
+
+                </ion-col>
+              </ion-row>
+          </ion-grid>
+          </ion-label>
+          </ion-item>
+        </ion-list>
+        </ion-card>
+
+
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime presentation="date" id="datetime"></ion-datetime>
+  </ng-template>
+</ion-modal>
+
+</ion-content>

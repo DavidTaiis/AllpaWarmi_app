@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil mujer agricultora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="border-radius:20px; text-align: center;">
+    <img width="125" src="assets/img/comprador.jpg" />
+    <ion-card-header>
+      <ion-card-title>María Perez</ion-card-title>
+      <ion-card-subtitle>Venta de productos frescos</ion-card-subtitle>
+     </ion-card-header>
+    <ion-card-content>
+      099335589
+    </ion-card-content>
+    <form [formGroup]="form">      
+      <div class="cont">
+          <div class="stars">
+            <ngx-star-rating formControlName="rating" [id]="'rating'" [disabled] ="true"></ngx-star-rating>
+          </div>
+        </div>
+  </form>
+  </ion-card>
+    <ion-card-title style="margin-left: 15px; margin-top: 15px;">
+      <span>Productos</span> 
+    </ion-card-title>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <span style="float: left;">Haba</span>
+        <span style="float: right">1.00 $</span>
+    </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <span style="float: left;">Limón</span>
+        <span style="float: right">2.00 $</span>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <span style="float: left;">Lenteja</span>
+        <span style="float: right">1.00 $</span>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-button class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="chatbox-outline"></ion-icon> &nbsp; &nbsp;Enviar invitación</ion-button>
+</ion-content>
+
