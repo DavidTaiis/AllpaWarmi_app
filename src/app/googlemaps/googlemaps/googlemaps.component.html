@@ -1,0 +1,17 @@
+
+<ion-content>
+
+  <input type="text" id="inputSearch" [(ngModel)]="searchGoogle" showCancelButton="never" on-focus="autocompleteFocus()">
+
+<div #map class="map">
+
+</div>
+
+<ion-chip class="miubicacion" (click)="mylocation()">
+  <ion-label class="normal">Mi ubicación actual</ion-label>
+  <ion-icon name="locate" ></ion-icon>
+</ion-chip>
+
+
+
+</ion-content>
