@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { GoogleMap } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-geolocalizacion',
@@ -13,7 +14,7 @@ export class GeolocalizacionPage implements OnInit {
   mapRef: ElementRef<HTMLElement>;
   newMap: GoogleMap;
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
   }
@@ -34,5 +35,7 @@ export class GeolocalizacionPage implements OnInit {
       },
     });
   }
-
+  continuar(){
+    this.navCtrl.navigateForward("/ma_lideresa/menu/inicio")
+  }
 }

@@ -1,26 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Ubicación</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
+<ion-content>
+  <!-- Encabezado -->
+  <div>
+    <!-- bar -->
+    <div class="all-margin-right">
+      <label class="color-text-white bg-orange bold-text">
+        <ion-icon src="/assets/icon/ubication.svg"></ion-icon> Ubicación
+      </label>
+    </div>    
+  </div>
+  <div class="margin-object15px">
   <ion-row>
     <ion-col style="margin-top: 8px;">
-      <ion-label >Selecciona el lugar</ion-label> 
+      <ion-label class="color-text-purple bold-text">Selecciona el lugar</ion-label> 
     </ion-col>
     <ion-col>
-          <ion-select interface="popover" placeholder="Seleccione...">
-            <ion-select-option value="apples">Centro de acopio</ion-select-option>
-            <ion-select-option value="oranges">Huertos familiares</ion-select-option>
-            <ion-select-option value="bananas">Ferias</ion-select-option>
-          </ion-select>
-       
+          <ion-select interface="popover" class="border-option">
+            <ion-select-option class="selec-text" value="apples">Centro de acopio</ion-select-option>
+            <ion-select-option class="selec-text" value="oranges">Huertos familiares</ion-select-option>
+            <ion-select-option class="selec-text" value="bananas">Ferias</ion-select-option>
+          </ion-select>       
     </ion-col>
   </ion-row>
-  <ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
-  <ion-card class="map">
-  <capacitor-google-maps #map></capacitor-google-maps>
-</ion-card>
+</div>
+  <ion-card style="width: 95%; height: 90%;">
+    <app-googlemaps [modal]="modal" [localizacion]="localizacion" [feature] = "feature"></app-googlemaps>
+
+
+  </ion-card>
 
 </ion-content>
+
+
+
+

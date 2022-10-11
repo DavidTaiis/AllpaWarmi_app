@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { GoogleMap } from '@capacitor/google-maps';
-import { environment } from 'src/environments/environment';
+import { ModalController } from '@ionic/angular';
+import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,33 +8,37 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+  modal:any;
+  feature:any = [];
+  listaGeolocalizacion:any;
+  localizacion:any;
 
-  @ViewChild('map')
-  mapRef: ElementRef<HTMLElement>;
-  newMap: GoogleMap;
+  constructor(public modalController: ModalController, private tabagricultorasService: TabAgricultorasService ) { }
   
-  constructor() { }
+  async ngOnInit() {
 
-  ngOnInit() {
-  }
+  await this.getGeolocationMa();
 
-  ngAfterViewInit(){
-    this.createMap();
+  
+  this.modal = "HuertoVenta";
+  this.localizacion = false;
   }
-  async createMap() {
-    console.log('aqui');
-    this.newMap = await GoogleMap.create({
-      id: 'capacitor-google-maps',
-      element: this.mapRef.nativeElement,
-      apiKey: environment.google_maps_api_key,
-      config: {
-        center: {
-          lat: -2.8990419855354235, 
-          lng: -79.00755362380936,
-        },
-        zoom: 14,
-      },
-    });
-  }
-
+ 
+   getGeolocationMa(){
+  
+   this.tabagricultorasService.getGeolocalizacionMa()
+     .subscribe( (res) => {
+      this.feature = null;
+      this.feature = res;
+     },
+     response => {
+       console.log(response['error']['warning'][0]['value'])
+   },
+   () => {
+       console.log("The POST observable is now completed.");
+   });
+   
+   }
+  
 }
+

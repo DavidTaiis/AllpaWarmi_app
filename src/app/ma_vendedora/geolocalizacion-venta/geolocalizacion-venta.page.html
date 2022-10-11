@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Geolocalización</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider class="ion-padding" style="text-align: center; color: black;">
+    <h5>Indica en el mapa la ubicación del punto de venta</h5>
+  </ion-item-divider>
+  <ion-card style="width: 95%; height: 70%;">
+    <app-googlemaps [feature] = "feature"></app-googlemaps>
+  </ion-card>
+  <ion-button class="ion-padding boton-azul" expand="block" (click)="continuar()">  &nbsp; &nbsp;Continuar</ion-button>
+
+</ion-content>

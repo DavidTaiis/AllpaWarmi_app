@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup,  FormControl, FormBuilder, Validators } from '@angular/forms';
-import { GoogleMap } from '@capacitor/google-maps';
-import { environment } from 'src/environments/environment';
+
+import { ActivatedRoute } from '@angular/router';
+import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
 
 @Component({
   selector: 'app-perfil-ma',
@@ -10,13 +11,19 @@ import { environment } from 'src/environments/environment';
 })
 export class PerfilMaPage implements OnInit {
 
-  @ViewChild('map')
-  mapRef: ElementRef<HTMLElement>;
-  newMap: GoogleMap;
+  buscador:any;
+  miUbicacion:any;
+
+  id:any;
+  farmer:any;
+  name: any;
+  phone:any;
+  feature:any;
+
   
   public form: FormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder, private activatedRoute: ActivatedRoute, private tabAgricultorasService: TabAgricultorasService) {
  
     this.form = this.fb.group({
       'rating': new FormControl([5])
@@ -24,22 +31,40 @@ export class PerfilMaPage implements OnInit {
    }
 
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.paramMap.get("id");
+    this.getFarmerId();
+    this.getGeolocationMaId();
+    this.buscador = true;
+    this.miUbicacion=true;
+
   }
-  ngAfterViewInit(){
-    this.createMap();
+ 
+
+  getFarmerId(){
+     this.tabAgricultorasService.getFarmerId(this.id)
+    .subscribe(  (res) => {
+    this.farmer = res;
+    this.name = res['name'];
+    this.phone = res['phone']
+  },
+  response => {
+    console.log(response['error']['warning'][0]['value'])
+},
+() => {
+    console.log("The POST observable is now completed.");
+});
   }
-  async createMap() {
-    this.newMap = await GoogleMap.create({
-      id: 'capacitor-google-maps',
-      element: this.mapRef.nativeElement,
-      apiKey: environment.google_maps_api_key,
-      config: {
-        center: {
-          lat: -2.8990419855354235, 
-          lng: -79.00755362380936,
-        },
-        zoom: 14,
-      },
-    });
-  }
+  getGeolocationMaId(){
+    this.tabAgricultorasService.getGeolocationMaId(this.id)
+    .subscribe(  (res) => {
+    this.feature = res;
+    },
+    response => {
+      console.log(response['error']['warning'][0]['value'])
+  },
+  () => {
+      console.log("The POST observable is now completed.");
+  });
+    }
+
 }

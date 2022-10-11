@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ventas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content>
+    <br>
+    <ion-card>
+    <ion-segment [value]="valueSelected" [scrollable]="true"(ionChange)= "segmentChange($event)">
+      <ion-segment-button value="1">
+        <ion-label>Mis ventas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="2">
+        <ion-label>Comercialización</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-card>
+  <div *ngIf="valueSelected == 1">
+    <app-ventas></app-ventas>
+  </div>
+  <div *ngIf="valueSelected == 2">
+    <app-comercializacion></app-comercializacion>
+  </div>
+
+  </ion-content>
+  
+
+</ion-content>

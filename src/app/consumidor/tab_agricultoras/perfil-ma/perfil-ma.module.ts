@@ -9,16 +9,17 @@ import { PerfilMaPageRoutingModule } from './perfil-ma-routing.module';
 import { PerfilMaPage } from './perfil-ma.page';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxStarRatingModule } from 'ngx-star-rating';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { GooglemapsModule } from './../../../googlemaps/googlemaps/googlemaps.module';
+
 
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     ReactiveFormsModule,
     NgxStarRatingModule,
     CommonModule,
     FormsModule,
     IonicModule,
+    GooglemapsModule,
     PerfilMaPageRoutingModule
   ],
   declarations: [PerfilMaPage]

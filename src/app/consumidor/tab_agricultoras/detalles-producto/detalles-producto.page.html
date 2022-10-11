@@ -11,10 +11,10 @@
 <ion-grid>
   <ion-row>
     <ion-col style="margin-left: 10px;">
-      <h1>Lechuga</h1>
+      <h1>{{productName}}</h1>
     </ion-col>
     <ion-col style="text-align: right; margin-right: 15px; color: crimson;">
-      <h1>$4,50</h1>
+      <h1>{{price}}</h1>
     </ion-col>
   </ion-row>
 </ion-grid>
@@ -28,16 +28,11 @@
     <ion-row>
       <ion-col>
     <ion-item>
-      <ion-label>Bulto</ion-label>
+      <ion-label>{{measure}}</ion-label>
       <ion-radio slot="start" value="griff"></ion-radio>
     </ion-item>
   </ion-col>
-  <ion-col>
-    <ion-item>
-      <ion-label>Quintal</ion-label>
-      <ion-radio slot="start" value="buford"></ion-radio>
-    </ion-item>
-  </ion-col>
+
   </ion-row>
   </ion-radio-group>
  </ion-item-divider>
@@ -46,8 +41,7 @@
     Descripción
   </ion-card-header>
   <ion-card-content>
-    Keep close to Nature's heart... and break clear away, once in awhile,
-    and climb a mountain or spend a week in the woods. Wash your spirit clean.
+   {{description}}
   </ion-card-content>
  </ion-card>
  <ion-item-divider>
@@ -58,9 +52,9 @@
     </ion-col>
     <ion-col style="text-align: right;">
       <h2>
-      <ion-icon style="width: 30px; height: 30px; color: #50CD89;" name="add-circle-outline"></ion-icon>
-      <label style="font-size: 30px;">     1     </label>
-      <ion-icon style="width: 30px; height: 30px; color: #50CD89;" name="remove-circle-outline"></ion-icon>
+      <ion-icon (click)="addQuantity()" style="width: 30px; height: 30px; color: #50CD89;" name="add-circle-outline"></ion-icon>
+      <label style="font-size: 30px;" id="quantity">     {{quantity}}     </label>
+      <ion-icon (click)="lessQuantity()" style="width: 30px; height: 30px; color: #50CD89;" name="remove-circle-outline"></ion-icon>
     </h2>
     </ion-col>
   </ion-row>
@@ -72,9 +66,9 @@
     <h2>Total</h2>
   </ion-col>
   <ion-col style="text-align: right; margin-right:10px ;">
-    <h2>$4.50</h2>
+    <h2>{{total}}</h2>
   </ion-col>
 </ion-row>
 </ion-grid>
- <ion-button class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="cart-outline"></ion-icon>  Añadir al carrito</ion-button>
+ <ion-button (click)="addCar()" class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="cart-outline"></ion-icon>  Añadir al carrito</ion-button>
 </ion-content>

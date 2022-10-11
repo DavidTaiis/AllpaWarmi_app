@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles entrega</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card style="border-radius:30px; border:solid 2px #50CD89">
+      <ion-item>
+       <ion-thumbnail style="height: 100px; width: 100px;" slot="end">
+         <img src="assets/img/comprador.jpg" />
+       </ion-thumbnail>
+       <ion-label class="ion-margin-start">
+         <h3>Consumidor:</h3>
+         <p>Juan Perez</p>
+       </ion-label>
+      </ion-item>
+       </ion-card>
+       <ion-card style="border-radius:30px; border:solid 2px #50CD89">
+        <ion-item>
+         <ion-thumbnail style="height: 100px; width: 100px;" slot="end">
+           <img src="assets/img/mujer.webp" />
+         </ion-thumbnail>
+         <ion-label class="ion-margin-start">
+           <h3>Vendedora:</h3>
+           <p>Juanita Perez</p>
+         </ion-label>
+        </ion-item>
+         </ion-card>
+         <h6 class="ion-margin-start">Puntos de venta y entrega</h6>
+         <ion-card class="map">
+          <capacitor-google-maps id="map"></capacitor-google-maps>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              Productos
+            </ion-card-title>
+          </ion-card-header>
+          <ion-grid>
+          <ion-row>
+            <ion-col>
+              Cebolla
+            </ion-col>
+            <ion-col style="text-align: right;">2 Bultos</ion-col>
+          </ion-row>
+        </ion-grid>
+        </ion-card>
+        <ion-button class="ion-padding boton-azul" style="--background: #50CD89" expand="block">Contactar comprador</ion-button>
+        <ion-button class="ion-padding boton-azul" expand="block">Contactar vendedor</ion-button>
+        <br>
+</ion-content>

@@ -7,48 +7,32 @@
 <ion-content>
   <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar>
 <ion-card>
-  <div class="ion-padding">
-  <ion-card-title>María Perez</ion-card-title>
-      <ion-card-subtitle>0993335589</ion-card-subtitle>
-    </div>
-    <ion-list>
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <img src="assets/img/lechuga.jpg" />
-        </ion-thumbnail>
-        <ion-label>
-        <h3>Lechuga crespa</h3>
-        <p>Fresca cosechada</p>
-      </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <img src="assets/img/lechuga.jpg" />
-        </ion-thumbnail>
-        <ion-label>
-          <h3>Habas</h3>
-          <p>Secas</p>
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <img src="assets/img/lechuga.jpg" />
-        </ion-thumbnail>
-        <ion-label>
-          <h3>Habas</h3>
-          <p>Secas</p>
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <img src="assets/img/lechuga.jpg" />
-        </ion-thumbnail>
-        <ion-label>
-          <h3>Habas</h3>
-          <p>Secas</p>
-        </ion-label>
-      </ion-item>
- 
-    </ion-list>
+  <div style="text-align:center;">
+    <h2>{{name}}</h2>
+<ion-chip>{{phone}}</ion-chip>
+</div>
+<ion-card *ngFor="let product of products" style="border-radius: 20px;">
+  <ion-list>
+    <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.id]">
+      <ion-thumbnail slot="start">
+        <img src="assets/img/compra.png" />
+      </ion-thumbnail>
+      <ion-label>
+      <h3>{{product.product}}</h3>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <p>{{product.description}}</p>
+          </ion-col>
+          <ion-col style="text-align: right;">
+            <ion-badge color="success" style="color: white;">{{product.price}}</ion-badge>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+    </ion-label>
+    </ion-item>
+  </ion-list>
+  </ion-card>
     </ion-card>
+    <ion-button (click)="goCar()">Carrito</ion-button>
 </ion-content>
