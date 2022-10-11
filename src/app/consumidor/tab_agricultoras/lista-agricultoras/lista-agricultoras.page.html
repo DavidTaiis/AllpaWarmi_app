@@ -8,14 +8,16 @@
 
   <ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
   <ion-grid>
+
     <ion-row>
-      <ion-col>
+
+      <ion-col *ngFor="let farmer of listFarmers" size="6">
         <div>
-          <ion-card class="lista-agricultoras">
+          <ion-card class="lista-agricultoras" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]" >
             <img src="assets/img/comprador.jpg" />
             <ion-card-header>
-              <ion-card-title>María Perez</ion-card-title>
-              <ion-card-subtitle class="color-principal">099335589</ion-card-subtitle>
+              <ion-card-title>{{farmer.name}}</ion-card-title>
+              <ion-card-subtitle class="color-principal">{{farmer.phone}}</ion-card-subtitle>
              </ion-card-header>
             <ion-card-content>
           Dirección
@@ -23,51 +25,9 @@
           </ion-card>
         </div>
       </ion-col>
-      <ion-col>
-        <div>
-          <ion-card class="lista-agricultoras">
-            <img src="assets/img/comprador.jpg" />
-            <ion-card-header>
-              <ion-card-title>Lorena Arce</ion-card-title>
-              <ion-card-subtitle class="color-principal">0993335589</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-             Dirección
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
+
     </ion-row>
-    <ion-row>
-      <ion-col>
-        <div>
-          <ion-card class="lista-agricultoras">
-            <img src="assets/img/comprador.jpg" />
-            <ion-card-header>
-              <ion-card-title>María Perez</ion-card-title>
-              <ion-card-subtitle class="color-principal">099335589</ion-card-subtitle>
-             </ion-card-header>
-            <ion-card-content>
-          Dirección
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div>
-          <ion-card class="lista-agricultoras">
-            <img src="assets/img/comprador.jpg" />
-            <ion-card-header>
-              <ion-card-title>Lorena Arce</ion-card-title>
-              <ion-card-subtitle class="color-principal">0993335589</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-             Dirección
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
+  
   </ion-grid>
 
 </ion-content>

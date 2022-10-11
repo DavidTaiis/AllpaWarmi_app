@@ -72,10 +72,27 @@ const routes: Routes = [
     path: 'ma_vendedora/geolocalizacion-huerto',
     loadChildren: () => import('./ma_vendedora/geolocalizacion-huerto/geolocalizacion-huerto.module').then( m => m.GeolocalizacionHuertoPageModule)
   },
+
   {
-    path: 'modal-acopio',
-    loadChildren: () => import('./consumidor/tab_inicio/modal-acopio/modal-acopio.module').then( m => m.ModalAcopioPageModule)
+    path: 'ma_vendedora/geolocalizacion-venta',
+    loadChildren: () => import('./ma_vendedora/geolocalizacion-venta/geolocalizacion-venta.module').then( m => m.GeolocalizacionVentaPageModule)
   },
+  {
+    path: 'ma_vendedora/menu',
+    loadChildren: () => import('./ma_vendedora/menu/menu.module').then( m => m.MenuPageModule)
+  },
+
+  {
+    path: 'modal-huerto-venta',
+    loadChildren: () => import('./consumidor/tab_agricultoras/modal-huerto-venta/modal-huerto-venta.module').then( m => m.ModalHuertoVentaPageModule)
+  },
+  {
+    path: 'consumidor/geolocalizacion-domicilio',
+    loadChildren: () => import('./consumidor/geolocalizacion-domicilio/geolocalizacion-domicilio.module').then( m => m.GeolocalizacionDomicilioPageModule)
+  },
+
+
+  
 ];
 
 @NgModule({

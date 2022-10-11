@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Movilización</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <ion-card>
+  <ion-segment [value]="valueSelected" [scrollable]="true"(ionChange)= "segmentChange($event)">
+    <ion-segment-button value="1">
+      <ion-label>Buses</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      <ion-label>Camionetas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="3">
+      <ion-label>Compartido</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="4">
+      <ion-label>Privado</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="5">
+      <ion-label>Noticias</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-card>
+<div *ngIf="valueSelected == 1">
+  <app-bus></app-bus>
+</div>
+<div *ngIf="valueSelected == 2">
+  <app-camioneta></app-camioneta>
+</div>
+<div *ngIf="valueSelected == 3">
+  <app-compartido></app-compartido>
+</div>
+<div *ngIf="valueSelected == 4">
+  <app-privado></app-privado>
+</div>
+<div *ngIf="valueSelected == 5">
+  <app-noticias></app-noticias>
+</div>
+</ion-content>

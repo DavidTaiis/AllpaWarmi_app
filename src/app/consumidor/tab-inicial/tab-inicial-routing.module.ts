@@ -25,15 +25,15 @@ const routes: Routes = [
         loadChildren: () => import('../tab_mis_ordenes/mis-ordenes/mis-ordenes.module').then( m => m.MisOrdenesPageModule)
       },
       {
-        path: 'perfil-ma',
+        path: 'perfil-ma/:id',
         loadChildren: () => import('./../../consumidor/tab_agricultoras/perfil-ma/perfil-ma.module').then( m => m.PerfilMaPageModule)
       },
       {
-        path: 'productos',
+        path: 'productos/:id',
         loadChildren: () => import('./../../consumidor/tab_agricultoras/productos/productos.module').then( m => m.ProductosPageModule)
       },
       {
-        path: 'detalles_producto',
+        path: 'detalles_producto/:id',
         loadChildren: () => import('./../../consumidor/tab_agricultoras/detalles-producto/detalles-producto.module').then( m => m.DetallesProductoPageModule)
       },
       {

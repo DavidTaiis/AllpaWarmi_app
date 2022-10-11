@@ -1,17 +1,19 @@
 
 <ion-content>
+  <div class="contenedor-i">
+    <div class="size-input  contenedor-i">
+      <ion-icon class="size-icon32" slot="start" src="/assets/iconos/search.svg"></ion-icon>
+      <input class="searchInput" type="text" id="inputSearch" [(ngModel)]="searchGoogle" showCancelButton="never" />
+  <input type="hidden" (input) = "positionSet = $event.target.value" [(ngModel)]="positionSet">
 
-  <input type="text" id="inputSearch" [(ngModel)]="searchGoogle" showCancelButton="never" on-focus="autocompleteFocus()">
+    </div>
+    <ion-chip *ngIf="!miUbicacion" class="miubicacion" (click)="mylocation()">
+      <ion-label class="text-center">Mi ubicación actual</ion-label>
+      <ion-icon name="locate"></ion-icon>
+    </ion-chip>
+  </div>
 
-<div #map class="map">
-
-</div>
-
-<ion-chip class="miubicacion" (click)="mylocation()">
-  <ion-label class="normal">Mi ubicación actual</ion-label>
-  <ion-icon name="locate" ></ion-icon>
-</ion-chip>
-
-
+  <div #map class="map "></div>
 
 </ion-content>
+

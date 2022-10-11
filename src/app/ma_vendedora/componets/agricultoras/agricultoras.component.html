@@ -1,0 +1,23 @@
+<ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
+<ion-grid>
+
+  <ion-row>
+
+    <ion-col *ngFor="let farmer of listFarmers" size="6">
+      <div>
+        <ion-card class="lista-agricultoras" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]" >
+          <img src="assets/img/mujer.webp" />
+          <ion-card-header>
+            <ion-card-title>{{farmer.name}}</ion-card-title>
+            <ion-card-subtitle class="color-principal">{{farmer.phone}}</ion-card-subtitle>
+           </ion-card-header>
+          <ion-card-content>
+        Dirección
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+  </ion-row>
+
+</ion-grid>

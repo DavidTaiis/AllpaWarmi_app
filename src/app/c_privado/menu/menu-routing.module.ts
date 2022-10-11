@@ -21,7 +21,7 @@ const routes: Routes = [
         loadChildren: () => import('./../../c_privado/tab_noticias/novedades/novedades.module').then( m => m.NovedadesPageModule)
       },
       {
-        path: 'noticia',
+        path: 'noticias',
         loadChildren: () => import('./../../c_privado/tab_noticias/noticia/noticia.module').then( m => m.NoticiaPageModule)
       },
       {

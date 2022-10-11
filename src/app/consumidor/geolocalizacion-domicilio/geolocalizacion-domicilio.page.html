@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Geolocalización</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-item-divider style="text-align: center; color: black;">
+  <h4>Indique en el mapa la ubicación de su domicilio para entrega de productos</h4>
+</ion-item-divider>
+<ion-card style="width: 95%; height: 80%;">
+  <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
+</ion-card>
+<ion-button class="ion-padding boton-azul" expand="block" (click)="guardarGeolocalizacion()">  &nbsp; &nbsp;Continuar</ion-button>
+<button (click)="pruebaStorage()">hol</button>
+</ion-content>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-geolocalizacion-huerto',
   templateUrl: './geolocalizacion-huerto.page.html',
@@ -8,12 +7,13 @@ import { MapasService } from 'src/app/services/mapas.service';
 })
 export class GeolocalizacionHuertoPage implements OnInit {
 
-  constructor(public Mapa:MapasService) { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
-  async ngAfterViewInit(){
-    this.Mapa.createMap();
+
+  continuar(){
+    this.router.navigate(['/ma_vendedora/geolocalizacion-venta'])
   }
   
 }

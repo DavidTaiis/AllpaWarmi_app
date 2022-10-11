@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Movilización</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Buscar" value=""></ion-searchbar>
+  <ion-card>
+  <ion-item *ngFor="let camioneta of listCamionetas" style="font-size: 12px;" [routerLink]="['//ma_vendedora/menu/transporte/perfil-conductor']" >
+    <ion-chip slot="end" color="success">{{camioneta.status}}</ion-chip>
+    <ion-thumbnail slot="start">
+      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg" />
+    </ion-thumbnail>
+    <ion-label>{{camioneta.description}}<p>{{camioneta.users_id}}</p>
+      <p>{{camioneta.car_plate}}</p></ion-label>
+  </ion-item>
+ 
+</ion-card>
+</ion-content>

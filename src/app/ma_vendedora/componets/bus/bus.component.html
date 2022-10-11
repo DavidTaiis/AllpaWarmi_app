@@ -1,0 +1,10 @@
+
+<ion-card *ngFor="let bus of listBusesLine">
+  <ion-item>
+    <ion-icon name="bus-outline"></ion-icon>
+    <ion-card-header>
+      <ion-card-subtitle>{{bus.name}} -- {{bus.description}}</ion-card-subtitle>
+      <ion-card-title>{{bus.price}} $</ion-card-title>
+    </ion-card-header>
+</ion-item>
+</ion-card>

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  google_maps_api_key: 'AIzaSyDW8zC25D9CCJqSqmWQCOiMHBHX54ADqyE',
+  google_maps_api_key: 'AIzaSyB0c7Oaoom8FtcCn46Eggfh8huka7rmOpc',
+  apiUrl: 'http://127.0.0.1:8000/api/'
 };
 
 /*

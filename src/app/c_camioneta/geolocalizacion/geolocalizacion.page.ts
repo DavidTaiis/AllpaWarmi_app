@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MapasService } from 'src/app/services/mapas.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-geolocalizacion',
@@ -8,11 +10,15 @@ import { MapasService } from 'src/app/services/mapas.service';
 })
 export class GeolocalizacionPage implements OnInit {
 
-  constructor(public Mapa:MapasService) { }
+  constructor(public Mapa:MapasService, private router:Router) { }
 
   ngOnInit() {
   }
   async ngAfterViewInit(){
     this.Mapa.createMap();
+  }
+
+  registrarParada(){
+    this.router.navigate(['/c_camioneta/menu/inicio']);
   }
 }

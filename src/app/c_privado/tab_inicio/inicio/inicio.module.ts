@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { InicioPageRoutingModule } from './inicio-routing.module';
 
 import { InicioPage } from './inicio.page';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { GooglemapsModule } from 'src/app/googlemaps/googlemaps/googlemaps.module';
 
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InicioPageRoutingModule
+    InicioPageRoutingModule,
+    GooglemapsModule
   ],
   declarations: [InicioPage]
 })
