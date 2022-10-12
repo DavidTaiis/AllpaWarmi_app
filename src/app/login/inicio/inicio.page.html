@@ -1,98 +1,12 @@
-<ion-content class="bg-logo">  
-  <!-- Encabezado -->
+<ion-app>  
+  <div class="contenedor-header">
+    <ion-icon class="icon-header" slot="start" src="/assets/icon/login.svg">      
+    </ion-icon> <h4 class="texto-header">Login</h4>
+  </div>
   <div>
-    <!-- bar -->
-    <div class="all-margin-right">
-      <label class="color-text-white bg-orange bold-text">
-        <ion-icon src="/assets/icon/login.svg"></ion-icon> Login
-      </label>
-    </div>
-    <!-- img -->
-    <div class="container-div">
-      <ion-img src="/assets/img/img001.svg"> </ion-img>
-    </div>
-    <!-- Title -->
-    <div class="container-div">
-      <h4 class="color-text-purple bold-text text-center">Warmis empoderadas<br>al cuidado de la tierra</h4>
-    </div>
+    <ion-img src="/assets/img/background.svg"></ion-img>
   </div>
-  <!-- formulario de acceso -->
-  <div class="login-section">
-    <form>
-      <div class="login-form">
-        <!-- Usuario o Cédula -->
-        <div class="form-input">          
-          <ion-item class="item-transparent" lines="none">
-            <ion-label position="floating" class="color-text-purple bold-text text-center size-text14"> Usuario o Cédula</ion-label>
-            <ion-input [(ngModel)]="cedula" type="text" [ngModelOptions]="{standalone: true}" class="border-bottom"></ion-input>
-            <ion-icon slot="start" src="/assets/icon/user.svg"></ion-icon>
-          </ion-item>
-        </div>        
-        <!-- Contraseña -->
-        <div class="form-input">          
-          <ion-item class="item-transparent" lines="none">
-            <ion-label position="floating" class="color-text-purple text-center bold-text size-text14">Contraseña</ion-label>
-            <ion-input [(ngModel)]="contrasena" type="password" [ngModelOptions]="{standalone: true}" class="border-bottom"></ion-input>
-            <ion-icon slot="start" src="/assets/icon/password.svg"></ion-icon>
-          </ion-item>          
-        </div>
-        <!-- Seleccion 1 -->
-        <div class=" margin-object15px">
-          <!-- <ion-icon name="person"></ion-icon> -->
-          <ion-item class="item-transparent" lines="none" >
-            <ion-label class="color-text-purple bold-text size-text14">Tipo de usuario</ion-label>
-            <ion-select (ionChange)="mostrar()" [(ngModel)]="tipoUsuario"  interface="popover"
-              [ngModelOptions]="{standalone: true}" >             
-              <!-- Opciones 1 -->              
-              <ion-select-option value="Consumidor" >Consumidor agroecológico</ion-select-option>
-              <ion-select-option value="Agricultora">Agricultora</ion-select-option>
-              <ion-select-option value="Conductor">Conductor</ion-select-option>
-            </ion-select>
-            <ion-icon slot="start" src="/assets/icon/rol.svg"></ion-icon>
-            <ion-icon slot="end" src="/assets/icon/arrow_down.svg"></ion-icon>
-          </ion-item>
-        </div>
-        <!-- Subseleccion 1 -->
-        <div *ngIf="selectAgricultora" class="form-input">
-          <!-- <ion-icon name="leaf-outline"></ion-icon> -->
-          <ion-item class="item-transparent" lines="none">
-            <ion-label position="floating" class="color-text-purple bold-text size-text14">Tipo de agricultora</ion-label>
-            <ion-select interface="popover" [(ngModel)]="tipoAgricultora"
-              [ngModelOptions]="{standalone: true}">
-              <ion-select-option value="Lidereza">Lidereza</ion-select-option>
-              <ion-select-option value="Acopiadora">Acopiadora</ion-select-option>
-              <ion-select-option value="Vendedora">Vendedora</ion-select-option>
-            </ion-select>
-            <ion-icon slot="end" src="/assets/icon/arrow_down.svg"></ion-icon>
-          </ion-item>
-        </div>
-        <!-- seleccion 3 -->
-        <div *ngIf="selectConductor" class="form-input">
-          <!-- <ion-icon name="leaf-outline"></ion-icon> -->
-          <ion-item class="item-transparent" lines="none">
-            <ion-label position="floating" class="color-text-purple bold-text size-text14">Tipo de conductor</ion-label>
-            <ion-select interface="popover" [(ngModel)]="tipoConductor"
-              [ngModelOptions]="{standalone: true}" class="personalizar-ion-select">
-              <!-- Subseleccion 3 -->
-              <ion-select-option style="--background:transparent;" value="Bus">Bus</ion-select-option>
-              <ion-select-option value="Camioneta">Camioneta</ion-select-option>
-              <ion-select-option value="Privado">Privado</ion-select-option>
-            </ion-select>
-            <ion-icon slot="end" src="/assets/icon/arrow_down.svg"></ion-icon>
-          </ion-item>
-        </div>
-      </div>
-      <div class="text-center">
-        <ion-button type="submit" size="large" class="button-radius-50px size-text14 buttom-pad" (click)="navegacionLogin()">Ingresa
-        </ion-button>
-      </div>
-    </form>
- <!-- footer -->
- <div class="text-center">
-  <h6 class="color-text-purple bold-text size-text14">
-    ¿No tienes una cuenta?<br>
-    <a [routerLink]="['/registrarse']" routerLinkActive="router-link-active" class="color-text-brown no-subrayed size-text14">Registrate</a>
-  </h6>
-</div>
-  </div>
-</ion-content>
+
+ 
+
+</ion-app>

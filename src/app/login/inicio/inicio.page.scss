@@ -1,102 +1,22 @@
-:root{
-    --warmin-color-yellow:#f9b233;
-    --warmin-color-orange:#EC6730;
-    --warmin-color-purple:#522974;
-    --warmin-color-pinkd:#e62243;
-    --warmin-color-brown:#a9172e;  
-}
-ion-content{
-    margin: auto;
-    padding: auto;    
-    width: 100%;
-    height: 100%;        
-}
 
-.bg-logo{
-    --background: rgb(255, 255, 255) url(../../../assets/img/bg_1.svg) no-repeat center center / cover;
-    margin-left: -40px;
-}
+    // --warmin-color-yellow:#f9b233;
+    // --warmin-color-orange:#EC6730;
+    // --warmin-color-purple:#522974;
+    // --warmin-color-pinkd:#e62243;
+    // --warmin-color-brown:#a9172e;  
 
-.all-margin-right{    
-    padding: 40px 20px 0px 0px;
-}
 
-.container-div{
-margin: -30px 30px 30px 30px;
-}
 
-.bg-orange{
-    background-color: #EC6730;
-    padding: 10px 30% 10px 5px;
-    border-radius: 0 50px 50px 0;
-}
+//header
 
-.bold-text{
-    font-weight: bold;
-}
 
-.color-text-white{
-    color: #fff;
-}
+//background
 
-.size-text14{
-    font-size: 14px;
-}
-.color-text-purple{
-    color: #522974;
-}
-.color-text-brown{
-    --color: var(--warmin-color-brown);
-}
-.text-center{
-    text-align:center;
-}
-.item-transparent{
-    --background: transparent;
-}
-.personalizar-ion-select {
-    --background: red;
-  }
 
-.buttom-pad{
-    padding: 15px;
-}
-.border-bottom{
-    border-bottom-width: 2px;
-    border-bottom-style: solid;    
-    border-color: #EC6730;
-}
-
-.button-radius-50px{
-    margin: 10px;
-    padding: 5px;
-    --background: #a9172e;
-    --border-radius: 50px;
-    
-}
-
-.footer1{
-    --margin-top: 0px;
-}
-
-.icon-margin{
-    position: relative;
-    top: 25px; /* ajustar los valores para mover la imagen */
-    left: -5px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin: 30%;
-    border:2px solid #fff;
-    display: block;
-}
-.margin-forms{
-margin: -20px 5% 0 5%;
-}
-
-.margin-object15px{
-    padding-top: 15px;
-}
-.no-subrayed{
-    text-decoration: none;
-}
+//tamaño de pantall
+//image
+//texto-titulo-bajo image
+//cotenedor formulario
+//label
+//inputs
+//boton
