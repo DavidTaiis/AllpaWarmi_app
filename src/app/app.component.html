@@ -1,21 +1,68 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content style="--background: #50CD89; border: 3px solid #FFFFFF;border-radius: 30px 0px 0px 30px;">
-        <ion-list style="background-color:#50CD89;" id="inbox-list">
-          <ion-avatar  style="width: 180px; height: 180px; margin-left: 50px; "  class="ion-margin-start">
+    <ion-menu contentId="main-content" type="overlay" class="margen-menu" style="--background: #EC6730;">
+      <ion-conten class="margin-bar-orage margen-menu">
+        <!-- Encabezado -->
+        <!-- bar -->
+        <div class="ion-text-left ion-margin ">
+          <label class="color-text-white bold-text ">
+            <ion-icon src="/assets/icon/menu.svg"></ion-icon> Menu
+          </label>
+        </div>
+        <!-- Imagen -->
+        <div class="contenedor-avatar">
+          <ion-avatar class="avatar-area">
             <img src="./assets/img/comprador.jpg" />
           </ion-avatar>
-    <div style="text-align: center;">
-          <h1 class="ion-padding" style="color: #FFFFFF;">Edison Tayan</h1>
-          <ion-note style="color: #FFFFFF;">0993335589</ion-note>
-<br>
-<ion-chip (click)="logout()" color="danger">Cerrar sesión</ion-chip>
-
         </div>
-        </ion-list>
-
-      </ion-content>
+        <!-- Datos de perfil -->
+        <div class="ion-text-center">
+          <ion-label class="bold-text color-text-white">Edison Tanyan</ion-label>
+        </div>
+        <!-- Cédula -->
+        <div class="ion-text-center">
+          <ion-note class="color-text-white bold-text">1324324242</ion-note>          
+        </div>
+        <!-- Numero de telefono -->
+        <div class="ion-text-center">
+          <ion-note class="color-text-white bold-text">0993335589</ion-note>          
+        </div>
+        <!-- Botones de Accion -->
+        <div class="ion-text-left">
+          <ion-button (click)="onClick()" fill="outline" class="color-text-white border-color-buttom bold-text">
+            <ion-icon slot="start" src="/assets/icon/update_date.svg"></ion-icon>
+            Actualizar datos
+          </ion-button>
+          <ion-button (click)="onClick()" fill="outline" class="color-text-white border-color-buttom bold-text">
+            <ion-icon slot="start" src="/assets/icon/ubication.svg"></ion-icon>
+            Ubicación
+          </ion-button>
+          <ion-button (click)="onClick()" fill="outline" class="color-text-white border-color-buttom bold-text">
+            <ion-icon slot="start" src="/assets/icon/vend_favorites.svg"></ion-icon>
+            Vendedores Fav
+          </ion-button>
+        </div>
+        <!-- Logo -->
+        <div class="contenedor-avatar margin-logo-orage">
+          <div class="logo-size">
+            <ion-img src="/assets/icon/logo_white.svg"></ion-img>
+          </div>          
+        </div>
+        <!--  -->
+        <div class="contenedor-avatar">
+          <ion-button (click)="logout()" fill="outline" class="color-text-white border-color-buttom">
+            <ion-icon slot="start" src="/assets/icon/login.svg"></ion-icon>
+            Cerrar Sesión
+          </ion-button>
+        </div>
+        
+      </ion-conten>
+      <!-- footer -->
+      <!-- <ion-footer>
+        <ion-toolbar>
+          <ion-title>Warmi</ion-title>
+        </ion-toolbar>
+      </ion-footer> -->
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
