@@ -1,12 +1,97 @@
-<ion-app>  
-  <div class="contenedor-header">
-    <ion-icon class="icon-header" slot="start" src="/assets/icon/login.svg">      
-    </ion-icon> <h4 class="texto-header">Login</h4>
+<ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/login.svg">
+      </ion-icon>
+      <h4 class="texto-header">Login</h4>
+    </div>
+    <!-- Contenedor 2 -->
+    <div class="contenedor-title">
+      <div>
+        <ion-img src="/assets/img/login_img.png"></ion-img>
+        <h4 class="text-center size-text35px text-bold text-color-purple">Warmis empoderadas<br />al cuidado de la
+          tierra</h4>
+      </div>
+    </div>
+    <!-- Contenedor 3 - Formulario -->
+    <div class="contenedor-formulario">
+      <form class="form-center">
+        <div>
+          <!-- Usuario o Cédula -->
+          <div class="contenedor-item ">
+            <ion-icon slot="start" class="size-icon" src="/assets/icon/user.svg"></ion-icon>
+            <ion-item lines="none" class="input-border-bot item-native-transparency">
+              <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
+                Usuario o Cédula</ion-label>
+              <ion-input [(ngModel)]="cedula" type="text" [ngModelOptions]="{standalone: true}" class="text-center ">
+              </ion-input>
+            </ion-item>
+          </div>
+          <!--  -->
+          <div class="contenedor-item ">
+            <ion-icon slot="start" class="size-icon" src="/assets/icon/password.svg"></ion-icon>
+            <ion-item lines="none" class="input-border-bot item-native-transparency">
+              <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
+                Contraseña</ion-label>
+              <ion-input [(ngModel)]="contrasena" type="password" [ngModelOptions]="{standalone: true}"
+                class="text-center "></ion-input>
+            </ion-item>
+          </div>
+          <div class="contenedor-item">
+            <ion-icon slot="start" class="size-icon" src="/assets/icon/rol.svg"></ion-icon>
+            <ion-item lines="none" class="input-border-bot item-native-transparency">
+              <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
+                Tipo de Usuario </ion-label>
+              <ion-select (ionChange)="mostrar()" [(ngModel)]="tipoUsuario" interface="popover"
+                [ngModelOptions]="{standalone: true}">
+                <!-- Opciones 1 -->
+                <ion-select-option value="Consumidor">Consumidor agroecológico</ion-select-option>
+                <ion-select-option value="Agricultora">Agricultora</ion-select-option>
+                <ion-select-option value="Conductor">Conductor</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="selectAgricultora" class="contenedor-item">
+            <ion-icon slot="start" class="size-icon" src="/assets/icon/rol.svg"></ion-icon>
+            <ion-item lines="none" class="input-border-bot item-native-transparency">
+              <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
+                Tipo de agricultora </ion-label>
+              <ion-select interface="popover" [(ngModel)]="tipoAgricultora" [ngModelOptions]="{standalone: true}">
+                <!-- Opciones 1 -->
+                <ion-select-option value="Lidereza">Lidereza</ion-select-option>
+                <ion-select-option value="Acopiadora">Acopiadora</ion-select-option>
+                <ion-select-option value="Vendedora">Vendedora</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <!--  -->
+          <div *ngIf="selectConductor" class="contenedor-item">
+            <ion-icon slot="start" class="size-icon" src="/assets/icon/rol.svg"></ion-icon>
+            <ion-item lines="none" class="input-border-bot item-native-transparency">
+              <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
+                Tipo de conductor </ion-label>
+              <ion-select interface="popover" [(ngModel)]="tipoConductor" [ngModelOptions]="{standalone: true}">
+                <!-- Opciones 1 -->
+                <ion-select-option style="--background: transparent" value="Bus">Bus</ion-select-option>
+                <ion-select-option value="Camioneta">Camioneta</ion-select-option>
+                <ion-select-option value="Privado">Privado</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </div>
+        <div class="contenedor-item">
+          <ion-button type="submit" size="large" class="boton-warmi-in" (click)="navegacionLogin()">Ingresa
+          </ion-button>
+        </div>
+      </form>
+      <div>
+        <h6 class="">
+          ¿No tienes una cuenta?<br />
+          <a [routerLink]="['/registrarse']" routerLinkActive="router-link-active"
+            class="text-nodecoration">Registrate</a>
+        </h6>
+      </div>
+    </div>
   </div>
-  <div>
-    <ion-img src="/assets/img/background.svg"></ion-img>
-  </div>
-
- 
-
-</ion-app>
+</ion-content>

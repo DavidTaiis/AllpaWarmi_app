@@ -31,11 +31,17 @@
     // --warmin-color-pinkd:#e62243;
     // --warmin-color-brown:#a9172e;  
 
-
-*{
-  margin: 2px 0 0 0px;
-  // padding: 2px;
+@font-face{
+  font-family: Encode Sans;
+  src: url(../src/assets/fonts/EncodeSans.ttf); 
 }
+
+.border-top-page{
+  padding: 5% 0 0 0;
+}
+
+
+//Barra Naranja
   //header
 .contenedor-header{
   display: flex;
@@ -48,11 +54,14 @@
   max-height: 6%;    
 }
   
+*{
+  font-family: Encode Sans;
+}
+
 .texto-header{
   font-size: 20px;
   font-weight: bold;
-  color: #fff;
-  padding: 3%;
+  color: #fff; 
 }
 
 .icon-header{
@@ -60,17 +69,81 @@
 }
   
   //background
+ion-content{  
+  --background: rgb(255, 255, 255) url(/assets/img/bg_1.svg) no-repeat center center / cover;  
+}
   
-  //Barra Naranja
-  //tamaño de pantall
-  //image
-  //texto-titulo-bajo image
-  //cotenedor formulario
   //label
-  //inputs
-  //boton
-  
+.size-text35px{
+  font-size: 20px;
+}
 
+.text-center{
+  text-align: center;
+}
+
+.text-white{
+  color: #fff;
+}
+
+.text-bold{
+  font-weight: bold;
+}
+
+.text-color-purple{
+  color: var(--warmin-color-purple);
+}
+.text-nodecoration{
+text-decoration: none;
+}
+
+  //cotenedor formulario
+.contenedor-formulario{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.contenedor-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-bottom: 15%;
+}
+.size-icon{
+  height: 30px;
+  width: 30px;
+  padding-right: 15px;
+}
+.form-center{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+  //inputs
+.input-border-bot{
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-color: var(--warmin-color-orange);
+}
+
+.item-native-transparency{
+  --background: transparent;
+}
+
+//boton
+  
+.boton-warmi-in{
+  --background: var(--warmin-color-brown);
+  --border-radius: 50px;
+  font-weight: bold;
+  text-transform: capitalize;
+  max-height: 50px;
+
+}
 // ion-header{
 //     text-align: center;
 //   }
