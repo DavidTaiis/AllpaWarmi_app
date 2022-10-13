@@ -38,12 +38,13 @@
                 class="text-center "></ion-input>
             </ion-item>
           </div>
+
           <div class="contenedor-item">
             <ion-icon slot="start" class="size-icon" src="/assets/icon/rol.svg"></ion-icon>
             <ion-item lines="none" class="input-border-bot item-native-transparency">
-              <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
+              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">
                 Tipo de Usuario </ion-label>
-              <ion-select (ionChange)="mostrar()" [(ngModel)]="tipoUsuario" interface="popover"
+              <ion-select placeholder="Tipo de Usuario" (ionChange)="mostrar()" [(ngModel)]="tipoUsuario" interface="popover"
                 [ngModelOptions]="{standalone: true}">
                 <!-- Opciones 1 -->
                 <ion-select-option value="Consumidor">Consumidor agroecológico</ion-select-option>
@@ -51,13 +52,15 @@
                 <ion-select-option value="Conductor">Conductor</ion-select-option>
               </ion-select>
             </ion-item>
+
           </div>
+
           <div *ngIf="selectAgricultora" class="contenedor-item">
             <ion-icon slot="start" class="size-icon" src="/assets/icon/rol.svg"></ion-icon>
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
                 Tipo de agricultora </ion-label>
-              <ion-select interface="popover" [(ngModel)]="tipoAgricultora" [ngModelOptions]="{standalone: true}">
+              <ion-select placeholder="Tipo de Agricultura" interface="popover" [(ngModel)]="tipoAgricultora" [ngModelOptions]="{standalone: true}">
                 <!-- Opciones 1 -->
                 <ion-select-option value="Lidereza">Lidereza</ion-select-option>
                 <ion-select-option value="Acopiadora">Acopiadora</ion-select-option>

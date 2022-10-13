@@ -67,7 +67,10 @@
 .icon-header{
   padding: 3%;
 }
-  
+
+.pad20px{
+  padding-bottom: 20px;
+}
   //background
 ion-content{  
   --background: rgb(255, 255, 255) url(/assets/img/bg_1.svg) no-repeat center center / cover;  
@@ -95,6 +98,10 @@ ion-content{
 }
 .text-nodecoration{
 text-decoration: none;
+}
+
+.text-capitalize{
+  text-transform: capitalize;
 }
 
   //cotenedor formulario
@@ -144,6 +151,24 @@ text-decoration: none;
   max-height: 50px;
 
 }
+
+// //select-otion
+ion-select{
+  min-width: 28vh; 
+  color: var(--warmin-color-purple); 
+  --placeholder-color:var(--warmin-color-brown);
+  --placeholder-opacity:1;
+}
+
+ion-select::part(icon) {
+  width: 30px;
+  height: 30px;
+  content: url('/assets/icon/arrow_down.svg');
+}
+
+
+
+
 // ion-header{
 //     text-align: center;
 //   }

@@ -2,12 +2,13 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay" class="background-menusliderleft">
       <!-- Ttitle  -->
+      <!-- Encabezado Menú -->
+      <div class="title-menu icon-menu-pad">
+        <ion-icon class="size-icon" src="/assets/icon/menu.svg"></ion-icon>
+        <ion-label class="text-white text-bold"> Menú </ion-label>
+      </div>
 
-      <div class="contenedor-menu">
-        <!-- Encabezado Menú -->
-        <ion-label class="texto-header-menu">
-          <ion-icon class="" src="/assets/icon/menu.svg"></ion-icon> Menú
-        </ion-label>
+      <div class="contenedor-menu">              
         <!-- photo Profile -->
         <div class="contenedor-item-menu">
           <ion-avatar class="size-avatar">
@@ -29,39 +30,40 @@
         <!-- Botones de Accion -->
         <div>
           <div class="contenedor-item-menu">
-            <ion-button (click)="onClick()" fill="outline" class="text-white border-white">
+            <ion-button (click)="onClick()" fill="outline" class="text-white border-white text-capitalize size-boton">
               <ion-icon slot="start" src="/assets/icon/update_date.svg"></ion-icon>
               Actualizar datos
             </ion-button>
           </div>
-          <div class="contenedor-item-menu">
-            <ion-button (click)="onClick()" fill="outline" class="text-white border-white">
-              <ion-icon slot="start" src="/assets/icon/ubication.svg"></ion-icon>
+          <div class="contenedor-item-menu">            
+            <ion-button (click)="onClick()" fill="outline" class="text-white border-white text-capitalize size-boton">             
+                <ion-icon src="/assets/icon/ubication.svg"></ion-icon>             
               Ubicación
             </ion-button>
           </div>
           <div class="contenedor-item-menu">
-            <ion-button (click)="onClick()" fill="outline" class="text-white border-white">
-              <ion-icon  slot="start" src="/assets/icon/vend_favorites.svg"></ion-icon>
+            <ion-button (click)="onClick()" fill="outline" class="text-white border-white text-capitalize size-boton">
+              <ion-icon slot="start" src="/assets/icon/vend_favorites.svg"></ion-icon>
               Vendedores Favoritos
             </ion-button>
-          </div>
-
-          <!-- logo + cerrar sesion -->
-          <div>
-            <div class="contenedor-item-menu">
-              <ion-img class="size-avatar" src="/assets/icon/logo_white.svg"></ion-img>
-            </div>
-            <div class="contenedor-item-menu">
-              <ion-button (click)="logout()" fill="outline" class="text-white border-white">
-                <ion-icon slot="start" src="/assets/icon/login.svg"></ion-icon>
-                Cerrar Sesión
-              </ion-button>
-            </div>
-          </div>
+          </div>          
         </div>
+      </div>
+      <!-- logo + cerrar sesion -->
+      <div class="contenedor-sesion-logo">
+       
+        <div class="pad20px">
+          <ion-img  class="logo-white" src="/assets/icon/logo_white.svg"></ion-img>
+        </div>
+      
 
-
+        <div class="">
+          <ion-button (click)="logout()" fill="outline" class="text-white border-white text-capitalize ">
+            <ion-icon slot="start" src="/assets/icon/login.svg"></ion-icon>
+            Cerrar Sesión
+          </ion-button>
+        </div>
+      
       </div>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
