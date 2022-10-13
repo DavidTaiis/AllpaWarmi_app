@@ -25,26 +25,169 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+    // --warmin-color-yellow:#f9b233;
+    // --warmin-color-orange:#EC6730;
+    // --warmin-color-purple:#522974;
+    // --warmin-color-pinkd:#e62243;
+    // --warmin-color-brown:#a9172e;  
 
-ion-header{
-    text-align: center;
-  }
-  ion-toolbar{
-    --background:#50CD89;
-    color: #ffffff;
-    font-size: 32px;
-  }
+@font-face{
+  font-family: Encode Sans;
+  src: url(../src/assets/fonts/EncodeSans.ttf); 
+}
 
-  .color-principal{
-    color: #50CD89;
-  }
+.border-top-page{
+  padding: 5% 0 0 0;
+}
 
-  .boton-azul{
-    --border-radius: 15px!important; 
-    margin-left: 30px ;
-    margin-right:30px ;
-    height: 70px;
-  }
+
+//Barra Naranja
+  //header
+.contenedor-header{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  background-color: var(--warmin-color-orange);
+  border-end-end-radius: 50px;
+  border-start-end-radius: 50px;
+  max-width: 60%;
+  max-height: 6%;    
+}
+  
+*{
+  font-family: Encode Sans;
+}
+
+.texto-header{
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff; 
+}
+
+.icon-header{
+  padding: 3%;
+}
+
+.pad20px{
+  padding-bottom: 20px;
+}
+  //background
+ion-content{  
+  --background: rgb(255, 255, 255) url(/assets/img/bg_1.svg) no-repeat center center / cover;  
+}
+  
+  //label
+.size-text35px{
+  font-size: 20px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-white{
+  color: #fff;
+}
+
+.text-bold{
+  font-weight: bold;
+}
+
+.text-color-purple{
+  color: var(--warmin-color-purple);
+}
+.text-nodecoration{
+text-decoration: none;
+}
+
+.text-capitalize{
+  text-transform: capitalize;
+}
+
+  //cotenedor formulario
+.contenedor-formulario{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.contenedor-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-bottom: 15%;
+}
+.size-icon{
+  height: 30px;
+  width: 30px;
+  padding-right: 15px;
+}
+.form-center{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+  //inputs
+.input-border-bot{
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-color: var(--warmin-color-orange);
+}
+
+.item-native-transparency{
+  --background: transparent;
+}
+
+//boton
+  
+.boton-warmi-in{
+  --background: var(--warmin-color-brown);
+  --border-radius: 50px;
+  font-weight: bold;
+  text-transform: capitalize;
+  max-height: 50px;
+
+}
+
+// //select-otion
+ion-select{
+  min-width: 28vh; 
+  color: var(--warmin-color-purple); 
+  --placeholder-color:var(--warmin-color-brown);
+  --placeholder-opacity:1;
+}
+
+ion-select::part(icon) {
+  width: 30px;
+  height: 30px;
+  content: url('/assets/icon/arrow_down.svg');
+}
+
+
+
+
+// ion-header{
+//     text-align: center;
+//   }
+//   ion-toolbar{
+//     --background:#50CD89;
+//     color: #ffffff;
+//     font-size: 32px;
+//   }
+
+//   .color-principal{
+//     color: #50CD89;
+//   }
+
+//   .boton-azul{
+//     --border-radius: 15px!important; 
+//     margin-left: 30px ;
+//     margin-right:30px ;
+//     height: 70px;
+//   }
 
   .custom-modal {
     --backdrop-opacity: 0.5;
