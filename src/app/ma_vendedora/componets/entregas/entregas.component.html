@@ -1,29 +1,16 @@
 <ion-card>
 
-  <ion-item style="font-size: 12px;" >
-    <ion-chip slot="end" color="primary">Hace 2 min</ion-chip>
+  <ion-item *ngFor="let order of orders" style="font-size: 12px;" >
+    <ion-chip *ngIf="order.status === 'Completada'" slot="end" color="success">{{order.status}}</ion-chip>
+    <ion-chip (click)="updateStatus(order.id)" *ngIf="order.status === 'Pendiente'" slot="end" color="warning">{{order.status}}</ion-chip>
     <ion-thumbnail slot="start">
       <img alt="Silhouette of mountains" src="assets/img/compra.png" />
     </ion-thumbnail>
-    <ion-label>Pepe Pita
+    <ion-label>{{order.client}}
       
-      <p>Compra de productos</p></ion-label>
+      <p>{{order.deliver_date}}</p></ion-label>
   </ion-item>
-  <ion-item style="font-size: 12px;">
-    <ion-chip slot="end" color="primary">Hace 2 min</ion-chip>
-    <ion-thumbnail slot="start">
-      <img alt="Silhouette of mountains" src="assets/img/compra.png" />
-    </ion-thumbnail>
-    <ion-label>María Benitez
-      <p>Intercambio de productos</p></ion-label>
-  </ion-item>
-  <ion-item style="font-size: 12px;">
-    <ion-chip slot="end" color="primary">Hace 2 min</ion-chip>
-    <ion-thumbnail slot="start">
-      <img alt="Silhouette of mountains" src="assets/img/compra.png" />
-    </ion-thumbnail>
-    <ion-label>Juan Gonzalez
-      <p>Compra de productos</p></ion-label>
-  </ion-item>
+
+
 
 </ion-card>

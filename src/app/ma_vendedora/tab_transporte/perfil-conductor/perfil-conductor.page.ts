@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormControl, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transporte.service';
 
 
@@ -13,8 +14,12 @@ export class PerfilConductorPage implements OnInit {
   driver:any;
   name: any;
   phone:any;
-  identification:any;
-  constructor(public fb: FormBuilder,private tabTransporteService: TabTransporteService) { 
+  car_plate:any;
+  description:any;
+  type:any;
+  color:any;
+
+  constructor(private activatedRoute: ActivatedRoute,public fb: FormBuilder,private tabTransporteService: TabTransporteService) { 
     this.form = this.fb.group({
       'rating': new FormControl([5]),
       'calificar' : new FormControl([0])
@@ -22,14 +27,19 @@ export class PerfilConductorPage implements OnInit {
   }
   public form: FormGroup;
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.paramMap.get("id");
+    this.getProfile();
   }
-  getDriverId(){
-    this.tabTransporteService.getDriverId(this.id)
+  getProfile(){
+    this.tabTransporteService.getCamionetaId(this.id)
     .subscribe(  (res) => {
       this.driver = res;
       this.name = res['name'];
       this.phone = res['phone']
-      this.identification = res['identification_card']
+      this.car_plate = res["car_plate"];
+      this.description = res["description"];
+      this.type = res["type"];
+      this.color = res["color"];
     },
     response => {
       console.log(response['error']['warning'][0]['value'])

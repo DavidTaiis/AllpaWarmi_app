@@ -42,13 +42,18 @@ export class InicioPage implements OnInit {
       this.loginService.autentification(this.cedula,this.contrasena, this.tipoAgricultora).subscribe( (val) => {
         switch (this.tipoAgricultora) {
           case 'Lidereza':
-            
+            this.accesToken = val['accessToken'];
+            localStorage.setItem('accessToken',this.accesToken)
             this.navCtrl.navigateForward('ma_lideresa/geolocalizacion');
             break;
           case 'Acopiadora':
+            this.accesToken = val['accessToken'];
+            localStorage.setItem('accessToken',this.accesToken)
             this.navCtrl.navigateForward('/ma_acopiadora/geolocalizacion');
             break;
           case 'Vendedora':
+            this.accesToken = val['accessToken'];
+            localStorage.setItem('accessToken',this.accesToken)
             this.navCtrl.navigateForward('/ma_vendedora/geolocalizacion-huerto');
             break;
          }
@@ -65,12 +70,18 @@ export class InicioPage implements OnInit {
         this.loginService.autentification(this.cedula,this.contrasena, this.tipoConductor).subscribe( (val) => {
           switch (this.tipoConductor) {
             case 'Bus':
+              this.accesToken = val['accessToken'];
+              localStorage.setItem('accessToken',this.accesToken)
               this.navCtrl.navigateForward('/c_bus/menu/inicio');
             break;
             case 'Camioneta':
+              this.accesToken = val['accessToken'];
+              localStorage.setItem('accessToken',this.accesToken)
               this.navCtrl.navigateForward('/c_camioneta/geolocalizacion');
               break;
             case 'Privado':
+              this.accesToken = val['accessToken'];
+              localStorage.setItem('accessToken',this.accesToken)
               this.navCtrl.navigateForward('/c_privado/geolocalizacion-salida');
               break;
             }

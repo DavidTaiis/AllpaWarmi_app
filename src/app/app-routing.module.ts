@@ -89,7 +89,19 @@ const routes: Routes = [
   {
     path: 'consumidor/geolocalizacion-domicilio',
     loadChildren: () => import('./consumidor/geolocalizacion-domicilio/geolocalizacion-domicilio.module').then( m => m.GeolocalizacionDomicilioPageModule)
+  },  {
+    path: 'modal-camioneta',
+    loadChildren: () => import('./ma_vendedora/modals/modal-camioneta/modal-camioneta.module').then( m => m.ModalCamionetaPageModule)
   },
+  {
+    path: 'modal-noticias',
+    loadChildren: () => import('./ma_vendedora/modals/modal-noticias/modal-noticias.module').then( m => m.ModalNoticiasPageModule)
+  },
+  {
+    path: 'modal-notificaciones',
+    loadChildren: () => import('./ma_vendedora/modals/modal-notificaciones/modal-notificaciones.module').then( m => m.ModalNotificacionesPageModule)
+  },
+
 
 
   

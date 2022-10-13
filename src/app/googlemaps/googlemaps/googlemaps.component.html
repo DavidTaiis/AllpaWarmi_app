@@ -2,8 +2,8 @@
 <ion-content>
   <div class="contenedor-i">
     <div class="size-input  contenedor-i">
-      <ion-icon class="size-icon32" slot="start" src="/assets/iconos/search.svg"></ion-icon>
-      <input class="searchInput" type="text" id="inputSearch" [(ngModel)]="searchGoogle" showCancelButton="never" />
+      <ion-icon *ngIf="!buscador" class="size-icon32" slot="start" src="/assets/iconos/search.svg"></ion-icon>
+      <input *ngIf="!buscador" class="searchInput" type="text" id="inputSearch" [(ngModel)]="searchGoogle" showCancelButton="never" />
   <input type="hidden" (input) = "positionSet = $event.target.value" [(ngModel)]="positionSet">
 
     </div>

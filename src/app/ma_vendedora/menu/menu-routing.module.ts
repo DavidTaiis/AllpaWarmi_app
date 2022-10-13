@@ -29,7 +29,7 @@ const routes: Routes = [
             loadChildren: () => import('./../../ma_vendedora/tab_transporte/camionetas/camionetas.module').then( m => m.CamionetasPageModule)
           },
           {
-            path: 'perfil-conductor',
+            path: 'perfil-conductor/:id',
             loadChildren: () => import('./../../ma_vendedora/tab_transporte/perfil-conductor/perfil-conductor.module').then(m=>m.PerfilConductorPageModule)
           }
         ]

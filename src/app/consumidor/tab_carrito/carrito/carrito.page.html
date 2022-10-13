@@ -13,7 +13,7 @@
       <h2>Total</h2>
     </ion-col>
     <ion-col style="text-align: right;">
-      <h2>$4.50</h2>
+      <h2>{{total}}</h2>
     </ion-col>
   </ion-row>
 </ion-grid>
@@ -46,13 +46,13 @@
       </ion-card>
     <div class="ion-padding" style="text-align:center;">
       <ion-label>Selecciona la fecha de entrega:</ion-label>
-  <ion-datetime-button [(ngModel)]="" style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
+  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
 </div>
 <ion-button (click)="createOrder()" class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Ordenar</ion-button>
 
   <ion-modal [keepContentsMounted]="true">
   <ng-template>
-    <ion-datetime presentation="date" id="datetime"></ion-datetime>
+    <ion-datetime  [(ngModel)]="deliverDate" presentation="date" id="datetime"></ion-datetime>
   </ng-template>
 </ion-modal>
 </ion-content>

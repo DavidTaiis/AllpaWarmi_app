@@ -19,7 +19,6 @@ export class BusComponent implements OnInit {
     this.tabTransporteService.getBusesLine()
     .subscribe(  (res) => {
       this.listBusesLine = res;
-      console.log(res)
     },
     response => {
       console.log(response['error']['warning'][0]['value'])

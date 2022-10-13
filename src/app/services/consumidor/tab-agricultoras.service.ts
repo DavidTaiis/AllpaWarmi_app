@@ -93,11 +93,15 @@ getFarmers(){
     let datos ={
       'id_seller' : idSeller,
       'total' : total,
-      'deliveryDate' : deliveryDate,
+      'deliver_date' : deliveryDate,
       'products' : products
-    }
-
+    };
+    console.log(JSON.stringify(datos));
     return this.httpClient.post(`${this.url}consumer/createOrder`,datos, this.httpOptions)
 
+  }
+
+  getOrders(){
+    return this.httpClient.get(`${this.url}consumer/getOrdersByConsumerId`, this.httpOptions)
   }
 }
