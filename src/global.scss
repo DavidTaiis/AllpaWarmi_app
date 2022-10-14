@@ -37,21 +37,20 @@
 }
 
 .border-top-page{
-  padding: 5% 0 0 0;
+  padding: 2% 0 0 0;
 }
 
-
-//Barra Naranja
-  //header
 .contenedor-header{
   display: flex;
-  align-items: center;
-  justify-content: left;
   background-color: var(--warmin-color-orange);
   border-end-end-radius: 50px;
   border-start-end-radius: 50px;
-  max-width: 60%;
-  max-height: 6%;    
+  // max-width: 60%;
+  // max-height: 40px; 
+  width: 60%;
+  height: 40px;
+  align-items: center;
+
 }
   
 *{
@@ -95,6 +94,10 @@ ion-content{
 
 .text-color-purple{
   color: var(--warmin-color-purple);
+}
+
+.text-color-brown{
+  color: var(--warmin-color-brown);
 }
 .text-nodecoration{
 text-decoration: none;
