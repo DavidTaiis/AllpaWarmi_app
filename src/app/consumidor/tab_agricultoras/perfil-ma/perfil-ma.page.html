@@ -1,11 +1,19 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Perfil mujer agricultora</ion-title>
    
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/iconos/user.svg">
+      </ion-icon>
+      <h4 class="texto-header">Perfil mujer agricultora</h4>
+    </div>    
+  </div>
   <ion-card style="border-radius:20px; text-align: center;">
    
     <img width="125" src="assets/img/comprador.jpg" />
@@ -34,5 +42,5 @@
   <ion-card-title>08:00 -- 17:00</ion-card-title>
   <ion-card-subtitle>Lunes, martes, jueves</ion-card-subtitle>
 </ion-card>
-<ion-button class="ion-padding" expand="full" style="--background: #50CD89;" [routerLink]="['/consumidor/tab-inicial/productos', id]">Ver los productos</ion-button>
+<ion-button size="full" class="boton-warmi-in" [routerLink]="['/consumidor/tab-inicial/productos', id]">Ver los productos</ion-button>
 </ion-content>

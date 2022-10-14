@@ -1,33 +1,37 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
-    <ion-title>Agricultoras</ion-title>
+    <ion-title>Agricultorass</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content class="ion-padding">
+<ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/iconos/agricultores.svg">
+      </ion-icon>
+      <h4 class="texto-header">Agricultoras</h4>
+    </div>
+  </div>
 
   <ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
+  <!--  -->
   <ion-grid>
-
     <ion-row>
-
       <ion-col *ngFor="let farmer of listFarmers" size="6">
         <div>
           <ion-card class="lista-agricultoras" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]" >
             <img src="assets/img/comprador.jpg" />
             <ion-card-header>
-              <ion-card-title>{{farmer.name}}</ion-card-title>
-              <ion-card-subtitle class="color-principal">{{farmer.phone}}</ion-card-subtitle>
+              <ion-card-title class="text-white text-bold text-center">{{farmer.name}}</ion-card-title>
+              <ion-card-subtitle class="text-white text-center">{{farmer.phone}}</ion-card-subtitle>
              </ion-card-header>
-            <ion-card-content>
+            <ion-card-content class="text-white text-center">
           Dirección
             </ion-card-content>
           </ion-card>
         </div>
       </ion-col>
-
-    </ion-row>
-  
+    </ion-row>  
   </ion-grid>
-
 </ion-content>
