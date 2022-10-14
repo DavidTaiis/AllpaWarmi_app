@@ -1,15 +1,31 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Geolocalización</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 <ion-content>
-<ion-item-divider style="text-align: center; color: black;">
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <h4 class="texto-header">Geolocalización</h4>
+    </div>
+    <!-- Contenedor 2 -->
+    <div class="contenedor-title">
+      <div>
+        <h4 class="text-center size-text35px text-bold text-color-purple">Indique en el mapa la ubicación de su domicilio para entrega de productos</h4>
+      </div>
+    </div>
+  </div>
+<!-- <ion-item-divider style="text-align: center; color: black;">
   <h4>Indique en el mapa la ubicación de su domicilio para entrega de productos</h4>
-</ion-item-divider>
-<ion-card style="width: 95%; height: 80%;">
+</ion-item-divider> -->
+<!-- Mapa -->
+<ion-card style="width: 97%; height: 70%;">
   <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
 </ion-card>
-<ion-button class="ion-padding boton-azul" expand="block" (click)="guardarGeolocalizacion()">  &nbsp; &nbsp;Continuar</ion-button>
-<button (click)="pruebaStorage()">hol</button>
+<!-- Boton Continuar -->
+<ion-button class="boton-warmi-in" expand="block" (click)="guardarGeolocalizacion()">  &nbsp; &nbsp;Continuar</ion-button>
+<!-- <button (click)="pruebaStorage()">hol</button> -->
 </ion-content>
