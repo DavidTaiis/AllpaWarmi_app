@@ -1,12 +1,13 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Carrito de compras </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
-  <ion-item-divider class="ion-padding">
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/store.svg">
+      </ion-icon>      
+      <div class="texto-header">Carrito de compra</div>
+    </div>    
+  </div>
+  <ion-item-divider>
     <ion-grid>
     <ion-row>
     <ion-col>
@@ -48,7 +49,7 @@
       <ion-label>Selecciona la fecha de entrega:</ion-label>
   <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
 </div>
-<ion-button (click)="createOrder()" class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Ordenar</ion-button>
+<ion-button (click)="createOrder()" class="boton-warmi-in"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Ordenar</ion-button>
 
   <ion-modal [keepContentsMounted]="true">
   <ng-template>

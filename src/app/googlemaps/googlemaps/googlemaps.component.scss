@@ -1,46 +1,60 @@
-.contenedor-i{
+.contenedor-search {
   display: flex;
+  width: 100%;
+  height: 40px;
   justify-content: center;
+  align-items: center;
 }
 
-.size-input{
-  width: 90%;
-  padding-bottom: 1%;
-  padding-top: 1%;
-  
+.contenedor-item-s {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0;
+  margin: 6px 0 6px 0;
 }
 
-.size-icon32{
-  width: 35px;
-  height: 35px;
-  margin-right: 5px;
-  margin-top: auto;    
+.size-items {
+  height: 40px;
+  width: 300px;
 }
-.text-center{
+
+.border-search {
+  border: 3px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: var(--warmin-color-orange);
   text-align: center;
 }
-// 
+
 .map {
-    display: block;
-    width: 100%;
-    height: 100%;  
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.miubicacion {
-  position: relative;
-  background: #f9b233;
-  width: 30%;
-  height: 45px;
+.padd-itemmap{
+  padding: 3px;
 }
+// .miubicacion {
+//   position: relative;
+//   background: #f9b233;
+//   width: 30%;
+//   height: 45px;
+// }
 
-.searchInput {
-  text-align: center;
-  // width: 90%;
-   height: 45px;
-  border-radius: 50px;
-  border: 2px solid #EC6730;
+.ubicacion-actual{
+  background: var(--warmin-color-yellow);
 }
+// .searchInput {
+//   text-align: center;
+//   // width: 90%;
+//    height: 45px;
+//   border-radius: 50px;
+//   border: 2px solid #EC6730;
+// }
 
-.searchInput:focus{
+.searchInput:focus {
   outline: none
 }

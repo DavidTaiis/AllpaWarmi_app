@@ -1,33 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Agricultoras</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
-
-  <ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
-  <ion-grid>
-
-    <ion-row>
-
-      <ion-col *ngFor="let farmer of listFarmers" size="6">
-        <div>
-          <ion-card class="lista-agricultoras" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]" >
-            <img src="assets/img/comprador.jpg" />
-            <ion-card-header>
-              <ion-card-title>{{farmer.name}}</ion-card-title>
-              <ion-card-subtitle class="color-principal">{{farmer.phone}}</ion-card-subtitle>
-             </ion-card-header>
-            <ion-card-content>
-          Dirección
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-
-    </ion-row>
-  
-  </ion-grid>
-
+<ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/iconos/agricultores.svg">
+      </ion-icon>
+      <div class="texto-header">Agricultoras</div>      
+    </div>
+  </div>
+ <!--Search Bar  -->
+    <div class="container-normal padding-bar">
+      <ion-searchbar class="search-bar" placeholder="Buscar" showCancelButton="never"></ion-searchbar>
+    </div>
+<!-- List of people -->
+    <div class="contenedor-perfiles">      
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let farmer of listFarmers" size="6">
+            <div>
+              <ion-card class="card-p" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]">
+                <ion-card-header class="card-header">                                  
+                  <div class="avatar-center">
+                     <img class="radius" src="assets/img/comprador.jpg"/> 
+                  </div>
+                </ion-card-header>
+                <ion-card-content class="card-content">
+                  <ion-card-title class="text-white text-center">{{farmer.name}}</ion-card-title>
+                  <ion-card-subtitle class="text-white text-center">{{farmer.phone}}</ion-card-subtitle>
+                  <ion-card-subtitle class="text-white text-center">Dirección</ion-card-subtitle>
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>          
+        </ion-row>
+      </ion-grid>
+    </div>
 </ion-content>

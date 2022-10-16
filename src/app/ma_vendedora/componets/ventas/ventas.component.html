@@ -1,34 +1,38 @@
 <div class="ion-padding" style="text-align:center;">
-  <ion-label>Selecciona la fecha de entrega:</ion-label>
-<ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
-<br>
-<ion-button fill="outline">Generar reporte</ion-button>
+  <ion-label class="text-color-purple text-bold">Selecciona la fecha de entrega:</ion-label>
+  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
+  <br>
+  <ion-button class="boton-warmi-in">Generar reporte</ion-button>
 </div>
 
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Venta Nro 0001</ion-card-title>
-  </ion-card-header>
+<div class="contenedor-list-ventas" id="contenedor-list-ventas">
+  <ion-card class="contenedor-card-p">
+    <ion-card-header class="encabezado-card">
+      <ion-card-title class="text-white text-bold">Venta Nro 0001</ion-card-title>
+    </ion-card-header>    
+    <ion-card-content class="descripcion-card">
 
-  <ion-card-content>
-    <p>Fecha: 25/09/2022</p>
-    <p>Pepito Flores</p>
-  </ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Venta Nro 0002</ion-card-title>
-  </ion-card-header>
+      <div class="text-color-purple text-bold">Fecha: 25/09/2022</div>
+      <div class="text-color-purple">Pepito Flores</div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="contenedor-card-p">
+    <ion-card-header class="encabezado-card">
+      <ion-card-title class="text-white text-bold">Venta Nro 0002</ion-card-title>
+    </ion-card-header>    
+    <ion-card-content class="descripcion-card">
 
-  <ion-card-content>
-    <p>Fecha: 25/09/2022</p>
-    <p>Pepito Flores</p>
-  </ion-card-content>
-</ion-card>
+      <div class="text-color-purple text-bold">Fecha: 25/09/2022</div>
+      <div class="text-color-purple">Pepito Flores</div>
+    </ion-card-content>
+  </ion-card>
+  
+</div>
+
+
 
 <ion-modal [keepContentsMounted]="true">
   <ng-template>
     <ion-datetime presentation="date" id="datetime"></ion-datetime>
   </ng-template>
 </ion-modal>
-

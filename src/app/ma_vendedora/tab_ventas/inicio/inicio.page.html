@@ -1,14 +1,15 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Ventas</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-content>
-    <br>
-    <ion-card>
-    <ion-segment [value]="valueSelected" [scrollable]="true"(ionChange)= "segmentChange($event)">
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Ventas</div>
+    </div>
+  </div>
+  <br>
+  <ion-card>
+    <ion-segment [value]="valueSelected" class="card-tabs-bg" [scrollable]="true" (ionChange)="segmentChange($event)">
       <ion-segment-button value="1">
         <ion-label>Mis ventas</ion-label>
       </ion-segment-button>
@@ -23,8 +24,5 @@
   <div *ngIf="valueSelected == 2">
     <app-comercializacion></app-comercializacion>
   </div>
-
-  </ion-content>
-  
 
 </ion-content>

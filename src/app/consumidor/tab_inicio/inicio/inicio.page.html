@@ -1,31 +1,46 @@
 <ion-content>
   <!-- Encabezado -->
-  <div>
-    <!-- bar -->
+  <!-- <div>    
     <div class="all-margin-right">
       <label class="color-text-white bg-orange bold-text">
         <ion-icon src="/assets/icon/ubication.svg"></ion-icon> Ubicación
       </label>
     </div>    
+  </div> -->
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>      
+      <div class="texto-header">Ubicación</div>
+    </div>
+    <!-- Contenedor 2 -->
+    <div class="contenedor-title">
+      <div>        
+        <h4 class="text-center size-text35px text-bold text-color-purple">Selecciona el lugar</h4>
+      </div>
+    </div>
   </div>
-  <div class="margin-object15px">
-  <ion-row>
-    <ion-col style="margin-top: 8px;">
-      <ion-label class="color-text-purple bold-text">Selecciona el lugar</ion-label> 
+  <div class="container-item">
+  <!-- <ion-row> -->
+    <!-- <ion-col style="margin-top: 8px;">
+      <ion-label class="color-text-purple bold-text">Seleccionaaa el lugar</ion-label> 
     </ion-col>
-    <ion-col>
+    <ion-col> -->      
+      <ion-item lines="none" class="input-border-bot item-native-transparency">
+        <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">
+          Tipo de Usuario </ion-label>
           <ion-select interface="popover" class="border-option">
             <ion-select-option class="selec-text" value="apples">Centro de acopio</ion-select-option>
             <ion-select-option class="selec-text" value="oranges">Huertos familiares</ion-select-option>
             <ion-select-option class="selec-text" value="bananas">Ferias</ion-select-option>
           </ion-select>       
-    </ion-col>
-  </ion-row>
+        </ion-item>
+    <!-- </ion-col> -->
+  <!-- </ion-row> -->
 </div>
-  <ion-card style="width: 95%; height: 90%;">
+  <ion-card style="width: 95%; height: 70%;">
     <app-googlemaps [modal]="modal" [localizacion]="localizacion" [feature] = "feature"></app-googlemaps>
-
-
   </ion-card>
 
 </ion-content>

@@ -1,16 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Geolocalización</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-item-divider class="ion-padding" style="text-align: center; color: black;">
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>      
+      <div class="texto-header">Geolocalización</div>
+    </div>
+    <!-- Contenedor 2 -->
+    <div class="contenedor-title">
+      <div>
+        <h4 class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación del huerto familiar</h4>
+      </div>
+    </div>
+  </div>
+  <!-- <ion-item-divider class="ion-padding" style="text-align: center; color: black;">
     <h5>Indica en el mapa la ubicación del huerto familiar</h5>
-  </ion-item-divider>
-  <ion-card style="width: 95%; height: 70%;">
+  </ion-item-divider> -->
+  <ion-card style="width: 97%; height: 70%;">
     <app-googlemaps [feature] = "feature"></app-googlemaps>
   </ion-card>
-  <ion-button class="ion-padding boton-azul" expand="block" (click)="continuar()">  &nbsp; &nbsp;Continuar</ion-button>
+  <ion-button class="boton-warmi-in" expand="block" (click)="continuar()">  &nbsp; &nbsp;Continuar</ion-button>
 
 </ion-content>
