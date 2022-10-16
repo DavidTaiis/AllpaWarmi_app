@@ -20,17 +20,16 @@ export class CarritoPage implements OnInit {
   data:any = [];
 
   constructor(private navCtrl: NavController, private tabAgricultorasServices: TabAgricultorasService,private alertController: AlertController) {
-
+    this.getCarProducts();
+    this.getTotal();
    }
 
  async ngOnInit() {
-    this.getCarProducts();
-    this.getTotal();
+ 
   }
   async getCarProducts(){
   this.products = JSON.parse(localStorage.getItem('products')) ;
    
-    
   }
 
  async getTotal(){
@@ -61,7 +60,7 @@ export class CarritoPage implements OnInit {
     
          await alert.present();
          this.navCtrl.navigateForward('/consumidor/tab-inicial/ordenes');
-         localStorage.setItem('products',"");
+         localStorage.removeItem('products')
 
       },
       response => {

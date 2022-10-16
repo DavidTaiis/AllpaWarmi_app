@@ -26,7 +26,7 @@ export class PerfilMaPage implements OnInit {
   constructor(public fb: FormBuilder, private activatedRoute: ActivatedRoute, private tabAgricultorasService: TabAgricultorasService) {
  
     this.form = this.fb.group({
-      'rating': new FormControl([5])
+      'rating': new FormControl([3])
     });
    }
 

@@ -1,12 +1,12 @@
 <ion-card>
 
-  <ion-item *ngFor="let order of orders" style="font-size: 12px;" >
+  <ion-item *ngFor="let order of orders" style="font-size: 12px;" routerLinkActive="router-link-active" >
     <ion-chip *ngIf="order.status === 'Completada'" slot="end" color="success">{{order.status}}</ion-chip>
     <ion-chip (click)="updateStatus(order.id)" *ngIf="order.status === 'Pendiente'" slot="end" color="warning">{{order.status}}</ion-chip>
     <ion-thumbnail slot="start">
       <img alt="Silhouette of mountains" src="assets/img/compra.png" />
     </ion-thumbnail>
-    <ion-label>{{order.client}}
+    <ion-label  (click)="viewDetails()">{{order.client}}
       
       <p>{{order.deliver_date}}</p></ion-label>
   </ion-item>

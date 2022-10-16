@@ -8,10 +8,12 @@ import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricult
 })
 export class MisOrdenesPage implements OnInit {
   orders:any;
-  constructor(private tabAgricultorasService: TabAgricultorasService) { }
+  constructor(private tabAgricultorasService: TabAgricultorasService) {
+    this.getOrders();
+   }
 
   ngOnInit() {
-    this.getOrders();
+   
   }
 
   getOrders(){

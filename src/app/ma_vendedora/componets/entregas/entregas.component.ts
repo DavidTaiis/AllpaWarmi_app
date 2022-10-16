@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transporte.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-entregas',
   templateUrl: './entregas.component.html',
@@ -8,7 +9,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class EntregasComponent implements OnInit {
   orders:any;
-  constructor(private tabTransporteServices: TabTransporteService, private alertController: AlertController) { }
+  constructor(private router:Router, private tabTransporteServices: TabTransporteService, private alertController: AlertController) { }
 
   ngOnInit() {
     this.getOrdersBySeller();
@@ -54,6 +55,7 @@ export class EntregasComponent implements OnInit {
           () => {
               console.log("The POST observable is now completed.");
           });
+          this.getOrdersBySeller();
           },
         },
       ],
@@ -61,5 +63,8 @@ export class EntregasComponent implements OnInit {
 
     await alert.present();
 
+  }
+  viewDetails(){
+    this.router.navigate(['/detalles-venta']);
   }
 }
