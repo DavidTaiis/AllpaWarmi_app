@@ -101,6 +101,10 @@ const routes: Routes = [
     path: 'modal-notificaciones',
     loadChildren: () => import('./ma_vendedora/modals/modal-notificaciones/modal-notificaciones.module').then( m => m.ModalNotificacionesPageModule)
   },
+  {
+    path: 'detalles-venta',
+    loadChildren: () => import('./ma_vendedora/tab_notificaciones/detalles-venta/detalles-venta.module').then( m => m.DetallesVentaPageModule)
+  },
 
 
 
