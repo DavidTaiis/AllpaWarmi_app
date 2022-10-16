@@ -106,7 +106,20 @@ text-decoration: none;
 .text-capitalize{
   text-transform: capitalize;
 }
+//search bar
+.container-search-bar{
+  display: flex;
+  justify-content: center;
+}
 
+.search-bar-orange{
+  background: var(--warmin-color-orange);
+  border-radius: 3px; 
+}
+
+.size-search-bar{
+  width: 500px;
+}
   //cotenedor formulario
 .contenedor-formulario{
   display: flex;
@@ -150,7 +163,37 @@ text-decoration: none;
 .item-native-transparency{
   --background: transparent;
 }
-
+//perfiles
+.contenedor-perfiles{
+  padding: auto;
+  margin: auto;
+  // background: var(--warmin-color-pinkd);
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  align-content: center;
+  border-radius: 3px;    
+  
+}
+.lista-agricultoras{
+  width: 95%;
+  height: 350px;
+  border: 4px;
+  border-style: solid;
+  border-color: var(--warmin-color-orange);
+  background-color: var(--warmin-color-orange);
+}
+.radius{
+  border-color: black;   
+  border: 50px;
+  border-radius: 50%;
+ }
+ 
+ .avatar-center{
+     display: flex; 
+     justify-content: center;
+ }
+ 
 //boton
   
 .boton-warmi-in{
@@ -160,6 +203,29 @@ text-decoration: none;
   text-transform: capitalize;
   max-height: 50px;
 
+}
+//Listados tarjetas ventas
+.contenedor-card-p{
+  background: transparent;
+  border-radius: 20px 0 20px 20px;
+}
+.encabezado-card{
+  background: var(--warmin-color-orange);
+  border-radius: 20px 0 0 0;
+  margin: 0;
+  color: #fff;
+
+}
+.descripcion-card{
+  background: #fff;   
+  margin: 0;
+  border: 4px;
+  border: var(--warmin-color-orange);
+  border-style: solid;
+  border-radius: 0 0 20px 20px;
+}
+.contenedor-list-ventas{
+  margin: 10px;
 }
 
 // //select-otion
@@ -177,7 +243,10 @@ ion-select::part(icon) {
 }
 
 
-
+//card
+.card-tabs-bg{
+  background: var(--warmin-color-yellow);    
+}
 
 // ion-header{
 //     text-align: center;
