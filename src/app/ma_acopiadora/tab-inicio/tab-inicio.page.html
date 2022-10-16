@@ -1,10 +1,18 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Centros de acopio</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Centros de acopi</div>
+    </div>
+  </div>
   <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar>
   <ion-card class="map">
     <capacitor-google-maps id="map"></capacitor-google-maps>
