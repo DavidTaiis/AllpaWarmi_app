@@ -32,9 +32,11 @@ selectConductor: boolean = false;
         this.loginService.register(this.name, this.identification_card,this.phone_number, this.role, this.password , this.is_association)
         .subscribe( async (res) => {
           const alert = await this.alertController.create({
+            // css personalizado
+            cssClass:'modals-alert',
             header: '¡Exito!',
             message: 'Usuario creado correctamente!',
-            buttons: ['OK'],
+            buttons: ['OK'],            
           });
       
            await alert.present();
@@ -53,9 +55,12 @@ selectConductor: boolean = false;
         this.loginService.register(this.name, this.identification_card,this.phone_number, this.tipoAgricultora, this.password , this.is_association)
         .subscribe( async (res) => {
           const alert = await this.alertController.create({
+            // css personalizado
+            cssClass:'modals-alert',
             header: '¡Exito!',
             message: 'Usuario creado correctamente!',
             buttons: ['OK'],
+           
           });
       
            await alert.present();
@@ -74,6 +79,8 @@ selectConductor: boolean = false;
         this.loginService.register(this.name, this.identification_card,this.phone_number, this.tipoConductor, this.password , this.is_association)
         .subscribe( async (res) => {
           const alert = await this.alertController.create({
+            // css personalizado
+            cssClass:'modals-alert',
             header: '¡Exito!',
             message: 'Usuario creado correctamente!',
             buttons: ['OK'],
