@@ -1,11 +1,24 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Productos</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-  <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Productos</div>
+    </div>    
+  </div>
+  <!-- <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar> -->
+  <div class="container-search-bar">
+    <div class="size-search-bar">
+      <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
+    </div>
+  </div>
 <ion-card>
   <div style="text-align:center;">
     <h2>{{name}}</h2>

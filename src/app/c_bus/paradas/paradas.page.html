@@ -1,46 +1,60 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Paradas</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Paradas</div>
+    </div>
+  </div>
   <ion-row class="ion-padding">
     <ion-col style="margin-top: 8px;">
-      <ion-label >Selecciona la ruta</ion-label> 
+      <ion-label class="text-color-purple text-bold">Selecciona la ruta</ion-label>
     </ion-col>
     <ion-col>
-          <ion-select interface="popover" placeholder="Seleccione...">
-            <ion-select-option value="apples">Ruta 1</ion-select-option>
-            <ion-select-option value="oranges">RUta 2</ion-select-option>
-            <ion-select-option value="bananas">Ruta 3</ion-select-option>
-          </ion-select>
-       
+      <ion-select interface="popover" placeholder="Seleccione...">
+        <ion-select-option value="apples">Ruta 1</ion-select-option>
+        <ion-select-option value="oranges">Ruta 2</ion-select-option>
+        <ion-select-option value="bananas">Ruta 3</ion-select-option>
+      </ion-select>
+
     </ion-col>
   </ion-row>
-  <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar>
+  <!-- <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar> -->
+  <div class="container-search-bar">
+    <div class="size-search-bar">
+      <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
+    </div>
+  </div>
   <ion-card class="map">
     <capacitor-google-maps id="map"></capacitor-google-maps>
   </ion-card>
-    <ion-card>
-      <ion-list>
-        <ion-item>
-          <ion-label>Parada 1</ion-label>
-          <ion-span>Disponible</ion-span>
-        </ion-item>
-        <ion-item>
-          <ion-label>Parada 2</ion-label>
-          <ion-span>Disponible</ion-span>
-        </ion-item>
-        <ion-item>
-          <ion-label>Parada 3</ion-label>
-          <ion-span>Disponible</ion-span>
-        </ion-item>
-        <ion-item>
-          <ion-label>Parada 4</ion-label>
-          <ion-span>Disponible</ion-span>
-        </ion-item>
-      </ion-list>
-    </ion-card>
+
+  <ion-card class="contenedor-card-parada">
+    <ion-list>
+      <ion-item>
+        <ion-label>Parada 1</ion-label>
+        <ion-span>Disponible</ion-span>
+      </ion-item>
+      <ion-item>
+        <ion-label>Parada 2</ion-label>
+        <ion-span>Disponible</ion-span>
+      </ion-item>
+      <ion-item>
+        <ion-label>Parada 3</ion-label>
+        <ion-span>Disponible</ion-span>
+      </ion-item>
+      <ion-item>
+        <ion-label>Parada 4</ion-label>
+        <ion-span>Disponible</ion-span>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 
 </ion-content>

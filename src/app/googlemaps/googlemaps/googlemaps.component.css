@@ -1,0 +1,47 @@
+.contenedor-search {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-item-s {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0;
+  margin: 6px 0 6px 0;
+}
+
+.size-items {
+  height: 40px;
+  width: 300px;
+}
+
+.border-search {
+  border: 3px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: var(--warmin-color-orange);
+  text-align: center;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.padd-itemmap {
+  padding: 3px;
+}
+
+.ubicacion-actual {
+  background: var(--warmin-color-yellow);
+}
+
+.searchInput:focus {
+  outline: none;
+}/*# sourceMappingURL=googlemaps.component.css.map */

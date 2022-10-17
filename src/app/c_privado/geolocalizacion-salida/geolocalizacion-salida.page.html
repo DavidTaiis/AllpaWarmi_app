@@ -1,13 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Geolocalización salida</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-item-divider style="text-align: center; color: black;">
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Geolocalización Salida</div>
+    </div>
+    <!-- Contenedor 2 -->
+    <div class="contenedor-title">
+      <div>
+        <h4 class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación de salida</h4>
+      </div>
+    </div>
+  </div>
+  <!-- <ion-item-divider style="text-align: center; color: black;">
     <h4>Indica en el mapa la ubicación de salida</h4>
-  </ion-item-divider>
+  </ion-item-divider> -->
   <ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
   <ion-card class="map">
     <capacitor-google-maps id="map"></capacitor-google-maps>

@@ -1,9 +1,19 @@
-<div class="contenedor-title">
-  <div>
-    <h4 class="text-center size-text35px text-bold text-color-purple">Paradas de los autos privados</h4>
+<ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Paradas de los autos privados</div>
+    </div>    
   </div>
-</div>
+  <!-- <div class="contenedor-title">
+    <div>
+      <h4 class="text-center size-text35px text-bold text-color-purple">Paradas de los autos privados</h4>
+    </div>
+  </div> -->
 
-<ion-card style="width: 97%; height: 575px;">
-    <app-googlemaps [feature] = "feature"></app-googlemaps>
+  <ion-card style="width: 97%; height: 575px;">
+    <app-googlemaps [feature]="feature"></app-googlemaps>
   </ion-card>
+</ion-content>
