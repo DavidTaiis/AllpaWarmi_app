@@ -1,0 +1,87 @@
+
+
+<ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>      
+      <div class="texto-header">Agregar producto</div>
+    </div>    
+  </div>
+  <div class="contenedor-title">
+    <div>       
+      <h4 class="text-center size-text35px text-bold text-color-purple">Ingresa datos del producto</h4>
+    </div>
+  </div>
+  <form (ngSubmit)="addProduct()">
+  <div class="contenedor-item">
+    <ion-icon slot="start" class="size-icon"  src="/assets/iconos/col.svg"></ion-icon>
+    <ion-item lines="none" class="input-border-bot item-native-transparency">
+      <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Nombre del producto</ion-label>
+      <ion-input [(ngModel)]="producName" type="text" [ngModelOptions]="{standalone: true}" class="text-center">
+      </ion-input>              
+    </ion-item>
+  </div>
+  <div class="contenedor-item">
+    <ion-icon slot="start" class="size-icon"  src="/assets/iconos/col.svg"></ion-icon>
+    <ion-item lines="none" class="input-border-bot item-native-transparency">
+      <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Descripción</ion-label>
+      <ion-input [(ngModel)]="description" type="text" [ngModelOptions]="{standalone: true}" class="text-center">
+      </ion-input>              
+    </ion-item>
+  </div>
+  <div class="contenedor-item">
+    <ion-icon slot="start" class="size-icon" src="/assets/icon/rol.svg"></ion-icon>   
+    <ion-item lines="none" class="input-border-bot item-native-transparency">
+      <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">Unidad venta
+      </ion-label>
+      <ion-select [(ngModel)]="unidadVenta" interface="popover"
+        [ngModelOptions]="{standalone: true}">
+        <!-- Opciones -->
+     
+        <ion-select-option *ngFor="let measure of measures" value="{{measure.id}}">{{measure.measure}}</ion-select-option>
+        
+   
+      </ion-select>                         
+    </ion-item>
+  </div>
+  <div class="contenedor-item">
+    <ion-icon slot="start" class="size-icon"  src="/assets/iconos/col.svg"></ion-icon>
+    <ion-item lines="none" class="input-border-bot item-native-transparency">
+      <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Precio:</ion-label>
+      <ion-input [(ngModel)]="precio" type="text" [ngModelOptions]="{standalone: true}" class="text-center">
+      </ion-input>              
+    </ion-item>
+  </div>
+  <div class="contenedor-item">
+    <ion-icon slot="start" class="size-icon"  src="/assets/iconos/col.svg"></ion-icon>
+    <ion-item lines="none" class="input-border-bot item-native-transparency">
+      <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Stock:</ion-label>
+      <ion-input [(ngModel)]="stock" type="text" [ngModelOptions]="{standalone: true}" class="text-center">
+      </ion-input>              
+    </ion-item>
+  </div>
+
+  <div class="contenedor-item">
+  <ion-item lines="none" class="input-border-bot item-native-transparency">
+    <ion-label class="normal"  class="text-center text-bold">Foto: </ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+         <label for="file-upload">
+           <ion-icon slot="icon-only" name="images"></ion-icon>
+         </label>
+          <input  class="text-center"  (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file"  accept="image/*">
+      </ion-button>
+    </ion-buttons>
+   
+  </ion-item>
+  
+</div>
+<ion-item>
+  <img class="image" style="width: 250px; height: 250px; margin-left: 80px;" [src]="foto || '../assets/img/chooseImg.png'">
+</ion-item>
+
+<ion-button class="boton-warmi-in" type="submit" expand="block">  &nbsp; &nbsp;Continuar</ion-button>
+</form>
+</ion-content>

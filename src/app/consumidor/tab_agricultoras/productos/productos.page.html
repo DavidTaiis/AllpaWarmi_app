@@ -13,7 +13,7 @@
 </div>
 <ion-card *ngFor="let product of products" style="border-radius: 20px;">
   <ion-list>
-    <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.id]">
+    <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.productId]">
       <ion-thumbnail slot="start">
         <img src="assets/img/compra.png" />
       </ion-thumbnail>

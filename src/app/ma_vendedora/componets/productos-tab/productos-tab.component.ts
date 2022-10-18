@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transporte.service';
 @Component({
   selector: 'app-productos-tab',
@@ -9,10 +10,12 @@ export class ProductosTabComponent implements OnInit {
   
   products : any;
 
-  constructor(private tabTransporteServices: TabTransporteService) { }
+  constructor(private tabTransporteServices: TabTransporteService, private router:Router) { 
+    this.getProductsAuth();
+  }
 
   ngOnInit() {
-    this.getProductsAuth();
+   
   }
 
 
@@ -20,6 +23,7 @@ export class ProductosTabComponent implements OnInit {
     this.tabTransporteServices.getProductsAuth()
     .subscribe(  (res) => {
       this.products = res;
+      console.log(this.products)
     },
     response => {
       console.log(response['error']['warning'][0]['value'])
@@ -28,6 +32,10 @@ export class ProductosTabComponent implements OnInit {
       console.log("The POST observable is now completed.");
   });
   
-  
   }
+
+  viewAgregarProducto(){
+    this.router.navigate(['ma_vendedora/menu/productos/agregarProducto'])
+  }
+
 }

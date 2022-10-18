@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class TabTransporteService {
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'Application/json' ,'Authorization': 'Bearer '+localStorage.getItem('accessToken')})
+    headers: new HttpHeaders({ 'Accept': '*/*' ,'Authorization': 'Bearer '+localStorage.getItem('accessToken')})
   };
   url = environment.apiUrl;
 
@@ -52,5 +52,14 @@ updateOrder(orderId:number){
   };
   return this.httpClient.post(`${this.url}seller/updateStatus`,datos, this.httpOptions)
 
+}
+addProduct(formdata:FormData){
+  console.log(formdata)
+  return this.httpClient.post(`${this.url}seller/addProduct`,formdata, this.httpOptions)
+
+}
+getMeasures(){
+
+  return this.httpClient.get(`${this.url}seller/getMeasures`, this.httpOptions)
 }
 }

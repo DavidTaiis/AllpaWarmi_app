@@ -1,19 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
 @Component({
   selector: 'app-geolocalizacion-huerto',
   templateUrl: './geolocalizacion-huerto.page.html',
   styleUrls: ['./geolocalizacion-huerto.page.scss'],
 })
 export class GeolocalizacionHuertoPage implements OnInit {
-
-  constructor(private router:Router) { }
+  localizacion:any;
+  puntoSelect:any;
+  type:any = "Huerto";
+  description:any = "";
+  constructor(private tabAgricultorasService: TabAgricultorasService,private router:Router,private alertController: AlertController) { }
 
   ngOnInit() {
+    this.localizacion = true;
   }
 
   continuar(){
-    this.router.navigate(['/ma_vendedora/geolocalizacion-venta'])
+    this.tabAgricultorasService.addGeolocalizacionMa(this.puntoSelect.lat, this.puntoSelect.lng, this.type,this.description)
+    .subscribe( async (res) => {
+      const alert = await this.alertController.create({
+        header: '¡Exito!',
+        message: 'Ubicación registrada correctamente!',
+        buttons: ['OK'],
+      });
+
+       await alert.present();
+       this.router.navigate(['/ma_vendedora/geolocalizacion-venta'])
+
+    },
+    response => {
+      console.log(response['error']['warning'][0]['value'])
+  },
+  () => {
+      console.log("The POST observable is now completed.");
+  });
   }
+
   
+  recibirData(positionSet:any){
+    this.puntoSelect = positionSet;
+    
+    }
 }

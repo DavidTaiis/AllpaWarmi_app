@@ -89,7 +89,8 @@ const routes: Routes = [
   {
     path: 'consumidor/geolocalizacion-domicilio',
     loadChildren: () => import('./consumidor/geolocalizacion-domicilio/geolocalizacion-domicilio.module').then( m => m.GeolocalizacionDomicilioPageModule)
-  },  {
+  },
+  {
     path: 'modal-camioneta',
     loadChildren: () => import('./ma_vendedora/modals/modal-camioneta/modal-camioneta.module').then( m => m.ModalCamionetaPageModule)
   },
@@ -105,9 +106,6 @@ const routes: Routes = [
     path: 'detalles-venta',
     loadChildren: () => import('./ma_vendedora/tab_notificaciones/detalles-venta/detalles-venta.module').then( m => m.DetallesVentaPageModule)
   },
-
-
-
   
 ];
 

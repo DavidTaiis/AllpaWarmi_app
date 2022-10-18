@@ -1,13 +1,22 @@
 <ion-card>
-
   <ion-item *ngFor="let product of products" style="font-size: 12px;" >
+  
     <ion-chip slot="end" color="danger">Eliminar</ion-chip>
-    <ion-thumbnail slot="start">
-      <img alt="Silhouette of mountains" src="assets/img/compra.png" />
+    <ng-container *ngFor="let item of product.images"> 
+    <ion-thumbnail *ngIf="item.url" slot="start">
+      <img  src="{{item.url || '/assets/img/compra.png'}}" />
     </ion-thumbnail>
+  </ng-container> 
+ 
     <ion-label>{{product.product}}
       <p>{{product.description}}</p>
       <p>{{product.measure}} -- {{product.price}}</p></ion-label>
-  </ion-item>
+    
+</ion-item>
 
 </ion-card>
+<ion-fab (click)="viewAgregarProducto()" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="danger">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

@@ -11,5 +11,8 @@ export class TabInicialPage implements OnInit {
 
   ngOnInit() {
   }
-
+goCar(){
+  
+  window.location.href = '/consumidor/tab-inicial/carrito';
+}
 }

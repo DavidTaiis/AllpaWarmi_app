@@ -20,20 +20,32 @@ export class CarritoPage implements OnInit {
   data:any = [];
 
   constructor(private navCtrl: NavController, private tabAgricultorasServices: TabAgricultorasService,private alertController: AlertController) {
+    
     this.getCarProducts();
     this.getTotal();
-   }
-
+  
+  }
  async ngOnInit() {
- 
+  
   }
   async getCarProducts(){
-  this.products = JSON.parse(localStorage.getItem('products')) ;
-   
+    if(localStorage.getItem('products')){
+      this.products = JSON.parse(localStorage.getItem('products'));
+    }else{
+    this.products = [{
+      farmer: "No hay ninguna",
+      farmerId: "0",
+      id:0,
+      measure: "Na",
+      price: "0.00"
+
+    }]
+  }
   }
 
  async getTotal(){
-   
+
+  if(localStorage.getItem('products')){
     let productos = JSON.parse(localStorage.getItem('products')) ;
     for (let index = 0; index < productos.length; index++) {
        this.total = Number(this.total) +Number(productos[index]['subtotal']);
@@ -44,10 +56,15 @@ export class CarritoPage implements OnInit {
         "quantity":productos[index]['quantity'],
                };
         this.data = this.data.concat(auxData);
+      }
+    }else{
+      this.total = 0.00;
+
     }
  }
 
- createOrder(){
+ async createOrder(){
+  if(this.total !== 0.00){
   let idSeller = this.products[0]['farmerId'];
 
     return this.tabAgricultorasServices.createOrder(idSeller,this.total,this.deliverDate,this.data)
@@ -70,7 +87,8 @@ export class CarritoPage implements OnInit {
         console.log("The POST observable is now completed.");
     });
     
-    } 
-  
+    }
+    
+  }
   
 }

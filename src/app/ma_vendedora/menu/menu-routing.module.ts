@@ -41,6 +41,10 @@ const routes: Routes = [
             path: '',
             loadChildren: () => import('./../../ma_vendedora/tab_productos/productos/productos.module').then( m => m.ProductosPageModule)
 
+          },
+          {
+            path:'agregarProducto',
+            loadChildren: () => import('./../../ma_vendedora/tab_productos/agregar-producto/agregar-producto.module').then( m => m.AgregarProductoPageModule)
           }
         ]
       },

@@ -17,7 +17,7 @@
     <h5>Indica en el mapa la ubicación del punto de venta</h5>
   </ion-item-divider> -->
   <ion-card style="width: 97%; height: 70%;">
-    <app-googlemaps [feature] = "feature"></app-googlemaps>
+    <app-googlemaps [localizacion]="localizacion" (enviar)="recibirData($event)"></app-googlemaps>
   </ion-card>
   <ion-button class="boton-warmi-in" expand="block" (click)="continuar()">  &nbsp; &nbsp;Continuar</ion-button>
 
