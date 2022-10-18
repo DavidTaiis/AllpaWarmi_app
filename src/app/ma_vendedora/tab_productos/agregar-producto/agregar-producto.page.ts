@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transporte.service';
 import { Router } from '@angular/router';
+import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-agregar-producto',
   templateUrl: './agregar-producto.page.html',
@@ -19,12 +22,27 @@ export class AgregarProductoPage implements OnInit {
   stock:any;
   measures:any;
 
-  constructor(public sellerServices:TabTransporteService, private alertController: AlertController, private router:Router) { 
+
+  productId:any;
+  product: any;
+  productName: any;
+  price: any;
+  descriptionProduct:any;
+  measure: any;
+  quantity: any = 1;
+  farmer:any;
+  farmerId:any;
+  phone:any;
+  total:any ;
+
+  constructor( private activatedRoute: ActivatedRoute,private tabAgricultorasService: TabAgricultorasService,public sellerServices:TabTransporteService, private alertController: AlertController, private router:Router) { 
     this.getMeasure();
+    
   }
 
   ngOnInit() {
-   
+    this.getProductId();
+    this.productId = this.activatedRoute.snapshot.paramMap.get("id");
   }
   async newImageUpload(event: any) {
     
@@ -80,5 +98,25 @@ export class AgregarProductoPage implements OnInit {
         console.log("The POST observable is now completed.");
     });
     }
-  
+    getProductId(){
+      this.tabAgricultorasService.getProductId(this.productId)
+      .subscribe(  (res) => {
+        this.product = res;
+        console.log(this.productId)
+        this.productName = this.product[0]['product'];
+        this.price = this.product[0]['price'];
+        this.description = this.product[0]['description'];
+        this.measure = this.product[0]['measure'];
+        this.farmer = this.product[0]['farmer']
+        this.total = this.product[0]['price'];
+        this.phone = this.product[0]['phoneFarmer'];
+        this.farmerId = this.product[0]['farmerId'];
+      },
+      response => {
+        console.log(response['error']['warning'][0]['value'])
+    },
+    () => {
+        console.log("The POST observable is now completed.");
+    });
+    }
 }

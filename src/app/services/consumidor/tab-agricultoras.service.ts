@@ -31,7 +31,6 @@ getFarmers(){
     return this.httpClient.get(`${this.url}user/getFarmer/${id}`, this.httpOptions)
   }
   getProductsId(id:number){
-
     return this.httpClient.get(`${this.url}consumer/get-products/${id}`, this.httpOptions)
   }
   getProductId(id:number){

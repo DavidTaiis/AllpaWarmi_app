@@ -43,7 +43,7 @@ const routes: Routes = [
 
           },
           {
-            path:'agregarProducto',
+            path:'agregarProducto/:id',
             loadChildren: () => import('./../../ma_vendedora/tab_productos/agregar-producto/agregar-producto.module').then( m => m.AgregarProductoPageModule)
           }
         ]

@@ -1,5 +1,6 @@
-<ion-card>
-  <ion-item *ngFor="let product of products" style="font-size: 12px;" >
+<ion-card *ngFor="let product of products">
+  <ion-list>
+  <ion-item  style="font-size: 12px;">
   
     <ion-chip slot="end" color="danger">Eliminar</ion-chip>
     <ng-container *ngFor="let item of product.images"> 
@@ -8,12 +9,12 @@
     </ion-thumbnail>
   </ng-container> 
  
-    <ion-label>{{product.product}}
+    <ion-label [routerLink]="['/ma_vendedora/menu/productos/agregarProducto/', product.productId]">{{product.product}}
       <p>{{product.description}}</p>
       <p>{{product.measure}} -- {{product.price}}</p></ion-label>
     
 </ion-item>
-
+</ion-list>
 </ion-card>
 <ion-fab (click)="viewAgregarProducto()" vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button color="danger">

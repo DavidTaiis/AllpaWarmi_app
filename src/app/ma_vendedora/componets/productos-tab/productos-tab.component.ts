@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transporte.service';
+
+
+
 @Component({
   selector: 'app-productos-tab',
   templateUrl: './productos-tab.component.html',
@@ -9,6 +12,9 @@ import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transpor
 export class ProductosTabComponent implements OnInit {
   
   products : any;
+  id:any=0;
+ 
+  total:any ;
 
   constructor(private tabTransporteServices: TabTransporteService, private router:Router) { 
     this.getProductsAuth();
@@ -35,7 +41,10 @@ export class ProductosTabComponent implements OnInit {
   }
 
   viewAgregarProducto(){
-    this.router.navigate(['ma_vendedora/menu/productos/agregarProducto'])
+    this.router.navigate([`ma_vendedora/menu/productos/agregarProducto/${this.id}`])
   }
+
+
+
 
 }
