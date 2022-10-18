@@ -9,39 +9,55 @@
     <div class="contenedor-header">
       <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/login.svg">
       </ion-icon>
-      <div class="texto-header">Mis órdenes</div>      
-    </div>    
+      <div class="texto-header">Mis órdenes</div>
+    </div>
   </div>
-    <div class="ion-padding" style="text-align:center;">
-      <ion-label>Fecha ordenes realizadas:</ion-label>
-  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
-</div>
-<ion-card *ngFor="let order of orders" style="border-radius: 20px;">
-    <ion-list>
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <img src="assets/img/compra.png" />
-        </ion-thumbnail>
-        <ion-label>
-        <h3>{{order.seller}}</h3>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <p>{{order.deliver_date}}</p>
-            </ion-col>
-            <ion-col style="text-align: right;">
-              <ion-badge color="warning" style="color: white;">{{order.total}}</ion-badge>
-            </ion-col>
-          </ion-row>
-      </ion-grid>
-      </ion-label>
-      </ion-item>
-    </ion-list>
-    </ion-card>
-  
-<ion-modal [keepContentsMounted]="true">
-  <ng-template>
-    <ion-datetime presentation="date" id="datetime"></ion-datetime>
-  </ng-template>
-</ion-modal>
+  <div class="ion-padding" style="text-align:center;">
+    <ion-label class="text-color-purple text-bold">Fecha órdenes realizadas:</ion-label>
+    <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
+  </div>
+  <!--  -->
+  <div class="contenedor-list-ventas" id="contenedor-list-ventas">
+    <ion-card class="contenedor-card-p">
+      <!-- <ion-card *ngFor="let order of orders" class="contenedor-card-p"> -->
+      <ion-card-header class="encabezado-card">
+        <!-- <ion-card-title class="text-white text-bold">Product farmer</ion-card-title> -->
+        <!-- <ion-card-subtitle class="text-white">Producto-phone</ion-card-subtitle> -->
+      </ion-card-header>
+      <ion-card-content class="descripcion-card">
+        <ion-list>
+          <ion-item lines="none">
+            <!-- <ion-item *ngFor="let product of products"> -->
+            <ion-thumbnail slot="start">
+              <img src="assets/img/compra.png" />
+            </ion-thumbnail>
+            <ion-label>
+              <div class="text-bold text-color-purple">order-seller</div>
+              <!-- <h3>{{order.seller}}</h3> -->
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="text-color-purple">deliver_date</div>
+                   <!-- <p>{{order.deliver_date}}</p> -->
+                  </ion-col>
+                  <ion-col class="text-color-purple text-bold" style="text-align: right;">
+                    order.total
+                  </ion-col>
+                  <!-- <ion-badge color="warning" style="color: white;">{{order.total}}</ion-badge> -->
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>    
+  </div>
+
+  <!--  -->
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime presentation="date" id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+  <!--  -->
 </ion-content>
