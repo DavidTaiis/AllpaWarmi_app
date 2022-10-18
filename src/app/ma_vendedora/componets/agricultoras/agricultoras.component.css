@@ -1,0 +1,14 @@
+ion-card-header.card-header {
+  background: var(--warmin-color-yellow);
+}
+
+ion-card-content.card-content {
+  background: var(--warmin-color-orange);
+}
+
+ion-card.card-p {
+  border: 5px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #fff;
+}/*# sourceMappingURL=agricultoras.component.css.map */

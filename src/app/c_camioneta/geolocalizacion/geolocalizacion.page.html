@@ -1,17 +1,36 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Geolocalización</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-<ion-item-divider class="ion-margin" style="text-align: center; color: black;">
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Geolocalización</div>
+    </div>
+    <!-- Contenedor 2 -->
+    <div class="contenedor-title">
+      <div>
+        <h4 class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación de la parada
+        </h4>
+      </div>
+    </div>
+  </div>
+  <!-- <ion-item-divider class="ion-margin" style="text-align: center; color: black;">
   <h4>Indica en el mapa la ubicación de la parada</h4>
-</ion-item-divider>
-<ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
-<ion-card class="map">
-  <capacitor-google-maps id="map"></capacitor-google-maps>
-</ion-card>
-<ion-button (click)="registraParada()" class="ion-padding boton-azul" expand="block">  &nbsp; &nbsp;Continuar</ion-button>
+</ion-item-divider> -->
+  <div class="container-search-bar">
+    <div class="size-search-bar">
+      <ion-searchbar class="search-bar-orange" placeholder="Buscar" showCancelButton="never"></ion-searchbar>
+    </div>
+  </div>
+  <ion-card class="map">
+    <capacitor-google-maps id="map"></capacitor-google-maps>
+  </ion-card>
+  <ion-button (click)="registraParada()" class="boton-warmi-in" expand="block"> &nbsp; &nbsp;Continuar</ion-button>
 
 </ion-content>

@@ -1,4 +1,10 @@
-<ion-searchbar placeholder="Buscar" class="search-bar-orange" value=""></ion-searchbar>
+<!-- <ion-searchbar placeholder="Buscar" class="search-bar-orange" value=""></ion-searchbar> -->
+<div class="container-search-bar">
+  <div class="size-search-bar">
+    <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
+  </div>
+</div>
+
 <ion-card>
 
   <ion-item *ngFor="let shared of shareds" style="font-size: 12px;" (click)="gotoProfile(shared.id)">

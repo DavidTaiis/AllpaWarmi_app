@@ -1,16 +1,31 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Movilidad de la vendedora</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Movilidad de la vendedora</div>
+    </div>    
+  </div>
   <ion-card class="titulo-fondo ion-margin">
     <h4>Novedades 12/08/2022</h4>
   </ion-card>
   
-  <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar>
+  <!-- <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar> -->
+  <div class="container-search-bar">
+    <div class="size-search-bar">
+      <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
+    </div>
+  </div>
+
   <ion-card class="map">
     <capacitor-google-maps id="map"></capacitor-google-maps>
   </ion-card>
+  
 </ion-content>

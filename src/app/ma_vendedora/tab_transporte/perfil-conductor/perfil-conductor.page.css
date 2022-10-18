@@ -1,0 +1,12 @@
+.cont {
+  width: 93%;
+  max-width: 350px;
+  text-align: right;
+  color: #EEE;
+  overflow: hidden;
+}
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}/*# sourceMappingURL=perfil-conductor.page.css.map */

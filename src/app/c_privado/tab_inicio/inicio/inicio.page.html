@@ -1,12 +1,20 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Movilidad de la vendedora</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Movilidad de la vendedora</div>
+    </div>
+  </div>
   <ion-card style="width: 95%; height: 95%;">
-    <app-googlemaps [feature] = "feature"></app-googlemaps>
+    <app-googlemaps [feature]="feature"></app-googlemaps>
 
   </ion-card>
 
