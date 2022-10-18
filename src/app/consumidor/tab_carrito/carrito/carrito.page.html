@@ -3,57 +3,66 @@
     <!-- Contenedor 1 -->
     <div class="contenedor-header">
       <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/store.svg">
-      </ion-icon>      
+      </ion-icon>
       <div class="texto-header">Carrito de compra</div>
-    </div>    
+    </div>
   </div>
-  <ion-item-divider>
-    <ion-grid>
-    <ion-row>
-    <ion-col>
-      <h2>Total</h2>
-    </ion-col>
-    <ion-col style="text-align: right;">
-      <h2>{{total}}</h2>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-  </ion-item-divider>
-  <ion-card>
-    <div class="ion-padding">
-    <ion-card-title>{{products[0]['farmer']}}</ion-card-title>
-        <ion-card-subtitle>{{products[0]['phone']}}</ion-card-subtitle>
-      </div>
-      <ion-list>
-        <ion-item *ngFor="let product of products">
-          <ion-thumbnail slot="start">
-            <img src="assets/img/lechuga.jpg" />
-          </ion-thumbnail>
-          <ion-label>
-          <h3>{{product.productName}}</h3>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <p>{{product.measure}}</p>
-              </ion-col>
-              <ion-col style="text-align: right;">
-                {{product.price}}
-              </ion-col>
-            </ion-row>
-        </ion-grid>
-        </ion-label>
-        </ion-item>
-      </ion-list>
-      </ion-card>
-    <div class="ion-padding" style="text-align:center;">
-      <ion-label>Selecciona la fecha de entrega:</ion-label>
-  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
-</div>
-<ion-button (click)="createOrder()" class="boton-warmi-in"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Ordenar</ion-button>
+  <div class="contenedortotal">
+    <div class="total text-white text-bold">Total</div>
+    <div class="text-color-purple text-bold precio">$ 0.00</div>
+  </div>
 
+  <div class="contenedor-list-ventas" id="contenedor-list-ventas">
+    <ion-card class="contenedor-card-p">
+      <ion-card-header class="encabezado-card">
+        <ion-card-title class="text-white text-bold">Product farmer</ion-card-title>
+        <ion-card-subtitle class="text-white">Producto-phone</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content class="descripcion-card">
+        <ion-list>
+          <ion-item *ngFor="let product of products" lines="none">
+            <!-- <ion-item *ngFor="let product of products"> -->
+            <ion-thumbnail slot="start">
+              <img src="assets/img/lechuga.jpg" />
+            </ion-thumbnail>
+            <ion-label>
+              <div class="text-bold text-color-purple">nombre de producto</div>
+              <!-- <h3>{{product.productName}}</h3> -->
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="text-color-purple">product measure</div>
+                    <!-- <p>product measure</p> -->
+                    <!-- <p>{{product.measure}}</p> -->
+                  </ion-col>
+                  <ion-col class="text-color-purple text-bold" style="text-align: right;">
+                    precio
+                  </ion-col>
+                  <!-- <ion-col style="text-align: right;">
+                {{product.price}}
+              </ion-col> -->
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <!-- Calendario -->
+    <div class="ion-padding" style="text-align:center;">
+      <ion-label class="text-color-purple text-bold">Selecciona la fecha de entrega:</ion-label>
+      <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
+    </div>
+  </div>
+  <!--  -->
+  <div class="btn-ordenar">
+    <ion-button (click)="createOrder()" class="boton-warmi-in"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Ordenar</ion-button>
+  </div>
+  
+  <!--  -->
   <ion-modal [keepContentsMounted]="true">
-  <ng-template>
-    <ion-datetime  [(ngModel)]="deliverDate" presentation="date" id="datetime"></ion-datetime>
-  </ng-template>
-</ion-modal>
+    <ng-template>
+      <ion-datetime  [(ngModel)]="deliverDate" presentation="date" id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
 </ion-content>

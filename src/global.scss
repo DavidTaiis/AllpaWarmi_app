@@ -345,3 +345,6 @@ button.alert-button.ion-focusable.ion-activatable.sc-ion-alert-md{
   color: #fff;
 }
 
+ion-popover::part(content) {
+  --width: 95%; 
+}
