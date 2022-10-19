@@ -8,8 +8,18 @@
 <div  *ngFor="let order of orders" class="contenedor-list-ventas" id="contenedor-list-ventas">
   <ion-card *ngIf="order.status === 'Completada'" class="contenedor-card-p">
     <ion-card-header class="encabezado-card">
-      <ion-card-title class="text-white text-bold">{{order.id}}</ion-card-title>
-    </ion-card-header>    
+      <ion-card-title class="text-white text-bold">Venta Nro 0001</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="descripcion-card">
+
+      <div class="text-color-purple text-bold">Fecha: 25/09/2022</div>
+      <div class="text-color-purple">Pepito Flores</div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="contenedor-card-p">
+    <ion-card-header class="encabezado-card">
+      <ion-card-title class="text-white text-bold">Venta Nro 0002</ion-card-title>
+    </ion-card-header>
     <ion-card-content class="descripcion-card">
 
       <div class="text-color-purple text-bold">Fecha: 25/09/2022</div>
@@ -17,7 +27,6 @@
     </ion-card-content>
   </ion-card>
 
-  
 </div>
 
 
