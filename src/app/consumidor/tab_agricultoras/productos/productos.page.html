@@ -11,41 +11,57 @@
       <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
       </ion-icon>
       <div class="texto-header">Productos</div>
-    </div>    
+    </div>
   </div>
-  <!-- <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar> -->
-  <div class="container-search-bar">
-    <div class="size-search-bar">
+
+  <div class="container-search-bar pad-bar">
+    <div>
       <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
     </div>
   </div>
-<ion-card>
-  <div style="text-align:center;">
-    <h2>{{name}}</h2>
-<ion-chip>{{phone}}</ion-chip>
-</div>
-<ion-card *ngFor="let product of products" style="border-radius: 20px;">
-  <ion-list>
-    <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.productId]">
-      <ion-thumbnail slot="start">
-        <img src="assets/img/compra.png" />
-      </ion-thumbnail>
-      <ion-label>
-      <h3>{{product.product}}</h3>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <p>{{product.description}}</p>
-          </ion-col>
-          <ion-col style="text-align: right;">
-            <ion-badge color="success" style="color: white;">{{product.price}}</ion-badge>
-          </ion-col>
-        </ion-row>
-    </ion-grid>
-    </ion-label>
-    </ion-item>
-  </ion-list>
-  </ion-card>
+  <!--  -->
+  <div class="contenedor-list-ventas" id="contenedor-list-ventas">
+    <ion-card *ngFor="let product of products" class="contenedor-card-p">
+      <!-- <ion-card *ngFor="let product of products" style="border-radius: 20px;"> -->
+      <ion-card-header class="encabezado-card">
+        <!-- <ion-card-title class="text-white text-bold">Product farmer</ion-card-title>
+      <ion-card-subtitle class="text-white">Producto-phone</ion-card-subtitle> -->
+      </ion-card-header>
+      <ion-card-content class="descripcion-card">
+        <ion-list>
+          <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.productId]" lines="none">
+            <!-- <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.productId]" lines="none"> -->
+            <!-- <ion-item *ngFor="let product of products"> -->
+            <ion-thumbnail slot="start">
+              <img src="assets/img/compra.png" />
+            </ion-thumbnail>
+            <ion-label>
+              <div class="text-bold text-color-purple">{{product.product}}</div>
+              <!-- <h3>{{product.product}}</h3> -->
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="text-color-purple">{{product.description}}</div>
+                    <!-- <p>{{product.description}}</p> -->
+                  </ion-col>
+                  <ion-col class="text-color-purple text-bold" style="text-align: right;">
+                    <ion-badge class="bagde-style">{{product.price}}</ion-badge>
+                    <!-- <ion-badge color="success" style="color: white;">{{product.price}}</ion-badge> -->
+                  </ion-col>
+                  <!-- <ion-col style="text-align: right;">
+              {{product.price}}
+            </ion-col> -->
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
     </ion-card>
-    <ion-button (click)="goCar()">Carrito</ion-button>
+    <div class="btn-ordenar">
+      <ion-button class="boton-warmi-in" (click)="goCar()">Carrito</ion-button>
+    </div>
+  </div>
+  <!--  -->
+
 </ion-content>
