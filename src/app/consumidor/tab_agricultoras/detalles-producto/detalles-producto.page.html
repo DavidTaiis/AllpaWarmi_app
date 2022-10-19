@@ -11,71 +11,154 @@
       <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
       </ion-icon>
       <div class="texto-header">Detalles del producto</div>
-    </div>    
+    </div>
   </div>
-<img style="width: 100%; height: 30%; object-fit: cover;" src="assets/img/lechuga.jpg" alt="">
-<ion-item-divider>
-<ion-grid>
-  <ion-row>
-    <ion-col style="margin-left: 10px;">
-      <h1>{{productName}}</h1>
-    </ion-col>
-    <ion-col style="text-align: right; margin-right: 15px; color: crimson;">
-      <h1>{{price}}</h1>
-    </ion-col>
-  </ion-row>
-</ion-grid>
- </ion-item-divider>
- <ion-item-divider>
+  <div class="contenedor-img">
+    <img class="img-product" src="assets/img/lechuga.jpg" alt="">
+  </div>
+
+  <div class="contenedortotal">
+    <div class="total text-white text-bold">lechuga {{productName}}</div>
+    <div class="text-color-purple text-bold precio">$ {{price}}</div>
+  </div>
+  <!-- <ion-item-divider>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="margin-left: 10px;">
+          <div class="text-bold text-color-purple">productname</div>
+           <h1>{{productName}}</h1> 
+        </ion-col>
+        <ion-col style="text-align: right; margin-right: 15px;">
+          <div class="text-bold text-color-pinkd">price</div>
+          <h1>{{price}}</h1>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item-divider> -->
+  <!--<ion-item-divider>
+
+     <ion-radio-group value="biff">
+      <ion-list-header>
+        <div class="text-bold text-color-purple">Unidad de venta</div>
+      </ion-list-header>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <div class="text-bold text-color-purple">measure</div>
+             <ion-label>{{measure}}</ion-label>
+            <ion-radio slot="start" value="griff"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+  </ion-item-divider> -->
 
   <ion-radio-group value="biff">
-    <ion-list-header>
-      <ion-label>Unidad de venta</ion-label>
-    </ion-list-header>
+    <div class="contenedor-list-ventas" id="contenedor-list-ventas">
+      <ion-card class="contenedor-card-p">
+        <ion-card-header class="encabezado-card">
+          <ion-card-title class="text-white text-bold">Unidad de venta</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="descripcion-card">
+          <ion-row>
+            <ion-col>
+              <ion-item lines="none">
+                <div class="text-bold text-color-purple">medida 1{{measure}}</div>
+                <!-- <ion-label>{{measure}}</ion-label> -->
+                <ion-radio slot="start" value="griff"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-radio-group>
+
+  <div class="contenedor-list-ventas" id="contenedor-list-ventas">
+    <ion-card class="contenedor-card-p">
+      <!-- <ion-card *ngFor="let product of products" class="contenedor-card-p"> -->
+      <ion-card-header class="encabezado-card">
+        <ion-card-title class="text-white text-bold">Descripción</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="descripcion-card">
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, provident totam obcaecati quasi corrupti in.</div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- <ion-card>
+    <ion-card-header>
+      Descripción
+    </ion-card-header>
+    <ion-card-content>
+      descripcion
+       {{description}} 
+    </ion-card-content>
+  </ion-card> -->
+
+  <!-- <ion-item-divider>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h2>Cantidad</h2>
+        </ion-col>
+        <ion-col style="text-align: right;">
+          <h2>
+            <ion-icon (click)="addQuantity()" style="width: 30px; height: 30px; color: #50CD89;"
+              name="add-circle-outline"></ion-icon>
+            <label style="font-size: 30px;" id="quantity"> quantity </label>
+             <label style="font-size: 30px;" id="quantity"> {{quantity}} </label> 
+            <ion-icon (click)="lessQuantity()" style="width: 30px; height: 30px; color: #50CD89;"
+              name="remove-circle-outline"></ion-icon>
+          </h2>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item-divider> -->
+
+  <div class="contenedor-list-ventas" id="contenedor-list-ventas">
+    <ion-card class="contenedor-card-p">
+      <!-- <ion-card *ngFor="let product of products" class="contenedor-card-p"> -->
+      <ion-card-header class="encabezado-card">
+        <ion-card-title class="text-white text-bold">Cantidad</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="descripcion-card">
+        <ion-col style="text-align: center;">
+          <h2>
+            <ion-icon (click)="addQuantity()" style="width: 30px; height: 30px; color: var(--warmin-color-brown);"
+              name="add-circle-outline"></ion-icon>
+            <!-- <label style="font-size: 30px;" id="quantity"> quantity </label> -->
+            <label style="font-size: 30px; color: var(--warmin-color-purple); font-weight: bold;" id="quantity"> {{quantity}} </label>
+            <ion-icon (click)="lessQuantity()" style="width: 30px; height: 30px; color:var(--warmin-color-brown);"
+              name="remove-circle-outline"></ion-icon>
+          </h2>
+        </ion-col>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+
+  <!-- <ion-grid>
     <ion-row>
       <ion-col>
-    <ion-item>
-      <ion-label>{{measure}}</ion-label>
-      <ion-radio slot="start" value="griff"></ion-radio>
-    </ion-item>
-  </ion-col>
+        <h2>Total</h2>
+      </ion-col>
+      <ion-col style="text-align: right; margin-right:10px ;">
+        <h2>$4.00</h2>
+         <h2>{{total}}</h2> 
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
 
-  </ion-row>
-  </ion-radio-group>
- </ion-item-divider>
- <ion-card>
-  <ion-card-header>
-    Descripción
-  </ion-card-header>
-  <ion-card-content>
-   {{description}}
-  </ion-card-content>
- </ion-card>
- <ion-item-divider>
-  <ion-grid>
-  <ion-row>
-    <ion-col>
-      <h2>Cantidad</h2>
-    </ion-col>
-    <ion-col style="text-align: right;">
-      <h2>
-      <ion-icon (click)="addQuantity()" style="width: 30px; height: 30px; color: #50CD89;" name="add-circle-outline"></ion-icon>
-      <label style="font-size: 30px;" id="quantity">     {{quantity}}     </label>
-      <ion-icon (click)="lessQuantity()" style="width: 30px; height: 30px; color: #50CD89;" name="remove-circle-outline"></ion-icon>
-    </h2>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-</ion-item-divider>
-<ion-grid>
-<ion-row>
-  <ion-col>
-    <h2>Total</h2>
-  </ion-col>
-  <ion-col style="text-align: right; margin-right:10px ;">
-    <h2>{{total}}</h2>
-  </ion-col>
-</ion-row>
-</ion-grid>
- <ion-button (click)="addCar()" class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="cart-outline"></ion-icon>  Añadir al carrito</ion-button>
+  <div class="contenedortotal">
+    <div class="total text-white text-bold">Total</div>
+    <div class="text-color-purple text-bold precio">$ {{total}}</div>
+    <!-- <div class="text-color-purple text-bold precio">{{total}}</div> -->
+  </div>
+  <div class="btn-ordenar">
+    <ion-button (click)="addCar()" class="ion-padding" class="boton-warmi-in">
+      <ion-icon name="cart-outline"></ion-icon> Añadir al carrito
+    </ion-button>
+  </div>
 </ion-content>

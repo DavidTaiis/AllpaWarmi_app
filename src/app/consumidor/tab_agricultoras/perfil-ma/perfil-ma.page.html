@@ -6,9 +6,9 @@
         <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/agricultor.svg">
         </ion-icon>
         <div class="texto-header">Editar perfil</div>
-      </div>      
+      </div>
     </div>
-      <!-- Boton Editar Perfil -->
+    <!-- Boton Editar Perfil -->
     <div class="icon-end">
       <ion-button (click)="onClick()" class="boton-warmi-in">
         <ion-icon slot="icon-only" src="assets/icon/update_date.svg"></ion-icon>
@@ -16,27 +16,27 @@
     </div>
   </div>
   <!-- Dato 1 -->
-    <div class="datos-personales">
-      <div class="imagen-buttom">
-        <img class="img-profile" src="assets/img/comprador.jpg" />
-        <a class="imagen-in-buttom" href="http://">
-          <ion-icon slot="start" src="assets/iconos/camera.svg" class="size-icon-camera"></ion-icon>
-        </a>
-      </div>
-      <div>
-        <ion-card-header>
-          <ion-card-title class="text-color-purple text-bold"> {{name}}</ion-card-title>
-          <ion-card-subtitle>Venta de productos frescos</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <div class="text-bold text-color-brown">Id:</div>
-          <div class="text-color-purple">03232323323</div>
-          <!--  -->
-          <div class="text-bold text-color-brown">Teléfono:</div>
-          <div class="text-color-purple">{{phone}}</div>
-        </ion-card-content>
-      </div>
-    </div>  
+  <div class="datos-personales">
+    <div class="imagen-buttom">
+      <img class="img-profile" src="assets/img/comprador.jpg" />
+      <a class="imagen-in-buttom" href="http://">
+        <ion-icon slot="start" src="assets/iconos/camera.svg" class="size-icon-camera"></ion-icon>
+      </a>
+    </div>
+    <div>
+      <ion-card-header>
+        <ion-card-title class="text-color-purple text-bold"> {{name}}</ion-card-title>
+        <ion-card-subtitle>Venta de productos frescos</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="text-bold text-color-brown">Id:</div>
+        <div class="text-color-purple">03232323323</div>
+        <!--  -->
+        <div class="text-bold text-color-brown">Teléfono:</div>
+        <div class="text-color-purple">{{phone}}</div>
+      </ion-card-content>
+    </div>
+  </div>
   <!-- Descripcion y start -->
   <div class="padding-profile-desc">
     <div class="contenedor-descripcion">
@@ -61,9 +61,26 @@
   <ion-card style="width: 98%; height: 30%;">
     <app-googlemaps [buscador]="buscador" [miUbicacion]="miUbicacion" [feature]="feature"></app-googlemaps>
   </ion-card>
+
+  <div class="contenedor-list-ventas" id="contenedor-list-ventas">
+    <ion-card class="contenedor-card-p">
+      <!-- <ion-card *ngFor="let product of products" class="contenedor-card-p"> -->
+      <ion-card-header class="encabezado-card">
+        <ion-card-title class="text-white text-bold">Horario</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="descripcion-card">
+        <div class="text-color-purple">08:00 -- 17:00</div>
+        <div class="text-color-purple">Lunes, martes, jueves</div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <!-- 
   <ion-card class="ion-padding">
     <ion-card-title>08:00 -- 17:00</ion-card-title>
     <ion-card-subtitle>Lunes, martes, jueves</ion-card-subtitle>
-  </ion-card>
-  <ion-button size="full" class="boton-warmi-in" [routerLink]="['/consumidor/tab-inicial/productos', id]">Ver productos</ion-button>
+  </ion-card> -->
+  <div class="btn-ordenar">
+    <ion-button class="boton-warmi-in" [routerLink]="['/consumidor/tab-inicial/productos', id]">Ver productos
+    </ion-button>
+  </div>
 </ion-content>

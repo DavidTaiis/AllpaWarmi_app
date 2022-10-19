@@ -97,6 +97,10 @@ ion-content {
   color: var(--warmin-color-purple);
 }
 
+.text-color-pinkd {
+  color: var(--warmin-color-pinkd);
+}
+
 .text-color-brown {
   color: var(--warmin-color-brown);
 }
@@ -346,5 +350,26 @@ button.alert-button.ion-focusable.ion-activatable.sc-ion-alert-md{
 }
 
 ion-popover::part(content) {
-  --width: 95%; 
+  --width: 250px; 
+}
+
+@media screen and (max-width: 440px) {
+  // aplicar los estilos aquí a partir de este ancho mínimo  de 
+  // 576px (dispositivos con tamaño de pantalla medio)
+  .texto-header {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+}
+@media screen and (max-width: 340px) {
+  // aplicar los estilos aquí a partir de este ancho mínimo  de 
+  // 576px (dispositivos con tamaño de pantalla medio)
+  .texto-header {
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
 }
