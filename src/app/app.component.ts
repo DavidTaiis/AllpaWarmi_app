@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { TabAgricultorasService } from './services/consumidor/tab-agricultoras.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -13,7 +14,7 @@ export class AppComponent {
   identification_card:any;
   foto:any;
   constructor(private navCtrl: NavController, private consumerService:TabAgricultorasService) {
-    
+
     this.getUser();
   
   }
@@ -21,6 +22,7 @@ export class AppComponent {
   logout(){
     this.navCtrl.navigateForward('/');
   }
+
 
   getUser(){
     this.consumerService.getUser()
