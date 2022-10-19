@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { LoginServiceService } from 'src/app/services/login/login-service.service';
 
 @Component({
@@ -18,9 +18,34 @@ export class InicioPage implements OnInit {
   selectAgricultora: boolean = false;
   selectConductor: boolean = false;
   accessToken:any;
-  constructor(private navCtrl: NavController, private loginService: LoginServiceService) { }
+  constructor(public menu : MenuController,private navCtrl: NavController, private loginService: LoginServiceService) {
+    this.menu.enable(false);
+      this.menu.swipeGesture(false)
+      if(localStorage.getItem('accessToken')){
+        this.loginService.getUser().subscribe( res => {
+          switch (res['role']) {
+            case 'Consumidor':
+              location.href = 'consumidor/tab-inicial/inicio';
+              break;
+            case 'Vendedora':
+              location.href = 'ma_vendedora/menu/inicio';
+            default:
+              break;
+          }
+        })
+        
+      }
+   }
 
+  
   ngOnInit() {
+   
+  }
+  
+  ionViewWillEnter(){
+    setTimeout(() => {
+      
+    }, 1000);
   }
   navegacionLogin (){
   switch(this.tipoUsuario){
@@ -28,7 +53,7 @@ export class InicioPage implements OnInit {
       this.loginService.autentification(this.cedula,this.contrasena, this.tipoUsuario).subscribe( (val) => {
         this.accesToken = val['accessToken'];
         localStorage.setItem('accessToken',this.accesToken)
-        this.navCtrl.navigateForward('consumidor/geolocalizacion-domicilio');
+        location.href = 'consumidor/geolocalizacion-domicilio';
 
       },
       response => {
@@ -44,17 +69,17 @@ export class InicioPage implements OnInit {
           case 'Lidereza':
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
-            this.navCtrl.navigateForward('ma_lideresa/geolocalizacion');
+            location.href = 'ma_lideresa/geolocalizacion';
             break;
           case 'Acopiadora':
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
-            this.navCtrl.navigateForward('/ma_acopiadora/geolocalizacion');
+            location.href = '/ma_acopiadora/geolocalizacion';
             break;
           case 'Vendedora':
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
-            this.navCtrl.navigateForward('/ma_vendedora/geolocalizacion-huerto');
+            location.href = '/ma_vendedora/geolocalizacion-huerto';
             break;
          }
       },
@@ -72,17 +97,17 @@ export class InicioPage implements OnInit {
             case 'Bus':
               this.accesToken = val['accessToken'];
               localStorage.setItem('accessToken',this.accesToken)
-              this.navCtrl.navigateForward('/c_bus/menu/inicio');
+              location.href = '/c_bus/menu/inicio';
             break;
             case 'Camioneta':
               this.accesToken = val['accessToken'];
               localStorage.setItem('accessToken',this.accesToken)
-              this.navCtrl.navigateForward('/c_camioneta/geolocalizacion');
+              location.href = '/c_camioneta/geolocalizacion';
               break;
             case 'Privado':
               this.accesToken = val['accessToken'];
               localStorage.setItem('accessToken',this.accesToken)
-              this.navCtrl.navigateForward('/c_privado/geolocalizacion-salida');
+              location.href = '/c_privado/geolocalizacion-salida';
               break;
             }
         },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { LoginServiceService } from 'src/app/services/login/login-service.service';
 import { AlertController } from '@ionic/angular';
 @Component({
@@ -21,7 +21,10 @@ public tipoConductor: string[] = [];
 selectAgricultora: boolean = false;
 selectConductor: boolean = false;
 
-  constructor( private navCtrl: NavController, private loginService: LoginServiceService,private alertController: AlertController) { }
+  constructor(public menu : MenuController, private navCtrl: NavController, private loginService: LoginServiceService,private alertController: AlertController) { 
+    this.menu.enable(false);
+    this.menu.swipeGesture(false)
+  }
 
   ngOnInit() {
   }

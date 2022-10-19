@@ -39,4 +39,12 @@ export class LoginServiceService {
     };
     return this.httpClient.post(`${this.url}user/register`,datos, httpOptions)
   }
+
+  getUser(){
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'Application/json' ,'Authorization': 'Bearer '+localStorage.getItem('accessToken')},
+      )
+    };
+    return this.httpClient.get(`${this.url}user/getUser`, httpOptions);
+  }
 }

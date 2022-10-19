@@ -103,4 +103,8 @@ getFarmers(){
   getOrders(){
     return this.httpClient.get(`${this.url}consumer/getOrdersByConsumerId`, this.httpOptions)
   }
+
+  getUser(){
+    return this.httpClient.get(`${this.url}user/getUser`, this.httpOptions)
+  }
 }
