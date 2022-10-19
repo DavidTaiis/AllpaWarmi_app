@@ -1,3 +1,34 @@
-<p>
-  crear-notificacion works!
-</p>
+<div class="contenedor-title">
+  <div>       
+    <h4 class="text-center size-text35px text-bold text-color-purple">Ingresa los datos</h4>
+  </div>
+</div>
+<div class="contenedor-item">
+  <ion-icon slot="start" class="size-icon" src="/assets/icon/rol.svg"></ion-icon>   
+  <ion-item lines="none" class="input-border-bot item-native-transparency">
+    <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">Tipo de notificación
+    </ion-label>
+    <ion-select [(ngModel)]="type" interface="popover"
+      [ngModelOptions]="{standalone: true}">
+      <!-- Opciones -->
+         <ion-select-option value="Emergencia">Emergencia</ion-select-option>
+         <ion-select-option value="Alerta">Alerta</ion-select-option>
+         <ion-select-option value="Informativa">Informativa</ion-select-option>
+     </ion-select>                      
+  </ion-item>
+</div>
+
+<div class="contenedor-item">
+  <ion-icon slot="start" class="size-icon"  src="/assets/iconos/col.svg"></ion-icon>
+  <ion-item lines="none" class="input-border-bot item-native-transparency">
+    <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Descripción</ion-label>
+    <ion-input [(ngModel)]="description" type="text" [ngModelOptions]="{standalone: true}" class="text-center">
+    </ion-input>              
+  </ion-item>
+</div>
+<ion-label style=" color: var(--warmin-color-purple); margin-left: 60px;" position="floating" class="texto-center text-bold">Ingresa una ubicación
+</ion-label>
+<ion-card style="width: 97%; height: 400px;">
+  <app-googlemaps [localizacion]="localizacion" (enviar)="recibirData($event)" [feature] = "feature"></app-googlemaps>
+</ion-card>
+<ion-button class="boton-warmi-in" expand="block" (click)="addNotification()">  &nbsp; &nbsp;Continuar</ion-button>

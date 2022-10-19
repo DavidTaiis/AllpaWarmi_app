@@ -28,21 +28,25 @@ export class AgregarProductoPage implements OnInit {
   productName: any;
   price: any;
   descriptionProduct:any;
-  measure: any;
+  measureProduct: any;
   quantity: any = 1;
   farmer:any;
   farmerId:any;
   phone:any;
-  total:any ;
+  total:any;
+  id:any;
+ 
 
   constructor( private activatedRoute: ActivatedRoute,private tabAgricultorasService: TabAgricultorasService,public sellerServices:TabTransporteService, private alertController: AlertController, private router:Router) { 
+    this.productId = this.activatedRoute.snapshot.paramMap.get("id");
+    this.getProductId();
     this.getMeasure();
     
   }
 
   ngOnInit() {
-    this.getProductId();
-    this.productId = this.activatedRoute.snapshot.paramMap.get("id");
+   
+    
   }
   async newImageUpload(event: any) {
     
@@ -58,6 +62,7 @@ export class AgregarProductoPage implements OnInit {
     }
  
     addProduct(){
+      
       const formdata = new FormData();
       formdata.append('image',this.file ?? "");
       formdata.append('name', this.producName);
@@ -75,14 +80,14 @@ export class AgregarProductoPage implements OnInit {
         });
   
          await alert.present();
-        /*  this.router.navigate(['ma_vendedora/menu/productos']) */
-        window.location.href = 'ma_vendedora/menu/productos'; 
-      },response => {
+          this.router.navigate(['ma_vendedora/menu/productos']) 
+         window.location.href = 'ma_vendedora/menu/productos'; 
+       },response => {
         console.log(response['error']['warning'][0]['value'])
     },
     () => {
         console.log("The POST observable is now completed.");
-    });
+    }); 
       
     }
 
@@ -98,19 +103,24 @@ export class AgregarProductoPage implements OnInit {
         console.log("The POST observable is now completed.");
     });
     }
-    getProductId(){
+    
+      getProductId(){
+        if(this.productId > 0){
       this.tabAgricultorasService.getProductId(this.productId)
       .subscribe(  (res) => {
         this.product = res;
-        console.log(this.productId)
         this.productName = this.product[0]['product'];
         this.price = this.product[0]['price'];
-        this.description = this.product[0]['description'];
-        this.measure = this.product[0]['measure'];
+        this.descriptionProduct = this.product[0]['description'];
+        this.unidadVenta = this.product[0]['measureId'];
         this.farmer = this.product[0]['farmer']
         this.total = this.product[0]['price'];
         this.phone = this.product[0]['phoneFarmer'];
         this.farmerId = this.product[0]['farmerId'];
+        this.stock = this.product[0]['stock'];
+        this.measureProduct = this.product[0]['measure'];
+        this.foto = this.product[0]['images'][0].url;
+        this.id = this.product[0]["id"];
       },
       response => {
         console.log(response['error']['warning'][0]['value'])
@@ -118,5 +128,36 @@ export class AgregarProductoPage implements OnInit {
     () => {
         console.log("The POST observable is now completed.");
     });
+    }
+  }
+    updateProduct(){
+        
+      const formdata = new FormData();
+      formdata.append('id', this.id)
+      formdata.append('productId',this.productId);
+      formdata.append('image',this.file ?? "");
+      formdata.append('name', this.producName);
+      formdata.append('description', this.description);
+      formdata.append('price',this.precio);
+      formdata.append('stock',this.stock);
+      formdata.append('measure',this.unidadVenta);
+
+      this.sellerServices.updateProduct(formdata)
+      .subscribe( async res => {
+        const alert = await this.alertController.create({
+          header: '¡Exito!',
+          message: 'Producto actualizado correctamente!',
+          buttons: ['OK'],
+        });
+  
+         await alert.present();
+          this.router.navigate(['ma_vendedora/menu/productos']) 
+         window.location.href = 'ma_vendedora/menu/productos'; 
+       },response => {
+        console.log(response['error']['warning'][0]['value'])
+    },
+    () => {
+        console.log("The POST observable is now completed.");
+    }); 
     }
 }

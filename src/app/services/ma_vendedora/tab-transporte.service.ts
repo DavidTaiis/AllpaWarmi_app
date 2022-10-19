@@ -54,12 +54,21 @@ updateOrder(orderId:number){
 
 }
 addProduct(formdata:FormData){
-  console.log(formdata)
   return this.httpClient.post(`${this.url}seller/addProduct`,formdata, this.httpOptions)
 
 }
 getMeasures(){
 
   return this.httpClient.get(`${this.url}seller/getMeasures`, this.httpOptions)
+}
+updateProduct(formdata:FormData){
+  return this.httpClient.post(`${this.url}seller/updateProduct`,formdata, this.httpOptions)
+
+}
+deleteProduct(id:any){
+  return this.httpClient.get(`${this.url}seller/deleteProduct/${id}`, this.httpOptions)
+}
+addNotification(formdata:FormData){
+  return this.httpClient.post(`${this.url}notification/addNotification`,formdata, this.httpOptions)
 }
 }

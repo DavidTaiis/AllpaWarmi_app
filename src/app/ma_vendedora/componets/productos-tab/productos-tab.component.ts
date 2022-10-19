@@ -29,7 +29,6 @@ export class ProductosTabComponent implements OnInit {
     this.tabTransporteServices.getProductsAuth()
     .subscribe(  (res) => {
       this.products = res;
-      console.log(this.products)
     },
     response => {
       console.log(response['error']['warning'][0]['value'])
@@ -43,8 +42,15 @@ export class ProductosTabComponent implements OnInit {
   viewAgregarProducto(){
     this.router.navigate([`ma_vendedora/menu/productos/agregarProducto/${this.id}`])
   }
-
-
-
+  deleteProduct(measureId:any){
+    this.tabTransporteServices.deleteProduct(measureId).subscribe(res=>{
+      this.getProductsAuth();
+    }, response => {
+      console.log(response['error']['warning'][0]['value'])
+  },
+  () => {
+      console.log("The POST observable is now completed.");
+  })
+  }
 
 }

@@ -42,6 +42,6 @@ export class GeolocalizacionHuertoPage implements OnInit {
   
   recibirData(positionSet:any){
     this.puntoSelect = positionSet;
-    
+
     }
 }

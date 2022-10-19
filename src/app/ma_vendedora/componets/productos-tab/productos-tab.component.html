@@ -2,7 +2,7 @@
   <ion-list>
   <ion-item  style="font-size: 12px;">
   
-    <ion-chip slot="end" color="danger">Eliminar</ion-chip>
+    <ion-chip (click)="deleteProduct(product.id)" slot="end" color="danger">Eliminar</ion-chip>
     <ng-container *ngFor="let item of product.images"> 
     <ion-thumbnail *ngIf="item.url" slot="start">
       <img  src="{{item.url || '/assets/img/compra.png'}}" />
