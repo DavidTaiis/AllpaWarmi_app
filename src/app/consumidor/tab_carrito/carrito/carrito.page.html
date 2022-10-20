@@ -10,14 +10,14 @@
   
   <div class="contenedortotal">
     <div class="total text-white text-bold">Total</div>
-    <div class="text-color-purple text-bold precio">$ 0.00</div>
+    <div class="text-color-purple text-bold precio">$ 0.00 R</div>
   </div>
 
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
     <ion-card class="contenedor-card-p">
       <ion-card-header class="encabezado-card">
-        <ion-card-title class="text-white text-bold">Product farmer</ion-card-title>
-        <ion-card-subtitle class="text-white">Producto-phone</ion-card-subtitle>
+        <ion-card-title class="text-white text-bold">{{product.farmer}}</ion-card-title>
+        <ion-card-subtitle class="text-white">{{product.phone}}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content class="descripcion-card">
         <ion-list>
@@ -27,17 +27,17 @@
               <img src="assets/img/lechuga.jpg" />
             </ion-thumbnail>
             <ion-label>
-              <div class="text-bold text-color-purple">nombre de producto</div>
+              <div class="text-bold text-color-purple">{{product.productName}}</div>
               <!-- <h3>{{product.productName}}</h3> -->
               <ion-grid>
                 <ion-row>
                   <ion-col>
-                    <div class="text-color-purple">product measure</div>
+                    <div class="text-color-purple">{{product.measure}}</div>
                     <!-- <p>product measure</p> -->
                     <!-- <p>{{product.measure}}</p> -->
                   </ion-col>
                   <ion-col class="text-color-purple text-bold" style="text-align: right;">
-                    precio
+                    {{product.price}}
                   </ion-col>
                   <!-- <ion-col style="text-align: right;">
                 {{product.price}}

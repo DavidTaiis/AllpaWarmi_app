@@ -1,26 +1,23 @@
 <ion-content>
 
   <div class="contenedor-search">
-    <div class="contenedor-item-s">
-      <!-- <div>icono + </div> -->
-      <!-- <div>search</div> -->
-      <ion-icon *ngIf="!buscador" class="size-icon" slot="start" src="/assets/iconos/search.svg"></ion-icon>
-      <input *ngIf="!buscador" class="size-items border-search searchInput" type="text" id="inputSearch" [(ngModel)]="searchGoogle"
-        showCancelButton="never" />
+    <div class="size-icon">
+      <ion-icon *ngIf="!buscador" class="icon-lup" src="/assets/iconos/search.svg"></ion-icon>
+    </div>
+    <div class="bar-search">
+      <input *ngIf="!buscador" class="bar-search border-search searchInput" type="text" id="inputSearch"
+        [(ngModel)]="searchGoogle" showCancelButton="never" />
       <input type="hidden" (input)="positionSet = $event.target.value" [(ngModel)]="positionSet">
     </div>
-
-    <div class="contenedor-item-s">
-      <!-- <div>mi chip</div> -->
+    <div class="contenedor-ubicacion">
       <ion-chip *ngIf="!miUbicacion" (click)="mylocation()" class="ubicacion-actual">
-        <ion-label>Mi ubicación actual</ion-label>
+        <ion-label class="text-label">Mi ubicación actual</ion-label>
         <ion-icon name="locate"></ion-icon>
       </ion-chip>
     </div>
   </div>
+  <!--  -->
   <div class="padd-itemmap"></div>
   <div #map class="map"></div>
-
-
 
 </ion-content>

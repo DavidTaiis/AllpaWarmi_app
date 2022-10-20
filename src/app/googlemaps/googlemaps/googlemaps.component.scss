@@ -1,32 +1,71 @@
-.contenedor-search {
+.contenedor-search{
   display: flex;
-  width: 100%;
-  height: 40px;
+  height: 30px;
+  width: 600px;
+}
+  
+.size-icon{
+  width: 35px;
+  height: 35px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 4px;
+  margin-left: 4px;
+  // margin-right: 1px;
+  // padding: 0;
+}
+.icon-lup{
+width: 100%;
+height: 100%;
+margin: 0;
+padding: 0;
 }
 
-.contenedor-item-s {
+.bar-search{
+  width: 250px;
+  height: 30px;
   display: flex;
-  width: 50%;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  padding: 6px 0;
-  margin: 6px 0 6px 0;
+  margin-top: 4px;
+  margin-left: 0;
+  margin-right: 0;
 }
+@media(max-width:375px){
 
-.size-items {
-  height: 40px;
-  width: 300px;
+  .bar-search{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 4px;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
+.contenedor-ubicacion{
+ 
+}
+// .contenedor-item-s {
+//   display: flex;
+//   width: 50%;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 6px 0;
+//   margin: 6px 0 6px 0;
+// }30
+
 
 .border-search {
-  border: 3px;
+  border: 2px;
   border-style: solid;
   border-radius: 20px;
   border-color: var(--warmin-color-orange);
   text-align: center;
 }
+
 
 .map {
   display: block;
@@ -46,6 +85,11 @@
 
 .ubicacion-actual{
   background: var(--warmin-color-yellow);
+ 
+}
+
+.text-label{
+
 }
 // .searchInput {
 //   text-align: center;

@@ -32,16 +32,16 @@
               <img src="assets/img/compra.png" />
             </ion-thumbnail>
             <ion-label>
-              <div class="text-bold text-color-purple">order-seller</div>
+              <div class="text-bold text-color-purple">{{order.seller}}</div>
               <!-- <h3>{{order.seller}}</h3> -->
               <ion-grid>
                 <ion-row>
                   <ion-col>
-                    <div class="text-color-purple">deliver_date</div>
+                    <div class="text-color-purple">{{order.deliver_date}}</div>
                    <!-- <p>{{order.deliver_date}}</p> -->
                   </ion-col>
                   <ion-col class="text-color-purple text-bold" style="text-align: right;">
-                    order.total
+                    {{order.total}}
                   </ion-col>
                   <!-- <ion-badge color="warning" style="color: white;">{{order.total}}</ion-badge> -->
                 </ion-row>
