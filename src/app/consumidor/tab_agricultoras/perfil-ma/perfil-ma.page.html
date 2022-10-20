@@ -5,20 +5,20 @@
       <div class="contenedor-header-config">
         <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/agricultor.svg">
         </ion-icon>
-        <div class="texto-header">Editar perfil</div>
+        <div class="texto-header">Perfil mujer agricultora</div>
       </div>
     </div>
     <!-- Boton Editar Perfil -->
-    <div class="icon-end">
+   <!--  <div class="icon-end">
       <ion-button (click)="onClick()" class="boton-warmi-in">
         <ion-icon slot="icon-only" src="assets/icon/update_date.svg"></ion-icon>
       </ion-button>
-    </div>
+    </div> -->
   </div>
   <!-- Dato 1 -->
   <div class="datos-personales">
     <div class="imagen-buttom">
-      <img class="img-profile" src="assets/img/comprador.jpg" />
+      <img class="img-profile" src="{{foto || 'assets/img/comprador.jpg'}}" />
       <a class="imagen-in-buttom" href="http://">
         <ion-icon slot="start" src="assets/iconos/camera.svg" class="size-icon-camera"></ion-icon>
       </a>
@@ -30,7 +30,7 @@
       </ion-card-header>
       <ion-card-content>
         <div class="text-bold text-color-brown">Id:</div>
-        <div class="text-color-purple">03232323323</div>
+        <div class="text-color-purple">{{identification_card}}</div>
         <!--  -->
         <div class="text-bold text-color-brown">Teléfono:</div>
         <div class="text-color-purple">{{phone}}</div>
@@ -40,9 +40,7 @@
   <!-- Descripcion y start -->
   <div class="padding-profile-desc">
     <div class="contenedor-descripcion">
-      <div class="text-color-purple">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus consequatur
-        consequuntur nobis harum expedita accusantium provident, at perferendis. Eius minima nostrum eum velit
-        necessitatibus adipisci exercitationem soluta ad, quasi, illo veniam. Eius, obcaecati impedit?</div>
+      <div class="text-color-purple">Venta de productos frescos</div>
     </div>
     <div>
       <div class="ion-text-left text-bold text-color-brown">Calificación</div>

@@ -47,4 +47,10 @@ export class LoginServiceService {
     };
     return this.httpClient.get(`${this.url}user/getUser`, httpOptions);
   }
+  updateProfile(formdata: FormData){
+   const httpOptions = {
+      headers: new HttpHeaders({ 'Accept': '*/*' ,'Authorization': 'Bearer '+localStorage.getItem('accessToken')})
+    };
+    return this.httpClient.post(`${this.url}user/updateProfileUser`,formdata, httpOptions);
+  }
 }

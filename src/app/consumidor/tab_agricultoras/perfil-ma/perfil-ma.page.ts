@@ -19,6 +19,8 @@ export class PerfilMaPage implements OnInit {
   name: any;
   phone:any;
   feature:any;
+  foto:any;
+  identification_card:any;
 
   
   public form: FormGroup;
@@ -38,14 +40,17 @@ export class PerfilMaPage implements OnInit {
     this.miUbicacion=true;
 
   }
- 
+
 
   getFarmerId(){
      this.tabAgricultorasService.getFarmerId(this.id)
     .subscribe(  (res) => {
     this.farmer = res;
     this.name = res['name'];
-    this.phone = res['phone']
+      this.phone = res['phone'];
+      this.identification_card = res['idetification_card'];
+      this.foto = res['photo'][0] ? res['photo'][0]['url'] : "";
+    
   },
   response => {
     console.log(response['error']['warning'][0]['value'])

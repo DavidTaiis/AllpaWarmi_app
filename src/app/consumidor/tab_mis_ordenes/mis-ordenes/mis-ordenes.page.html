@@ -13,12 +13,12 @@
     </div>
   </div>
   <div class="ion-padding" style="text-align:center;">
-    <ion-label class="text-color-purple text-bold">Fecha órdenes realizadas:</ion-label>
-    <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
+    <ion-label class="text-color-purple text-bold">Ordenes realizadas:</ion-label>
+   <!--  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button> -->
   </div>
   <!--  -->
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
-    <ion-card class="contenedor-card-p">
+    <ion-card *ngFor="let order of orders" class="contenedor-card-p">
       <!-- <ion-card *ngFor="let order of orders" class="contenedor-card-p"> -->
       <ion-card-header class="encabezado-card">
         <!-- <ion-card-title class="text-white text-bold">Product farmer</ion-card-title> -->
@@ -32,16 +32,16 @@
               <img src="assets/img/compra.png" />
             </ion-thumbnail>
             <ion-label>
-              <div class="text-bold text-color-purple">order-seller</div>
+              <div class="text-bold text-color-purple">{{order.seller}}</div>
               <!-- <h3>{{order.seller}}</h3> -->
               <ion-grid>
                 <ion-row>
                   <ion-col>
-                    <div class="text-color-purple">deliver_date</div>
+                    <div class="text-color-purple">{{order.deliver_date}}</div>
                    <!-- <p>{{order.deliver_date}}</p> -->
                   </ion-col>
                   <ion-col class="text-color-purple text-bold" style="text-align: right;">
-                    order.total
+                    {{order.total}}
                   </ion-col>
                   <!-- <ion-badge color="warning" style="color: white;">{{order.total}}</ion-badge> -->
                 </ion-row>

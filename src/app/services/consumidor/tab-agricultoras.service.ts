@@ -45,14 +45,14 @@ getFarmers(){
 
  }
   addProduct(productCar:ProductCar){
-    
     let arrayProds = JSON.parse(localStorage.getItem('products')) ?? "";
     if(!arrayProds){
       localStorage.setItem('products',JSON.stringify(productCar))
           this.location.back();
 
     }else{
-      if(arrayProds.farmerId === productCar.farmerId){
+      
+    if(arrayProds[0]['farmerId'] === productCar[0]['farmerId']){
     Array.prototype.push.apply(arrayProds,productCar);
     localStorage.setItem('products',JSON.stringify(arrayProds));
     this.location.back();
@@ -63,6 +63,20 @@ getFarmers(){
   }
   }
     
+  }
+  removeItemCar(productCar:ProductCar){
+    const products = JSON.parse(localStorage.getItem('products'));
+    
+    for (let index = 0; index < products.length; index++) {
+    
+      if (productCar['id'] === products[index]['id']) {
+        products.splice(index, 1);
+        localStorage.setItem('products', JSON.stringify(products));
+      }
+      if(products.length < 1){
+        localStorage.removeItem('products');
+      }
+    }
   }
   removeCart(){
     localStorage.setItem('products', "");
@@ -88,10 +102,11 @@ getFarmers(){
     return this.httpClient.get(`${this.url}geolocation/getGeolocationFarmerId/${id}`, this.httpOptions)
   }
 
-  createOrder(idSeller:number, total:any, deliveryDate:any, products:any){
+  createOrder(idSeller:number, total:any,place_delivery:any, deliveryDate:any, products:any){
     let datos ={
       'id_seller' : idSeller,
       'total' : total,
+      'place_delivery': place_delivery,
       'deliver_date' : deliveryDate,
       'products' : products
     };

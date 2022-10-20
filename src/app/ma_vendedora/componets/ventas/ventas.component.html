@@ -1,5 +1,5 @@
 <div class="ion-padding" style="text-align:center;">
-  <ion-label class="text-color-purple text-bold">Selecciona la fecha de entrega:</ion-label>
+  <ion-label class="text-color-purple text-bold">Ventas completadas:</ion-label>
   <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
   <br>
   <ion-button class="boton-warmi-in">Generar reporte</ion-button>
@@ -8,24 +8,15 @@
 <div  *ngFor="let order of orders" class="contenedor-list-ventas" id="contenedor-list-ventas">
   <ion-card *ngIf="order.status === 'Completada'" class="contenedor-card-p">
     <ion-card-header class="encabezado-card">
-      <ion-card-title class="text-white text-bold">Venta Nro 0001</ion-card-title>
+      <ion-card-title class="text-white text-bold">{{order.id}}</ion-card-title>
     </ion-card-header>
     <ion-card-content class="descripcion-card">
 
-      <div class="text-color-purple text-bold">Fecha: 25/09/2022</div>
-      <div class="text-color-purple">Pepito Flores</div>
+      <div class="text-color-purple text-bold">{{order.deliver_date}}</div>
+      <div class="text-color-purple">{{order.client}}</div>
     </ion-card-content>
   </ion-card>
-  <ion-card class="contenedor-card-p">
-    <ion-card-header class="encabezado-card">
-      <ion-card-title class="text-white text-bold">Venta Nro 0002</ion-card-title>
-    </ion-card-header>
-    <ion-card-content class="descripcion-card">
 
-      <div class="text-color-purple text-bold">Fecha: 25/09/2022</div>
-      <div class="text-color-purple">Pepito Flores</div>
-    </ion-card-content>
-  </ion-card>
 
 </div>
 
