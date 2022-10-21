@@ -14,14 +14,14 @@
   </div>
 
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
-    <ion-card class="contenedor-card-p">
+    <ion-card *ngFor="let product of products" class="contenedor-card-p">
       <ion-card-header class="encabezado-card">
         <ion-card-title class="text-white text-bold">{{product.farmer}}</ion-card-title>
         <ion-card-subtitle class="text-white">{{product.phone}}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content class="descripcion-card">
         <ion-list>
-          <ion-item *ngFor="let product of products" lines="none">
+          <ion-item lines="none">
             <!-- <ion-item *ngFor="let product of products"> -->
             <ion-thumbnail slot="start">
               <img src="assets/img/lechuga.jpg" />

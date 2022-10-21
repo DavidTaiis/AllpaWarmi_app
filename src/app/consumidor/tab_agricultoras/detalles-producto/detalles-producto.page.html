@@ -8,7 +8,7 @@
     </div>
   </div>
   <!-- Contenedor Imagen + Descripcion + precio -->
-  <div class="contenedor-producto">
+  <div  *ngFor="let product of products" class="contenedor-producto">
     <div class="imagen-producto"><img src="assets/img/lechuga.jpg" alt=""></div>
     <div class="descripcion-imagen">
       <ion-label class="nombre-producto text-color-brown text-bold">{{productName}}</ion-label>
