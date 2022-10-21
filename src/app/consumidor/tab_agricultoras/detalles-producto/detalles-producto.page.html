@@ -8,7 +8,7 @@
     </div>
   </div>
   <!-- Contenedor Imagen + Descripcion + precio -->
-  <div  *ngFor="let product of products" class="contenedor-producto">
+  <div class="contenedor-producto">
     <div class="imagen-producto"><img src="assets/img/lechuga.jpg" alt=""></div>
     <div class="descripcion-imagen">
       <ion-label class="nombre-producto text-color-brown text-bold">{{productName}}</ion-label>
@@ -40,30 +40,33 @@
   <!-- Diseño de producto pedido factura -->
   <div class="contenedor-compra">
     <div class="size-items-d u-venta">
-      <ion-label>Unidad de venta</ion-label>      
-        <ion-radio-group value="biff">
-          <ion-item lines="none">
-            <div class="text-bold text-color-purple size-letter">{{measure}}</div>
-            <ion-radio style="margin: 2px;" slot="start" value="griff"></ion-radio>
-          </ion-item>
-        </ion-radio-group>
-      
+      <ion-label>Unidad de venta</ion-label>
+      <ion-radio-group value="biff">
+        <ion-item lines="none">
+          <div class="text-bold text-color-purple size-letter">{{measure}}</div>
+          <ion-radio style="margin: 2px;" slot="start" value="griff"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
     </div>
     <!--  -->
     <div class="size-items-d cantidad">
       <ion-label>Cantidad</ion-label>
       <div class="valores-cantidad">
-        <ion-icon (click)="addQuantity()" style="padding: 3px; width: 30px; height: 30px; color: var(--warmin-color-brown);"
-          name="add-circle-outline"></ion-icon>
+        <ion-icon (click)="lessQuantity()"
+          style="padding: 3px; width: 30px; height: 30px; color:var(--warmin-color-brown);"
+          name="remove-circle-outline"></ion-icon>
         <label class="size-letter" style="color: var(--warmin-color-purple); font-weight: bold;" id="quantity">
           {{quantity}} </label>
-        <ion-icon (click)="lessQuantity()" style="padding: 3px; width: 30px; height: 30px; color:var(--warmin-color-brown);"
-          name="remove-circle-outline"></ion-icon>
+        <ion-icon (click)="addQuantity()"
+          style="padding: 3px; width: 30px; height: 30px; color: var(--warmin-color-brown);" name="add-circle-outline">
+        </ion-icon>
+
       </div>
     </div>
     <!--  -->
     <!-- <div class="size-items-d "> -->
-      <div *ngFor="let product of products" class="size-items-d ">
+    <div class="size-items-d ">
       <ion-label>Total</ion-label>
       <div class="total size-letter">
         {{total}}
