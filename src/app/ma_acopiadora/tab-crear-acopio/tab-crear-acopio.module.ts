@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TabCrearAcopioPageRoutingModule } from './tab-crear-acopio-routing.module';
 
 import { TabCrearAcopioPage } from './tab-crear-acopio.page';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+import { GooglemapsModule } from './../../googlemaps/googlemaps/googlemaps.module';
+
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    GooglemapsModule,
     TabCrearAcopioPageRoutingModule
   ],
   declarations: [TabCrearAcopioPage]

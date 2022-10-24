@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
+import { AcopiadoraService } from 'src/app/services/ma_acopiadora/acopiadora.service';
+
 
 @Component({
   selector: 'app-tab-inicio',
@@ -7,12 +8,18 @@ import { MapasService } from 'src/app/services/mapas.service';
   styleUrls: ['./tab-inicio.page.scss'],
 })
 export class TabInicioPage implements OnInit {
-
-  constructor(public Mapa:MapasService) { }
+  feature:any = [];
+  modal:any;
+  constructor(private acopioServices: AcopiadoraService) { }
 
   ngOnInit() {
-  }
-  async ngAfterViewInit(){
-    this.Mapa.createMap();
-  }
+    this.getAcopios();
+    this.modal = "Acopio";
+}
+
+getAcopios(){
+this.acopioServices.getAcopios().subscribe(res => {
+  this.feature = res;
+})
+}
 }

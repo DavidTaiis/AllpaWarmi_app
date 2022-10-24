@@ -109,7 +109,11 @@ const routes: Routes = [
   {
     path: 'update-profile',
     loadChildren: () => import('./login/update-profile/update-profile.module').then( m => m.UpdateProfilePageModule)
+  },  {
+    path: 'acopio-modal',
+    loadChildren: () => import('./ma_acopiadora/modals/acopio-modal/acopio-modal.module').then( m => m.AcopioModalPageModule)
   },
+
   
 ];
 

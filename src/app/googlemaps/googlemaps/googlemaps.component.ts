@@ -7,6 +7,7 @@ import { ModalHuertoVentaPage } from './../../consumidor/tab_agricultoras/modal-
 import { ModalCamionetaPage} from './../../ma_vendedora/modals/modal-camioneta/modal-camioneta.page';
 import { ModalNoticiasPage} from './../../ma_vendedora/modals/modal-noticias/modal-noticias.page';
 import { ModalNotificacionesPage } from 'src/app/ma_vendedora/modals/modal-notificaciones/modal-notificaciones.page';
+import { AcopioModalPage} from './../../ma_acopiadora/modals/acopio-modal/acopio-modal.page';
 
 declare var google: any;
 
@@ -205,6 +206,24 @@ initMap() {
                       description: this.feature[i].description,
                       type: this.feature[i].type,
                       id: this.feature[i].id,
+                      name : this.feature[i].name,
+                     }
+                });
+                await modal.present();
+                });
+
+                break;
+                case "Acopio":
+                  marker.addListener("click",async () => {
+                    const modal = await this.modalCtrl.create({
+                    component: AcopioModalPage,
+                    breakpoints: [0, 0.3, 0.5, 0.8],
+                    initialBreakpoint: 0.5,
+                    cssClass: 'custom-modal',
+                    componentProps: {
+                      description: this.feature[i].description,
+                      days: this.feature[i].days,
+                      hours: this.feature[i].hours,
                       name : this.feature[i].name,
                      }
                 });

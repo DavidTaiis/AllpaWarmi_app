@@ -1,9 +1,3 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Geolocalizacion</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <div class="border-top-page">
     <!-- Contenedor 1 -->
@@ -15,18 +9,119 @@
     <!-- Contenedor 2 -->
     <div class="contenedor-title">
       <div>
-        <h4 class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación de la
-          asociación</h4>
+        <h4 class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación del centro de acopio</h4>
       </div>
     </div>
   </div>
   <!-- <ion-item-divider style="text-align: center; color: black;">
-    <h4>Indica en el mapa la ubicación de la asociación</h4>
-  </ion-item-divider> -->
-  <ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
-  <ion-card class="map">
-    <capacitor-google-maps id="map"></capacitor-google-maps>
+  <h4>Indica en el mapa la ubicación de la asociación</h4>
+</ion-item-divider> -->
+  <ion-card style="width: 97%; height: 70%;">
+    <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
   </ion-card>
-  <ion-button class="ion-padding boton-azul" expand="block" (click)="continuar()">  &nbsp; &nbsp;Continuar</ion-button>
+  <ion-button class="boton-warmi-in" id="open-modal" expand="block">Continuar</ion-button>
+  
+  <!-- Modal -->
+
+  <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+        
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Cancelar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      
+      <div class="border-top-page">
+        <!-- Contenedor 1 -->
+        <div class="contenedor-header">
+          <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/store.svg">
+          </ion-icon>
+          <div class="texto-header">Asociación</div>
+        </div>
+      </div>
+      <ion-content>
+          <br>
+          <h4 class="text-center size-text35px text-bold text-color-purple">Ingresa los datos requeridos</h4>
+          <form>
+        <ion-list>
+          <ion-card>  
+            <ion-item>
+              <ion-label position="stacked">Nombre del centro de acopio</ion-label>
+              <ion-input [(ngModel)]="name" name="name"></ion-input>
+            </ion-item>
+          <ion-card>
+           
+            <ion-list class="items">
+              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Descripción
+              </ion-label>
+              <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
+            </ion-list>
+          </ion-card>
+          <ion-card>
+            <ion-list class="items">
+              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Días
+              </ion-label>
+              <ion-select mode="ios" [multiple]="true" interface="popover" placeholder="Seleccione..."
+                [(ngModel)]="days" [ngModelOptions]="{standalone: true}">
+                <ion-select-option value="Lunes">Lunes</ion-select-option>
+                <ion-select-option value="Martes">Martes</ion-select-option>
+                <ion-select-option value="Miércoles">Miércoles</ion-select-option>
+                <ion-select-option value="Jueves">Jueves</ion-select-option>
+                <ion-select-option value="Viernes">Viernes</ion-select-option>
+                <ion-select-option value="Sábado">Sábado</ion-select-option>
+                <ion-select-option value="Domingo">Domingo</ion-select-option>
+              </ion-select>
+            </ion-list>
+          </ion-card>
+          <ion-card>
+            <ion-list class="items">
+              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Hora inicio
+              </ion-label>
+              <ion-select mode="ios" interface="popover" placeholder="Seleccione..."
+                [(ngModel)]="horaInicio" [ngModelOptions]="{standalone: true}">
+                <ion-select-option value="08:00">08:00</ion-select-option>
+                <ion-select-option value="09:00">09:00</ion-select-option>
+                <ion-select-option value="10:00">10:00</ion-select-option>
+                <ion-select-option value="11:00">11:00</ion-select-option>
+                <ion-select-option value="12:00">12:00</ion-select-option>
+                <ion-select-option value="13:00">13:00</ion-select-option>
+                <ion-select-option value="14:00">14:00</ion-select-option>
+                <ion-select-option value="15:00">15:00</ion-select-option>
+                <ion-select-option value="16:00">16:00</ion-select-option>
+                <ion-select-option value="17:00">17:00</ion-select-option>
+              </ion-select>
+            </ion-list>
+          </ion-card>
+          <ion-card>
+            <ion-list class="items">
+              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Hora fin
+              </ion-label>
+              <ion-select mode="ios" interface="popover" placeholder="Seleccione..."
+                [(ngModel)]="horaFin" [ngModelOptions]="{standalone: true}">
+                <ion-select-option value="08:00">08:00</ion-select-option>
+                <ion-select-option value="09:00">09:00</ion-select-option>
+                <ion-select-option value="10:00">10:00</ion-select-option>
+                <ion-select-option value="11:00">11:00</ion-select-option>
+                <ion-select-option value="12:00">12:00</ion-select-option>
+                <ion-select-option value="13:00">13:00</ion-select-option>
+                <ion-select-option value="14:00">14:00</ion-select-option>
+                <ion-select-option value="15:00">15:00</ion-select-option>
+                <ion-select-option value="16:00">16:00</ion-select-option>
+                <ion-select-option value="17:00">17:00</ion-select-option>
+              </ion-select>
+            </ion-list>
+          </ion-card>
+          </ion-card>
+
+        </ion-list>
+          <ion-button type="submit" expand="block" class="boton-warmi-in" (click)="addAcopio()"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Guardar</ion-button>
+      </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 
 </ion-content>
+

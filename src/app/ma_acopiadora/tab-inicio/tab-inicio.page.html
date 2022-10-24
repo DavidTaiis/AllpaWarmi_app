@@ -1,21 +1,23 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Centros de acopio</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <div class="border-top-page">
     <!-- Contenedor 1 -->
     <div class="contenedor-header">
       <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
-      </ion-icon>
-      <div class="texto-header">Centros de acopi</div>
+      </ion-icon>      
+      <div class="texto-header">Ubicación centros de acopio</div>
+    </div>
+    <!-- Contenedor 2 -->
+    <div class="contenedor-title">
+      <div>
+        <h4 class="text-center size-text35px text-bold text-color-purple">Ubicación  de punto de los centros de acopio</h4>
+      </div>
     </div>
   </div>
-  <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar>
-  <ion-card class="map">
-    <capacitor-google-maps id="map"></capacitor-google-maps>
-  </ion-card>
-  
+<!-- 
+  <ion-item-divider style="text-align: center; color: black;">
+    <h4>Ubicación  de punto de venta de vendoras</h4>
+  </ion-item-divider> -->
+<ion-card style="width: 97%; height: 83%;">
+  <app-googlemaps [modal]="modal" [feature] = "feature"></app-googlemaps>
+</ion-card>
 </ion-content>

@@ -1,50 +1,91 @@
 <!-- <ion-header>
   <ion-toolbar>
-    <ion-title>Crear centro acopio</ion-title>
+    <ion-title>Editar Invitación</ion-title>
   </ion-toolbar>
-</ion-header>
- -->
-
-<ion-content>
+</ion-header> -->
+<ion-content >
   <div class="border-top-page">
     <!-- Contenedor 1 -->
     <div class="contenedor-header">
       <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
       </ion-icon>
-      <div class="texto-header">Crear centro de acopio</div>
-    </div>
-    <!-- Contenedor 2
-    <div class="contenedor-title">
-      <div>
-        <h4 class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación de la
-          asociación</h4>
-      </div>
-    </div> -->
+      <div class="texto-header">Editar centro de acopio</div>
+    </div>    
   </div>
-
-  <ion-card style="height: 105%; width: 95%;">
+  <ion-card>  
     <ion-item>
-      <ion-label position="stacked">Nombre del centro</ion-label>
-      <ion-input></ion-input>
+      <ion-label position="stacked">Nombre del centro de acopio</ion-label>
+      <ion-input [(ngModel)]="name" name="name"></ion-input>
     </ion-item>
-    <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar>
-  <ion-card class="map">
-    <capacitor-google-maps id="map"></capacitor-google-maps>
+  <ion-card>
+   
+    <ion-list class="items">
+      <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Descripción
+      </ion-label>
+      <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
+    </ion-list>
   </ion-card>
   <ion-card>
-    <ion-item>
-      <ion-label position="stacked">Descripción</ion-label>
-      <ion-textarea></ion-textarea>
-    </ion-item>
+    <ion-list class="items">
+      <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Días
+      </ion-label>
+      <ion-select placeholder = "{{days}}" mode="ios" [multiple]="true" interface="popover" placeholder="Seleccione..."
+        [(ngModel)]="days" name="days">
+        <ion-select-option value="Lunes">Lunes</ion-select-option>
+        <ion-select-option value="Martes">Martes</ion-select-option>
+        <ion-select-option value="Miércoles">Miércoles</ion-select-option>
+        <ion-select-option value="Jueves">Jueves</ion-select-option>
+        <ion-select-option value="Viernes">Viernes</ion-select-option>
+        <ion-select-option value="Sábado">Sábado</ion-select-option>
+        <ion-select-option value="Domingo">Domingo</ion-select-option>
+      </ion-select>
+    </ion-list>
   </ion-card>
-  <ion-item>
-    <ion-label position="stacked">Días de funcionamiento</ion-label>
-    <ion-input>Martes, Miercoles, Jueves</ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Horario de atención</ion-label>
-    <ion-input>9:00 a 18:00</ion-input>
-  </ion-item>
-  <ion-button class="ion-margin" expand="full" color="primary">Crear centro de acopio</ion-button>
+  <ion-card>
+    <ion-list class="items">
+      <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Hora inicio
+      </ion-label>
+      <ion-select mode="ios" interface="popover" placeholder="{{horaInicio}}"
+        [(ngModel)]="horaInicio" [ngModelOptions]="{standalone: true}">
+        <ion-select-option value="08:00">08:00</ion-select-option>
+        <ion-select-option value="09:00">09:00</ion-select-option>
+        <ion-select-option value="10:00">10:00</ion-select-option>
+        <ion-select-option value="11:00">11:00</ion-select-option>
+        <ion-select-option value="12:00">12:00</ion-select-option>
+        <ion-select-option value="13:00">13:00</ion-select-option>
+        <ion-select-option value="14:00">14:00</ion-select-option>
+        <ion-select-option value="15:00">15:00</ion-select-option>
+        <ion-select-option value="16:00">16:00</ion-select-option>
+        <ion-select-option value="17:00">17:00</ion-select-option>
+      </ion-select>
+    </ion-list>
   </ion-card>
-  </ion-content>
+  <ion-card>
+    <ion-list class="items">
+      <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Hora fin
+      </ion-label>
+      <ion-select mode="ios" interface="popover" placeholder="{{horaFin}}."
+        [(ngModel)]="horaFin" [ngModelOptions]="{standalone: true}">
+        <ion-select-option value="08:00">08:00</ion-select-option>
+        <ion-select-option value="09:00">09:00</ion-select-option>
+        <ion-select-option value="10:00">10:00</ion-select-option>
+        <ion-select-option value="11:00">11:00</ion-select-option>
+        <ion-select-option value="12:00">12:00</ion-select-option>
+        <ion-select-option value="13:00">13:00</ion-select-option>
+        <ion-select-option value="14:00">14:00</ion-select-option>
+        <ion-select-option value="15:00">15:00</ion-select-option>
+        <ion-select-option value="16:00">16:00</ion-select-option>
+        <ion-select-option value="17:00">17:00</ion-select-option>
+      </ion-select>
+    </ion-list>
+  </ion-card>
+  </ion-card>
+<ion-card style="width: 97%; height: 40%;">
+  <app-googlemaps [posicionEdit]="posicionEdit" [localizacion]="localizacion" (enviar)="recibirData($event)" [feature]="feature"></app-googlemaps>
+</ion-card>
+
+<ion-button expand="block" class="boton-warmi-in" (click)="addAsociation()"><ion-icon></ion-icon> &nbsp; &nbsp;Guardar</ion-button>
+        
+  
+</ion-content>
+
