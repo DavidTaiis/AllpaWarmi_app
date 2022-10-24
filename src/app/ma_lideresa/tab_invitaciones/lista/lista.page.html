@@ -14,62 +14,30 @@
     <!-- Contenedor 2 -->
     <div class="contenedor-title">
       <div>
-        <h4 class="text-center size-text35px text-bold text-color-purple">Asociación de Mujeres "A"</h4>
+        <ion-button type="submit" class="boton-warmi-in" [routerLink]="['/ma_lideresa/menu/editar-invitacion']"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Editar</ion-button>
+        
+        <h4 class="text-center size-text35px text-bold text-color-purple">{{name}}</h4>
+    
       </div>
+   
     </div>
   </div>
 
   <div class="contenedor-lista">
     <div class="lista-ventajas">
       <div class=" text-color-purple text-bold ventajas">Ventajas</div>
-      <div class="text-color-purple">1. Lorem ipsum dolor sit amet.</div>
-      <div class="text-color-purple">2. Lorem ipsum dolor sit amet.</div>
-      <div class="text-color-purple">3. Lorem ipsum dolor sit amet.</div>
-      <div class="text-color-purple">4. Lorem ipsum dolor sit amet.</div>
-      <div class="text-color-purple">5. Lorem ipsum dolor sit amet.</div>
+      <div class="text-color-purple">{{advantages}}</div>
+    
     </div>
     <div class="lista-reglas">
       <div class="text-color-purple text-bold reglas">Reglas</div>
-      <div class="text-color-purple">1. Lorem ipsum dolor sit amet ipsum dolor sit amet.</div>
-      <div class="text-color-purple">2. Lorem ipsum dolor sit amet.</div>
-      <div class="text-color-purple">3. Lorem ipsum dolor sit amet.</div>
-      <div class="text-color-purple">4. Lorem ipsum dolor sit amet.</div>
-      <div class="text-color-purple">5. Lorem ipsum dolor sit amet.</div>
+      <div class="text-color-purple">{{rules}}</div>
+
     </div>
   </div>
 
-  <!-- <ion-card class="invitacion">
-  <h4 class="ion-text-center" style="color:black">Asociacion Mujeres A</h4>
-</ion-card> -->
-  <!-- 
-<ion-card>
-  <ion-card-title class="title">
-    Ventajas
-  </ion-card-title>
-  <ion-list class="items">
-      <ion-label>
-        <p>Vender en diferentes puntos</p>
-      </ion-label>
-      <ion-label>
-        <p>Tranporte</p>
-      </ion-label>
-      <ion-label>
-        <p>Protección</p>
-      </ion-label>
-  </ion-list>
+<ion-card style="width: 97%; height: 60%;">
+  <app-googlemaps [posicionEdit]="posicionEdit" [buscador]="buscador" [miUbicacion]="miUbicacion" [feature]="feature"></app-googlemaps>
 </ion-card>
-<ion-card>
-  <ion-card-title class="title">
-    Reglas
-  </ion-card-title>
-  <ion-textarea>
-    Regla 1
-    Regla 2
-    Regla 3
-  </ion-textarea>
-</ion-card> -->
-<div></div>
-  <ion-card class="map">
-    <capacitor-google-maps id="map"></capacitor-google-maps>
-  </ion-card>
+
 </ion-content>

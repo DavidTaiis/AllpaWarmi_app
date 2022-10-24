@@ -8,6 +8,8 @@ import { GeolocalizacionPageRoutingModule } from './geolocalizacion-routing.modu
 
 import { GeolocalizacionPage } from './geolocalizacion.page';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { GooglemapsModule } from './../../googlemaps/googlemaps/googlemaps.module';
+
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -15,7 +17,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    GeolocalizacionPageRoutingModule
+    GeolocalizacionPageRoutingModule,
+    GooglemapsModule
   ],
   declarations: [GeolocalizacionPage]
 })

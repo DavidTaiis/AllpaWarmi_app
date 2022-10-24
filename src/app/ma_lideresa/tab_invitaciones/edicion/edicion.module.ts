@@ -4,14 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { EdicionPageRoutingModule } from './edicion-routing.module';
 import { EdicionPage } from './edicion.page';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { GooglemapsModule } from './../../../googlemaps/googlemaps/googlemaps.module';
+
 
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    GooglemapsModule,
     EdicionPageRoutingModule
   ],
   declarations: [EdicionPage]

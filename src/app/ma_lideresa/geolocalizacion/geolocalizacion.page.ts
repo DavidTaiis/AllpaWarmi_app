@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { GoogleMap } from '@capacitor/google-maps';
-import { environment } from 'src/environments/environment';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
+import { LiderezaService } from 'src/app/services/ma_lidereza/lidereza.service';
 
 @Component({
   selector: 'app-geolocalizacion',
@@ -10,32 +9,35 @@ import { NavController } from '@ionic/angular';
 })
 export class GeolocalizacionPage implements OnInit {
 
-  @ViewChild('map')
-  mapRef: ElementRef<HTMLElement>;
-  newMap: GoogleMap;
-
-  constructor(private navCtrl: NavController) { }
+  localizacion:any;
+  puntoSelect:any;
+  type:any = "Asociacion";
+  description:any = "";
+  rules:any = "";
+  name:any = "";
+  advantages:any = "";
+  constructor(private liderezaService:LiderezaService, private alertController: AlertController,private navCtrl: NavController) { }
 
   ngOnInit() {
+    this.localizacion = true;
   }
   ngAfterViewInit(){
-    this.createMap();
+ 
   }
-  async createMap() {
-    this.newMap = await GoogleMap.create({
-      id: 'capacitor-google-maps',
-      element: this.mapRef.nativeElement,
-      apiKey: environment.google_maps_api_key,
-      config: {
-        center: {
-          lat: -2.8990419855354235, 
-          lng: -79.00755362380936,
-        },
-        zoom: 14,
-      },
-    });
+
+  recibirData(positionSet:any){
+    this.puntoSelect = positionSet;
   }
-  continuar(){
-    this.navCtrl.navigateForward("/ma_lideresa/menu/inicio")
+
+  guardarAsociacion(){
+  const formData = new FormData();
+  formData.append('name',this.name);
+  formData.append('advantages', this.advantages);
+  formData.append('rules', this.rules);
+  formData.append('lat',this.puntoSelect.lat);
+  formData.append('lng',this.puntoSelect.lng);
+  this.liderezaService.updateAsociation(formData).subscribe(res => {
+    location.href= '/ma_lideresa/menu/inicio';
+  })
   }
 }

@@ -18,22 +18,29 @@ export class InicioPage implements OnInit {
   selectAgricultora: boolean = false;
   selectConductor: boolean = false;
   accessToken:any;
+  rol:any;
   constructor(public menu : MenuController,private navCtrl: NavController, private loginService: LoginServiceService) {
     this.menu.enable(false);
       this.menu.swipeGesture(false)
+      this.rol = localStorage.getItem('rol');
       if(localStorage.getItem('accessToken')){
         this.loginService.getUser().subscribe( res => {
-          switch (res['role']) {
-            case 'Consumidor':
-              location.href = 'consumidor/tab-inicial/inicio';
-              break;
-            case 'Vendedora':
-              location.href = 'ma_vendedora/menu/inicio';
-            default:
-              break;
+          for (let index = 0; index < res['role'].length; index++) {
+            if(this.rol === res['role'][index].name){
+              switch (this.rol) {
+                case 'Consumidor':
+                  location.href = 'consumidor/tab-inicial/inicio';
+                  break;
+                case 'Vendedora':
+                  location.href = 'ma_vendedora/menu/inicio';
+                  break;
+                case 'Lidereza':
+                  location.href = 'ma_lideresa/menu/inicio';
+                  break;
+              }           
+            }      
           }
-        })
-        
+        });   
       }
    }
 
@@ -54,6 +61,7 @@ export class InicioPage implements OnInit {
         this.accesToken = val['accessToken'];
         localStorage.setItem('accessToken',this.accesToken)
         location.href = 'consumidor/geolocalizacion-domicilio';
+        localStorage.setItem('rol', this.tipoUsuario)
 
       },
       response => {
@@ -69,16 +77,20 @@ export class InicioPage implements OnInit {
           case 'Lidereza':
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
+            localStorage.setItem('rol', this.tipoAgricultora)
             location.href = 'ma_lideresa/geolocalizacion';
+
             break;
           case 'Acopiadora':
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
+            localStorage.setItem('rol', this.tipoAgricultora)
             location.href = '/ma_acopiadora/geolocalizacion';
             break;
           case 'Vendedora':
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
+            localStorage.setItem('rol', this.tipoAgricultora)
             location.href = '/ma_vendedora/geolocalizacion-huerto';
             break;
          }
@@ -97,17 +109,20 @@ export class InicioPage implements OnInit {
             case 'Bus':
               this.accesToken = val['accessToken'];
               localStorage.setItem('accessToken',this.accesToken)
-              location.href = '/c_bus/menu/inicio';
+            localStorage.setItem('rol', this.tipoConductor)
+            location.href = '/c_bus/menu/inicio';
             break;
             case 'Camioneta':
               this.accesToken = val['accessToken'];
               localStorage.setItem('accessToken',this.accesToken)
-              location.href = '/c_camioneta/geolocalizacion';
+            localStorage.setItem('rol', this.tipoConductor)
+            location.href = '/c_camioneta/geolocalizacion';
               break;
             case 'Privado':
               this.accesToken = val['accessToken'];
               localStorage.setItem('accessToken',this.accesToken)
-              location.href = '/c_privado/geolocalizacion-salida';
+            localStorage.setItem('rol', this.tipoConductor)
+            location.href = '/c_privado/geolocalizacion-salida';
               break;
             }
         },

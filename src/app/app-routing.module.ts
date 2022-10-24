@@ -105,11 +105,11 @@ const routes: Routes = [
   {
     path: 'detalles-venta',
     loadChildren: () => import('./ma_vendedora/tab_notificaciones/detalles-venta/detalles-venta.module').then( m => m.DetallesVentaPageModule)
-  },  {
+  },
+  {
     path: 'update-profile',
     loadChildren: () => import('./login/update-profile/update-profile.module').then( m => m.UpdateProfilePageModule)
   },
-
   
 ];
 

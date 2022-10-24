@@ -16,32 +16,29 @@
 <ion-card>  
   <ion-item>
     <ion-label position="stacked">Nombre de la asociación</ion-label>
-    <ion-input>Asociacion Mujeres A</ion-input>
+    <ion-input [(ngModel)]="name" name="name">{{name}}</ion-input>
   </ion-item>
 <ion-card>
   <ion-card-title class="title">
     Ventajas
   </ion-card-title>
-  <ion-list class="items">
-    <ion-textarea></ion-textarea>
-  </ion-list>
+  
+    <ion-textarea [(ngModel)]="advantages" name="advantages" value="{{advantages}}"></ion-textarea>
+
 </ion-card>
 <ion-card>
   <ion-card-title class="title">
     Reglas
   </ion-card-title>
-  <ion-list class="items">
-    <ion-textarea></ion-textarea>
-  </ion-list>
+     <ion-textarea [(ngModel)]="rules" name="rules" value="{{rules}}"></ion-textarea>
 </ion-card>
 </ion-card>
-<ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
-<ion-card class="map">
-  <capacitor-google-maps id="map"></capacitor-google-maps>
+<ion-card style="width: 97%; height: 40%;">
+  <app-googlemaps [posicionEdit]="posicionEdit" [localizacion]="localizacion" (enviar)="recibirData($event)" [feature]="feature"></app-googlemaps>
 </ion-card>
-<div class="action-button">
-  <ion-button type="submit" size="large" class="actualizar-button" fill="outline">Actualizar</ion-button>
-</div>
+
+<ion-button expand="block" class="boton-warmi-in" (click)="addAsociation()"><ion-icon></ion-icon> &nbsp; &nbsp;Ordenar</ion-button>
+        
   
 </ion-content>
 

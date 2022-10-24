@@ -14,6 +14,7 @@ export class ModalHuertoVentaPage implements OnInit {
   @Input() type:any;
   @Input() id:any;
   @Input() users_id:any;
+  rol:any = localStorage.getItem('rol');
   
   constructor(private router:Router,private modalCtrl: ModalController) { }
 
@@ -21,8 +22,17 @@ export class ModalHuertoVentaPage implements OnInit {
   }
 
   viewProfile(){
-    this.router.navigate(['/consumidor/tab-inicial/perfil-ma', this.users_id]);
-    this.modalCtrl.dismiss();
+    switch(this.rol){
+      case 'Consumidor':
+        this.router.navigate(['/consumidor/tab-inicial/perfil-ma', this.users_id]);
+        this.modalCtrl.dismiss();
+        break;
+      case 'Lidereza':
+        this.router.navigate(['/ma_lideresa/menu/inicio/perfilma/', this.users_id]);
+        this.modalCtrl.dismiss();
+    }
+
+   
   }
 
   

@@ -2,81 +2,26 @@
   <div class="border-top-page">
     <!-- Contenedor 1 -->
     <div class="contenedor-header">
-      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/iconos/agricultores.svg">
       </ion-icon>
       <div class="texto-header">Agricultoras</div>
     </div>
   </div>
-  <div class="container-search-bar" style="margin: 20px 0 0 0;">
-    <ion-searchbar placeholder="Buscar" class="search-bar-orange size-search-bar" showCancelButton="never"></ion-searchbar>
-</div>
+  <!--Search Bar  -->
+  <div class="container-search-bar padding-bar">
 
-  <ion-grid>
-    <ion-row>
-      <!-- Pendiente se puede usa la page de lista de agricultoras del consumidor -->
-      <ion-col>
-        <div>
-          <ion-card class="lista-agricultoras">
-            <img src="assets/img/mujer.webp" />
-            <ion-card-header>
-              <ion-card-title class="text-white">María Perez</ion-card-title>
-              <ion-card-subtitle class="text-white">099335589</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              Dirección
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-      <!--  -->
-      <ion-col>
-        <div>
-          <ion-card class="lista-agricultoras">
-            <img src="assets/img/MujerAgricultora1.webp" />
-            <ion-card-header>
-              <ion-card-title>Lorena Arce</ion-card-title>
-              <ion-card-subtitle class="color-principal">0993335589</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              Dirección
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
-    <!--  -->
-    <ion-row>
-      <ion-col>
-        <div>
-          <ion-card class="lista-agricultoras">
-            <img src="assets/img/mujer.webp" />
-            <ion-card-header>
-              <ion-card-title>María Perez</ion-card-title>
-              <ion-card-subtitle class="color-principal">099335589</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              Dirección
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div>
-          <ion-card class="lista-agricultoras">
-            <img src="assets/img/MujerAgricultora1.webp" />
-            <ion-card-header>
-              <ion-card-title>Lorena Arce</ion-card-title>
-              <ion-card-subtitle class="color-principal">0993335589</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              Dirección
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-button class="boton-warmi-in" expand="block">
-    <ion-icon name="chatbox-outline" ></ion-icon> &nbsp; &nbsp;Enviar invitación
-  </ion-button>
+  </div>
+  <!-- Lista Personas -->
+  <div class="contenedor-personas">
+    <div *ngFor="let farmer of listFarmers" class="card" [routerLink]="['/ma_lideresa/menu/inicio/perfilma/',farmer.id]">
+      <div>
+        <img class="imagen-card" src="assets/img/MujerAgricultora1.webp" />
+      </div>
+      <div  class="detalle-personal">
+        <div class="texto-personal text-bold text-color-purple">{{farmer.name}}</div>
+        <div class="texto-personal text-color-purple">{{farmer.phone}}</div>
+        <div class="texto-personal text-color-purple">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit explicabo laborum a obcaecati, repellendus sunt!</div>
+      </div>
+    </div>  
+  </div>
 </ion-content>

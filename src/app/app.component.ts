@@ -46,7 +46,10 @@ export class AppComponent {
         break;
       case "Vendedora":
         location.href = '/ma_vendedora/geolocalizacion-huerto';
-     
+
+      case "Lidereza":
+        location.href = '/ma_vendedora/geolocalizacion-huerto';
+       
         break;
     }
   }

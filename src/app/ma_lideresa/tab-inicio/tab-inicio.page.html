@@ -17,12 +17,7 @@
   <ion-item-divider style="text-align: center; color: black;">
     <h4>Ubicación  de punto de venta de vendoras</h4>
   </ion-item-divider> -->
-<div class="container-search-bar">  
-    <ion-searchbar class="search-bar-orange size-search-bar" placeholder="Buscar" showCancelButton="never"></ion-searchbar>  
-</div>
-  
-
-  <ion-card class="map">
-  <capacitor-google-maps id="map"></capacitor-google-maps>
+<ion-card style="width: 97%; height: 83%;">
+  <app-googlemaps [modal]="modal" [feature] = "feature"></app-googlemaps>
 </ion-card>
 </ion-content>

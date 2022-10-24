@@ -10,7 +10,17 @@ const routes: Routes = [
     children:[
       {
         path: 'inicio',
-        loadChildren: () => import('./../../ma_lideresa/tab-inicio/tab-inicio.module').then( m => m.TabInicioPageModule)
+        children: [
+          {
+          path: "",
+          loadChildren: () => import('./../../ma_lideresa/tab-inicio/tab-inicio.module').then( m => m.TabInicioPageModule)
+          },
+          {     
+              path: 'perfilma/:id',
+              loadChildren: () => import('./../../ma_lideresa/tab-inicio/perfilma/perfilma.module').then( m => m.PerfilmaPageModule)
+          }
+        ]
+       
       },
       {
         path: 'agricultoras',
@@ -29,7 +39,7 @@ const routes: Routes = [
         loadChildren: () => import('../tab_invitaciones/edicion/edicion.module').then( m => m.EdicionPageModule)
       },
       {
-        path: 'notificaciones',
+        path: 'notificacion',
         loadChildren: () => import('../tab_notificaciones/lista/lista.module').then( m => m.ListaPageModule)
       },
       {

@@ -26,7 +26,7 @@ export class GooglemapsComponent implements OnInit {
       @Input() localizacion: any;
       @Input() buscador:boolean;
       @Input() miUbicacion:boolean; 
-
+      @Input() posicionEdit:any;
        @Input() position = {  
         lat: -2.8972460110737996, 
         lng: -79.00628607009091
@@ -67,9 +67,11 @@ export class GooglemapsComponent implements OnInit {
 
 
 initMap() {
-
-    const position = this.position;
-
+  let position = this.position;
+  if(this.posicionEdit){
+   position = this.posicionEdit;
+  }
+  
     let latLng = new google.maps.LatLng(position.lat, position.lng);
 
     let mapOptions = {
@@ -100,7 +102,8 @@ initMap() {
  
 
     /* Buscador */
-    const input = document.getElementById("inputSearch") as HTMLInputElement;
+   
+      const input = document.getElementById("inputSearch") as HTMLInputElement;
       const search = new google.maps.places.Autocomplete(input);
       search.bindTo("bounds", mapa)
 
@@ -118,6 +121,8 @@ initMap() {
           mapa.setZoom(18);
         }
       });
+    
+ 
 
 }
 

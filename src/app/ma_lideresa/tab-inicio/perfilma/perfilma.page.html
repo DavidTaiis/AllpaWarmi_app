@@ -1,0 +1,59 @@
+
+<ion-content>
+  <div class="border-top-page">
+    <div class="contenedor-header-icon">
+      <!-- Contenedor 1 -->
+      <div class="contenedor-header-config">
+        <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/agricultor.svg">
+        </ion-icon>
+        <div class="texto-header">Perfil mujer agricultora</div>
+      </div>
+    </div>
+  </div>
+  <div class="datos-personales">
+    <div class="imagen-buttom">
+      <img class="img-profile" src="{{foto || 'assets/img/comprador.jpg'}}" />
+      <a class="imagen-in-buttom" href="http://">
+        <ion-icon slot="start" src="assets/iconos/camera.svg" class="size-icon-camera"></ion-icon>
+      </a>
+    </div>
+    <div>
+      <ion-card-header>
+        <ion-card-title class="text-color-purple text-bold"> {{name}}</ion-card-title>
+        <ion-card-subtitle>Venta de productos frescos</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="text-bold text-color-brown">Id:</div>
+        <div class="text-color-purple">{{identification_card}}</div>
+        <!--  -->
+        <div class="text-bold text-color-brown">Teléfono:</div>
+        <div class="text-color-purple">{{phone}}</div>
+      </ion-card-content>
+    </div>
+  </div>
+  <!-- Descripcion y start -->
+  <div class="padding-profile-desc">
+    <div class="contenedor-descripcion">
+      <div class="text-color-purple">Venta de productos frescos</div>
+    </div>
+    <div>
+      <div class="ion-text-left text-bold text-color-brown">Calificación</div>
+      <div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contenedor-title">
+    <div>       
+      <h4 class="text-center size-text35px text-bold text-color-purple">Productos</h4>
+    </div>
+  </div>
+  <ion-list *ngFor="let product of products">
+    <ion-item>
+      <ion-chip slot="end">{{product.price}}</ion-chip>
+      <ion-label>{{product.product}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button class="boton-warmi-in" expand="block" (click)="sendInvitation()"><ion-icon name="chatbox-ellipses-outline"></ion-icon> &nbsp; &nbsp;Enviar invitación</ion-button>
+
+</ion-content>

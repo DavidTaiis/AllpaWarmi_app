@@ -29,6 +29,33 @@ selectConductor: boolean = false;
   ngOnInit() {
   }
 
+  async terminos(){
+    const alert = await this.alertController.create({
+      header:'Terminos y condiciones',
+      
+      subHeader: 'Al aceptar los terminos y condiciones sus nombres y datos ingresados serán de conocimiento público, los cuales serán visualizados por todos los usuarios de la aplicacion móvil ',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+           
+          },
+        },
+        {
+          text: 'Confirmar',
+          role: 'confirm',
+          handler: () => {
+          this.register();
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
+    
+  }
+
   async register(){
     switch(this.role){
       case "Consumidor":
