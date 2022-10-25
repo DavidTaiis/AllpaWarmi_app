@@ -81,6 +81,7 @@ export class CarritoPage implements OnInit {
     return this.tabAgricultorasServices.createOrder(idSeller,this.total,this.place_delivery,this.deliverDate,this.data)
       .subscribe( async (res) => {
         const alert = await this.alertController.create({
+          cssClass:'app-alert',
           header: '¡Exito!',
           message: 'Orden generada!',
         });

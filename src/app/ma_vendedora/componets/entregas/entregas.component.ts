@@ -32,6 +32,7 @@ export class EntregasComponent implements OnInit {
   async updateStatus(orderId:any) {
     console.log(orderId)
     const alert = await this.alertController.create({
+      cssClass:'app-alert',
       header: '¿Deseas completar la venta?',
       buttons: [
         {

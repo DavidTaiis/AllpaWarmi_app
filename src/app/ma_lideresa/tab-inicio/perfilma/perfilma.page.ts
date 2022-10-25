@@ -61,6 +61,7 @@ export class PerfilmaPage implements OnInit {
 
 async sendInvitation() {
   const alert = await this.alertController.create({
+    cssClass:'app-alert',
     header:'¿Enviar invitación?',
     buttons: [
       {

@@ -22,6 +22,7 @@ export class GeolocalizacionHuertoPage implements OnInit {
     this.tabAgricultorasService.addGeolocalizacionMa(this.puntoSelect.lat, this.puntoSelect.lng, this.type,this.description)
     .subscribe( async (res) => {
       const alert = await this.alertController.create({
+        cssClass:'app-alert',
         header: '¡Exito!',
         message: 'Ubicación registrada correctamente!',
         buttons: ['OK'],

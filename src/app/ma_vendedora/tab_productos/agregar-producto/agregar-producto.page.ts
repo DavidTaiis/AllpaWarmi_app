@@ -74,6 +74,7 @@ export class AgregarProductoPage implements OnInit {
       this.sellerServices.addProduct(formdata)
       .subscribe( async res => {
         const alert = await this.alertController.create({
+          cssClass:'app-alert',
           header: '¡Exito!',
           message: 'Producto registrado correctamente!',
           buttons: ['OK'],
@@ -144,6 +145,7 @@ export class AgregarProductoPage implements OnInit {
       this.sellerServices.updateProduct(formdata)
       .subscribe( async res => {
         const alert = await this.alertController.create({
+          cssClass:'app-alert',
           header: '¡Exito!',
           message: 'Producto actualizado correctamente!',
           buttons: ['OK'],

@@ -42,6 +42,7 @@ export class GeolocalizacionPage implements OnInit {
     this.acopioService.addAcopio(formData).subscribe( async res => {
       
       const alert = await this.alertController.create({
+        cssClass:'app-alert',
         header: '¡Exito!',
         message: 'Centro de acopio guardado!',
       });

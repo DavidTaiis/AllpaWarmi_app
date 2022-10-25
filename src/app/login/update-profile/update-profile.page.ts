@@ -42,6 +42,7 @@ export class UpdateProfilePage implements OnInit {
 
       this.loginService.updateProfile(formdata).subscribe( async res => {
         const alert = await this.alertController.create({
+          cssClass:'app-alert',
           header: '¡Exito!',
           message: 'Perfil actualizado correctamente!',
           buttons: ['OK'],
