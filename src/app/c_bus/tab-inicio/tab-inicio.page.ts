@@ -1,17 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
+import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transporte.service';
+
 @Component({
   selector: 'app-tab-inicio',
   templateUrl: './tab-inicio.page.html',
   styleUrls: ['./tab-inicio.page.scss'],
 })
 export class TabInicioPage implements OnInit {
-
-  constructor(public Mapa:MapasService) { }
+  feature:any;
+  modal:any;
+  constructor(private transServices: TabTransporteService) { }
 
   ngOnInit() {
+    this.getNews();
+    this.modal = "Noticias";
   }
-  async ngAfterViewInit(){
-    this.Mapa.createMap();
+  getNews(){
+    this.transServices.getNews()
+    .subscribe(  (res) => {
+      this.feature = res;
+    },
+    response => {
+      console.log(response['error']['warning'][0]['value'])
+  },
+  () => {
+      console.log("The POST observable is now completed.");
+  });
+  
   }
 }

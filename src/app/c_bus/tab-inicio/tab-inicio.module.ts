@@ -5,14 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { TabInicioPageRoutingModule } from './tab-inicio-routing.module';
+import { GooglemapsModule } from './../../googlemaps/googlemaps/googlemaps.module';
+
 
 import { TabInicioPage } from './tab-inicio.page';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     FormsModule,
+    GooglemapsModule,
     IonicModule,
     TabInicioPageRoutingModule
   ],
