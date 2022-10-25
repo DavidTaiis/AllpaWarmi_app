@@ -9,26 +9,33 @@
     <!-- Contenedor 2 -->
     <div class="contenedor-title">
       <div>
-        <h4 class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación de la
-          asociación</h4>
+        <div class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación de la
+          asociación</div>
       </div>
     </div>
   </div>
   <!-- <ion-item-divider style="text-align: center; color: black;">
   <h4>Indica en el mapa la ubicación de la asociación</h4>
 </ion-item-divider> -->
-  <ion-card style="width: 97%; height: 70%;">
+  <!-- <ion-card style="width: 97%; height: 70%;">
     <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
-  </ion-card>
-  <ion-button class="boton-warmi-in" id="open-modal" expand="block">Continuar</ion-button>
-  
+  </ion-card> -->
+  <div class="center">
+    <ion-card style="width: 282px; height: 410px">
+      <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
+    </ion-card>
+  </div>
+
+  <!-- <ion-button class="boton-warmi-in" id="open-modal" expand="block">Continuar</ion-button> -->
+  <div class="btn-ordenar">
+    <ion-button class="boton-warmi-in" id="open-modal" expand="block">Continuar</ion-button>
+  </div>
   <!-- Modal -->
 
   <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
     <ng-template>
       <ion-header>
-        <ion-toolbar>
-        
+        <ion-toolbar>        
           <ion-buttons slot="end">
             <ion-button (click)="modal.dismiss()">Cancelar</ion-button>
           </ion-buttons>
