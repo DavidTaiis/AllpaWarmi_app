@@ -1,13 +1,69 @@
-.cont {
-    width: 93%;
-    max-width: 350px;
-    text-align: right;
-    color: #EEE;
-    overflow: hidden;
-  }
+// .cont {
+//     width: 93%;
+//     max-width: 350px;
+//     text-align: right;
+//     color: #EEE;
+//     overflow: hidden;
+//   }
   
-  div.stars {
-    width: 270px;
-    display: inline-block;
-  }
+//   div.stars {
+//     width: 270px;
+//     display: inline-block;
+//   }
  
+
+
+.contenedor-perfil {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 150px;  
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.imagen-conductor img{
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
+  min-height: 150px;
+}
+
+.boton-whatsapp{
+  --background: green;
+}
+
+
+.boton-whatsapp a{
+  text-decoration: none;
+}
+
+.contenedor-datos{
+  margin-left: 10px;
+}
+
+.contenedor-rating{
+  display: flex;  
+  width: 100%;
+  height: 130px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.start-rat{
+  width: 160px;
+}
+
+.size-lechuga {
+  width: 25px;
+  height: 25px;
+}
+.lechugas {
+  width: 160px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

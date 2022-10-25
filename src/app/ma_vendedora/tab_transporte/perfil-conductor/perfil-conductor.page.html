@@ -1,4 +1,77 @@
-<ion-header>
+<ion-content>
+  <div class="border-top-page">
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/car.svg">
+      </ion-icon>
+      <div class="texto-header">Conductor Camioneta</div>
+    </div>
+  </div>
+  <div class="contenedor-perfil">
+    <div class="imagen-conductor"><img width="125" src="assets/img/comprador.jpg" /></div>
+    <div class="informacion-conductor">
+      <div class="start-rat">
+        <div class="ion-text-center">
+          <div class="lechugas">
+            <div style="margin-right: 6px;">
+              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+            </div>
+            <div style="margin-right: 6px;">
+              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+            </div>
+            <div style="margin-right: 6px;">
+              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+            </div>
+            <div style="margin-right: 6px;">
+              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+            </div>
+            <div style="margin-right: 6px;">
+              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ion-text-center text-bold text-color-brown">{{name}}</div>
+      <div class="ion-text-center text-color-purple">{{phone}}</div>
+      <div class="ion-text-center contenedor-datos">
+        <ion-button class=" boton-whatsapp">
+          <ion-icon name="logo-whatsapp"></ion-icon> <a href="https://wa.me/593993335589" class="text-white">&nbsp;
+            Contactar</a>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+  <div class="descripcion-perfil">
+    <div class="ion-text-center text-bold text-color-brown">Descripción Vehicular</div>
+    <ion-grid style="width: 70%;">
+      <ion-row>
+        <ion-col class="ion-text-right text-color-brown" size="6">Tipo de vehículo: </ion-col>
+        <ion-col size-md="6" class="text-color-purple">{{description}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-right text-color-brown" size="6">Color: </ion-col>
+        <ion-col size-md="6" class="text-color-purple">{{color}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-right text-color-brown" size="6">Placa: </ion-col>
+        <ion-col size-md="6" class="text-color-purple">{{car_plate}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="contenedor-rating">
+    <div class="ion-text-center text-bold text-color-brown">Califica a este conductor</div>
+    <div>
+      <form [formGroup]="form" style="text-align: center;">
+        <div class="cont">
+          <div class="stars">
+            <ngx-star-rating formControlName="calificar" [id]="'calificar'"></ngx-star-rating>
+          </div>
+        </div>        
+          <ion-button class="boton-warmi-in" shape="round">Calificar</ion-button>        
+      </form>
+    </div>
+  </div>
+</ion-content>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Conductor camioneta</ion-title>
   </ion-toolbar>
@@ -54,4 +127,4 @@
         <ion-button shape="round">Calificar</ion-button>
   </form>
   </ion-card>
-</ion-content>
+</ion-content> -->

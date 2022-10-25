@@ -1,12 +1,24 @@
-<div class="container-search-bar">
-  <div class="size-search-bar">
-    <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
-  </div>
+<div class="contenedor-busqueda">
+  <div class="search">
+    <ion-searchbar class="busqueda" placeholder="Buscar ..."  showCancelButton="never"></ion-searchbar>
+  </div>    
 </div>
 
 
 <!-- List of people -->
-<div class="contenedor-perfiles">
+<div class="contenedor-personas">
+  <div *ngFor="let farmer of listFarmers" class="card" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]">
+    <div>
+      <img class="imagen-card" src="assets/img/MujerAgricultora1.webp" />
+    </div>
+    <div  class="detalle-personal">
+      <div class="texto-personal text-bold text-color-purple">{{farmer.name}}</div>
+      <div class="texto-personal text-color-purple">{{farmer.phone}}</div>
+      <div class="texto-personal text-color-purple">Direccion</div>
+    </div>
+  </div>  
+</div>
+<!-- <div class="contenedor-perfiles">
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let farmer of listFarmers" size="6">
@@ -27,7 +39,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-</div>
+</div> -->
 
 <!-- <ion-grid>
   <ion-row>
