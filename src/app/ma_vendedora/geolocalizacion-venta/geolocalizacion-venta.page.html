@@ -16,9 +16,19 @@
   <!-- <ion-item-divider class="ion-padding" style="text-align: center; color: black;">
     <h5>Indica en el mapa la ubicación del punto de venta</h5>
   </ion-item-divider> -->
-  <ion-card style="width: 97%; height: 70%;">
+  <!-- <ion-card style="width: 97%; height: 70%;">
     <app-googlemaps [localizacion]="localizacion" (enviar)="recibirData($event)"></app-googlemaps>
-  </ion-card>
-  <ion-button class="boton-warmi-in" expand="block" (click)="continuar()">  &nbsp; &nbsp;Continuar</ion-button>
+  </ion-card> -->
+  <div class="center">
+    <ion-card style="width: 282px; height: 410px">
+      <app-googlemaps  [localizacion]="localizacion" (enviar)="recibirData($event)"></app-googlemaps>
+    </ion-card>
+  </div>
+  <div class="btn-ordenar">
+    <ion-button class="boton-warmi-in" (click)="continuar()"> Continuar</ion-button>
+  </div>
+
+
+
 
 </ion-content>

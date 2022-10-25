@@ -1,8 +1,17 @@
 
 
-<ion-card style="width: 93%; height: 575px;">
+<!-- <ion-card style="width: 93%; height: 575px;">
   <app-googlemaps [modal]="modal"  [feature] = "feature"></app-googlemaps>
 </ion-card>
 
-<ion-button class="ion-padding boton-azul" class="boton-warmi-in" expand="block" (click)="viewCars()">  &nbsp; &nbsp;Ver camionetas</ion-button>
+<ion-button class="ion-padding boton-azul" class="boton-warmi-in" expand="block" (click)="viewCars()">  &nbsp; &nbsp;Ver camionetas</ion-button> -->
+
+<div class="center">
+  <ion-card style="width: 282px; height: 410px">
+    <app-googlemaps [modal]="modal"  [feature] = "feature"></app-googlemaps>
+  </ion-card>
+</div>
+<div class="btn-ordenar">
+<ion-button class="ion-padding boton-azul" class="boton-warmi-in" (click)="viewCars()">Ver camionetas</ion-button>
+</div>
 
