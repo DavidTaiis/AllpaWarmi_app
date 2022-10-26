@@ -42,6 +42,7 @@
     padding-top: 10px;
     width: 100%;
     min-width: 100%;
+    height: 100px;
   }
   
   .img-profile {
@@ -88,3 +89,19 @@
     overflow: hidden;
   }
 
+  .lechugas {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .size-lechuga {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .size-lechuga:hover {
+    width: 29px;
+    height: 29px;
+  }

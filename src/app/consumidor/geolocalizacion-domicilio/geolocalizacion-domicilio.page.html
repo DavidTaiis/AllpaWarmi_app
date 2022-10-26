@@ -13,14 +13,20 @@
       </div>
     </div>
   </div>
-<!-- <ion-item-divider style="text-align: center; color: black;">
-  <h4>Indique en el mapa la ubicación de su domicilio para entrega de productos</h4>
-</ion-item-divider> -->
-<!-- Mapa -->
-<ion-card style="width: 97%; height: 70%;">
+
+<!-- <ion-card style="width: 97%; height: 70%;">
   <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
 </ion-card>
-<!-- Boton Continuar -->
-<ion-button class="boton-warmi-in" expand="block" (click)="guardarGeolocalizacion()">  &nbsp; &nbsp;Continuar</ion-button>
-<!-- <button (click)="pruebaStorage()">hol</button> -->
+<ion-button class="boton-warmi-in" expand="block" (click)="guardarGeolocalizacion()">  &nbsp; &nbsp;Continuar</ion-button> -->
+<div class="center">
+  <ion-card style="width: 282px; height: 410px">
+    <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
+  </ion-card>
+</div>
+
+<div class="btn-ordenar">
+  <ion-button class="boton-warmi-in" (click)="guardarGeolocalizacion()">Continuar</ion-button>
+</div>
+
+
 </ion-content>

@@ -1,4 +1,3 @@
-
 <ion-content>
   <div class="border-top-page">
     <div class="contenedor-header-icon">
@@ -13,9 +12,9 @@
   <div class="datos-personales">
     <div class="imagen-buttom">
       <img class="img-profile" src="{{foto || 'assets/img/comprador.jpg'}}" />
-      <a class="imagen-in-buttom" href="http://">
+      <!-- <a class="imagen-in-buttom" href="http://">
         <ion-icon slot="start" src="assets/iconos/camera.svg" class="size-icon-camera"></ion-icon>
-      </a>
+      </a> -->
     </div>
     <div>
       <ion-card-header>
@@ -37,23 +36,63 @@
       <div class="text-color-purple">Venta de productos frescos</div>
     </div>
     <div>
-      <div class="ion-text-left text-bold text-color-brown">Calificación</div>
+      <div class="contenedor-valoracion">
+        <div class="calificación text-bold text-color-brown">Calificación</div>
+        <div class="lechugas">
+          <div style="margin-right: 6px;">
+            <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+          </div>
+          <div style="margin-right: 6px;">
+            <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+          </div>
+          <div style="margin-right: 6px;">
+            <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+          </div>
+          <div style="margin-right: 6px;">
+            <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+          </div>
+          <div style="margin-right: 6px;">
+            <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
+          </div>
+        </div>
+        <div class="valoracion text-bold text-white">4.5</div>
+      </div>
       <div>
       </div>
     </div>
   </div>
 
   <div class="contenedor-title">
-    <div>       
-      <h4 class="text-center size-text35px text-bold text-color-purple">Productos</h4>
+    <div>
+      <h4 class="text-center size-text35px text-bold text-color-brown">Productos</h4>
     </div>
   </div>
-  <ion-list *ngFor="let product of products">
+  <ion-card>
+    <ion-item *ngFor="let product of products">
+      <ion-chip slot="end" color="success">$ {{product.price}}</ion-chip>
+      <!-- <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg" />
+      </ion-thumbnail> -->
+
+      <ion-label>
+        <div class="text-bold text-color-orange">{{product.product}}</div>
+        <!-- <div class="text-color-purple">{{camioneta.description}}</div>
+        <div class="text-color-purple">{{camioneta.users_id}}</div>
+        <div class="text-bold text-color-pinkd">{{camioneta.car_plate}}</div> -->
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <!-- <ion-list *ngFor="let product of products">
     <ion-item>
       <ion-chip slot="end">{{product.price}}</ion-chip>
       <ion-label>{{product.product}}</ion-label>
     </ion-item>
-  </ion-list>
-  <ion-button class="boton-warmi-in" expand="block" (click)="sendInvitation()"><ion-icon name="chatbox-ellipses-outline"></ion-icon> &nbsp; &nbsp;Enviar invitación</ion-button>
+  </ion-list> -->
+  <div class="btn-ordenar">
+    <ion-button class="boton-warmi-in" expand="block" (click)="sendInvitation()">
+      <ion-icon name="chatbox-ellipses-outline"></ion-icon>Enviar invitación
+    </ion-button>
+  </div>
 
 </ion-content>

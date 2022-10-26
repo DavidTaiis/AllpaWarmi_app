@@ -10,8 +10,28 @@
   <ion-card class="titulo-fondo ion-margin">
     <h4>Novedades {{fecha}}</h4>
   </ion-card>
-  <ion-card style="width: 97%; height: 575px;">
-    <app-googlemaps [modal]="modal"  [feature] = "feature"></app-googlemaps>
+  
+  <div class="center">
+    <ion-card style="width: 282px; height: 410px">
+      <app-googlemaps [modal]="modal"  [feature] = "feature"></app-googlemaps>
+    </ion-card>
+  </div>
+ <!-- <div class="contenedor-busqueda">
+  <div class="search">
+    <ion-searchbar class="busqueda" placeholder="Buscar ..."  showCancelButton="never"></ion-searchbar>
+  </div>    
+</div> -->
+
+<!-- }  
+  <ion-card class="map">
+    <capacitor-google-maps id="map"></capacitor-google-maps>
   </ion-card>
+
+  <ion-card class="titulo-fondo ion-margin">
+    <h4>Novedades {{fecha}}</h4>
+  </ion-card> -->
+  <!-- <ion-card style="width: 97%; height: 575px;">
+    <app-googlemaps [modal]="modal"  [feature] = "feature"></app-googlemaps>
+  </ion-card> -->
   
 </ion-content>

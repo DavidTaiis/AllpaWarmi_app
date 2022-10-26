@@ -104,6 +104,9 @@ ion-content {
 .text-color-brown {
   color: var(--warmin-color-brown);
 }
+.text-color-orange {
+  color: var(--warmin-color-orange);
+}
 
 .text-nodecoration {
   text-decoration: none;
@@ -208,6 +211,13 @@ ion-content {
 .avatar-center {
   display: flex;
   justify-content: center;
+}
+.center{  
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 //boton

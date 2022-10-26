@@ -22,7 +22,7 @@
   </ion-card> -->
   <div class="center">
     <ion-card style="width: 282px; height: 410px">
-      <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
+      <app-googlemaps [localizacion]="localizacion" [feature]="feature" (enviar)="recibirData($event)"></app-googlemaps>
     </ion-card>
   </div>
 
@@ -35,15 +35,14 @@
   <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
     <ng-template>
       <ion-header>
-        <ion-toolbar>        
+        <ion-toolbar>
           <ion-buttons slot="end">
             <ion-button (click)="modal.dismiss()">Cancelar</ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-      
+
       <div class="border-top-page">
-        <!-- Contenedor 1 -->
         <div class="contenedor-header">
           <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/store.svg">
           </ion-icon>
@@ -51,38 +50,41 @@
         </div>
       </div>
       <ion-content>
-          <br>
-          <h4 class="text-center size-text35px text-bold text-color-purple">Ingresa los datos requeridos</h4>
-          <form>
-        <ion-list>
-          <ion-card>  
-            <ion-item>
-              <ion-label position="stacked">Nombre de la asociación</ion-label>
-              <ion-input [(ngModel)]="name" name="name"></ion-input>
-            </ion-item>
-          <ion-card>
-            <ion-card-title class="title">
-              Ventajas
-            </ion-card-title>
-            <ion-list class="items">
-              <ion-textarea [(ngModel)]="advantages" name="advantages"></ion-textarea>
-            </ion-list>
-          </ion-card>
-          <ion-card>
-            <ion-card-title class="title">
-              Reglas
-            </ion-card-title>
-            <ion-list class="items">
-              <ion-textarea [(ngModel)]="rules" name="rules"></ion-textarea>
-            </ion-list>
-          </ion-card>
-          </ion-card>
+        <br>
+        <h4 class="text-center size-text35px text-bold text-color-purple">Ingresa los datos requeridos</h4>
+        <form>
+          <ion-list>
+            <ion-card>
+              <ion-item>
+                <ion-label position="stacked">Nombre de la asociación</ion-label>
+                <ion-input [(ngModel)]="name" name="name"></ion-input>
+              </ion-item>
+              <ion-card>
+                <ion-card-title class="title">
+                  Ventajas
+                </ion-card-title>
+                <ion-list class="items">
+                  <ion-textarea [(ngModel)]="advantages" name="advantages"></ion-textarea>
+                </ion-list>
+              </ion-card>
+              <ion-card>
+                <ion-card-title class="title">
+                  Reglas
+                </ion-card-title>
+                <ion-list class="items">
+                  <ion-textarea [(ngModel)]="rules" name="rules"></ion-textarea>
+                </ion-list>
+              </ion-card>
+            </ion-card>
 
-        </ion-list>   
+          </ion-list>
+          <div class="btn-ordenar">
+            <ion-button type="submit" class="boton-warmi-in" (click)="guardarAsociacion()">
+              <ion-icon name="card-outline"></ion-icon>Guardar
+            </ion-button>
+          </div>
 
-          <ion-button type="submit" expand="block" class="boton-warmi-in" (click)="guardarAsociacion()"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Guardar</ion-button>
-        
-      </form>
+        </form>
       </ion-content>
     </ng-template>
   </ion-modal>
