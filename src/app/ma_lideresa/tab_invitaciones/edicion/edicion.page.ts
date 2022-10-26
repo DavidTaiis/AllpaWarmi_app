@@ -26,6 +26,7 @@ export class EdicionPage implements OnInit {
 
   async addAsociation(){
     const alert = await this.alertController.create({
+      cssClass:'app-alert',
       header:'¿Editar asociación?',
       buttons: [
         {

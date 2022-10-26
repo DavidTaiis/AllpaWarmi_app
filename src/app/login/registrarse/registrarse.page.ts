@@ -31,6 +31,7 @@ selectConductor: boolean = false;
 
   async terminos(){
     const alert = await this.alertController.create({
+      cssClass:'app-alert',
       header:'Terminos y condiciones',
       
       subHeader: 'Al aceptar los terminos y condiciones sus nombres y datos ingresados serán de conocimiento público, los cuales serán visualizados por todos los usuarios de la aplicacion móvil ',
@@ -63,7 +64,7 @@ selectConductor: boolean = false;
         .subscribe( async (res) => {
           const alert = await this.alertController.create({
             // css personalizado
-            cssClass:'modals-alert',
+            cssClass:'app-alert',
             header: '¡Exito!',
             message: 'Usuario creado correctamente!',
             buttons: ['OK'],            
@@ -86,7 +87,7 @@ selectConductor: boolean = false;
         .subscribe( async (res) => {
           const alert = await this.alertController.create({
             // css personalizado
-            cssClass:'modals-alert',
+            cssClass:'app-alert',
             header: '¡Exito!',
             message: 'Usuario creado correctamente!',
             buttons: ['OK'],
@@ -110,7 +111,7 @@ selectConductor: boolean = false;
         .subscribe( async (res) => {
           const alert = await this.alertController.create({
             // css personalizado
-            cssClass:'modals-alert',
+            cssClass:'app-alert',
             header: '¡Exito!',
             message: 'Usuario creado correctamente!',
             buttons: ['OK'],

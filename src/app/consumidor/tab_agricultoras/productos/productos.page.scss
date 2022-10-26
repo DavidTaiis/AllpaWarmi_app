@@ -1,15 +1,27 @@
-.pad-bar{
+.pad-bar {
     margin: 4px;
 }
 
-.btn-ordenar{
+.btn-ordenar {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.bagde-style{
-    width: 25px;
+.contenedor-precio {
+    display: flex;
+    align-items: right;
+    justify-content: right;    
+}
+
+.bagde-style {
+    width: 45px;
+    height: 30px;
     background: var(--warmin-color-yellow);
     color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
 }

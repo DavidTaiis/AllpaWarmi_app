@@ -1,5 +1,62 @@
-<div class="border-top-page">
-  <!-- Contenedor 1 -->
+<ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="../../../assets/icon/update_date.svg">
+      </ion-icon>
+      <div class="texto-header">Actualizar perfil</div>
+    </div>
+  </div>
+  <!--  -->
+  <!-- Dato 1 -->
+  <div class="datos-personales">    
+    <div class="imagen-buttom">
+      <img class="img-profile" src="{{foto || '../assets/img/chooseImg.png'}}" />
+      <ion-button class="imagen-in-buttom">
+        <label for="file-upload">
+          <ion-icon class="size-icon-camera" slot="icon-only" src="assets/iconos/camera.svg"></ion-icon>
+        </label>
+         <input class="text-center"  (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file"  accept="image/*">
+     </ion-button>
+    </div>
+
+    <div>
+      <ion-card-header>
+        <ion-card-title class="text-color-purple text-bold">{{name}}</ion-card-title>        
+      </ion-card-header>
+      <ion-card-content>        
+        <div class="text-color-purple">{{identification_card}}</div>
+        <!--  -->
+        <div class="text-bold text-color-brown">Teléfono:</div>
+        <div class="text-color-purple">{{phone}}</div>
+      </ion-card-content>
+    </div>
+  </div>
+  <div class="ion-padding">
+    <div class="contenedor-item">
+      <ion-icon slot="start" class="size-icon"  src="/assets/iconos/user.svg"></ion-icon>
+      <ion-item lines="none" class="input-border-bot item-native-transparency">
+        <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Nombre</ion-label>
+        <ion-input value="{{name || ''}}" [(ngModel)]="name" type="text" [ngModelOptions]="{standalone: true}" class="text-center">
+        </ion-input>              
+      </ion-item>
+    </div>
+    
+    <div class="contenedor-item">
+      <ion-icon slot="start" class="size-icon"  src="/assets/iconos/phone.svg"></ion-icon>
+      <ion-item lines="none" class="input-border-bot item-native-transparency">
+        <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Número de teléfono</ion-label>
+        <ion-input value="{{phone || ''}}" [(ngModel)]="phone" type="text" [ngModelOptions]="{standalone: true}" class="text-center">
+        </ion-input>              
+      </ion-item>
+    </div>
+  </div>
+<div class="btn-ordenar">
+  <ion-button (click)="updateProfile()" class="boton-warmi-in">Actualizar</ion-button>
+</div>
+</ion-content>
+
+<!-- <div class="border-top-page">
   <div class="contenedor-header">
     <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
     </ion-icon>
@@ -48,4 +105,4 @@
   </div>
 <ion-button (click)="updateProfile()" class="boton-warmi-in" expand="block">  &nbsp; &nbsp;Actualizar</ion-button>
 
-</ion-content>
+</ion-content> -->

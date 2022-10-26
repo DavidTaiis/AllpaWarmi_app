@@ -32,6 +32,7 @@ export class CrearNotificacionComponent implements OnInit {
     this.sellerServices.addNotification(formData)
     .subscribe( async res => {
       const alert = await this.alertController.create({
+        cssClass:'app-alert',
         header: '¡Exito!',
         message: 'Ubicación notificación creada correctamente!',
         buttons: ['OK'],

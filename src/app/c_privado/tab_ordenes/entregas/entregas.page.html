@@ -11,13 +11,19 @@
       <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
       </ion-icon>
       <div class="texto-header">Entregas</div>
-    </div>    
+    </div>
   </div>
   <div class="ion-padding" style="text-align:center;">
     <ion-label>Fecha ordenes realizadas:</ion-label>
-<ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
-</div>
-<ion-card class="ion-padding card-entregas">
+    <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
+  </div>
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime presentation="date" id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+  <!-- <ion-card class="ion-padding card-entregas">
  <ion-item style="--border-radius:10px;">
   <ion-thumbnail slot="start">
     <img src="assets/img/compra.png" />
@@ -26,8 +32,10 @@
     <h3>Vendedora: Juanita Perez</h3>
     <p>Consumidor: Edison Tayan</p>
   </ion-label>
-</ion-item>
-  </ion-card>
+</ion-item> -->
+
+
+  <!-- </ion-card>
   <ion-card class="ion-padding card-entregas">
     <ion-item style="--border-radius:10px;">
      <ion-thumbnail slot="start">
@@ -49,10 +57,19 @@
          <p>Consumidor: Edison Tayan</p>
        </ion-label>
      </ion-item>
-       </ion-card>
-<ion-modal [keepContentsMounted]="true">
-  <ng-template>
-    <ion-datetime presentation="date" id="datetime"></ion-datetime>
-  </ng-template>
-</ion-modal>
+       </ion-card> -->
+
+  <ion-card>
+    <ion-item style="font-size: 12px;">
+      <!-- <ion-chip slot="end" color="success">estado</ion-chip> -->
+      <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="assets/img/compra.png" />
+      </ion-thumbnail>
+
+      <ion-label>
+        <div class="text-bold text-color-brown">Vendedora: Juanita Perez</div>
+        <div class="text-color-purple">Consumidor: Edison Tayan</div>
+      </ion-label>
+    </ion-item>
+  </ion-card>
 </ion-content>

@@ -39,7 +39,7 @@ const routes: Routes = [
         loadChildren: () => import('../tab_invitaciones/edicion/edicion.module').then( m => m.EdicionPageModule)
       },
       {
-        path: 'notificacion',
+        path: 'notificaciones',
         loadChildren: () => import('../tab_notificaciones/lista/lista.module').then( m => m.ListaPageModule)
       },
       {

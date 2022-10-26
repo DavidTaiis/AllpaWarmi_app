@@ -1,22 +1,16 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Productos</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <div class="border-top-page">
     <!-- Contenedor 1 -->
     <div class="contenedor-header">
-      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      <ion-icon class="icon-header size-icon" slot="start"  src="../../../../assets/icon/store.svg">
       </ion-icon>
       <div class="texto-header">Productos</div>
     </div>
   </div>
 
-  <div class="container-search-bar pad-bar">
-    <div>
-      <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
+  <div class="contenedor-busqueda">
+    <div class="search">
+      <ion-searchbar class="busqueda" placeholder="Buscar ..." showCancelButton="never"></ion-searchbar>
     </div>
   </div>
   <!--  -->
@@ -44,8 +38,9 @@
                     <div class="text-color-purple">{{product.description}}</div>
                     <!-- <p>{{product.description}}</p> -->
                   </ion-col>
-                  <ion-col class="text-color-purple text-bold" style="text-align: right;">
-                    <ion-badge class="bagde-style">{{product.price}}</ion-badge>
+
+                  <ion-col class=" contenedor-precio text-color-purple text-bold">
+                    <ion-badge class="bagde-style">$ {{product.price}}</ion-badge>
                     <!-- <ion-badge color="success" style="color: white;">{{product.price}}</ion-badge> -->
                   </ion-col>
                   <!-- <ion-col style="text-align: right;">
@@ -65,3 +60,56 @@
   <!--  -->
 
 </ion-content>
+
+<!-- <ion-content>
+  <div class="border-top-page">
+
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      </ion-icon>
+      <div class="texto-header">Productos</div>
+    </div>
+  </div>
+
+  <div class="container-search-bar pad-bar">
+    <div>
+      <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
+    </div>
+  </div>
+  <div class="contenedor-list-ventas" id="contenedor-list-ventas">
+    <ion-card *ngFor="let product of products" class="contenedor-card-p">
+
+      <ion-card-header class="encabezado-card">
+
+      </ion-card-header>
+      <ion-card-content class="descripcion-card">
+        <ion-list>
+          <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.productId]" lines="none">
+
+            <ion-thumbnail slot="start">
+              <img src="assets/img/compra.png" />
+            </ion-thumbnail>
+            <ion-label>
+              <div class="text-bold text-color-purple">{{product.product}}</div>
+
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="text-color-purple">{{product.description}}</div>
+  
+                  </ion-col>
+                  <ion-col class="text-color-purple text-bold" style="text-align: right;">
+                    <ion-badge class="bagde-style">{{product.price}}</ion-badge>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <div class="btn-ordenar">
+      <ion-button class="boton-warmi-in" (click)="goCar()">Carrito</ion-button>
+    </div>
+  </div>
+</ion-content> -->

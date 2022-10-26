@@ -1,6 +1,6 @@
 <ion-content>
   <div class="border-top-page">
-    <!-- Contenedor 1 -->
+
     <div class="contenedor-header">
       <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/store.svg">
       </ion-icon>
@@ -8,9 +8,11 @@
     </div>
   </div>
   
-  <div class="contenedortotal">
-    <div class="total text-white text-bold">Total</div>
-    <div class="text-color-purple text-bold precio">$ 0.00 R</div>
+  <div class="contenedor-total">
+    <div class="datos">
+      <div class="texto-carrito text-color-brown text-bold">Total a pagar</div>
+      <div class="texto-carrito total-a-pagar">$ {{total}}</div>
+    </div>
   </div>
 
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
@@ -28,21 +30,16 @@
             </ion-thumbnail>
             <ion-label>
               <div class="text-bold text-color-purple">{{product.productName}}</div>
-              <!-- <h3>{{product.productName}}</h3> -->
               <ion-grid>
                 <ion-row>
                   <ion-col>
                     <div class="text-color-purple">{{product.measure}}</div>
-                    <!-- <p>product measure</p> -->
-                    <!-- <p>{{product.measure}}</p> -->
                   </ion-col>
                   <ion-col class="text-color-purple text-bold" style="text-align: right;">
-                    {{product.price}}
+                    $ {{product.price}}
                   </ion-col>
-                  <ion-chip (click)="deleteProduct(product)">-</ion-chip>
-                  <!-- <ion-col style="text-align: right;">
-                {{product.price}}
-              </ion-col> -->
+                  <ion-chip class="quitar" (click)="deleteProduct(product)">-</ion-chip>
+
                 </ion-row>
               </ion-grid>
             </ion-label>
@@ -50,22 +47,16 @@
         </ion-list>
       </ion-card-content>
     </ion-card>
-    <!-- Calendario -->
   
   </div>
-  <!--  -->
   <div class="btn-ordenar">
     
     <ion-button class="boton-warmi-in" id="open-modal" expand="block">Confirme canasta de compras</ion-button>
   </div>
-  
-  <!--  -->
-
-
 
   <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
     <ng-template>
-      <ion-header>
+      <!-- <ion-header>
         <ion-toolbar>
         
           <ion-buttons slot="end">
@@ -75,13 +66,12 @@
       </ion-header>
       
       <div class="border-top-page">
-        <!-- Contenedor 1 -->
         <div class="contenedor-header">
           <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/store.svg">
           </ion-icon>
           <div class="texto-header">Carrito de compra</div>
         </div>
-      </div>
+      </div> -->
       <ion-content>
           <br>
           <h4 class="text-center size-text35px text-bold text-color-purple">Selecciona el lugar de entrega</h4>
@@ -116,8 +106,9 @@
           </ion-item>
 
         </ion-list>   
-
-          <ion-button type="submit" (click)="createOrder()" expand="block" class="boton-warmi-in"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Ordenar</ion-button>
+<div class="btn-ordenar">
+          <ion-button type="submit" (click)="createOrder()" expand="block" class="boton-warmi-in"><ion-icon name="card-outline"></ion-icon> Ordenar</ion-button>
+        </div>
         
       </form>
       </ion-content>

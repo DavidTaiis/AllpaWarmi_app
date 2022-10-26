@@ -1,9 +1,3 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Novedades</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <div class="border-top-page">
     <!-- Contenedor 1 -->
@@ -14,10 +8,15 @@
     </div>    
   </div>
   <ion-card class="titulo-fondo ion-margin">
-    <h4>{{fecha}}</h4>
+    <h4>Novedades {{fecha}}</h4>
   </ion-card>
 
-  <ion-card style="width: 97%; height: 575px;">
+  <!-- <ion-card style="width: 97%; height: 575px;">
     <app-googlemaps [modal]="modal"  [feature] = "feature"></app-googlemaps>
-  </ion-card>
+  </ion-card> -->
+  <div class="center">
+    <ion-card style="width: 282px; height: 410px">
+      <app-googlemaps [modal]="modal"  [feature] = "feature"></app-googlemaps>
+    </ion-card>
+  </div>
 </ion-content>
