@@ -30,6 +30,10 @@ export class ModalHuertoVentaPage implements OnInit {
       case 'Lidereza':
         this.router.navigate(['/ma_lideresa/menu/inicio/perfilma/', this.users_id]);
         this.modalCtrl.dismiss();
+      
+      case 'Privado':
+        this.router.navigate(['/c_privado/menu/perfil-ma', this.users_id]);
+         this.modalCtrl.dismiss();
     }
 
    

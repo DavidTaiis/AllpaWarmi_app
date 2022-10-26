@@ -113,6 +113,10 @@ const routes: Routes = [
     path: 'acopio-modal',
     loadChildren: () => import('./ma_acopiadora/modals/acopio-modal/acopio-modal.module').then( m => m.AcopioModalPageModule)
   },
+  {
+    path: 'parada',
+    loadChildren: () => import('./c_bus/modals/parada/parada.module').then( m => m.ParadaPageModule)
+  },
 
   
 ];

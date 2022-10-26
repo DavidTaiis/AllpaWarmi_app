@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
+import { ModalController } from '@ionic/angular';
+import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,12 +8,29 @@ import { MapasService } from 'src/app/services/mapas.service';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+  modal:any;
+  feature:any = [];
+  localizacion:any;
 
-  constructor(public Mapa:MapasService) { }
+  constructor(public modalController: ModalController, private tabagricultorasService: TabAgricultorasService ) { }
 
   ngOnInit() {
+    this.modal = "HuertoVenta";
+  this.localizacion = false;
+  this.getGeolocationMa();
   }
-  async ngAfterViewInit(){
-    this.Mapa.createMap();
-  }
+  getGeolocationMa(){
+  
+    this.tabagricultorasService.getGeolocalizacionMa()
+      .subscribe( (res) => {
+       this.feature = res;
+      },
+      response => {
+        console.log(response['error']['warning'][0]['value'])
+    },
+    () => {
+        console.log("The POST observable is now completed.");
+    });
+    
+    }
 }

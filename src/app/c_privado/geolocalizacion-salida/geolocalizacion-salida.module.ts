@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { GeolocalizacionSalidaPageRoutingModule } from './geolocalizacion-salida-routing.module';
 
 import { GeolocalizacionSalidaPage } from './geolocalizacion-salida.page';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { GooglemapsModule } from './../../googlemaps/googlemaps/googlemaps.module';
+
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GeolocalizacionSalidaPageRoutingModule
+    GeolocalizacionSalidaPageRoutingModule,
+    GooglemapsModule
   ],
   declarations: [GeolocalizacionSalidaPage]
 })

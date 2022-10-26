@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
+
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-geolocalizacion-llegada',
@@ -8,15 +8,13 @@ import { Router } from '@angular/router';
 })
 export class GeolocalizacionLlegadaPage implements OnInit {
 
-  constructor(public Mapa:MapasService, private router:Router) { }
+  constructor( private router:Router) { }
 
   ngOnInit() {
-  }
-  async ngAfterViewInit(){
-    this.Mapa.createMap();
   }
 
   registrarLlegada(){
     this.router.navigate(['/c_privado/menu/inicio']);
   }
+
 }
