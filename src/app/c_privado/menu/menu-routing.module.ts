@@ -13,7 +13,7 @@ const routes: Routes = [
         loadChildren: () => import('./../../c_privado/tab_inicio/inicio/inicio.module').then( m => m.InicioPageModule)
       },
       {
-        path: 'perfil-ma',
+        path: 'perfil-ma/:id',
         loadChildren: () => import('./../../c_privado/tab_inicio/perfil-ma/perfil-ma.module').then( m => m.PerfilMAPageModule)
       },
       {

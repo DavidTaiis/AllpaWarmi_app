@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { NovedadesPageRoutingModule } from './novedades-routing.module';
 
 import { NovedadesPage } from './novedades.page';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { GooglemapsModule } from './../../../googlemaps/googlemaps/googlemaps.module';
+
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NovedadesPageRoutingModule
+    NovedadesPageRoutingModule,
+    GooglemapsModule
   ],
   declarations: [NovedadesPage]
 })

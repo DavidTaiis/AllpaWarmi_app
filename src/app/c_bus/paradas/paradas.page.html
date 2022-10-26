@@ -1,9 +1,3 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Paradas</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <div class="border-top-page">
     <!-- Contenedor 1 -->
@@ -28,31 +22,17 @@
   </ion-row>
   <!-- <ion-searchbar class="ion-padding" placeholder="Buscar" showCancelButton="never"></ion-searchbar> -->
   <div class="container-search-bar">
-    <div class="size-search-bar">
-      <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
-    </div>
   </div>
-  <ion-card class="map">
-    <capacitor-google-maps id="map"></capacitor-google-maps>
+  <ion-card style="width: 97%; height: 50%;">
+    <app-googlemaps [modal]="modal" [feature] = "feature"></app-googlemaps>
   </ion-card>
 
   <ion-card class="contenedor-card-parada">
     <ion-list>
-      <ion-item>
-        <ion-label>Parada 1</ion-label>
-        <ion-span>Disponible</ion-span>
-      </ion-item>
-      <ion-item>
-        <ion-label>Parada 2</ion-label>
-        <ion-span>Disponible</ion-span>
-      </ion-item>
-      <ion-item>
-        <ion-label>Parada 3</ion-label>
-        <ion-span>Disponible</ion-span>
-      </ion-item>
-      <ion-item>
-        <ion-label>Parada 4</ion-label>
-        <ion-span>Disponible</ion-span>
+      <ion-item *ngFor="let parada of feature">
+      
+        <ion-label>{{parada.nameLineBus}}-{{parada.descripcionLineBus}}<p>{{parada.nameStop}}</p></ion-label>    
+        <ion-chip *ngIf="parada.status === 'ACTIVE'" color="success" slot="end">Disponible</ion-chip>  
       </ion-item>
     </ion-list>
   </ion-card>

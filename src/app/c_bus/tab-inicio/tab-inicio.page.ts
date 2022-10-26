@@ -9,6 +9,7 @@ import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transpor
 export class TabInicioPage implements OnInit {
   feature:any;
   modal:any;
+  fecha = new Date().toLocaleDateString();
   constructor(private transServices: TabTransporteService) { }
 
   ngOnInit() {

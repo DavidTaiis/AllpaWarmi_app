@@ -10,7 +10,6 @@ import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricult
 export class InicioPage implements OnInit {
   modal:any;
   feature:any = [];
-  listaGeolocalizacion:any;
   localizacion:any;
 
   constructor(public modalController: ModalController, private tabagricultorasService: TabAgricultorasService ) { }

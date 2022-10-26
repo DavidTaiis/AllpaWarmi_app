@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ParadasPageRoutingModule } from './paradas-routing.module';
 
 import { ParadasPage } from './paradas.page';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { GooglemapsModule } from 'src/app/googlemaps/googlemaps/googlemaps.module';
+
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ParadasPageRoutingModule
+    ParadasPageRoutingModule,
+    GooglemapsModule
   ],
   declarations: [ParadasPage]
 })

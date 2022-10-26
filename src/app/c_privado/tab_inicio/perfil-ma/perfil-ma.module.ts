@@ -7,18 +7,20 @@ import { IonicModule } from '@ionic/angular';
 import { PerfilMAPageRoutingModule } from './perfil-ma-routing.module';
 
 import { PerfilMAPage } from './perfil-ma.page';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { GooglemapsModule } from './../../../googlemaps/googlemaps/googlemaps.module';
+
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
   imports: [
     ReactiveFormsModule,
     NgxStarRatingModule,
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilMAPageRoutingModule
+    PerfilMAPageRoutingModule,
+    GooglemapsModule
   ],
   declarations: [PerfilMAPage]
 })

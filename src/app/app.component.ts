@@ -49,8 +49,19 @@ export class AppComponent {
 
       case "Lidereza":
         location.href = '/ma_vendedora/geolocalizacion-huerto';
-       
         break;
+      
+        case "Acopiadora":
+        location.href = '/ma_acopiadora/geolocalizacion';
+        break;
+
+        case "Camioneta":
+        location.href = 'c_camioneta/geolocalizacion';
+        break;
+
+        case "Privado":
+          location.href = 'c_privado/geolocalizacion-salida';
+          break;
     }
   }
 

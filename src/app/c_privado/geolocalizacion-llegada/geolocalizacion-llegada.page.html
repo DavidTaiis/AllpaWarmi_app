@@ -22,10 +22,9 @@
   <!-- <ion-item-divider style="text-align: center; color: black;">
     <h4>Indica en el mapa la ubicación de llegada</h4>
   </ion-item-divider> -->
-  <ion-searchbar placeholder="Buscar" showCancelButton="never"></ion-searchbar>
-  <ion-card class="map">
-    <capacitor-google-maps id="map"></capacitor-google-maps>
+  <ion-card style="width: 97%; height: 80%;">
+    <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
   </ion-card>
-  <ion-button class="ion-padding boton-azul" expand="block">  &nbsp; &nbsp;Continuar</ion-button>
+  <ion-button (click)="registrarLlegada()" class="ion-padding boton-azul" expand="block">  &nbsp; &nbsp;Continuar</ion-button>
   
 </ion-content>

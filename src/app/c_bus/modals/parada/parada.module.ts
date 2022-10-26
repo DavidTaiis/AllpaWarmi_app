@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NovedadesPageRoutingModule } from './novedades-routing.module';
+import { ParadaPageRoutingModule } from './parada-routing.module';
 
-import { NovedadesPage } from './novedades.page';
+import { ParadaPage } from './parada.page';
 
 @NgModule({
-
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NovedadesPageRoutingModule
+    ParadaPageRoutingModule
   ],
-  declarations: [NovedadesPage]
+  declarations: [ParadaPage]
 })
-export class NovedadesPageModule {}
+export class ParadaPageModule {}

@@ -8,7 +8,7 @@ import { ModalCamionetaPage} from './../../ma_vendedora/modals/modal-camioneta/m
 import { ModalNoticiasPage} from './../../ma_vendedora/modals/modal-noticias/modal-noticias.page';
 import { ModalNotificacionesPage } from 'src/app/ma_vendedora/modals/modal-notificaciones/modal-notificaciones.page';
 import { AcopioModalPage} from './../../ma_acopiadora/modals/acopio-modal/acopio-modal.page';
-
+import { ParadaPage } from './../../c_bus/modals/parada/parada.page';
 declare var google: any;
 
 @Component({
@@ -225,6 +225,25 @@ initMap() {
                       days: this.feature[i].days,
                       hours: this.feature[i].hours,
                       name : this.feature[i].name,
+                     }
+                });
+                await modal.present();
+                });
+
+                break;
+                case "Paradas":
+                  marker.addListener("click",async () => {
+                    const modal = await this.modalCtrl.create({
+                    component: ParadaPage,
+                    breakpoints: [0, 0.3, 0.5, 0.8],
+                    initialBreakpoint: 0.5,
+                    cssClass: 'custom-modal',
+                    componentProps: {
+                      nameLineBus: this.feature[i].nameLineBus,
+                      descripcionLineBus: this.feature[i].descripcionLineBus,
+                      priceLineBus: this.feature[i].priceLineBus,
+                      descriptionStop : this.feature[i].descriptionStop,
+                      nameStop:this.feature[i].nameStop,
                      }
                 });
                 await modal.present();

@@ -37,6 +37,18 @@ export class InicioPage implements OnInit {
                 case 'Lidereza':
                   location.href = 'ma_lideresa/menu/inicio';
                   break;
+                case 'Acopiadora':
+                  location.href = 'ma_acopiadora/menu/inicio';
+                  break;
+                case 'Bus':
+                  location.href = 'c_bus/menu/inicio';
+                  break;
+                case 'Camioneta':
+                  location.href = 'c_camioneta/menu/inicio';
+                  break;
+                case 'Privado':
+                  location.href = 'c_privado/menu/inicio';
+                  break;
               }           
             }      
           }

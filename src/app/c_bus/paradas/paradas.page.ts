@@ -1,18 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
+import { BusService } from 'src/app/services/c_bus/bus.service';
+
 @Component({
   selector: 'app-paradas',
   templateUrl: './paradas.page.html',
   styleUrls: ['./paradas.page.scss'],
 })
 export class ParadasPage implements OnInit {
-
-  constructor(public Mapa:MapasService) { }
+  feature:any;
+  modal:any;
+  constructor(private busService: BusService) { }
 
   ngOnInit() {
-  }
-  async ngAfterViewInit(){
-    this.Mapa.createMap();
+    this.getParadas();
+    this.modal = "Paradas";
   }
 
+  getParadas(){
+    this.busService.getParadas().subscribe( res => {
+      this.feature = res;
+      console.log(this.feature)
+    })
+  }
 }
