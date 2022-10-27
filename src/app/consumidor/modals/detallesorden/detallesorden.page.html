@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles venta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let product of products" class="contenedor-card-p">
+    <ion-card-header class="encabezado-card">
+    </ion-card-header>
+    <ion-card-content class="descripcion-card">
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label>
+            <div class="text-bold text-color-purple">{{product.product}}</div>
+            <div class="text-bold text-color-purple">{{product.measure}}</div>
+            <!-- <h3>{{order.seller}}</h3> -->
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="text-color-purple">{{product.quantity}}</div>
+                 <!-- <p>{{order.deliver_date}}</p> -->
+                </ion-col>
+                <ion-col class="text-color-purple text-bold" style="text-align: right;">
+                  {{product.subtotal}}
+                </ion-col>
+                <!-- <ion-badge color="warning" style="color: white;">{{order.total}}</ion-badge> -->
+              </ion-row>
+            </ion-grid>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card> 
+</ion-content>

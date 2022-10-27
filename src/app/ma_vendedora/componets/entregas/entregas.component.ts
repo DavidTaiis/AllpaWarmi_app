@@ -65,7 +65,7 @@ export class EntregasComponent implements OnInit {
     await alert.present();
 
   }
-  viewDetails(){
-    this.router.navigate(['/detalles-venta']);
+  viewDetails(id){
+    this.router.navigate(['/ma_vendedora/menu/detalles-venta',id]);
   }
 }

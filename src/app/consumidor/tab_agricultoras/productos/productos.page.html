@@ -10,12 +10,12 @@
 
   <div class="contenedor-busqueda">
     <div class="search">
-      <ion-searchbar class="busqueda" placeholder="Buscar ..." showCancelButton="never"></ion-searchbar>
+      <ion-searchbar (ionChange)="searchProductos($event)" class="busqueda" placeholder="Buscar ..." showCancelButton="never"></ion-searchbar>
     </div>
   </div>
   <!--  -->
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
-    <ion-card *ngFor="let product of products" class="contenedor-card-p">
+    <ion-card *ngFor="let product of searchProduct" class="contenedor-card-p">
       <!-- <ion-card *ngFor="let product of products" style="border-radius: 20px;"> -->
       <ion-card-header class="encabezado-card">
         <!-- <ion-card-title class="text-white text-bold">Product farmer</ion-card-title>
@@ -24,11 +24,17 @@
       <ion-card-content class="descripcion-card">
         <ion-list>
           <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.productId]" lines="none">
-            <!-- <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.productId]" lines="none"> -->
-            <!-- <ion-item *ngFor="let product of products"> -->
-            <ion-thumbnail slot="start">
-              <img src="assets/img/compra.png" />
-            </ion-thumbnail>
+   
+              <ion-thumbnail *ngIf="product.images != ''" slot="start">
+               <ng-container  *ngFor="let item of product.images">  
+                
+                <img  class="imagen-card" src="{{item.url}}" />
+               </ng-container>     
+              </ion-thumbnail> 
+              <ion-thumbnail *ngIf="product.images == ''" slot="start">
+                  <img src="assets/img/compra.png" />
+              </ion-thumbnail>
+                
             <ion-label>
               <div class="text-bold text-color-purple">{{product.product}}</div>
               <!-- <h3>{{product.product}}</h3> -->
@@ -53,63 +59,7 @@
         </ion-list>
       </ion-card-content>
     </ion-card>
-    <div class="btn-ordenar">
-      <ion-button class="boton-warmi-in" (click)="goCar()">Carrito</ion-button>
-    </div>
   </div>
   <!--  -->
 
 </ion-content>
-
-<!-- <ion-content>
-  <div class="border-top-page">
-
-    <div class="contenedor-header">
-      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
-      </ion-icon>
-      <div class="texto-header">Productos</div>
-    </div>
-  </div>
-
-  <div class="container-search-bar pad-bar">
-    <div>
-      <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
-    </div>
-  </div>
-  <div class="contenedor-list-ventas" id="contenedor-list-ventas">
-    <ion-card *ngFor="let product of products" class="contenedor-card-p">
-
-      <ion-card-header class="encabezado-card">
-
-      </ion-card-header>
-      <ion-card-content class="descripcion-card">
-        <ion-list>
-          <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.productId]" lines="none">
-
-            <ion-thumbnail slot="start">
-              <img src="assets/img/compra.png" />
-            </ion-thumbnail>
-            <ion-label>
-              <div class="text-bold text-color-purple">{{product.product}}</div>
-
-              <ion-grid>
-                <ion-row>
-                  <ion-col>
-                    <div class="text-color-purple">{{product.description}}</div>
-  
-                  </ion-col>
-                  <ion-col class="text-color-purple text-bold" style="text-align: right;">
-                    <ion-badge class="bagde-style">{{product.price}}</ion-badge>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-    <div class="btn-ordenar">
-      <ion-button class="boton-warmi-in" (click)="goCar()">Carrito</ion-button>
-    </div>
-  </div>
-</ion-content> -->

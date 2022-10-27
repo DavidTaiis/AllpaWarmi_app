@@ -128,9 +128,7 @@ initMap() {
 }
 
  async addMarkers(){
-  console.log(this.feature)
-
-          for (let i = 0; i < this.feature.length; i++) {
+           for (let i = 0; i < this.feature.length; i++) {
             const marker = new google.maps.Marker({
               position: {
                   lat: Number(this.feature[i].position.lat),

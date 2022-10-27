@@ -13,6 +13,8 @@ export class GeolocalizacionDomicilioPage implements OnInit {
   puntoSelect:any;
   type:any = "Consumidor";
   description:any = "";
+  days:any = "";
+  hours:any = "";
   constructor(private tabAgricultorasService: TabAgricultorasService,private navCtrl: NavController,private alertController: AlertController) { }
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class GeolocalizacionDomicilioPage implements OnInit {
   }
 
   guardarGeolocalizacion(){
-    this.tabAgricultorasService.addGeolocalizacionMa(this.puntoSelect.lat, this.puntoSelect.lng, this.type,this.description)
+    this.tabAgricultorasService.addGeolocalizacionMa(this.puntoSelect.lat, this.puntoSelect.lng, this.type,this.description, this.days, this.hours)
     .subscribe( async (res) => {
       const alert = await this.alertController.create({
         cssClass:'app-alert',

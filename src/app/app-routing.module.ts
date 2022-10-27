@@ -103,13 +103,10 @@ const routes: Routes = [
     loadChildren: () => import('./ma_vendedora/modals/modal-notificaciones/modal-notificaciones.module').then( m => m.ModalNotificacionesPageModule)
   },
   {
-    path: 'detalles-venta',
-    loadChildren: () => import('./ma_vendedora/tab_notificaciones/detalles-venta/detalles-venta.module').then( m => m.DetallesVentaPageModule)
-  },
-  {
     path: 'update-profile',
     loadChildren: () => import('./login/update-profile/update-profile.module').then( m => m.UpdateProfilePageModule)
-  },  {
+  },
+  {
     path: 'acopio-modal',
     loadChildren: () => import('./ma_acopiadora/modals/acopio-modal/acopio-modal.module').then( m => m.AcopioModalPageModule)
   },
@@ -117,8 +114,11 @@ const routes: Routes = [
     path: 'parada',
     loadChildren: () => import('./c_bus/modals/parada/parada.module').then( m => m.ParadaPageModule)
   },
+  {
+    path: 'detallesorden',
+    loadChildren: () => import('./consumidor/modals/detallesorden/detallesorden.module').then( m => m.DetallesordenPageModule)
+  },
 
-  
 ];
 
 @NgModule({

@@ -15,20 +15,23 @@
   </div> -->
   <div class="contenedor-busqueda">
     <div class="search">
-      <ion-searchbar class="busqueda" placeholder="Buscar ..."  showCancelButton="never"></ion-searchbar>
+      <ion-searchbar (ionChange)="searchMa($event)" class="busqueda" placeholder="Buscar ..."  showCancelButton="never"></ion-searchbar>
     </div>    
   </div>
 
   <!-- Lista Personas -->
   <div class="contenedor-personas">
-    <div *ngFor="let farmer of listFarmers" class="card" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]">
-      <div>
-        <img class="imagen-card" src="assets/img/MujerAgricultora1.webp" />
+    <div *ngFor="let farmer of searchFarmer" class="card" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]">
+      <div *ngIf="farmer.photo != ''">
+        <ng-container  *ngFor="let item of farmer.photo">  
+          <img  class="imagen-card" src="{{item.url}}" />
+        </ng-container>      
       </div>
+      <div *ngIf="farmer.photo == ''"> <img class="imagen-card" src="assets/img/profileDefault.jpg" /></div>
       <div  class="detalle-personal">
         <div class="texto-personal text-bold text-color-purple">{{farmer.name}}</div>
         <div class="texto-personal text-color-purple">{{farmer.phone}}</div>
-        <div class="texto-personal text-color-purple">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit explicabo laborum a obcaecati, repellendus sunt!</div>
+        <div class="texto-personal text-color-purple">{{farmer.identification_card}}</div>
       </div>
     </div>  
   </div>

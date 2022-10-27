@@ -20,7 +20,7 @@ farmer:any;
 farmerId:any;
 phone:any;
 total:any ;
-
+measureProductId:any;
 
   constructor(private tabAgricultorasService: TabAgricultorasService, private activatedRoute: ActivatedRoute) { }
 
@@ -33,6 +33,7 @@ total:any ;
     this.tabAgricultorasService.getProductId(this.productId)
     .subscribe(  (res) => {
       this.product = res;
+      this.measureProductId = this.product[0]['id'];
       this.productName = this.product[0]['product'];
       this.price = this.product[0]['price'];
       this.description = this.product[0]['description'];
@@ -69,7 +70,7 @@ total:any ;
   addCar(){
 
     this.productCar =[{
-      "id": this.productId,
+      "id": this.measureProductId,
       "quantity": this.quantity,
       "productName": this.productName,
       "price": this.price,

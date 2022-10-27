@@ -90,13 +90,7 @@ export class CarritoPage implements OnInit {
         location.href = '/consumidor/tab-inicial/ordenes';
          localStorage.removeItem('products')
 
-      },
-      response => {
-        console.log(response['error']['warning'][0]['value'])
-    },
-    () => {
-        console.log("The POST observable is now completed.");
-    });
+      });
     
     } 
     

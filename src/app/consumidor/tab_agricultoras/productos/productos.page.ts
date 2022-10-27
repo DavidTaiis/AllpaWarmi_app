@@ -14,6 +14,7 @@ export class ProductosPage implements OnInit {
   name: any;
   phone:any;
   products : any;
+  searchProduct:any;
   constructor(private router:Router, private tabAgricultorasService: TabAgricultorasService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -41,6 +42,7 @@ export class ProductosPage implements OnInit {
     this.tabAgricultorasService.getProductsId(idFarmer)
     .subscribe(  (res) => {
      this.products = res;
+     this.searchProduct = this.products;
     },
     response => {
       console.log(response['error']['warning'][0]['value'])
@@ -52,5 +54,14 @@ export class ProductosPage implements OnInit {
   goCar(){
 
     this.router.navigateByUrl('/consumidor/tab-inicial/carrito');
+  }
+  searchProductos(event){
+    const text = event.target.value;
+    this.searchProduct = this.products;
+    if(text && text.trim() != ''){
+      this.searchProduct = this.searchProduct.filter((prod:any)=> {
+        return (prod.product.toLowerCase().indexOf(text.toLowerCase()) > -1);
+      })
+    }
   }
 }

@@ -8,14 +8,8 @@
         <div class="texto-header">Perfil mujer agricultora</div>
       </div>
     </div>
-    <!-- Boton Editar Perfil -->
-   <!--  <div class="icon-end">
-      <ion-button (click)="onClick()" class="boton-warmi-in">
-        <ion-icon slot="icon-only" src="assets/icon/update_date.svg"></ion-icon>
-      </ion-button>
-    </div> -->
   </div>
-  <!-- Dato 1 -->
+
   <div class="datos-personales">
     <div class="imagen-buttom">
       <img class="img-profile" src="{{foto || 'assets/img/profileDefault.jpg'}}" />
@@ -37,21 +31,13 @@
       </ion-card-content>
     </div>
   </div>
-  <!-- Descripcion y start -->
+
   <div class="padding-profile-desc">
     <div class="contenedor-descripcion">
       <div class="text-color-purple">Venta de productos frescos</div>
     </div>
     <div>
       <div class="ion-text-left text-bold text-color-brown">Calificación</div>
-      <div>
-        <!-- <form [formGroup]="form">
-          <div class="cont">
-            <div class="stars">
-              <ngx-star-rating formControlName="rating" [id]="'rating'" [disabled]="true"></ngx-star-rating>
-            </div>
-          </div>
-        </form> -->
         <div class="contenedor-valoracion">
           <!-- <div class="calificación text-bold text-color-brown">Calificación</div> -->
           <div class="lechugas">
@@ -63,33 +49,17 @@
           </div>      
           <div class="valoracion text-bold text-white">4.5</div>
         </div>
-      </div>
+    
     </div>
-  </div>
 
-  <div class="center">
-    <ion-card style="width: 282px; height: 410px">
-      <app-googlemaps [buscador]="buscador" [miUbicacion]="miUbicacion" [feature]="feature"></app-googlemaps>
-    </ion-card>
   </div>
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <ion-text slot="end">{{product.price}} $</ion-text>
+      <ion-label>{{product.product}} - {{product.measure}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="logo-whatsapp"></ion-icon> <a href="https://wa.me/593{{phoneNumber}}" style="color: whitesmoke;"> &nbsp;&nbsp; Contactar</a></ion-button>
 
-
-  <div class="contenedor-list-ventas" id="contenedor-list-ventas">
-    <ion-card class="contenedor-card-p">
-      <ion-card-header class="encabezado-card">
-        <ion-card-title class="text-white text-bold">Horario</ion-card-title>
-      </ion-card-header>
-      <ng-container *ngFor="let horario of feature">
-      <ion-card-content *ngIf="horario.days" class="descripcion-card">
-        <div class="text-color-purple">{{horario.days}}</div>
-        <div class="text-color-purple">{{horario.hours}}</div>
-      </ion-card-content>
-    </ng-container>
-    </ion-card>
-  </div>
-
-  <div class="btn-ordenar">
-    <ion-button class="boton-warmi-in" [routerLink]="['/consumidor/tab-inicial/productos', id]">Ver productos
-    </ion-button>
-  </div>
+    
 </ion-content>

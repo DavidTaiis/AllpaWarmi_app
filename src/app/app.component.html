@@ -11,8 +11,11 @@
       <div class="contenedor-menu">              
         <!-- photo Profile -->
         <div class="contenedor-item-menu">
-          <ion-avatar class="size-avatar">
+          <ion-avatar *ngIf="foto != ''" class="size-avatar">
             <img src="{{foto}}" />
+          </ion-avatar>
+          <ion-avatar *ngIf="foto == ''" class="size-avatar">
+            <img src="assets/img/profileDefault.jpg" />
           </ion-avatar>
         </div>
         <!-- date profile -->
