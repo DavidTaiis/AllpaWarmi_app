@@ -22,6 +22,7 @@ export class ModalHuertoVentaPage implements OnInit {
   }
 
   viewProfile(){
+    console.log(this.rol)
     switch(this.rol){
       case 'Consumidor':
         this.router.navigate(['/consumidor/tab-inicial/perfil-ma', this.users_id]);
@@ -30,10 +31,11 @@ export class ModalHuertoVentaPage implements OnInit {
       case 'Lidereza':
         this.router.navigate(['/ma_lideresa/menu/inicio/perfilma/', this.users_id]);
         this.modalCtrl.dismiss();
-      
+      break;
       case 'Privado':
         this.router.navigate(['/c_privado/menu/perfil-ma', this.users_id]);
          this.modalCtrl.dismiss();
+         break;
     }
 
    

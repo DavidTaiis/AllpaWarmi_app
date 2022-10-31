@@ -21,6 +21,7 @@ export class TabInicioPage implements OnInit {
     this.transServices.getNews()
     .subscribe(  (res) => {
       this.feature = res;
+      console.log(this.feature)
     },
     response => {
       console.log(response['error']['warning'][0]['value'])

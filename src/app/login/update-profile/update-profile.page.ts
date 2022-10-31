@@ -15,6 +15,8 @@ export class UpdateProfilePage implements OnInit {
   file:any;
   name:any;
   phone:any;
+  role:any = localStorage.getItem('rol');
+
   constructor(private loginService: LoginServiceService, private alertController: AlertController) { 
     this.getUser();
   }
@@ -49,7 +51,29 @@ export class UpdateProfilePage implements OnInit {
         });
   
          await alert.present();
-         window.location.href = '/consumidor/tab-inicial/inicio'; 
+         switch (this.role) {
+          case 'Consumidor':
+            location.href = 'consumidor/tab-inicial/inicio';
+            break;
+          case 'Vendedora':
+            location.href = 'ma_vendedora/menu/inicio';
+            break;
+          case 'Lidereza':
+            location.href = 'ma_lideresa/menu/inicio';
+            break;
+          case 'Acopiadora':
+            location.href = 'ma_acopiadora/menu/inicio';
+            break;
+          case 'Bus':
+            location.href = 'c_bus/menu/inicio';
+            break;
+          case 'Camioneta':
+            location.href = 'c_camioneta/menu/inicio';
+            break;
+          case 'Privado':
+            location.href = 'c_privado/menu/inicio';
+            break;
+        }           
        },response => {
         console.log(response['error']['warning'][0]['value'])
     },

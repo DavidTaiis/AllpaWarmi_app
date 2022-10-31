@@ -128,16 +128,18 @@ initMap() {
 }
 
  async addMarkers(){
+  console.log(this.modal)
+
            for (let i = 0; i < this.feature.length; i++) {
-            const marker = new google.maps.Marker({
+               const marker = new google.maps.Marker({
               position: {
                   lat: Number(this.feature[i].position.lat),
                   lng: Number(this.feature[i].position.lng),
               }, 
-              label: this.feature[i].type.substring(0,1) ?? "",
+              label: this.feature[i].type ? this.feature[i].type.substring(0,1) : "",
               map: this.map,
             });
-
+        
             //Evento para mostrar datos
             switch (this.modal) {
               case "HuertoVenta":

@@ -21,15 +21,10 @@
     </ion-col>
   </ion-row>
 
-  <div class="contenedor-busqueda">
-    <div class="search">
-      <ion-searchbar class="busqueda" placeholder="Buscar ..." showCancelButton="never"></ion-searchbar>
-    </div>
-  </div>
 
   <div class="center">
     <ion-card style="width: 282px; height: 410px">
-      <app-googlemaps [localizacion]="localizacion" (enviar)="recibirData($event)" [feature]="feature"></app-googlemaps>
+      <app-googlemaps [modal]="modal" [localizacion]="localizacion" (enviar)="recibirData($event)" [feature]="feature"></app-googlemaps>
     </ion-card>
   </div>
   <!-- <ion-card class="map">

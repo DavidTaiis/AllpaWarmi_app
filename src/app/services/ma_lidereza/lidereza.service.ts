@@ -14,7 +14,7 @@ export class LiderezaService {
   constructor(private httpClient: HttpClient) { }
 
 getSellerPoints(){
-  return this.httpClient.get(`${this.url}geolocation/getSellerPoits/`, this.httpOptions)
+  return this.httpClient.get(`${this.url}geolocation/getSellerPoits`, this.httpOptions)
 
   }
 updateAsociation(data:FormData){
