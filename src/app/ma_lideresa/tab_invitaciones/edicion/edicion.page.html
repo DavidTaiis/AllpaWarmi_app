@@ -33,7 +33,7 @@
      <ion-textarea [(ngModel)]="rules" name="rules" value="{{rules}}"></ion-textarea>
 </ion-card>
 </ion-card>
-<ion-card style="width: 97%; height: 40%;">
+<ion-card class="tam-map">
   <app-googlemaps [posicionEdit]="posicionEdit" [localizacion]="localizacion" (enviar)="recibirData($event)" [feature]="feature"></app-googlemaps>
 </ion-card>
 

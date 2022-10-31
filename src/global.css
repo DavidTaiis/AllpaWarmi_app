@@ -234,7 +234,7 @@ ion-select::part(icon) {
   background: var(--warmin-color-yellow);
 }
 
-.custom-modal {
+/* .custom-modal {
   --backdrop-opacity: 0.5;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
@@ -250,4 +250,4 @@ ion-select::part(icon) {
 .custom-modal::part(content) {
   border-radius: 0px;
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.32);
-}/*# sourceMappingURL=global.css.map */
+}# sourceMappingURL=global.css.map */
