@@ -20,6 +20,7 @@
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
     <ion-card *ngFor="let order of orders" class="contenedor-card-p">
       <ion-card-header class="encabezado-card">
+        <div></div>
       </ion-card-header>
       <ion-card-content (click)="openDetalils(order.id)" class="descripcion-card">
         <ion-list>

@@ -16,36 +16,40 @@
   </div>
 
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
-    <ion-card *ngFor="let product of products" class="contenedor-card-p">
+    <ion-card class="contenedor-card-p" *ngFor="let product of products">
       <ion-card-header class="encabezado-card">
         <ion-card-title class="text-white text-bold">{{product.farmer}}</ion-card-title>
         <ion-card-subtitle class="text-white">{{product.phone}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content class="descripcion-card">
-        <ion-list>
-          <ion-item lines="none">
-            <!-- <ion-item *ngFor="let product of products"> -->
-            <ion-thumbnail slot="start">
-              <img src="assets/img/lechuga.jpg" />
-            </ion-thumbnail>
-            <ion-label>
-              <div class="text-bold text-color-purple">{{product.productName}}</div>
-              <ion-grid>
-                <ion-row>
-                  <ion-col>
-                    <div class="text-color-purple">{{product.measure}}</div>
-                  </ion-col>
-                  <ion-col class="text-color-purple text-bold" style="text-align: right;">
-                    $ {{product.price}}
-                  </ion-col>
-                  <ion-chip class="quitar" (click)="deleteProduct(product)">-</ion-chip>
 
-                </ion-row>
-              </ion-grid>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
+      </ion-card-header>
+
+      <div>
+        <ion-card-content class="descripcion-card">
+          <ion-list>
+            <ion-item  lines="none">
+              <!-- <ion-item *ngFor="let product of products"> -->
+              <ion-thumbnail slot="start">
+                <img src="assets/img/lechuga.jpg" />
+              </ion-thumbnail>
+              <ion-label>
+                <div class="text-bold text-color-purple">{{product.productName}}</div>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <div class="text-color-purple">{{product.measure}}</div>
+                    </ion-col>
+                    <ion-col class="text-color-purple text-bold" style="text-align: right;">
+                      $ {{product.price}}
+                    </ion-col>
+                    <ion-chip class="quitar" (click)="deleteProduct(product)">-</ion-chip>
+                  </ion-row>
+                </ion-grid>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </div>
+
     </ion-card>
 
   </div>
@@ -58,14 +62,16 @@
     <ng-template>
       <ion-content>
         <br>
-        <div class="text-center size-text35px text-bold text-color-purple" style="margin-bottom: 10px;">Selecciona el lugar de entrega</div>
+        <div class="text-center size-text35px text-bold text-color-purple" style="margin-bottom: 10px;">Selecciona el
+          lugar de entrega</div>
         <form>
-          <ion-list >
+          <ion-list>
 
             <ion-radio-group [(ngModel)]="place_delivery" name="place_delivery" mode="ios"
               value="Recogida en punto de venta">
               <div class="contenedor-date">
-                <ion-item lines="none" style="--background:var(--warmin-color-yellow);width: 350px; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                <ion-item lines="none"
+                  style="--background:var(--warmin-color-yellow);width: 350px; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                   <ion-label style="font-weight: bold;">Recogida en punto de venta</ion-label>
                   <ion-radio slot="end" value="Recogida en punto de venta"></ion-radio>
                 </ion-item>
@@ -75,23 +81,24 @@
                   <ion-radio slot="end" value="Entrega en domicilio"></ion-radio>
                 </ion-item>
 
-                <ion-item lines="none" style="--background:var(--warmin-color-yellow);width: 350px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                <ion-item lines="none"
+                  style="--background:var(--warmin-color-yellow);width: 350px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
                   <ion-label style="font-weight: bold;">Recogida en el huerto</ion-label>
                   <ion-radio slot="end" value="Recogida en el huerto"></ion-radio>
                 </ion-item>
               </div>
             </ion-radio-group>
-            <div class="contenedor-date" >
-            <ion-item lines="none">
-              <div class="ion-padding" style="text-align:center;">
-                <div class="text-color-purple text-bold">Selecciona la fecha y hora de entrega:</div>
-                <ion-datetime [(ngModel)]="deliverDate" name="deliverDate" minuteValues="0,15,30,45"
-                  hourValues="8,9,10,11,12,13,14,15,16">
-                  <span slot="time-label">Hora</span>
-                </ion-datetime>
-              </div>
-            </ion-item>
-          </div>
+            <div class="contenedor-date">
+              <ion-item lines="none">
+                <div class="ion-padding" style="text-align:center;">
+                  <div class="text-color-purple text-bold">Selecciona la fecha y hora de entrega:</div>
+                  <ion-datetime [(ngModel)]="deliverDate" name="deliverDate" minuteValues="0,15,30,45"
+                    hourValues="8,9,10,11,12,13,14,15,16">
+                    <span slot="time-label">Hora</span>
+                  </ion-datetime>
+                </div>
+              </ion-item>
+            </div>
           </ion-list>
           <div class="btn-ordenar" style="padding: 5px;">
             <ion-button type="submit" (click)="createOrder()" expand="block" class="boton-warmi-in">
