@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>{{nameStop}}</ion-title>
   </ion-toolbar>
@@ -9,7 +9,7 @@
   <ion-list>
     <ion-item>
     
-      <ion-label>{{nameStop}}
+      <ion-label>{{nameStop}} oooo
         <p>{{descriptionStop}}</p>
         <p>{{nameLineBus}}</p>
         <p>{{descripcionLineBus}}</p></ion-label>    
@@ -17,4 +17,24 @@
     </ion-item>
   </ion-list>
 </ion-card>
+</ion-content> -->
+
+
+<div class="contenedor-title-modal">
+  <div class="">
+    <div class="texto-title-modal">{{nameStop}}</div>
+  </div>
+</div>
+
+<ion-content >
+  <div class="margen-content">
+    <div class="modal-name-user">{{nameStop}}</div>
+    <div>{{descriptionStop}}</div>
+    <div>{{nameLineBus}}</div>
+    <div>{{descripcionLineBus}}</div>
+
+    <!-- <div>
+      <ion-button class="boton-warmi-in" (click)="viewProfile()">Ver perfisssss</ion-button>
+    </div> -->
+  </div>
 </ion-content>

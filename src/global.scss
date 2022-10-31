@@ -410,7 +410,42 @@ ion-popover::part(content) {
   background: var(--warmin-color-orange);
   border-start-end-radius: 50px;
   border-end-end-radius: 50px;
+}
 
+.contenedorpinkd-title-modal {
+  width: 40vh;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  background: var(--warmin-color-pinkd);
+  border-start-end-radius: 50px;
+  border-end-end-radius: 50px;
+}
+
+.contenedoryellow-title-modal {
+  width: 40vh;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  background: var(--warmin-color-yellow);
+  border-start-end-radius: 50px;
+  border-end-end-radius: 50px;
+}
+
+.contenedorred-title-modal {
+  width: 40vh;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  background: var(--warmin-color-orange);
+  border-start-end-radius: 50px;
+  border-end-end-radius: 50px;
 }
 
 .texto-title-modal {

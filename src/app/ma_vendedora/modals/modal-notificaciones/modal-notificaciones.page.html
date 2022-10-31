@@ -1,20 +1,37 @@
 
 
 <ion-content *ngIf='type === "Emergencia"'>
-  <ion-card class="titulo-fondo-emergencia">
-    <h4>{{type}}</h4>
-  </ion-card>
-  <ion-card>
+  <!-- <ion-card class="titulo-fondo-emergencia"> -->
+    <!-- <h4>{{type}}</h4> -->
+    <div class="contenedorpinkd-title-modal">
+      <div class="">
+        <div class="texto-title-modal">{{type}}</div>
+      </div>
+    </div>
+
+    <div class="margen-content">
+      <div class="modal-name-user">{{name}}</div>
+      <div>{{description}}</div>      
+  
+      <!-- <div>
+        <ion-button class="boton-warmi-in" (click)="viewProfile()">Ver perfisssss</ion-button>
+      </div> -->
+    </div>
+
+  <!-- </ion-card> -->
+  <!-- <ion-card>
     <ion-card-header>
       <ion-card-title>
         {{name}}
       </ion-card-title>
       <ion-card-subtitle>{{description}}</ion-card-subtitle>
     </ion-card-header>
-  </ion-card>
+  </ion-card> -->
 </ion-content>
+
+
 <ion-content *ngIf='type === "Alerta"'>
-  <ion-card class="titulo-fondo-alerta">
+  <!-- <ion-card class="titulo-fondo-alerta">
     <h4>{{type}}</h4>
   </ion-card>
   <ion-card>
@@ -24,10 +41,27 @@
       </ion-card-title>
       <ion-card-subtitle>{{description}}</ion-card-subtitle>
     </ion-card-header>
-  </ion-card>
+  </ion-card> -->
+  <div class="contenedoryellow-title-modal">
+    <div class="">
+      <div class="texto-title-modal">{{type}}</div>
+    </div>
+  </div>
+
+  <div class="margen-content">
+    <div class="modal-name-user">{{name}}</div>
+    <div>{{description}}</div>      
+
+    <!-- <div>
+      <ion-button class="boton-warmi-in" (click)="viewProfile()">Ver perfisssss</ion-button>
+    </div> -->
+  </div>
 </ion-content>
+
+
+
 <ion-content *ngIf='type === "Informativa"'>
-  <ion-card class="titulo-fondo-alerta">
+  <!-- <ion-card class="titulo-fondo-alerta">
     <h4>{{type}}</h4>
   </ion-card>
   <ion-card>
@@ -37,5 +71,19 @@
       </ion-card-title>
       <ion-card-subtitle>{{description}}</ion-card-subtitle>
     </ion-card-header>
-  </ion-card>
+  </ion-card> -->
+  <div class="contenedor-title-modal">
+    <div class="">
+      <div class="texto-title-modal">{{type}}</div>
+    </div>
+  </div>
+
+  <div class="margen-content">
+    <div class="modal-name-user">{{name}}</div>
+    <div>{{description}}</div>      
+
+    <!-- <div>
+      <ion-button class="boton-warmi-in" (click)="viewProfile()">Ver perfisssss</ion-button>
+    </div> -->
+  </div>
 </ion-content>
