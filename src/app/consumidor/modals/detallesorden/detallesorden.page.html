@@ -1,0 +1,37 @@
+<div class="contenedor-title-modal">
+  <div class="">
+    <div class="texto-title-modal">Detalle venta</div>
+  </div>
+</div>
+
+<ion-content>
+  <ion-card *ngFor="let product of products" class="contenedor-card-p">
+    <!-- <ion-card class="contenedor-card-p"> -->
+    <ion-card-header class="encabezado-card">
+    </ion-card-header>
+    <ion-card-content class="descripcion-card">
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label>
+            <div class="text-bold text-color-purple">{{product.product}}</div> 
+            <!-- {{product.product}} -->
+            <div class="text-bold text-color-purple">{{product.measure}}</div> 
+            <!-- {{product.measure}} -->
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="text-color-purple">{{product.quantity}}</div>
+                  <!-- {{product.quantity}} -->
+                </ion-col>
+                <ion-col class="text-color-purple text-bold" style="text-align: right;">
+                  {{product.subtotal}}
+                </ion-col>
+                
+              </ion-row>
+            </ion-grid>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card> 
+</ion-content>

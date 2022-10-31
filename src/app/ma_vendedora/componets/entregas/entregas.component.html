@@ -6,7 +6,7 @@
     <ion-thumbnail slot="start">
       <img alt="Silhouette of mountains" src="assets/img/compra.png" />
     </ion-thumbnail>
-    <ion-label  (click)="viewDetails()">{{order.client}}
+    <ion-label  (click)="viewDetails(order.id)">{{order.client}}
       
       <p>{{order.deliver_date}}</p></ion-label>
   </ion-item>

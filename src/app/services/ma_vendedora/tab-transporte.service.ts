@@ -71,4 +71,8 @@ deleteProduct(id:any){
 addNotification(formdata:FormData){
   return this.httpClient.post(`${this.url}notification/addNotification`,formdata, this.httpOptions)
 }
+addShared(formdata:FormData){
+  return this.httpClient.post(`${this.url}seller/addShared`,formdata, this.httpOptions)
+
+}
 }

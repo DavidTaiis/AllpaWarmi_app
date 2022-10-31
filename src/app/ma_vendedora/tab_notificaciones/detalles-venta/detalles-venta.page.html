@@ -1,9 +1,53 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>detalles_venta</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <div class="border-top-page">
+    <div class="contenedor-header-icon">
+      <!-- Contenedor 1 -->
+      <div class="contenedor-header-config">
+        <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/agricultor.svg">
+        </ion-icon>
+        <div class="texto-header">Detalles de venta</div>
+      </div>
+    </div>
+  </div>
+  <div class="datos-personales">
+    <div class="imagen-buttom">
+      <img class="img-profile" src="{{photo || 'assets/img/profileDefault.jpg'}}" />
+    </div>
+    <div>
+      <ion-card-header>
+        <ion-card-title class="text-color-purple text-bold"> {{client}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="text-bold text-color-brown">Teléfono:</div>
+        <div class="text-color-purple">{{phoneClient}}</div>
+      </ion-card-content>
+    </div>
+  </div>
+  <ion-list>
+   <ion-list-header>
+    {{place}}
+   </ion-list-header>
+    <ion-item *ngFor="let product of products">
+      <ion-text slot="end">{{product.subtotal}}</ion-text>
+      <ion-label>{{product.quantity}} {{product.measure}} {{product.product_name}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-text slot="end">{{total}}</ion-text>
+      <ion-label>Total:</ion-label>
+    </ion-item>
+  </ion-list>
+  <div class="center">
+  <h4 class="text-color-purple text-bold">Ubicacion del domicilio del consumidor</h4>
+
+  </div>
+  <div class="center">
+    <ion-card style="width: 282px; height: 410px">
+      <app-googlemaps [buscador]="buscador" [miUbicacion]="miUbicacion" [feature]="feature"></app-googlemaps>
+    </ion-card>
+  </div>
+  
+  <ion-button class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="logo-whatsapp"></ion-icon> <a href="https://wa.me/593{{phoneNumber}}" style="color: whitesmoke;"> &nbsp;&nbsp; Contactar</a></ion-button>
+
 
 </ion-content>

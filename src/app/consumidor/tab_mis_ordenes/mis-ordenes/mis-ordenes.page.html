@@ -19,15 +19,11 @@
   <!--  -->
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
     <ion-card *ngFor="let order of orders" class="contenedor-card-p">
-      <!-- <ion-card *ngFor="let order of orders" class="contenedor-card-p"> -->
       <ion-card-header class="encabezado-card">
-        <!-- <ion-card-title class="text-white text-bold">Product farmer</ion-card-title> -->
-        <!-- <ion-card-subtitle class="text-white">Producto-phone</ion-card-subtitle> -->
       </ion-card-header>
-      <ion-card-content class="descripcion-card">
+      <ion-card-content (click)="openDetalils(order.id)" class="descripcion-card">
         <ion-list>
           <ion-item lines="none">
-            <!-- <ion-item *ngFor="let product of products"> -->
             <ion-thumbnail slot="start">
               <img src="assets/img/compra.png" />
             </ion-thumbnail>

@@ -87,12 +87,14 @@ getFarmers(){
     
   }
 
-  addGeolocalizacionMa(lat:string, lng:string, type:string, description:string){
+  addGeolocalizacionMa(lat:string, lng:string, type:string, description:string, days:string, hours:string){
     let datos = {
       'lat': lat,
       'lng': lng,
       'type': type,
-      'description':description
+      'description':description,
+      'days': days,
+      'hours': hours
 
     };
       return this.httpClient.post(`${this.url}geolocation/addGeolocation`,datos, this.httpOptions)
@@ -121,5 +123,9 @@ getFarmers(){
 
   getUser(){
     return this.httpClient.get(`${this.url}user/getUser`, this.httpOptions)
+  }
+
+  getOrderDetails(id:number){
+    return this.httpClient.get(`${this.url}consumer/getProductsOrder/${id}`, this.httpOptions)
   }
 }

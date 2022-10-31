@@ -342,7 +342,7 @@ ion-select::part(icon) {
   &::part(content) {
     border-radius: 0px;
     box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 32%);
-    height: 350px;
+     height: 50%;
   }
 }
 
@@ -398,4 +398,40 @@ ion-popover::part(content) {
     font-weight: bold;
     color: #fff;
   }
+}
+
+.contenedor-title-modal {
+  width: 40vh;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  background: var(--warmin-color-orange);
+  border-start-end-radius: 50px;
+  border-end-end-radius: 50px;
+
+}
+
+.texto-title-modal {
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.margen-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.modal-name-user {
+  color: var(--warmin-color-brown);
+  margin-bottom: 15px;
+  font-weight: bold;
+
 }

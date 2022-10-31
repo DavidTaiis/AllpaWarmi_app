@@ -45,7 +45,13 @@ const routes: Routes = [
           {
             path:'agregarProducto/:id',
             loadChildren: () => import('./../../ma_vendedora/tab_productos/agregar-producto/agregar-producto.module').then( m => m.AgregarProductoPageModule)
-          }
+          },
+          {
+            path: 'perfilma/:id',
+            loadChildren: () => import('./../../ma_vendedora/tab_productos/perfilma/perfilma.module').then( m => m.PerfilmaPageModule)
+          },
+        
+          
         ]
       },
       {
@@ -63,7 +69,11 @@ const routes: Routes = [
           {
             path: 'notificaciones',
             loadChildren: () => import('./../../ma_vendedora/tab_notificaciones/inicio/inicio.module').then( m => m.InicioPageModule)
-          }
+          },
+          {
+            path: 'detalles-venta/:id',
+            loadChildren: () => import('./../../ma_vendedora/tab_notificaciones/detalles-venta/detalles-venta.module').then( m => m.DetallesVentaPageModule)
+          },
         ]
       },
     
