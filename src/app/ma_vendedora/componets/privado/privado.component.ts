@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./privado.component.scss'],
 })
 export class PrivadoComponent implements OnInit {
-
+  feature:any;
   constructor() { }
 
   ngOnInit() {}

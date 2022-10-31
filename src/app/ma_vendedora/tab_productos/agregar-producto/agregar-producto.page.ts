@@ -154,11 +154,6 @@ export class AgregarProductoPage implements OnInit {
          await alert.present();
           this.router.navigate(['ma_vendedora/menu/productos']) 
          window.location.href = 'ma_vendedora/menu/productos'; 
-       },response => {
-        console.log(response['error']['warning'][0]['value'])
-    },
-    () => {
-        console.log("The POST observable is now completed.");
-    }); 
+       }); 
     }
 }
