@@ -13,7 +13,7 @@ export class AppComponent {
   phone:any;
   identification_card:any;
   foto:any;
-  role:any;
+  role:any = localStorage.getItem('rol');
   constructor(private navCtrl: NavController, private consumerService:TabAgricultorasService) {
     this.getUser();
   
@@ -33,7 +33,7 @@ export class AppComponent {
       this.phone = res['phone'];
       this.identification_card = res['idetification_card'];
       this.foto = res['photo'][0] ? res['photo'][0]['url'] : "";
-      this.role = res['role'];
+
     })
   }
   goUpdateProfile(){

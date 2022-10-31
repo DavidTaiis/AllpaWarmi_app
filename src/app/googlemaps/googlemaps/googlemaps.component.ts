@@ -134,6 +134,7 @@ initMap() {
                   lat: Number(this.feature[i].position.lat),
                   lng: Number(this.feature[i].position.lng),
               }, 
+              label: this.feature[i].type.substring(0,1) ?? "",
               map: this.map,
             });
 

@@ -10,15 +10,18 @@ import { Router } from '@angular/router';
 export class GeolocalizacionSalidaPage implements OnInit {
 
   constructor(public Mapa:MapasService, private router:Router) { }
-
+  localizacion:any;
+  puntoSelect:any;
+  type:any;
   ngOnInit() {
+    this.localizacion = true;
+    this.type = "Camioneta";
   }
-  async ngAfterViewInit(){
-    this.Mapa.createMap();
-  }
-
   registrarSalida(){
     this.router.navigate(['/c_privado/geolocalizacion-llegada'])
+  }
+  recibirData(positionSet:any){
+    this.puntoSelect = positionSet;
   }
 
 }

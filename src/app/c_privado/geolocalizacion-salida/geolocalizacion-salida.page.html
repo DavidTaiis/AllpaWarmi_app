@@ -19,7 +19,7 @@
   </ion-card> -->
   <div class="center">
     <ion-card style="width: 282px; height: 410px">
-      <app-googlemaps [localizacion]="localizacion" [feature]="feature" (enviar)="recibirData($event)"></app-googlemaps>
+      <app-googlemaps [localizacion]="localizacion"  (enviar)="recibirData($event)" [feature]="feature" (enviar)="recibirData($event)"></app-googlemaps>
     </ion-card>
   </div>
 
