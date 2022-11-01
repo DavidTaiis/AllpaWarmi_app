@@ -32,7 +32,7 @@ ionicForm: FormGroup;
       'identification_card': new FormControl("",[Validators.required, Validators.minLength(10),Validators.pattern('^[0-9]+$')]),
       'name': new FormControl("", Validators.required),
       'role': new FormControl("", Validators.required),
-      'phone_number': new FormControl("", Validators.required),
+      'phone_number': new  FormControl("",[Validators.required, Validators.minLength(10),Validators.pattern('^[0-9]+$')]),
       'password': new FormControl("", Validators.required),
       'confirmate_password' : new FormControl("", Validators.required)
     })
@@ -41,8 +41,18 @@ ionicForm: FormGroup;
 
   ngOnInit() {
   }
+  get errorControl() {
+    return this.ionicForm.controls;
+  }
 
   async terminos(){
+    this.isSubmitted = true;
+  if (!this.ionicForm.valid) {
+    console.log('Please provide all the required values!')
+    return false;
+  } else {
+
+
     const alert = await this.alertController.create({
       cssClass:'app-alert',
       header:'Terminos y condiciones',
@@ -67,7 +77,7 @@ ionicForm: FormGroup;
     });
   
     await alert.present();
-    
+  }
   }
 
   async register(){
