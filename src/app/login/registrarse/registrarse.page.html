@@ -14,7 +14,7 @@
     </div>
     <!-- Contenedor 3 - Formulario -->
     <div class="contenedor-formulario">
-      <form class="form-center ">
+      <form [formGroup]="ionicForm" class="form-center ">
         <div class="">
           <!-- Nombres y Apellidos -->
           <div class="contenedor-item">
@@ -22,7 +22,7 @@
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Nombres y
                 apellidos</ion-label>
-              <ion-input [(ngModel)]="name" type="text" [ngModelOptions]="{standalone: true}" class="text-center">
+              <ion-input [(ngModel)]="name" type="text" formControlName="name" class="text-center">
               </ion-input>              
             </ion-item>
           </div>
@@ -33,7 +33,7 @@
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Cédula
               </ion-label>
-              <ion-input [(ngModel)]="identification_card" type="text" [ngModelOptions]="{standalone: true}"
+              <ion-input [(ngModel)]="identification_card" type="text" formControlName="identification_card""
                 class="text-center"></ion-input>              
             </ion-item>
           </div>
@@ -44,7 +44,7 @@
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Número de
                 celular</ion-label>
-              <ion-input [(ngModel)]="phone_number" type="text" [ngModelOptions]="{standalone: true}"
+              <ion-input [(ngModel)]="phone_number" type="text" formControlName="phone_number"
                 class="text-center"></ion-input>              
             </ion-item>
           </div>
@@ -55,7 +55,7 @@
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Contraseña
               </ion-label>
-              <ion-input [(ngModel)]="password" type="password" [ngModelOptions]="{standalone: true}"
+              <ion-input [(ngModel)]="password" type="password" formControlName="password"
                 class="text-center"></ion-input>              
             </ion-item>
           </div>
@@ -66,7 +66,7 @@
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Confirma tu
                 contraseña</ion-label>
-              <ion-input [(ngModel)]="confirmate_password" type="password" [ngModelOptions]="{standalone: true}"
+              <ion-input [(ngModel)]="confirmate_password" type="password" formControlName="confirmate_password"
                 class="text-center">
               </ion-input>              
             </ion-item>
@@ -80,7 +80,7 @@
               <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">Tipo de usuario
               </ion-label>
               <ion-select (ionChange)="mostrar()" [(ngModel)]="role" interface="popover"
-                [ngModelOptions]="{standalone: true}">
+                formControlName="role">
                 <!-- Opciones -->
                 <ion-select-option value="Consumidor">Consumidor agroecológico</ion-select-option>
                 <ion-select-option value="Agricultora">Agricultora</ion-select-option>

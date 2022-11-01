@@ -74,11 +74,7 @@ export class InicioPage implements OnInit {
    
   }
   
-  ionViewWillEnter(){
-    setTimeout(() => {
-      
-    }, 1000);
-  }
+
   navegacionLogin (){
     this.isSubmitted = true;
   if (!this.ionicForm.valid) {

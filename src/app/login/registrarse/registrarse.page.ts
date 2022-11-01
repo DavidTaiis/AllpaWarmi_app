@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { LoginServiceService } from 'src/app/services/login/login-service.service';
 import { AlertController } from '@ionic/angular';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-registrarse',
   templateUrl: './registrarse.page.html',
@@ -20,10 +21,22 @@ public tipoAgricultora: string[] = [];
 public tipoConductor: string[] = [];
 selectAgricultora: boolean = false;
 selectConductor: boolean = false;
+isSubmitted = false;
+ionicForm: FormGroup;
 
-  constructor(public menu : MenuController, private navCtrl: NavController, private loginService: LoginServiceService,private alertController: AlertController) { 
+  constructor(public formBuilder: FormBuilder, public menu : MenuController, private navCtrl: NavController, private loginService: LoginServiceService,private alertController: AlertController) { 
     this.menu.enable(false);
     this.menu.swipeGesture(false)
+
+    this.ionicForm = this.formBuilder.group({
+      'identification_card': new FormControl("",[Validators.required, Validators.minLength(10),Validators.pattern('^[0-9]+$')]),
+      'name': new FormControl("", Validators.required),
+      'role': new FormControl("", Validators.required),
+      'phone_number': new FormControl("", Validators.required),
+      'password': new FormControl("", Validators.required),
+      'confirmate_password' : new FormControl("", Validators.required)
+    })
+
   }
 
   ngOnInit() {
