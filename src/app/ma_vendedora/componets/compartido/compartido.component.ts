@@ -22,7 +22,7 @@ export class CompartidoComponent implements OnInit {
   }
 
   gotoProfile(id){
-    this.router.navigate([`/ma_vendedora/menu/transporte/perfil-conductor/${id}`]);
+    this.router.navigate([`/ma_vendedora/menu/productos/perfilma/${id}`]);
   }
 
   getShared(){

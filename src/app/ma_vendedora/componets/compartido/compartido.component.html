@@ -5,7 +5,7 @@
 </div>
 
 <ion-card>
-  <ion-item *ngFor="let shared of shareds" style="font-size: 12px;" (click)="gotoProfile(shared.id)">
+  <ion-item *ngFor="let shared of shareds" style="font-size: 12px;" (click)="gotoProfile(shared.id_users)">
     <ion-chip slot="end" color="success">{{shared.status}}</ion-chip>
     <ion-thumbnail slot="start">
       <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg" />

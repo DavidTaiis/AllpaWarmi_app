@@ -1,0 +1,45 @@
+<ion-content>
+  <div class="border-top-page">
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/car.svg">
+      </ion-icon>
+      <div class="texto-header">Conductor privado</div>
+    </div>
+  </div>
+  <div class="contenedor-perfil">
+    <div class="imagen-conductor"><img width="125" src="{{image  ||  'assets/img/comprador.jpg'}}" /></div>
+    <div class="informacion-conductor">
+      <div class="start-rat">
+        <div class="ion-text-center">
+      
+        </div>
+      </div>
+      <div class="ion-text-center text-bold text-color-brown">{{user_name}}</div>
+      <div class="ion-text-center text-color-purple">{{phone_number}}</div>
+      <div class="ion-text-center contenedor-datos">
+        <ion-button class=" boton-whatsapp">
+          <ion-icon name="logo-whatsapp"></ion-icon> <a href="https://wa.me/{{phone_number}}" class="text-white">&nbsp;
+            Contactar</a>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+  <div class="descripcion-perfil">
+    <div class="ion-text-center text-bold text-color-brown">Descripción Vehicular</div>
+    <ion-grid style="width: 70%;">
+      <ion-row>
+        <ion-col class="ion-text-right text-color-brown" size="6">Tipo de vehículo: </ion-col>
+        <ion-col size-md="6" class="text-color-purple">{{description}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-right text-color-brown" size="6">Color: </ion-col>
+        <ion-col size-md="6" class="text-color-purple">{{color}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-right text-color-brown" size="6">Placa: </ion-col>
+        <ion-col size-md="6" class="text-color-purple">{{car_plate}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

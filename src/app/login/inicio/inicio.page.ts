@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MenuController, NavController } from '@ionic/angular';
 import { LoginServiceService } from 'src/app/services/login/login-service.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio',
@@ -8,6 +10,7 @@ import { LoginServiceService } from 'src/app/services/login/login-service.servic
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+  ionicForm: FormGroup;
   public accesToken = "";
   public respuesta:any = ""
   public cedula: string = "";
@@ -19,7 +22,17 @@ export class InicioPage implements OnInit {
   selectConductor: boolean = false;
   accessToken:any;
   rol:any;
-  constructor(public menu : MenuController,private navCtrl: NavController, private loginService: LoginServiceService) {
+  isSubmitted = false;
+
+  constructor(private alertController: AlertController, public menu : MenuController,private navCtrl: NavController, private loginService: LoginServiceService,public formBuilder: FormBuilder) {
+   
+    this.ionicForm = this.formBuilder.group({
+      'cedula': new FormControl("",[Validators.required, Validators.minLength(10),Validators.pattern('^[0-9]+$')]),
+      'contrasena': new FormControl("", Validators.required),
+      'tipoUsuario': new FormControl("", Validators.required)
+    })
+
+
     this.menu.enable(false);
       this.menu.swipeGesture(false)
       this.rol = localStorage.getItem('rol');
@@ -67,6 +80,12 @@ export class InicioPage implements OnInit {
     }, 1000);
   }
   navegacionLogin (){
+    this.isSubmitted = true;
+  if (!this.ionicForm.valid) {
+    console.log('Please provide all the required values!')
+    return false;
+  } else {
+
   switch(this.tipoUsuario){
     case 'Consumidor':
       this.loginService.autentification(this.cedula,this.contrasena, this.tipoUsuario).subscribe( (val) => {
@@ -76,8 +95,17 @@ export class InicioPage implements OnInit {
         localStorage.setItem('rol', this.tipoUsuario)
 
       },
-      response => {
-          console.log(response['error']['warning'][0]['value'])
+     async response => {
+        const alert = await this.alertController.create({
+          // css personalizado
+          cssClass:'app-alert',
+          header: response['error']['warning'][0]['value'],
+          message: 'Verifica tus datos y vuelve a ingresar',
+          buttons: ['OK'],            
+        });
+    
+         await alert.present();
+
       },
       () => {
           console.log("The POST observable is now completed.");
@@ -107,8 +135,16 @@ export class InicioPage implements OnInit {
             break;
          }
       },
-      response => {
-          console.log(response['error']['warning'][0]['value'])
+      async response => {
+        const alert = await this.alertController.create({
+          // css personalizado
+          cssClass:'app-alert',
+          header: response['error']['warning'][0]['value'],
+          message: 'Verifica tus datos y vuelve a ingresar',
+          buttons: ['OK'],            
+        });
+    
+         await alert.present();
       },
       () => {
           console.log("The POST observable is now completed.");
@@ -138,8 +174,16 @@ export class InicioPage implements OnInit {
               break;
             }
         },
-        response => {
-            console.log(response['error']['warning'][0]['value'])
+       async response => {
+        const alert = await this.alertController.create({
+          // css personalizado
+          cssClass:'app-alert',
+          header: response['error']['warning'][0]['value'],
+          message: 'Verifica tus datos y vuelve a ingresar',
+          buttons: ['OK'],            
+        });
+      
+           await alert.present();
         },
         () => {
             console.log("The POST observable is now completed.");
@@ -147,7 +191,7 @@ export class InicioPage implements OnInit {
         break;
 
   }
-
+  }
    
   }
   mostrar(){
@@ -173,5 +217,8 @@ export class InicioPage implements OnInit {
 
     
   }
+  }
+  get errorControl() {
+    return this.ionicForm.controls;
   }
 }

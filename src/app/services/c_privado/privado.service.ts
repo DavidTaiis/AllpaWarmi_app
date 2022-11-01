@@ -27,7 +27,9 @@ export class PrivadoService {
         'type': type
       }]
     }
-    console.log(data)
     return this.httpClient.post(`${this.url}camioneta/addRoutePrivate`,data, this.httpOptions)
+  }
+  getPrivado(){
+    return this.httpClient.get(`${this.url}seller/getRoutesPrivate`, this.httpOptions)
   }
 }

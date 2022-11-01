@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrivadoService } from 'src/app/services/c_privado/privado.service';
 
 @Component({
   selector: 'app-privado',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivadoComponent implements OnInit {
   feature:any;
-  constructor() { }
+  modal:any;
+  constructor(private privadoService: PrivadoService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getPrivado();
+    this.modal = "Privado";
+  }
 
+  getPrivado(){
+    this.privadoService.getPrivado().subscribe( res => {
+      this.feature = res;
+    })
+  }
 }

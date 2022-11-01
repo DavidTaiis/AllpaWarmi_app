@@ -117,7 +117,11 @@ const routes: Routes = [
   {
     path: 'detallesorden',
     loadChildren: () => import('./consumidor/modals/detallesorden/detallesorden.module').then( m => m.DetallesordenPageModule)
+  },  {
+    path: 'modal-privado',
+    loadChildren: () => import('./ma_vendedora/modals/modal-privado/modal-privado.module').then( m => m.ModalPrivadoPageModule)
   },
+
 
 ];
 

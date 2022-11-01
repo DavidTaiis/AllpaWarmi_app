@@ -16,16 +16,25 @@
     </div>
     <!-- Contenedor 3 - Formulario -->
     <div class="contenedor-formulario">
-      <form class="form-center">
+      <form [formGroup]="ionicForm" class="form-center">
         <div>
           <!-- Usuario o Cédula -->
           <div class="contenedor-item ">
             <ion-icon slot="start" class="size-icon" src="/assets/icon/user.svg"></ion-icon>
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
-                Usuario o Cédula</ion-label>
-              <ion-input [(ngModel)]="cedula" type="text" [ngModelOptions]="{standalone: true}" class="text-center ">
+                Cédula</ion-label>
+              <ion-input [(ngModel)]="cedula" type="text" formControlName="cedula" class="text-center">
               </ion-input>
+              <span class="error-validate" *ngIf="isSubmitted && errorControl.cedula.errors?.required">
+                Este campo es obligatorio.
+               </span>
+               <span class="error-validate" *ngIf="isSubmitted && errorControl.cedula.errors?.minlength">
+                Ingresa una cédula válida.
+              </span>
+              <span class="error-validate" *ngIf="isSubmitted && errorControl.cedula.errors?.pattern">
+                Solo numeros permitidos.
+              </span>
             </ion-item>
           </div>
           <!--  -->
@@ -34,8 +43,11 @@
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
                 Contraseña</ion-label>
-              <ion-input [(ngModel)]="contrasena" type="password" [ngModelOptions]="{standalone: true}"
+              <ion-input [(ngModel)]="contrasena" type="password" formControlName="contrasena"
                 class="text-center "></ion-input>
+                <span class="error-validate" *ngIf="isSubmitted && errorControl.contrasena.errors?.required">
+                  Este campo es obligatorio.
+                 </span>
             </ion-item>
           </div>
 
@@ -45,12 +57,15 @@
               <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">
                 Tipo de Usuario </ion-label>
               <ion-select placeholder="Tipo de Usuario" (ionChange)="mostrar()" [(ngModel)]="tipoUsuario" interface="popover"
-                [ngModelOptions]="{standalone: true}">
+              formControlName="tipoUsuario">
                 <!-- Opciones 1 -->
                 <ion-select-option value="Consumidor">Consumidor agroecológico</ion-select-option>
                 <ion-select-option value="Agricultora">Agricultora</ion-select-option>
                 <ion-select-option value="Conductor">Conductor</ion-select-option>
               </ion-select>
+              <span class="error-validate" *ngIf="isSubmitted && errorControl.tipoUsuario.errors?.required">
+                Este campo es obligatorio.
+               </span>
             </ion-item>
 
           </div>

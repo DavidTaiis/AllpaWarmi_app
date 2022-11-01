@@ -9,6 +9,7 @@ import { ModalNoticiasPage} from './../../ma_vendedora/modals/modal-noticias/mod
 import { ModalNotificacionesPage } from 'src/app/ma_vendedora/modals/modal-notificaciones/modal-notificaciones.page';
 import { AcopioModalPage} from './../../ma_acopiadora/modals/acopio-modal/acopio-modal.page';
 import { ParadaPage } from './../../c_bus/modals/parada/parada.page';
+import { ModalPrivadoPage} from './../../ma_vendedora/modals/modal-privado/modal-privado.page';
 declare var google: any;
 
 @Component({
@@ -128,15 +129,22 @@ initMap() {
 }
 
  async addMarkers(){
-  console.log(this.modal)
-
+  let label = "";
            for (let i = 0; i < this.feature.length; i++) {
+            if(this.feature[i].type){
+              label = this.feature[i].type.substring(0,1);
+            }else{
+              if(this.feature[i].position.type){
+                label = this.feature[i].position.type.substring(0,3);
+              }
+            }
+
                const marker = new google.maps.Marker({
               position: {
                   lat: Number(this.feature[i].position.lat),
                   lng: Number(this.feature[i].position.lng),
               }, 
-              label: this.feature[i].type ? this.feature[i].type.substring(0,1) : "",
+              label: label,
               map: this.map,
             });
         
@@ -245,6 +253,24 @@ initMap() {
                       priceLineBus: this.feature[i].priceLineBus,
                       descriptionStop : this.feature[i].descriptionStop,
                       nameStop:this.feature[i].nameStop,
+                     }
+                });
+                await modal.present();
+                });
+
+                break;
+                case "Privado":
+                  marker.addListener("click",async () => {
+                    const modal = await this.modalCtrl.create({
+                    component: ModalPrivadoPage,
+                    cssClass: 'custom-modal',
+                      componentProps: {
+                      car_plate: this.feature[i].car_plate,
+                      identification_card: this.feature[i].identification_card,
+                      color: this.feature[i].color,
+                      description : this.feature[i].description,
+                      user_name:this.feature[i].user_name,
+                      phone_number:this.feature[i].phone_number,
                      }
                 });
                 await modal.present();

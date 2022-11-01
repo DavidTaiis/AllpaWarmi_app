@@ -18,6 +18,7 @@ export class PerfilConductorPage implements OnInit {
   description:any;
   type:any;
   color:any;
+  image:any;
 
   constructor(private activatedRoute: ActivatedRoute,public fb: FormBuilder,private tabTransporteService: TabTransporteService) { 
     this.form = this.fb.group({
@@ -40,6 +41,7 @@ export class PerfilConductorPage implements OnInit {
       this.description = res["description"];
       this.type = res["type"];
       this.color = res["color"];
+      this.image = res["image"];
     },
     response => {
       console.log(response['error']['warning'][0]['value'])
