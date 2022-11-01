@@ -9,7 +9,8 @@
     <!-- Contenedor 2 -->
     <div class="contenedor-title">
       <div>
-        <h4 class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación del centro de acopio</h4>
+        <h4 class="text-center size-text35px text-bold text-color-purple">Indica en el mapa la ubicación del centro de
+          acopio</h4>
       </div>
     </div>
   </div>
@@ -21,26 +22,26 @@
   </ion-card> -->
   <div class="center">
     <ion-card class="tam-map">
-      <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
+      <app-googlemaps [localizacion]="localizacion" [feature]="feature" (enviar)="recibirData($event)"></app-googlemaps>
     </ion-card>
   </div>
-<div class="btn-ordenar">
-  <ion-button class="boton-warmi-in" id="open-modal" >Continuar</ion-button>
-</div>
-  
+  <div class="btn-ordenar">
+    <ion-button class="boton-warmi-in" id="open-modal">Continuar</ion-button>
+  </div>
+
   <!-- Modal -->
 
   <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
     <ng-template>
       <ion-header>
         <ion-toolbar>
-        
+
           <ion-buttons slot="end">
             <ion-button (click)="modal.dismiss()">Cancelar</ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-      
+
       <div class="border-top-page">
         <!-- Contenedor 1 -->
         <div class="contenedor-header">
@@ -50,26 +51,50 @@
         </div>
       </div>
       <ion-content>
-          <br>
-          <h4 class="text-center size-text35px text-bold text-color-purple">Ingresa los datos requeridos</h4>
-          <form>
-        <ion-list>
-          <ion-card>  
-            <ion-item>
-              <ion-label position="stacked">Nombre del centro de acopio</ion-label>
-              <ion-input [(ngModel)]="name" name="name"></ion-input>
+        <br>
+        <div class="text-center size-text35px text-bold text-color-purple">Ingresa los datos requeridos</div>
+        <form>
+          <div class="contenedor-item ">
+            <!-- <ion-icon slot="start" class="size-icon" src="/assets/icon/user.svg"></ion-icon> -->
+            <ion-item lines="none" class="input-border-bot item-native-transparency">
+              <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
+                Nombre del centro de acopio</ion-label>
+              <ion-input [(ngModel)]="name" type="text" name="name" class="text-center ">
+              </ion-input>
             </ion-item>
-          <ion-card>
-           
-            <ion-list class="items">
-              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Descripción
-              </ion-label>
-              <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
-            </ion-list>
-          </ion-card>
-          <ion-card>
-            <ion-list class="items">
-              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Días
+          </div>
+
+          <!-- <ion-list> -->
+          <!-- <ion-card> -->
+          <!-- <ion-item> -->
+          <!-- <ion-label position="stacked">Nombre del centro de acopio</ion-label> -->
+          <!-- <ion-input [(ngModel)]="name" name="name"></ion-input> -->
+          <!-- </ion-item> -->
+          <!-- <ion-card> -->
+
+          <!-- <ion-list class="items">
+                  <ion-label style=" color: var(--warmin-color-purple);" position="floating"
+                    class="texto-center text-bold">* Descripción
+                  </ion-label>
+                  <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
+                </ion-list> -->
+          <div class="contenedor-item ">
+            <!-- <ion-icon slot="start" class="size-icon" src="/assets/icon/user.svg"></ion-icon> -->
+            <ion-item lines="none" class="input-border-bot item-native-transparency">
+              <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
+                Descripción</ion-label>
+              <ion-textarea [(ngModel)]="description" name="description" class="text-center ">
+              </ion-textarea>
+            </ion-item>
+          </div>
+
+          <div class="center-days">
+            <!-- </ion-card> -->
+            <!-- <ion-card> -->
+            <!-- <ion-list class="items"> -->
+            <div>
+              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">
+                Días
               </ion-label>
               <ion-select mode="ios" [multiple]="true" interface="popover" placeholder="Seleccione..."
                 [(ngModel)]="days" [ngModelOptions]="{standalone: true}">
@@ -81,14 +106,16 @@
                 <ion-select-option value="Sábado">Sábado</ion-select-option>
                 <ion-select-option value="Domingo">Domingo</ion-select-option>
               </ion-select>
-            </ion-list>
-          </ion-card>
-          <ion-card>
-            <ion-list class="items">
-              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Hora inicio
+              <!-- </ion-list> -->
+              <!-- </ion-card> -->
+              <!-- <ion-card> -->
+              <!-- <ion-list class="items"> -->
+              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">
+                *
+                Hora inicio
               </ion-label>
-              <ion-select mode="ios" interface="popover" placeholder="Seleccione..."
-                [(ngModel)]="horaInicio" [ngModelOptions]="{standalone: true}">
+              <ion-select mode="ios" interface="popover" placeholder="Seleccione..." [(ngModel)]="horaInicio"
+                [ngModelOptions]="{standalone: true}">
                 <ion-select-option value="08:00">08:00</ion-select-option>
                 <ion-select-option value="09:00">09:00</ion-select-option>
                 <ion-select-option value="10:00">10:00</ion-select-option>
@@ -100,14 +127,16 @@
                 <ion-select-option value="16:00">16:00</ion-select-option>
                 <ion-select-option value="17:00">17:00</ion-select-option>
               </ion-select>
-            </ion-list>
-          </ion-card>
-          <ion-card>
-            <ion-list class="items">
-              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Hora fin
+              <!-- </ion-list> -->
+              <!-- </ion-card> -->
+              <!-- <ion-card> -->
+              <!-- <ion-list class="items"> -->
+              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">
+                *
+                Hora fin
               </ion-label>
-              <ion-select mode="ios" interface="popover" placeholder="Seleccione..."
-                [(ngModel)]="horaFin" [ngModelOptions]="{standalone: true}">
+              <ion-select mode="ios" interface="popover" placeholder="Seleccione..." [(ngModel)]="horaFin"
+                [ngModelOptions]="{standalone: true}">
                 <ion-select-option value="08:00">08:00</ion-select-option>
                 <ion-select-option value="09:00">09:00</ion-select-option>
                 <ion-select-option value="10:00">10:00</ion-select-option>
@@ -119,16 +148,21 @@
                 <ion-select-option value="16:00">16:00</ion-select-option>
                 <ion-select-option value="17:00">17:00</ion-select-option>
               </ion-select>
-            </ion-list>
-          </ion-card>
-          </ion-card>
+              <!-- </ion-list> -->
+              <!-- </ion-card> -->
+              <!-- </ion-card> -->
 
-        </ion-list>
-          <ion-button type="submit" expand="block" class="boton-warmi-in" (click)="addAcopio()"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Guardar</ion-button>
-      </form>
+              <!-- </ion-list> -->
+              <div class="btn-ordenar">
+                <ion-button type="submit" class="boton-warmi-in" (click)="addAcopio()">
+                  <ion-icon name="card-outline"></ion-icon>Guardar
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </form>
       </ion-content>
     </ng-template>
   </ion-modal>
 
 </ion-content>
-
