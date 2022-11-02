@@ -92,13 +92,30 @@
               <ion-item lines="none">
                 <div class="ion-padding" style="text-align:center;">
                   <div class="text-color-purple text-bold">Selecciona la fecha y hora de entrega:</div>
-                  <ion-datetime [(ngModel)]="deliverDate" name="deliverDate" minuteValues="0,15,30,45"
-                    hourValues="8,9,10,11,12,13,14,15,16">
-                    <span slot="time-label">Hora</span>
+                  <ion-datetime [(ngModel)]="deliverDate" name="deliverDate" presentation="date">
                   </ion-datetime>
                 </div>
               </ion-item>
             </div>
+            <ion-card>
+             
+                <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Hora de entrega
+                </ion-label>
+                <ion-select mode="ios" interface="popover" placeholder="Seleccione..."
+                  [(ngModel)]="hour" [ngModelOptions]="{standalone: true}">
+                  <ion-select-option value="08:00">08:00</ion-select-option>
+                  <ion-select-option value="09:00">09:00</ion-select-option>
+                  <ion-select-option value="10:00">10:00</ion-select-option>
+                  <ion-select-option value="11:00">11:00</ion-select-option>
+                  <ion-select-option value="12:00">12:00</ion-select-option>
+                  <ion-select-option value="13:00">13:00</ion-select-option>
+                  <ion-select-option value="14:00">14:00</ion-select-option>
+                  <ion-select-option value="15:00">15:00</ion-select-option>
+                  <ion-select-option value="16:00">16:00</ion-select-option>
+                  <ion-select-option value="17:00">17:00</ion-select-option>
+                </ion-select>
+           
+            </ion-card>
           </ion-list>
           <div class="btn-ordenar" style="padding: 5px;">
             <ion-button type="submit" (click)="createOrder()" expand="block" class="boton-warmi-in">

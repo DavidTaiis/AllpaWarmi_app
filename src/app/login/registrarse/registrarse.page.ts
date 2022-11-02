@@ -35,12 +35,33 @@ ionicForm: FormGroup;
       'phone_number': new  FormControl("",[Validators.required, Validators.minLength(10),Validators.pattern('^[0-9]+$')]),
       'password': new FormControl("", Validators.required),
       'confirmate_password' : new FormControl("", Validators.required)
-    })
+    },
+    {
+      validators:this.MustMatch('password','confirmate_password')
+    }
+    )
 
   }
 
   ngOnInit() {
   }
+  MustMatch(password:any, confirmate_password:any){
+
+    return (formGroup:FormGroup)=>{
+      const passwordcontrol = formGroup.controls[password];
+      const conpasswordcontrol = formGroup.controls[confirmate_password];
+      if(conpasswordcontrol.errors && !conpasswordcontrol.errors['MustMatch']){
+        return;
+      }
+      if(passwordcontrol.value!==conpasswordcontrol.value){
+        conpasswordcontrol.setErrors({MustMatch:true})
+      }else{
+        conpasswordcontrol.setErrors(null)
+        
+      }
+    }
+  }
+
   get errorControl() {
     return this.ionicForm.controls;
   }

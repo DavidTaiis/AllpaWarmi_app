@@ -95,7 +95,10 @@
               </ion-input>
               <span class="error-validate" *ngIf="isSubmitted && errorControl.confirmate_password.errors?.required">
                 Este campo es obligatorio.
-               </span>                
+               </span>   
+               <span class="error-validate" *ngIf="isSubmitted && errorControl['confirmate_password'].getError('Mustmatch')!==null">
+                Las contraseñas no coinciden.
+               </span>           
             </ion-item>
           </div>
 

@@ -31,7 +31,7 @@ export class GeolocalizacionVentaPage implements OnInit {
       const alert = await this.alertController.create({
         cssClass:'app-alert',
         header: '¡Exito!',
-        message: 'Ubicación registrada correctamente!',
+        message: 'Punto de venta registrado correctamente!',
         buttons: ['OK'],
       });
 

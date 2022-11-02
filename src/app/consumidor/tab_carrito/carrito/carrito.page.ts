@@ -19,6 +19,7 @@ export class CarritoPage implements OnInit {
   place_delivery:any;
   deliverDate:any= "";
   total:any = "";
+  hour:any;
   data:any = [];
 
   constructor(private navCtrl: NavController, private tabAgricultorasServices: TabAgricultorasService,private alertController: AlertController) {
@@ -75,10 +76,13 @@ export class CarritoPage implements OnInit {
  }
  
  async createOrder(){
+  console.log(this.deliverDate.substring(0,10))
+  let dateConcat = this.deliverDate.substring(0,10) + ' '+ this.hour+':00';
+  let date = new Date(dateConcat);
+    date.setHours(date.getHours() - 5);
   if(this.total !== 0.00){
   let idSeller = this.products[0]['farmerId'];
-
-    return this.tabAgricultorasServices.createOrder(idSeller,this.total,this.place_delivery,this.deliverDate,this.data)
+    this.tabAgricultorasServices.createOrder(idSeller,this.total,this.place_delivery,date,this.data)
       .subscribe( async (res) => {
         const alert = await this.alertController.create({
           cssClass:'app-alert',
@@ -93,7 +97,7 @@ export class CarritoPage implements OnInit {
       });
     
     } 
-    
+     
   }
   deleteProduct(product: ProductCar) {
     this.total = 0;

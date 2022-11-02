@@ -119,7 +119,7 @@ export class AgregarProductoPage implements OnInit {
         this.farmerId = this.product[0]['farmerId'];
         this.stock = this.product[0]['stock'];
         this.measureProduct = this.product[0]['measure'];
-        this.foto = this.product[0]['images'][0].url;
+        this.foto = this.product[0]['images'][0] ? this.product[0]['images'][0].url : "";
         this.id = this.product[0]["id"];
       },
       response => {
