@@ -68,8 +68,11 @@
   </div>
 
   <div class="center">
-    <ion-card style="width: 100%; height: 30vh;">
+    <!-- <ion-card style="width: 100%; height: 30vh;">
       <app-googlemaps [buscador]="buscador"  [miUbicacion]="miUbicacion" [feature]="feature"></app-googlemaps>
+    </ion-card> -->
+    <ion-card class="tam-map">
+      <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
     </ion-card>
   </div>
   
