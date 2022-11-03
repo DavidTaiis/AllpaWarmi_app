@@ -4,6 +4,7 @@ import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transpor
 import { Router } from '@angular/router';
 import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -35,19 +36,31 @@ export class AgregarProductoPage implements OnInit {
   phone:any;
   total:any;
   id:any;
- 
-
-  constructor( private activatedRoute: ActivatedRoute,private tabAgricultorasService: TabAgricultorasService,public sellerServices:TabTransporteService, private alertController: AlertController, private router:Router) { 
+  ionicForm: FormGroup;
+  isSubmitted:true;
+  constructor(public formBuilder: FormBuilder, private activatedRoute: ActivatedRoute,private tabAgricultorasService: TabAgricultorasService,public sellerServices:TabTransporteService, private alertController: AlertController, private router:Router) { 
     this.productId = this.activatedRoute.snapshot.paramMap.get("id");
     this.getProductId();
     this.getMeasure();
-    
+
+    this.ionicForm = this.formBuilder.group({
+      'productName': new FormControl("",[Validators.required]),
+      'precio': new FormControl("", [Validators.required,Validators.pattern('^\\d+\\.\\d{2}$')]),
+      'stock': new FormControl("", Validators.required),
+      'description': new  FormControl("",[Validators.required]),
+      'unidadVenta': new  FormControl("",[Validators.required]),
+
+    })
   }
 
   ngOnInit() {
    
     
   }
+  get errorControl() {
+    return this.ionicForm.controls;
+  }
+
   async newImageUpload(event: any) {
     
     if (event.target.files && event.target.files[0]) {
@@ -62,7 +75,11 @@ export class AgregarProductoPage implements OnInit {
     }
  
     addProduct(){
-      
+      this.isSubmitted = true;
+  if (!this.ionicForm.valid) {
+    console.log('Please provide all the required values!')
+    return false;
+  } else {
       const formdata = new FormData();
       formdata.append('image',this.file ?? "");
       formdata.append('name', this.producName);
@@ -88,7 +105,7 @@ export class AgregarProductoPage implements OnInit {
     () => {
         console.log("The POST observable is now completed.");
     }); 
-      
+  }
     }
 
     getMeasure(){

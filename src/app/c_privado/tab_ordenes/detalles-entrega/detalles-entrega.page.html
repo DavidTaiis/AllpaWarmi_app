@@ -36,8 +36,8 @@
         </ion-item>
          </ion-card>
          <h6 class="ion-margin-start">Puntos de venta y entrega</h6>
-         <ion-card class="map">
-          <capacitor-google-maps id="map"></capacitor-google-maps>
+         <ion-card class="tam-map">
+          <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
         </ion-card>
         <ion-card>
           <ion-card-header>

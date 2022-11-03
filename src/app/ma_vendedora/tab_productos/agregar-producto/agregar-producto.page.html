@@ -12,15 +12,19 @@
       <h4 class="text-center size-text35px text-bold text-color-purple">Ingresa datos del producto</h4>
     </div>
   </div>
-  <form>
+  <form [formGroup]="ionicForm">
     <div class="contenedor-item">
       <ion-icon slot="start" class="size-icon" src="/assets/iconos/col.svg"></ion-icon>
       <ion-item lines="none" class="input-border-bot item-native-transparency">
         <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Nombre
           del producto</ion-label>
         <ion-input value="{{productName || ''}}" [(ngModel)]="producName" type="text"
-          [ngModelOptions]="{standalone: true}" class="text-center">
+          formControlName="productName" class="text-center">
         </ion-input>
+        <span class="error-validate" *ngIf="isSubmitted && errorControl.productName.errors?.required">
+          Este campo es obligatorio.
+         </span>
+        
       </ion-item>
     </div>
     <div class="contenedor-item">
@@ -29,8 +33,11 @@
         <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
           Descripción</ion-label>
         <ion-input value="{{descriptionProduct || ''}}" [(ngModel)]="description" type="text"
-          [ngModelOptions]="{standalone: true}" class="text-center">
+          formControlName="description" class="text-center">
         </ion-input>
+        <span class="error-validate" *ngIf="isSubmitted && errorControl.description.errors?.required">
+          Este campo es obligatorio.
+         </span>
       </ion-item>
     </div>
     <div class="contenedor-item">
@@ -39,15 +46,17 @@
         <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">Unidad
           venta
         </ion-label>
-        <ion-select [(ngModel)]="unidadVenta" interface="popover" [ngModelOptions]="{standalone: true}"
+        <ion-select [(ngModel)]="unidadVenta" interface="popover" formControlName="unidadVenta"
           placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{measureProduct}}">
           <!-- Opciones -->
 
           <ion-select-option *ngFor="let measure of measures" value="{{measure.id}}">{{measure.measure}}
           </ion-select-option>
 
-
         </ion-select>
+        <span class="error-validate" *ngIf="isSubmitted && errorControl.unidadVenta.errors?.required">
+          Este campo es obligatorio.
+         </span>
       </ion-item>
     </div>
     <div class="contenedor-item">
@@ -55,9 +64,15 @@
       <ion-item lines="none" class="input-border-bot item-native-transparency">
         <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Precio:
         </ion-label>
-        <ion-input value="{{price || ''}}" [(ngModel)]="precio" type="text" [ngModelOptions]="{standalone: true}"
+        <ion-input value="{{price || ''}}" [(ngModel)]="precio" type="text" formControlName="precio"
           class="text-center">
         </ion-input>
+        <span class="error-validate" *ngIf="isSubmitted && errorControl.precio.errors?.required">
+          Este campo es obligatorio.
+         </span>
+         <span class="error-validate" *ngIf="isSubmitted && errorControl.precio.errors?.pattern">
+          Ingresa un precio válido por ejemplo 1.00
+         </span>
       </ion-item>
     </div>
     <div class="contenedor-item">
@@ -65,9 +80,12 @@
       <ion-item lines="none" class="input-border-bot item-native-transparency">
         <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">Stock:
         </ion-label>
-        <ion-input value="{{stock || ''}}" [(ngModel)]="stock" type="text" [ngModelOptions]="{standalone: true}"
+        <ion-input value="{{stock || ''}}" [(ngModel)]="stock" type="text" formControlName="stock"
           class="text-center">
         </ion-input>
+        <span class="error-validate" *ngIf="isSubmitted && errorControl.stock.errors?.required">
+          Este campo es obligatorio.
+         </span>
       </ion-item>
     </div>
 

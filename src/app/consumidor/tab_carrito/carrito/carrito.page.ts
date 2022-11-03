@@ -3,6 +3,7 @@ import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricult
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { ProductCar } from 'src/app/models/ProductsCar';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -22,11 +23,19 @@ export class CarritoPage implements OnInit {
   hour:any;
   data:any = [];
 
-  constructor(private navCtrl: NavController, private tabAgricultorasServices: TabAgricultorasService,private alertController: AlertController) {
+  ionicForm: FormGroup;
+  isSubmitted:true;
+
+  constructor(public formBuilder: FormBuilder,private navCtrl: NavController, private tabAgricultorasServices: TabAgricultorasService,private alertController: AlertController) {
     
     this.getCarProducts();
     this.getData();
     this.getTotal();
+    this.ionicForm = this.formBuilder.group({
+      'place_delivery': new FormControl("",[Validators.required]),
+      'hour': new FormControl("", [Validators.required]),
+      'deliverDate': new FormControl("", Validators.required),
+      })
   }
  async ngOnInit() {
   
@@ -45,6 +54,10 @@ export class CarritoPage implements OnInit {
     }]
   }
   }
+  get errorControl() {
+    return this.ionicForm.controls;
+  }
+
 
  async getData(){
 
@@ -76,6 +89,13 @@ export class CarritoPage implements OnInit {
  }
  
  async createOrder(){
+  this.isSubmitted = true;
+  if (!this.ionicForm.valid) {
+    console.log('Please provide all the required values!')
+    return false;
+  } else {
+
+
   console.log(this.deliverDate.substring(0,10))
   let dateConcat = this.deliverDate.substring(0,10) + ' '+ this.hour+':00';
   let date = new Date(dateConcat);
@@ -97,7 +117,7 @@ export class CarritoPage implements OnInit {
       });
     
     } 
-     
+   }
   }
   deleteProduct(product: ProductCar) {
     this.total = 0;

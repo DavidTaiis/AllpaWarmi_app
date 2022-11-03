@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MapasService } from 'src/app/services/mapas.service';
 import { Router } from '@angular/router';
 import { CamionetaService } from 'src/app/services/c_camioneta/camioneta.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,14 +11,24 @@ import { CamionetaService } from 'src/app/services/c_camioneta/camioneta.service
   styleUrls: ['./geolocalizacion.page.scss'],
 })
 export class GeolocalizacionPage implements OnInit {
-
-  constructor(public Mapa:MapasService, private router:Router, private camionetaService: CamionetaService) { }
   localizacion:any;
   puntoSelect:any;
   car_plate:any;
   description:any;
   type:any;
   color:any;
+
+  ionicForm: FormGroup;
+  isSubmitted:true;
+  constructor(public formBuilder: FormBuilder,public Mapa:MapasService, private router:Router, private camionetaService: CamionetaService) {
+    this.ionicForm = this.formBuilder.group({
+      'color': new FormControl("",[Validators.required]),
+      'car_plate': new FormControl("", [Validators.required]),
+      'description': new FormControl("", Validators.required),
+      })
+   }
+
+  
   ngOnInit() {
     this.localizacion = true;
     this.type = "Camioneta";
@@ -31,6 +42,13 @@ export class GeolocalizacionPage implements OnInit {
   }
 
   guardarCamioneta(){
+    this.isSubmitted = true;
+    if (!this.ionicForm.valid) {
+      console.log('Please provide all the required values!')
+      return false;
+    } else {
+
+
     const formData = new FormData();
     formData.append('car_plate',this.car_plate);
     formData.append('description', this.description);
@@ -41,5 +59,10 @@ export class GeolocalizacionPage implements OnInit {
     this.camionetaService.addCamioneta(formData).subscribe( res => {
    location.href = '/c_camioneta/menu/inicio';
     })
+    }
   }
+  get errorControl() {
+    return this.ionicForm.controls;
+  }
+  
 }

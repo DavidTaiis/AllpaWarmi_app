@@ -52,7 +52,7 @@
       <ion-content>
           <br>
           <h4 class="text-center size-text35px text-bold text-color-purple">Ingresa los datos requeridos</h4>
-          <form>
+          <form [formGroup]="ionicForm">
         <!-- <ion-list> -->
           <!-- <ion-card>   -->
             <!-- <ion-item>
@@ -64,8 +64,11 @@
               <ion-item lines="none" class="input-border-bot item-native-transparency">
                 <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
                   Placa:</ion-label>
-                <ion-input [(ngModel)]="car_plate" name="car_plate" class="text-center">
-                </ion-input>                
+                <ion-input [(ngModel)]="car_plate" formControlName="car_plate" class="text-center">
+                </ion-input>  
+                <span class="error-validate" *ngIf="isSubmitted && errorControl.car_plate.errors?.required">
+                  Este campo es obligatorio.
+                 </span>                
               </ion-item>
             </div>
             <!-- <ion-item> -->
@@ -76,8 +79,11 @@
                 <ion-item lines="none" class="input-border-bot item-native-transparency">
                   <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
                     Descripción:</ion-label>
-                  <ion-input  [(ngModel)]="description" name="description" class="text-center">
-                  </ion-input>                
+                  <ion-input  [(ngModel)]="description" formControlName="description" class="text-center">
+                  </ion-input>
+                  <span class="error-validate" *ngIf="isSubmitted && errorControl.description.errors?.required">
+                    Este campo es obligatorio.
+                   </span>                 
                 </ion-item>
               </div>
             <!-- </ion-item> -->
@@ -89,8 +95,11 @@
                 <ion-item lines="none" class="input-border-bot item-native-transparency">
                   <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
                     Color:</ion-label>
-                  <ion-input [(ngModel)]="color" name="color" class="text-center">
-                  </ion-input>                
+                  <ion-input [(ngModel)]="color" formControlName="color" class="text-center">
+                  </ion-input>
+                  <span class="error-validate" *ngIf="isSubmitted && errorControl.color.errors?.required">
+                    Este campo es obligatorio.
+                   </span>                
                 </ion-item>
               </div>
             <!-- </ion-item> -->
