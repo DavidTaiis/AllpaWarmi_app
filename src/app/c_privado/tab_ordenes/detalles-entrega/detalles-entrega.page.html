@@ -1,60 +1,65 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Detalles entrega</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <div class="border-top-page">
-    <!-- Contenedor 1 -->
     <div class="contenedor-header">
-      <ion-icon class="icon-header size-icon" slot="start" src="/assets/icon/ubication.svg">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/iconos/w_register.svg">
       </ion-icon>
       <div class="texto-header">Detalles entrega</div>
-    </div>    
+    </div>
   </div>
-    <ion-card style="border-radius:30px; border:solid 2px #50CD89">
-      <ion-item>
-       <ion-thumbnail style="height: 100px; width: 100px;" slot="end">
-         <img src="assets/img/comprador.jpg" />
-       </ion-thumbnail>
-       <ion-label class="ion-margin-start">
-         <h3>Consumidor:</h3>
-         <p>Juan Perez</p>
-       </ion-label>
-      </ion-item>
-       </ion-card>
-       <ion-card style="border-radius:30px; border:solid 2px #50CD89">
-        <ion-item>
-         <ion-thumbnail style="height: 100px; width: 100px;" slot="end">
-           <img src="assets/img/mujer.webp" />
-         </ion-thumbnail>
-         <ion-label class="ion-margin-start">
-           <h3>Vendedora:</h3>
-           <p>Juanita Perez</p>
-         </ion-label>
-        </ion-item>
-         </ion-card>
-         <h6 class="ion-margin-start">Puntos de venta y entrega</h6>
-         <ion-card class="tam-map">
-          <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
-        </ion-card>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>
-              Productos
-            </ion-card-title>
-          </ion-card-header>
-          <ion-grid>
-          <ion-row>
-            <ion-col>
-              Cebolla
-            </ion-col>
-            <ion-col style="text-align: right;">2 Bultos</ion-col>
-          </ion-row>
-        </ion-grid>
-        </ion-card>
-        <ion-button class="ion-padding boton-azul" style="--background: #50CD89" expand="block">Contactar comprador</ion-button>
-        <ion-button class="ion-padding boton-azul" expand="block">Contactar vendedor</ion-button>
-        <br>
+  <div class="contenedor-perfiles">
+    <div class="perfil-vendedora">
+      <div>
+        <ion-thumbnail style="height: 100px; width: 100px;" slot="end">
+          <img src="assets/img/mujer.webp" />
+        </ion-thumbnail>
+      </div>
+      <div class="datos">
+        <div class="text-bold text-color-brown">Vendedora</div>
+        <div class="text-color-purple">Juanita Perez</div>
+        <div>
+          <ion-button class="boton-warmi-in" style="--background: var(--warmin-color-pinkd)">Contactar</ion-button>
+        </div>
+      </div>
+    </div>
+    <div class="perfil-consumidor separated-profile">
+      <div>
+        <ion-thumbnail style="height: 100px; width: 100px;" slot="end">
+          <img src="assets/img/comprador.jpg" />
+        </ion-thumbnail>
+      </div>
+      <div class="datos">
+        <div class="text-bold text-color-brown">Consumidor</div>
+        <div class="text-color-purple">Juan Perez</div>
+        <div>
+          <ion-button class="boton-warmi-in" style="--background: var(--warmin-color-pinkd)">Contactar</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <div class="text-bold text-color-brown">Productos</div>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          Cebolla
+        </ion-col>
+        <ion-col style="text-align: right;">2 Bultos</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  
+  <ion-card class="tam-map">
+    <ion-card-header>
+      <ion-card-title>
+        <div class="text-bold text-color-brown">Puntos de venta y entrega</div>
+      </ion-card-title>
+    </ion-card-header>
+
+    <!-- <div class="text-bold text-color-brown">Puntos de venta y entrega</div> -->
+    <app-googlemaps [localizacion]="localizacion" [feature]="feature" (enviar)="recibirData($event)"></app-googlemaps>
+  </ion-card>
 </ion-content>
