@@ -1,13 +1,13 @@
 <div class="contenedor-busqueda">
   <div class="search">
-    <ion-searchbar class="busqueda" placeholder="Buscar ..."  showCancelButton="never"></ion-searchbar>
+    <ion-searchbar (ionChange)="searchMa($event)" class="busqueda" placeholder="Buscar ..."  showCancelButton="never"></ion-searchbar>
   </div>    
 </div>
 
 
 <!-- List of people -->
 <div class="contenedor-personas">
-  <div *ngFor="let farmer of listFarmers" class="card" [routerLink]="['/ma_vendedora/menu/productos/perfilma',farmer.id]">
+  <div *ngFor="let farmer of searchFarmer" class="card" [routerLink]="['/ma_vendedora/menu/productos/perfilma',farmer.id]">
     <div *ngIf="farmer.photo != ''">
       <ng-container  *ngFor="let item of farmer.photo">  
         <img  class="imagen-card" src="{{item.url}}" />

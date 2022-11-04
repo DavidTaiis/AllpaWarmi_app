@@ -15,15 +15,7 @@
     <div class="modal-name-user">{{name}}</div>
     <div>{{description}}</div>
     <div>
-      <ion-button class="boton-warmi-in" (click)="viewProfile()">Ver perfil</ion-button>
+      <ion-button *ngIf="!profile" class="boton-warmi-in" (click)="viewProfile()">Ver perfil</ion-button>
     </div>
   </div>
 </ion-content>
-
-<!-- <ion-content>
-
-  <h3>{{name}}</h3>
-  <h4>{{description}}</h4>
-
-  <ion-button (click)="viewProfile()">Ver perfillllly</ion-button>
-</ion-content> -->

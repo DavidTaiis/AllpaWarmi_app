@@ -118,8 +118,16 @@ ionicForm: FormGroup;
            this.navCtrl.navigateForward('/');
 
         },
-        response => {
-          console.log(response['error']['warning'][0]['value'])
+        async response => {
+          const alert = await this.alertController.create({
+            // css personalizado
+            cssClass:'app-alert',
+            header: '¡Error!',
+            message: response['error']['warning'][0]['value'],
+            buttons: ['OK'],            
+          });
+      
+           await alert.present();
       },
       () => {
           console.log("The POST observable is now completed.");
@@ -142,8 +150,16 @@ ionicForm: FormGroup;
           this.navCtrl.navigateForward('/');
            
         },
-        response => {
-          console.log(response['error']['warning'][0]['value'])
+       async response => {
+          const alert = await this.alertController.create({
+            // css personalizado
+            cssClass:'app-alert',
+            header: '¡Error!',
+            message: response['error']['warning'][0]['value'],
+            buttons: ['OK'],            
+          });
+      
+           await alert.present();
       },
       () => {
           console.log("The POST observable is now completed.");
@@ -165,8 +181,16 @@ ionicForm: FormGroup;
            this.navCtrl.navigateForward('/');
 
         },
-        response => {
-          console.log(response['error']['warning'][0]['value'])
+          async response => {
+          const alert = await this.alertController.create({
+            // css personalizado
+            cssClass:'app-alert',
+            header: '¡Error!',
+            message: response['error']['warning'][0]['value'],
+            buttons: ['OK'],            
+          });
+      
+           await alert.present();
       },
       () => {
           console.log("The POST observable is now completed.");

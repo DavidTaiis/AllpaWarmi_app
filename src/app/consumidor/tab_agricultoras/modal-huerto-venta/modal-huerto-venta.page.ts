@@ -15,6 +15,7 @@ export class ModalHuertoVentaPage implements OnInit {
   @Input() id:any;
   @Input() users_id:any;
   rol:any = localStorage.getItem('rol');
+  profile:any= true;
   
   constructor(private router:Router,private modalCtrl: ModalController) { }
 
@@ -36,6 +37,8 @@ export class ModalHuertoVentaPage implements OnInit {
         this.router.navigate(['/c_privado/menu/perfil-ma', this.users_id]);
          this.modalCtrl.dismiss();
          break;
+      case 'Vendedora':
+        this.profile = false;
     }
 
    

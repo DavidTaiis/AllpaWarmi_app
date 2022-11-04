@@ -10,28 +10,28 @@
     <div class="perfil-vendedora">
       <div>
         <ion-thumbnail style="height: 100px; width: 100px;" slot="end">
-          <img src="assets/img/mujer.webp" />
+          <img src="{{imageSeller ?? 'assets/img/profileDefault.jpg'}}" />
         </ion-thumbnail>
       </div>
       <div class="datos">
         <div class="text-bold text-color-brown">Vendedora</div>
-        <div class="text-color-purple">Juanita Perez</div>
+        <div class="text-color-purple">{{seller}}</div>
         <div>
-          <ion-button class="boton-warmi-in" style="--background: var(--warmin-color-pinkd)">Contactar</ion-button>
+          <ion-button class="boton-warmi-in" style="--background: var(--warmin-color-pinkd)"><a href="https://wa.me/593{{phoneSeller}}" style="color: whitesmoke;"> &nbsp;&nbsp; Contactar</a></ion-button>
         </div>
       </div>
     </div>
     <div class="perfil-consumidor separated-profile">
       <div>
         <ion-thumbnail style="height: 100px; width: 100px;" slot="end">
-          <img src="assets/img/comprador.jpg" />
+          <img src="{{imageClient || 'assets/img/profileDefault.jpg'}}" />
         </ion-thumbnail>
       </div>
       <div class="datos">
         <div class="text-bold text-color-brown">Consumidor</div>
-        <div class="text-color-purple">Juan Perez</div>
+        <div class="text-color-purple">{{client}}</div>
         <div>
-          <ion-button class="boton-warmi-in" style="--background: var(--warmin-color-pinkd)">Contactar</ion-button>
+          <ion-button class="boton-warmi-in" style="--background: var(--warmin-color-pinkd)"><a href="https://wa.me/593{{phoneClient}}" style="color: whitesmoke;"> &nbsp;&nbsp; Contactar</a></ion-button>
         </div>
       </div>
     </div>
@@ -42,12 +42,12 @@
         <div class="text-bold text-color-brown">Productos</div>
       </ion-card-title>
     </ion-card-header>
-    <ion-grid>
+    <ion-grid *ngFor="let product of productos">
       <ion-row>
         <ion-col>
-          Cebolla
+          {{product.product}}
         </ion-col>
-        <ion-col style="text-align: right;">2 Bultos</ion-col>
+        <ion-col style="text-align: right;">{{product.measure}}</ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
@@ -60,6 +60,6 @@
     </ion-card-header>
 
     <!-- <div class="text-bold text-color-brown">Puntos de venta y entrega</div> -->
-    <app-googlemaps [localizacion]="localizacion" [feature]="feature" (enviar)="recibirData($event)"></app-googlemaps>
+    <app-googlemaps [localizacion]="localizacion" [feature]="feature" ></app-googlemaps>
   </ion-card>
 </ion-content>

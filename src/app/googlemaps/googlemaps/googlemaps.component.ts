@@ -10,6 +10,7 @@ import { ModalNotificacionesPage } from 'src/app/ma_vendedora/modals/modal-notif
 import { AcopioModalPage} from './../../ma_acopiadora/modals/acopio-modal/acopio-modal.page';
 import { ParadaPage } from './../../c_bus/modals/parada/parada.page';
 import { ModalPrivadoPage} from './../../ma_vendedora/modals/modal-privado/modal-privado.page';
+
 declare var google: any;
 
 @Component({

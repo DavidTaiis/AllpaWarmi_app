@@ -29,7 +29,7 @@
             <ion-item  lines="none">
               <!-- <ion-item *ngFor="let product of products"> -->
               <ion-thumbnail slot="start">
-                <img src="assets/img/lechuga.jpg" />
+                <img src="{{product.fotoProduct || 'assets/img/compra.png'}}" />
               </ion-thumbnail>
               <ion-label>
                 <div class="text-bold text-color-purple">{{product.productName}}</div>

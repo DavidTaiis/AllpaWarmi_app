@@ -32,4 +32,7 @@ export class PrivadoService {
   getPrivado(){
     return this.httpClient.get(`${this.url}seller/getRoutesPrivate`, this.httpOptions)
   }
+  getOrders(){
+    return this.httpClient.get(`${this.url}camioneta/getOrders`, this.httpOptions)
+  }
 }

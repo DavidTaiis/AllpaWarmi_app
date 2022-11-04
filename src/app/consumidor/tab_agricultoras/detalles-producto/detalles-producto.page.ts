@@ -21,6 +21,7 @@ farmerId:any;
 phone:any;
 total:any ;
 measureProductId:any;
+fotoProduct:any;
 
   constructor(private tabAgricultorasService: TabAgricultorasService, private activatedRoute: ActivatedRoute) { }
 
@@ -42,6 +43,8 @@ measureProductId:any;
       this.total = this.product[0]['price'];
       this.phone = this.product[0]['phoneFarmer'];
       this.farmerId = this.product[0]['farmerId'];
+      this.fotoProduct = this.product[0]['images'][0] ? this.product[0]['images'][0].url : ""
+
     },
     response => {
       console.log(response['error']['warning'][0]['value'])
@@ -78,7 +81,8 @@ measureProductId:any;
       "measure": this.measure,
       "farmer": this.farmer,
       "phone": this.phone,
-      "farmerId": this.farmerId
+      "farmerId": this.farmerId,
+      "fotoProduct" : this.fotoProduct
     }]
     
     

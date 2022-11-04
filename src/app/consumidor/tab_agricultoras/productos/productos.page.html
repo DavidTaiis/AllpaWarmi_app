@@ -24,17 +24,18 @@
       <ion-card-content class="descripcion-card">
         <ion-list>
           <ion-item [routerLink]="['/consumidor/tab-inicial/detalles_producto', product.productId]" lines="none">
-   
-              <ion-thumbnail *ngIf="product.images != ''" slot="start">
-               <ng-container  *ngFor="let item of product.images">  
-                
+            <div *ngIf="product.images != ''">
+              <ng-container  *ngFor="let item of product.images">  
+                <ion-thumbnail>
                 <img  class="imagen-card" src="{{item.url}}" />
-               </ng-container>     
-              </ion-thumbnail> 
-              <ion-thumbnail *ngIf="product.images == ''" slot="start">
-                  <img src="assets/img/compra.png" />
               </ion-thumbnail>
-                
+              </ng-container>      
+            </div>
+            <div *ngIf="product.images == ''"> 
+              <ion-thumbnail>
+              <img class="imagen-card" src="assets/img/compra.png" />
+            </ion-thumbnail></div>
+            
             <ion-label>
               <div class="text-bold text-color-purple">{{product.product}}</div>
               <!-- <h3>{{product.product}}</h3> -->

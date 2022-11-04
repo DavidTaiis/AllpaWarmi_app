@@ -29,7 +29,7 @@ const routes: Routes = [
         loadChildren: () => import('./../../c_privado/tab_ordenes/entregas/entregas.module').then( m => m.EntregasPageModule)
       },
       {
-        path: 'detalles-entrega',
+        path: 'detalles-entrega/:id',
         loadChildren: () => import('./../../c_privado/tab_ordenes/detalles-entrega/detalles-entrega.module').then( m => m.DetallesEntregaPageModule)
       },
       {

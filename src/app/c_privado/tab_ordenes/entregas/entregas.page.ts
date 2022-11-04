@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrivadoService } from 'src/app/services/c_privado/privado.service';
 
 @Component({
   selector: 'app-entregas',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entregas.page.scss'],
 })
 export class EntregasPage implements OnInit {
-
-  constructor() { }
+  orders:any;
+  constructor(public privadoService: PrivadoService) { }
 
   ngOnInit() {
+    this.getOrders();
   }
-
+  getOrders(){
+    this.privadoService.getOrders().subscribe( res => {
+      this.orders = res;
+    })
+  }
 }

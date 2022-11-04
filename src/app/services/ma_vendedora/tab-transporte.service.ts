@@ -75,4 +75,8 @@ addShared(formdata:FormData){
   return this.httpClient.post(`${this.url}seller/addShared`,formdata, this.httpOptions)
 
 }
+getComercio(){
+
+  return this.httpClient.get(`${this.url}seller/getComercios`, this.httpOptions)
+}
 }

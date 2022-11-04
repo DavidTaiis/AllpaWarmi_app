@@ -1,9 +1,3 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Entregas</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <div class="border-top-page">
     <!-- Contenedor 1 -->
@@ -14,52 +8,15 @@
     </div>
   </div>
   <div class="ion-padding" style="text-align:center;">
-    <ion-label>Fecha ordenes realizadas:</ion-label>
-    <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
+    <ion-label>Ordenes realizadas:</ion-label>
+   <!--  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button> -->
   </div>
-  <ion-modal [keepContentsMounted]="true">
+<!--   <ion-modal [keepContentsMounted]="true">
     <ng-template>
       <ion-datetime presentation="date" id="datetime"></ion-datetime>
     </ng-template>
-  </ion-modal>
-
-  <!-- <ion-card class="ion-padding card-entregas">
- <ion-item style="--border-radius:10px;">
-  <ion-thumbnail slot="start">
-    <img src="assets/img/compra.png" />
-  </ion-thumbnail>
-  <ion-label>
-    <h3>Vendedora: Juanita Perez</h3>
-    <p>Consumidor: Edison Tayan</p>
-  </ion-label>
-</ion-item> -->
-
-
-  <!-- </ion-card>
-  <ion-card class="ion-padding card-entregas">
-    <ion-item style="--border-radius:10px;">
-     <ion-thumbnail slot="start">
-       <img src="assets/img/compra.png" />
-     </ion-thumbnail>
-     <ion-label>
-       <h3>Vendedora: Juanita Perez</h3>
-       <p>Consumidor: Edison Tayan</p>
-     </ion-label>
-   </ion-item>
-     </ion-card>
-     <ion-card class="ion-padding card-entregas">
-      <ion-item style="--border-radius:10px;">
-       <ion-thumbnail slot="start">
-         <img src="assets/img/compra.png" />
-       </ion-thumbnail>
-       <ion-label>
-         <h3>Vendedora: Juanita Perez</h3>
-         <p>Consumidor: Edison Tayan</p>
-       </ion-label>
-     </ion-item>
-       </ion-card> -->
-
-  <ion-card>
+  </ion-modal> -->
+  <ion-card *ngFor="let order of orders" [routerLink]="['/c_privado/menu/detalles-entrega', order.id]" >
     <ion-item style="font-size: 12px;">
       <!-- <ion-chip slot="end" color="success">estado</ion-chip> -->
       <ion-thumbnail slot="start">
@@ -67,8 +24,9 @@
       </ion-thumbnail>
 
       <ion-label>
-        <div class="text-bold text-color-brown">Vendedora: Juanita Perez</div>
-        <div class="text-color-purple">Consumidor: Edison Tayan</div>
+        <div class="text-bold text-color-brown">Vendedora: {{order.seller}}</div>
+        <div class="text-color-purple">Consumidor: {{order.client}}</div>
+        <div class="text-color-purple">Fecha de entrega: {{order.deliver_date}}</div>
       </ion-label>
     </ion-item>
   </ion-card>

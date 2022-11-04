@@ -3,11 +3,19 @@
   <ion-item  style="font-size: 12px;">
   
     <ion-chip (click)="deleteProduct(product.id)" slot="end" color="danger">Eliminar</ion-chip>
-    <ng-container *ngFor="let item of product.images"> 
-    <ion-thumbnail *ngIf="item.url" slot="start">
-      <img  src="{{item.url || '/assets/img/compra.png'}}" />
+
+  <div *ngIf="product.images != ''">
+    <ng-container  *ngFor="let item of product.images">  
+      <ion-thumbnail>
+      <img  class="imagen-card" src="{{item.url}}" />
     </ion-thumbnail>
-  </ng-container> 
+    </ng-container>      
+  </div>
+  <div *ngIf="product.images == ''"> 
+    <ion-thumbnail>
+    <img class="imagen-card" src="assets/img/compra.png" />
+  </ion-thumbnail></div>
+  
  
     <ion-label [routerLink]="['/ma_vendedora/menu/productos/agregarProducto/', product.productId]">{{product.product}}
       <p>{{product.description}}</p>
