@@ -102,6 +102,7 @@ ionicForm: FormGroup;
   }
 
   async register(){
+    
     switch(this.role){
       case "Consumidor":
         this.loginService.register(this.name, this.identification_card,this.phone_number, this.role, this.password , this.is_association)

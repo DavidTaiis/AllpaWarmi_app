@@ -17,6 +17,7 @@ export class TabAgricultorasPage implements OnInit {
     this.tabAgricultorasServices.getFarmers()
     .subscribe(  (res) => {
       this.listFarmers = res;
+      console.log(this.listFarmers)
     },
     response => {
       console.log(response['error']['warning'][0]['value'])

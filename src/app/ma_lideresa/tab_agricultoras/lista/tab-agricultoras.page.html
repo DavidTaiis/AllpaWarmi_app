@@ -8,20 +8,22 @@
     </div>
   </div>
   <!--Search Bar  -->
-  <div class="container-search-bar padding-bar">
-
+  <div class="search">
+    <ion-searchbar (ionChange)="searchMa($event)" class="busqueda" placeholder="Buscar ..."  showCancelButton="never"></ion-searchbar>
   </div>
   <!-- Lista Personas -->
   <div class="contenedor-personas">
     <div *ngFor="let farmer of listFarmers" class="card" [routerLink]="['/ma_lideresa/menu/inicio/perfilma/',farmer.id]">
-      <div>
-        <img class="imagen-card" src="assets/img/MujerAgricultora1.webp" />
+      <div *ngIf="farmer.photo != ''">
+        <ng-container  *ngFor="let item of farmer.photo">  
+          <img  class="imagen-card" src="{{item.url}}" />
+        </ng-container>      
       </div>
+      <div *ngIf="farmer.photo == ''"> <img class="imagen-card" src="assets/img/profileDefault.jpg" /></div>
       <div  class="detalle-personal">
         <div class="texto-personal text-bold text-color-purple">{{farmer.name}}</div>
         <div class="texto-personal text-color-purple">{{farmer.phone}}</div>
-        <div class="texto-personal text-color-purple">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit explicabo laborum a obcaecati, repellendus sunt!</div>
-      </div>
+  </div>
     </div>  
   </div>
 </ion-content>
