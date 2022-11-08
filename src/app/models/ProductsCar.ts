@@ -1,10 +1,10 @@
 export interface ProductCar{
-        "id": number,
-        "quantity": number,
-        "productName": string,
+        "id": any,
+        "quantity": any,
+        "productName": any,
         "price": any,
         "subtotal" : any,
-        "measure": string,
-        "farmerId": number
+        "measure": any,
+        "farmerId": any
       
 }

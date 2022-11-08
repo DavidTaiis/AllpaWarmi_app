@@ -5,14 +5,25 @@ import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router'
 import { Location } from '@angular/common'
 import { ProductCar } from 'src/app/models/ProductsCar';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TabAgricultorasService {
-  
+  private arrayProductos : BehaviorSubject<any> = new BehaviorSubject<any>("");
+
+  get getobservableData(){
+    return this.arrayProductos.asObservable();
+  }
+
+  set observableData(data:any){
+    this.arrayProductos.next(data);
+  }
+
+
   url = environment.apiUrl;
-  arrayProdsCar :ProductCar[];
+  arrayProdsCar :any;
    httpOptions = {
     headers: new HttpHeaders({ 
       'Content-Type': 'Application/json',

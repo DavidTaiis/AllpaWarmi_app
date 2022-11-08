@@ -26,10 +26,7 @@ const routes: Routes = [
         path: 'agricultoras',
         loadChildren: () => import('../tab_agricultoras/lista/tab-agricultoras.module').then( m => m.TabAgricultorasPageModule)
       },
-      {
-        path: 'perfil',
-        loadChildren: () => import('../tab_agricultoras/perfil/perfil.module').then( m => m.PerfilPageModule)
-      },
+
       {
         path: 'invitacion',
         loadChildren: () => import('../tab_invitaciones/lista/lista.module').then( m => m.ListaPageModule)
