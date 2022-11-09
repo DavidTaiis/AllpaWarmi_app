@@ -20,6 +20,7 @@ export class ModalHuertoVentaPage implements OnInit {
   constructor(private router:Router,private modalCtrl: ModalController) { }
 
   ngOnInit() {
+    this.updateProfile();
   }
 
   viewProfile(){
@@ -44,5 +45,23 @@ export class ModalHuertoVentaPage implements OnInit {
    
   }
 
-  
+  updateProfile(){
+    console.log(this.rol)
+    switch(this.rol){
+      case 'Consumidor':
+        this.profile = true;
+ 
+        break;
+      case 'Lidereza':
+        this.profile = true;
+ 
+      break;
+      case 'Privado':
+        this.profile = true;
+     
+         break;
+      case 'Vendedora':
+        this.profile = false;
+    }
+  }
 }

@@ -8,6 +8,7 @@ import { InicioPageRoutingModule } from './inicio-routing.module';
 
 import { InicioPage } from './inicio.page';
 import { GooglemapsModule } from './../../../googlemaps/googlemaps/googlemaps.module';
+import { PrivadoModule } from 'src/app/ma_vendedora/componets/privado/privado.module';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { GooglemapsModule } from './../../../googlemaps/googlemaps/googlemaps.mo
     FormsModule,
     IonicModule,
     InicioPageRoutingModule,
-    GooglemapsModule
+    GooglemapsModule,PrivadoModule
   ],
   declarations: [InicioPage]
 })

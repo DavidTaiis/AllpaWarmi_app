@@ -50,6 +50,19 @@
         </ion-input>              
       </ion-item>
     </div>
+    <div *ngIf="rolAgricultora" class="contenedor-item">
+      <ion-icon slot="start" class="size-icon" src="/assets/icon/rol.svg"></ion-icon> 
+      <ion-item lines="none" class="input-border-bot item-native-transparency">
+        <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Tipo de agricultora
+        </ion-label>
+        <ion-select [multiple]="true" interface="popover" placeholder={{placeholderTipox}}
+          [(ngModel)]="tipoAgricultora" [ngModelOptions]="{standalone: true}">
+          <ion-select-option value="Lidereza">Lideresa</ion-select-option>
+          <ion-select-option value="Acopiadora">Acopiadora</ion-select-option>
+          <ion-select-option value="Vendedora">Vendedora</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
   </div>
 <div class="btn-ordenar">
   <ion-button (click)="updateProfile()" class="boton-warmi-in">Actualizar</ion-button>

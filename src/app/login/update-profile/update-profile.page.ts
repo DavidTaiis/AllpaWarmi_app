@@ -15,13 +15,16 @@ export class UpdateProfilePage implements OnInit {
   file:any;
   name:any;
   phone:any;
+  tipoAgricultora=[];
   role:any = localStorage.getItem('rol');
-
+  rolAgricultora=true;
+  placeholderTipo:any;
   constructor(private loginService: LoginServiceService, private alertController: AlertController) { 
     this.getUser();
   }
 
   ngOnInit() {
+    this.auxRoles();
   }
   async newImageUpload(event: any) {
     
@@ -37,11 +40,15 @@ export class UpdateProfilePage implements OnInit {
     }
 
   updateProfile(){
-    const formdata = new FormData();
+   
+     const formdata = new FormData();
       formdata.append('image',this.file ?? "");
       formdata.append('name', this.name);
       formdata.append('phone_number', this.phone);
-
+      for (let index = 0; index < this.tipoAgricultora.length; index++) {
+        formdata.append('role[]', this.tipoAgricultora[index])
+      }
+     
       this.loginService.updateProfile(formdata).subscribe( async res => {
         const alert = await this.alertController.create({
           cssClass:'app-alert',
@@ -81,7 +88,7 @@ export class UpdateProfilePage implements OnInit {
         console.log("The POST observable is now completed.");
     }); 
       
-      
+       
   }
   getUser(){
     this.loginService.getUser()
@@ -89,7 +96,34 @@ export class UpdateProfilePage implements OnInit {
       this.name = res['name'];
       this.phone = res['phone'];
       this.foto = res['photo'][0] ? res['photo'][0]['url'] : "";
+      for (let index = 0; index < res['role'].length; index++) {  
+        
+       this.tipoAgricultora.push(res['role'][index].name)
+       this.placeholderTipo = this.placeholderTipo + ', '+res['role'][index].name;
+      }
+    
+      this.placeholderTipo = this.placeholderTipo.slice(1)
+
     })
+  }
+  auxRoles(){
+    switch (this.role) {
+      case 'Consumidor':
+        this.rolAgricultora = false;
+        break;
+      case 'Bus':
+        this.rolAgricultora = false;
+
+        break;
+      case 'Camioneta':
+        this.rolAgricultora = false;
+
+        break;
+      case 'Privado':
+        this.rolAgricultora = false;
+
+        break;
+    }    
   }
 
 }

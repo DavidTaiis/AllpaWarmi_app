@@ -8,61 +8,60 @@ import { TabAgricultorasService } from './services/consumidor/tab-agricultoras.s
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  users:any;
-  name:any;
-  phone:any;
-  identification_card:any;
-  foto:any;
-  role:any = localStorage.getItem('rol');
-  constructor(private navCtrl: NavController, private consumerService:TabAgricultorasService) {
+  users: any;
+  name: any;
+  phone: any;
+  identification_card: any;
+  foto: any;
+  role: any = localStorage.getItem('rol');
+  constructor(
+    private navCtrl: NavController,
+    private consumerService: TabAgricultorasService
+  ) {
     this.getUser();
-  
   }
 
-  logout(){
+  logout() {
     this.navCtrl.navigateForward('/');
     localStorage.clear();
   }
 
-
-  getUser(){
-    this.consumerService.getUser()
-    .subscribe(res => {
+  getUser() {
+    this.consumerService.getUser().subscribe((res) => {
       this.users = res;
       this.name = res['name'];
       this.phone = res['phone'];
       this.identification_card = res['idetification_card'];
-      this.foto = res['photo'][0] ? res['photo'][0]['url'] : "";
-
-    })
+      this.foto = res['photo'][0] ? res['photo'][0]['url'] : '';
+    });
   }
-  goUpdateProfile(){
+  goUpdateProfile() {
+    /* this.navCtrl.navigateForward(['update-profile']) */
     location.href = 'update-profile';
   }
-  gotoDirecction(){
+  gotoDirecction() {
     switch (this.role) {
-      case "Consumidor":
-        location.href = '/consumidor/geolocalizacion-domicilio';
+      case 'Consumidor':
+        location.href = '/consumidor/geolocalizacion-domicilio/1';
         break;
-      case "Vendedora":
-        location.href = '/ma_vendedora/geolocalizacion-huerto';
+      case 'Vendedora':
+        location.href = '/ma_vendedora/geolocalizacion-huerto/1';
+        break;
+      case 'Lidereza':
+        location.href = '/ma_lideresa/geolocalizacion';
+        break;
 
-      case "Lidereza":
-        location.href = '/ma_vendedora/geolocalizacion-huerto';
-        break;
-      
-        case "Acopiadora":
+      case 'Acopiadora':
         location.href = '/ma_acopiadora/geolocalizacion';
         break;
 
-        case "Camioneta":
+      case 'Camioneta':
         location.href = 'c_camioneta/geolocalizacion';
         break;
 
-        case "Privado":
-          location.href = 'c_privado/geolocalizacion-salida';
-          break;
+      case 'Privado':
+        location.href = 'c_privado/geolocalizacion-salida';
+        break;
     }
   }
-
 }

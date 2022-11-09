@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -8,11 +9,11 @@ import { NavController } from '@ionic/angular';
 })
 export class TabInicialPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
-goCar(){
-  this.navCtrl.navigateForward(['/consumidor/tab-inicial/carrito'])
+  async goCar(){
+    location.href = '/consumidor/tab-inicial/carrito';
 }
 }

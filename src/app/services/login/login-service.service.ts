@@ -53,4 +53,11 @@ export class LoginServiceService {
     };
     return this.httpClient.post(`${this.url}user/updateProfileUser`,formdata, httpOptions);
   }
+  getGeolocalizacionAuth(){
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Accept': '*/*' ,'Authorization': 'Bearer '+localStorage.getItem('accessToken')})
+    };
+    return this.httpClient.get(`${this.url}geolocation/getGeolocationFarmerAuth`, httpOptions);
+  
+  }
 }

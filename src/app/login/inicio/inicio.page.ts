@@ -87,7 +87,7 @@ export class InicioPage implements OnInit {
       this.loginService.autentification(this.cedula,this.contrasena, this.tipoUsuario).subscribe( (val) => {
         this.accesToken = val['accessToken'];
         localStorage.setItem('accessToken',this.accesToken)
-        location.href = 'consumidor/geolocalizacion-domicilio';
+        location.href = 'consumidor/geolocalizacion-domicilio/2';
         localStorage.setItem('rol', this.tipoUsuario)
 
       },
@@ -127,7 +127,7 @@ export class InicioPage implements OnInit {
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
             localStorage.setItem('rol', this.tipoAgricultora)
-            location.href = '/ma_vendedora/geolocalizacion-huerto';
+            location.href = '/ma_vendedora/geolocalizacion-huerto/2';
             break;
          }
       },

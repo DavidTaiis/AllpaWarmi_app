@@ -69,7 +69,7 @@ const routes: Routes = [
     loadChildren: () => import('./c_privado/menu/menu.module').then( m => m.MenuPageModule)
   },
   {
-    path: 'ma_vendedora/geolocalizacion-huerto',
+    path: 'ma_vendedora/geolocalizacion-huerto/:id',
     loadChildren: () => import('./ma_vendedora/geolocalizacion-huerto/geolocalizacion-huerto.module').then( m => m.GeolocalizacionHuertoPageModule)
   },
 
@@ -87,7 +87,7 @@ const routes: Routes = [
     loadChildren: () => import('./consumidor/tab_agricultoras/modal-huerto-venta/modal-huerto-venta.module').then( m => m.ModalHuertoVentaPageModule)
   },
   {
-    path: 'consumidor/geolocalizacion-domicilio',
+    path: 'consumidor/geolocalizacion-domicilio/:id',
     loadChildren: () => import('./consumidor/geolocalizacion-domicilio/geolocalizacion-domicilio.module').then( m => m.GeolocalizacionDomicilioPageModule)
   },
   {
@@ -117,7 +117,8 @@ const routes: Routes = [
   {
     path: 'detallesorden',
     loadChildren: () => import('./consumidor/modals/detallesorden/detallesorden.module').then( m => m.DetallesordenPageModule)
-  },  {
+  },
+  {
     path: 'modal-privado',
     loadChildren: () => import('./ma_vendedora/modals/modal-privado/modal-privado.module').then( m => m.ModalPrivadoPageModule)
   },

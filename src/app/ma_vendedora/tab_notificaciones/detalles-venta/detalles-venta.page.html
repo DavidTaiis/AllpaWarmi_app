@@ -29,11 +29,11 @@
     {{place}}
    </ion-list-header>
     <ion-item *ngFor="let product of products">
-      <ion-text slot="end">{{product.subtotal}}</ion-text>
+      <ion-text slot="end">{{product.subtotal}} $</ion-text>
       <ion-label>{{product.quantity}} {{product.measure}} {{product.product_name}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-text slot="end">{{total}}</ion-text>
+      <ion-text slot="end">{{total}} $</ion-text>
       <ion-label>Total:</ion-label>
     </ion-item>
   </ion-list>

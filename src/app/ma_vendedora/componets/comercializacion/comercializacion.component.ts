@@ -9,8 +9,10 @@ import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transpor
 export class ComercializacionComponent implements OnInit {
   feature:any;
   modal:any;
-  constructor(public agricultorasService: TabTransporteService) { }
+  profile:any;
+  constructor(public agricultorasService: TabTransporteService) { 
 
+  }
   ngOnInit() {
     this.getComercio();
     this.modal = "HuertoVenta";

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
 import { AlertController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
+import { LoginServiceService } from 'src/app/services/login/login-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-geolocalizacion-domicilio',
@@ -15,12 +17,20 @@ export class GeolocalizacionDomicilioPage implements OnInit {
   description:any = "";
   days:any = "";
   hours:any = "";
-  constructor(private tabAgricultorasService: TabAgricultorasService,private navCtrl: NavController,private alertController: AlertController) { }
+  pointsGeolocation:any;
+  isUpdated:any;
+  constructor(private activatedRoute: ActivatedRoute,public loginService: LoginServiceService ,private tabAgricultorasService: TabAgricultorasService,private navCtrl: NavController,private alertController: AlertController) { 
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.isUpdated = params.get('id');
+
+    })
+  }
 
   ngOnInit() {
-    this.localizacion = true;
+  
+    this.getGeolocation();
 
- 
+    this.localizacion = true;
   }
   ngAfterViewInit() {
 
@@ -52,5 +62,17 @@ export class GeolocalizacionDomicilioPage implements OnInit {
   });
   }
 
-
+  getGeolocation(){
+   console.log(this.isUpdated)
+    if(this.isUpdated > 1){
+      this.loginService.getGeolocalizacionAuth().subscribe(res => {
+        this.pointsGeolocation = res;
+        if(this.pointsGeolocation.length > 0){
+          this.navCtrl.navigateForward(['consumidor/tab-inicial/inicio'])
+        }
+          
+      })
+    } 
+    
+  }
 }

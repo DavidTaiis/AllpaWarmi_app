@@ -11,7 +11,7 @@ export class InicioPage implements OnInit {
   modal:any;
   feature:any = [];
   localizacion:any;
-
+  valueSelected: string  = "1";
   constructor(public modalController: ModalController, private tabagricultorasService: TabAgricultorasService ) { }
   
   async ngOnInit() {
@@ -38,6 +38,8 @@ export class InicioPage implements OnInit {
    });
    
    }
-  
+   segmentChange(event: CustomEvent){
+    this.valueSelected = event.detail.value;
+  }
 }
 
