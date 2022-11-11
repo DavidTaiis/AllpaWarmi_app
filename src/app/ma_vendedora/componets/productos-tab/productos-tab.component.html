@@ -1,28 +1,30 @@
 <ion-card *ngFor="let product of products">
   <ion-list>
-  <ion-item  style="font-size: 12px;">
-  
-    <ion-chip (click)="deleteProduct(product.id)" slot="end" color="danger">Eliminar</ion-chip>
+    <ion-item style="font-size: 12px;" lines="none">
 
-  <div *ngIf="product.images != ''">
-    <ng-container  *ngFor="let item of product.images">  
-      <ion-thumbnail>
-      <img  class="imagen-card" src="{{item.url}}" />
-    </ion-thumbnail>
-    </ng-container>      
-  </div>
-  <div *ngIf="product.images == ''"> 
-    <ion-thumbnail>
-    <img class="imagen-card" src="assets/img/compra.png" />
-  </ion-thumbnail></div>
-  
- 
-    <ion-label [routerLink]="['/ma_vendedora/menu/productos/agregarProducto/', product.productId]">{{product.product}}
-      <p>{{product.description}}</p>
-      <p>{{product.measure}} -- {{product.price}}</p></ion-label>
-    
-</ion-item>
-</ion-list>
+      <ion-chip (click)="deleteProduct(product.id)" slot="end" color="danger">Eliminar</ion-chip>
+
+      <div *ngIf="product.images != ''" class="imagen-card" >
+        <ng-container *ngFor="let item of product.images">
+          <ion-thumbnail>
+            <img class="imagen-card" src="{{item.url}}" />
+          </ion-thumbnail>
+        </ng-container>
+      </div>
+      <div *ngIf="product.images == ''">
+        <ion-thumbnail>
+          <img src="assets/img/compra.png" />
+        </ion-thumbnail>
+      </div>
+
+
+      <ion-label [routerLink]="['/ma_vendedora/menu/productos/agregarProducto/', product.productId]"><div class="text-color-brown text-bold">{{product.product}}</div>
+        <div class="text-color-purple">{{product.description}}</div>
+        <div class="text-color-purple">{{product.measure}} -- $ {{product.price}}</div>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
 </ion-card>
 <ion-fab (click)="viewAgregarProducto()" vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button color="danger">
