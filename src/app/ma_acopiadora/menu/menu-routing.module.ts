@@ -20,7 +20,15 @@ const routes: Routes = [
         path: 'centroAcopio',
         loadChildren: () => import('./../../ma_acopiadora/tab-crear-acopio/tab-crear-acopio.module').then( m => m.TabCrearAcopioPageModule)
       },
-      
+      {
+        path: 'agricultoras',
+        loadChildren: () => import('./../../ma_acopiadora/tab-agricultoras/tab-agricultoras.module').then( m => m.TabAgricultorasPageModule)
+      },
+      {
+        path: 'perfil-ma/:id',
+        loadChildren: () => import('./../../ma_acopiadora/tab-agricultoras/perfil-ma/perfil-ma.module').then( m => m.PerfilMaPageModule)
+      },
+    
       
     ]
   }

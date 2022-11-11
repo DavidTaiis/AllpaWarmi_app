@@ -44,7 +44,7 @@
               Ubicación
             </ion-button>
           </div>
-          <div class="contenedor-item-menu">
+          <div *ngIf="role === 'Consumidor'" class="contenedor-item-menu">
             <ion-button (click)="onClick()" fill="outline" class="text-white border-white text-capitalize size-boton">
               <ion-icon slot="start" src="/assets/icon/vend_favorites.svg"></ion-icon>
               Vendedores Favoritos

@@ -79,4 +79,11 @@ getComercio(){
 
   return this.httpClient.get(`${this.url}seller/getComercios`, this.httpOptions)
 }
+getReport(start:string, finish:string){
+  let data = {
+    'start': start,
+    'finish': finish
+  }
+    return this.httpClient.post(`${this.url}seller/getOrdersByDate`,data, this.httpOptions)
+  }
 }

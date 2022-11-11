@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricult
 export class AgricultorasComponent implements OnInit {
   listFarmers:any;
   searchFarmer:any;
+  @Input() role:any;
 
   constructor(private tabAgricultorasServices: TabAgricultorasService) { }
 

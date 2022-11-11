@@ -8,14 +8,12 @@ import { PerfilMAPageRoutingModule } from './perfil-ma-routing.module';
 
 import { PerfilMAPage } from './perfil-ma.page';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 import { GooglemapsModule } from './../../../googlemaps/googlemaps/googlemaps.module';
 
 @NgModule({
 
   imports: [
     ReactiveFormsModule,
-    NgxStarRatingModule,
     CommonModule,
     FormsModule,
     IonicModule,

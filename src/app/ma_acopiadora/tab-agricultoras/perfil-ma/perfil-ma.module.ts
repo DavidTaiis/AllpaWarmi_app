@@ -7,17 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { PerfilMaPageRoutingModule } from './perfil-ma-routing.module';
 
 import { PerfilMaPage } from './perfil-ma.page';
-import { ReactiveFormsModule } from '@angular/forms';
-import { GooglemapsModule } from './../../../googlemaps/googlemaps/googlemaps.module';
-
 
 @NgModule({
   imports: [
-    ReactiveFormsModule,
     CommonModule,
     FormsModule,
     IonicModule,
-    GooglemapsModule,
     PerfilMaPageRoutingModule
   ],
   declarations: [PerfilMaPage]

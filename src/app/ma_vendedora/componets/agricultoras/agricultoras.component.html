@@ -7,6 +7,7 @@
 
 <!-- List of people -->
 <div class="contenedor-personas">
+  <ng-container *ngIf="!role">
   <div *ngFor="let farmer of searchFarmer" class="card" [routerLink]="['/ma_vendedora/menu/productos/perfilma',farmer.id]">
     <div *ngIf="farmer.photo != ''">
       <ng-container  *ngFor="let item of farmer.photo">  
@@ -20,45 +21,21 @@
       <div class="texto-personal text-color-purple">{{farmer.identification_card}}</div>
     </div>
   </div>  
+</ng-container>
+<ng-container *ngIf="role">
+  <div *ngFor="let farmer of searchFarmer" class="card" [routerLink]="['/ma_acopiadora/menu/perfil-ma', farmer.id]">
+    <div *ngIf="farmer.photo != ''">
+      <ng-container  *ngFor="let item of farmer.photo">  
+        <img  class="imagen-card" src="{{item.url}}" />
+      </ng-container>      
+    </div>
+    <div *ngIf="farmer.photo == ''"> <img class="imagen-card" src="assets/img/profileDefault.jpg" /></div>
+    <div  class="detalle-personal">
+      <div class="texto-personal text-bold text-color-purple">{{farmer.name}}</div>
+      <div class="texto-personal text-color-purple">{{farmer.phone}}</div>
+      <div class="texto-personal text-color-purple">{{farmer.identification_card}}</div>
+    </div>
+  </div>  
+</ng-container>
 </div>
-<!-- <div class="contenedor-perfiles">
-  <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let farmer of listFarmers" size="6">
-        <div>
-          <ion-card class="card-p" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]">
-            <ion-card-header class="card-header">
-              <div class="avatar-center">
-                <img class="radius" src="assets/img/mujer.webp" />
-              </div>
-            </ion-card-header>
-            <ion-card-content class="card-content">
-              <ion-card-title class="text-white text-center">{{farmer.name}}</ion-card-title>
-              <ion-card-subtitle class="text-white text-center">{{farmer.phone}}</ion-card-subtitle>
-              <ion-card-subtitle class="text-white text-center">Dirección</ion-card-subtitle>
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</div> -->
 
-<!-- <ion-grid>
-  <ion-row>
-    <ion-col *ngFor="let farmer of listFarmers" size="6">
-      <div>
-        <ion-card class="lista-agricultoras" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id]" >
-          <img src="assets/img/mujer.webp" />
-          <ion-card-header>
-            <ion-card-title>{{farmer.name}}</ion-card-title>
-            <ion-card-subtitle class="color-principal">{{farmer.phone}}</ion-card-subtitle>
-           </ion-card-header>
-          <ion-card-content>
-        Dirección
-          </ion-card-content>
-        </ion-card>
-      </div>
-    </ion-col>
-  </ion-row>
-</ion-grid> -->

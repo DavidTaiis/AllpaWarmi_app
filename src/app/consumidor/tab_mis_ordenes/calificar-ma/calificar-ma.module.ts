@@ -7,11 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { CalificarMaPageRoutingModule } from './calificar-ma-routing.module';
 
 import { CalificarMaPage } from './calificar-ma.page';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
-    NgxStarRatingModule,
     ReactiveFormsModule,
     CommonModule,
     FormsModule,

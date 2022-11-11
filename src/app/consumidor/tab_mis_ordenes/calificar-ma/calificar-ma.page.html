@@ -29,31 +29,11 @@
     Puntos de venta: parque central, plaza principal.
   </ion-card-content>
 
-  <form [formGroup]="form">      
-    <div class="cont">
-        <div class="stars">
-          <ngx-star-rating formControlName="rating" [id]="'rating1'" [disabled] ="true"></ngx-star-rating>
-        </div>
-      </div>
-</form>
-
   </ion-card>
   <ion-card>
     <ion-card-header>
     <ion-card-title>Califica a la vendedora:</ion-card-title>
     </ion-card-header>
-
-  <form [formGroup]="form">      
-    <div class="cont">
-        <div class="stars">
-        <ngx-star-rating formControlName="rating1" [id]="'rating'"></ngx-star-rating>
-        </div>
-      </div>
-      <ion-button class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="card-outline"></ion-icon> &nbsp; &nbsp;Calificar</ion-button>
-<br>
-<br>
-<br>
-</form>
 
   </ion-card>
 </ion-content>

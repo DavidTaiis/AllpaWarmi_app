@@ -8,7 +8,6 @@ import { PerfilConductorPageRoutingModule } from './perfil-conductor-routing.mod
 
 import { PerfilConductorPage } from './perfil-conductor.page';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
   imports: [
@@ -16,7 +15,6 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    NgxStarRatingModule,
     PerfilConductorPageRoutingModule
   ],
   declarations: [PerfilConductorPage]

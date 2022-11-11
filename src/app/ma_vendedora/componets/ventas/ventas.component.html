@@ -1,8 +1,15 @@
 <div class="ion-padding" style="text-align:center;">
-  <ion-label class="text-color-purple text-bold">Ventas completadas:</ion-label>
-  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button>
+  
+  <ion-label class="text-color-purple text-bold">Fecha inicio:</ion-label>
+  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetimeI"></ion-datetime-button>
   <br>
-  <ion-button class="boton-warmi-in">Generar reporte</ion-button>
+  
+  
+  <ion-label class="text-color-purple text-bold">Fecha fin:</ion-label>
+  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetimeF"></ion-datetime-button>
+  
+  
+  <ion-button class="boton-warmi-in" (click)="createPdf()">Generar reporte</ion-button>
 </div>
 
 <div  *ngFor="let order of orders" class="contenedor-list-ventas" id="contenedor-list-ventas">
@@ -24,6 +31,11 @@
 
 <ion-modal [keepContentsMounted]="true">
   <ng-template>
-    <ion-datetime presentation="date" id="datetime"></ion-datetime>
+    <ion-datetime presentation="date" id="datetimeI" [(ngModel)]="start"></ion-datetime>
+  </ng-template>
+</ion-modal>
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime presentation="date" id="datetimeF" [(ngModel)]="finish"></ion-datetime>
   </ng-template>
 </ion-modal>

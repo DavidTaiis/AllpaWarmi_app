@@ -21,6 +21,5 @@ export class AcopiadoraService {
   }
   getAcopio(){
     return this.httpClient.get(`${this.url}acopio/getAcopioId`, this.httpOptions)
-
   }
 }

@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
+import { AcopiadoraService } from 'src/app/services/ma_acopiadora/acopiadora.service';
 
 @Component({
   selector: 'app-inicio',
@@ -12,10 +13,11 @@ export class InicioPage implements OnInit {
   feature:any = [];
   localizacion:any;
   valueSelected: string  = "1";
-  constructor(public modalController: ModalController, private tabagricultorasService: TabAgricultorasService ) { }
+  acopios:any;
+  constructor(public modalController: ModalController, private tabagricultorasService: TabAgricultorasService, private acopiadoraService:AcopiadoraService) { }
   
   async ngOnInit() {
-
+    this.getAcopios();
   await this.getGeolocationMa();
 
   
@@ -40,6 +42,12 @@ export class InicioPage implements OnInit {
    }
    segmentChange(event: CustomEvent){
     this.valueSelected = event.detail.value;
+  }
+
+  getAcopios(){
+    this.acopiadoraService.getAcopios().subscribe( res => {
+      this.acopios = res;
+    })
   }
 }
 

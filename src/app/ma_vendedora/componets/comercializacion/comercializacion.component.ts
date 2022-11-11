@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AcopiadoraService } from 'src/app/services/ma_acopiadora/acopiadora.service';
 import { TabTransporteService } from 'src/app/services/ma_vendedora/tab-transporte.service';
 
 @Component({
@@ -10,11 +11,13 @@ export class ComercializacionComponent implements OnInit {
   feature:any;
   modal:any;
   profile:any;
-  constructor(public agricultorasService: TabTransporteService) { 
+  acopios:any;
+  constructor(public agricultorasService: TabTransporteService, public acopiadoraService: AcopiadoraService) { 
 
   }
   ngOnInit() {
     this.getComercio();
+    this.getAcopios();
     this.modal = "HuertoVenta";
   }
 
@@ -22,7 +25,12 @@ export class ComercializacionComponent implements OnInit {
   getComercio(){
     this.agricultorasService.getComercio().subscribe( res => {
       this.feature = res;
-      console.log(this.feature)
+    })
+  }
+
+  getAcopios(){
+    this.acopiadoraService.getAcopios().subscribe( res => {
+      this.acopios = res;
     })
   }
 }
