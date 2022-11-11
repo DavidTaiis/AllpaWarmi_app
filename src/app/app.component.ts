@@ -64,4 +64,7 @@ export class AppComponent {
         break;
     }
   }
+  goFavorites(){
+    location.href = 'consumidor/tab-inicial/favoritas';
+  }
 }

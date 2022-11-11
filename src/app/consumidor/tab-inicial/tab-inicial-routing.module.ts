@@ -40,6 +40,11 @@ const routes: Routes = [
         path: 'calificar-ma',
         loadChildren: () => import('./../../consumidor/tab_mis_ordenes/calificar-ma/calificar-ma.module').then( m => m.CalificarMaPageModule)
       },
+      {
+        path: 'favoritas',
+        loadChildren: () => import('./../../consumidor/tab_agricultoras/favoritas/favoritas.module').then( m => m.FavoritasPageModule)
+      },
+    
     ]
   }
 ];

@@ -1,0 +1,32 @@
+<ion-content>
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/iconos/w_farmer.svg">
+      </ion-icon>
+      <div class="texto-header">Agricultoras favoritas</div>
+    </div>
+  </div>
+  <!--Search Bar  -->
+  <!-- <div class="container-search-bar padding-bar">
+    <div class="">
+      <ion-searchbar placeholder="Buscar" class="search-bar-orange" showCancelButton="never"></ion-searchbar>
+    </div>
+  </div> -->
+ 
+
+  <!-- Lista Personas -->
+  <div class="contenedor-personas">
+    <div *ngFor="let farmer of listFarmers" class="card" [routerLink]="['/consumidor/tab-inicial/perfil-ma',farmer.id_seller]">
+    
+          <img  class="imagen-card" src="{{imagesSellerl || 'assets/img/profileDefault.jpg'}}" /> 
+    
+
+      <div  class="detalle-personal">
+        <div class="texto-personal text-bold text-color-purple">{{farmer.seller}}</div>
+        <div class="texto-personal text-color-purple">{{farmer.seller_phone}}</div>
+        <!-- <div class="texto-personal text-color-purple">{{farmer.identification_card}}</div> -->
+      </div>
+    </div>  
+  </div>
+</ion-content>

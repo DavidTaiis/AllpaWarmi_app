@@ -139,4 +139,7 @@ getFarmers(){
   getOrderDetails(id:number){
     return this.httpClient.get(`${this.url}consumer/getProductsOrder/${id}`, this.httpOptions)
   }
+  getOrderfavorites(){
+    return this.httpClient.get(`${this.url}consumer/getOrdersFavorite`, this.httpOptions)
+  }
 }
