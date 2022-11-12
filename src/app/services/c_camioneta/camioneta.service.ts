@@ -19,6 +19,11 @@ export class CamionetaService {
   getServiceDriver(){
     return this.httpClient.get(`${this.url}camioneta/getServiceDriverId`, this.httpOptions)
   }
-
+  updateStatus(id:any){
+    let data = {
+      "id": id
+    }
+    return this.httpClient.post(`${this.url}camioneta/updateStatus`, data, this.httpOptions)
+  }
 }
 
