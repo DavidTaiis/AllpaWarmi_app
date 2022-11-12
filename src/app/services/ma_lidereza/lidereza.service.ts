@@ -29,4 +29,16 @@ addInvitation(id:any){
   }
   return this.httpClient.post(`${this.url}lider/addInvitation`,data, this.httpOptions)
 }
+getInvitations(){
+
+  return this.httpClient.get(`${this.url}lider/getInvitationId`, this.httpOptions)
+}
+updateStatus(id:any, status:any){
+  let data = {
+    "id":id,
+    "status":status
+  }
+  return this.httpClient.post(`${this.url}lider/updateStatus`,data, this.httpOptions)
+
+}
 }
