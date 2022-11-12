@@ -31,7 +31,7 @@ export class DetallescarritoComponent implements OnInit {
   ionicForm: FormGroup;
   isSubmitted: true;
   date:any;
-
+  nameClient:any;
   @Input() productos: any;
 
   constructor(
@@ -52,6 +52,7 @@ export class DetallescarritoComponent implements OnInit {
     this.getCarProducts();
     this.getTotal();
     this.getData();
+    this.getUser(); 
   }
 
   async getCarProducts() {
@@ -122,34 +123,9 @@ export class DetallescarritoComponent implements OnInit {
             this.place_delivery,
             date,
             this.data
-          )
-          .subscribe(async (res) => {
-            const alert = await this.alertController.create({
-              cssClass: 'app-alert',
-              header: 'Contacta con la vendedora',
-
-              subHeader:
-                'Para completar tu orden debes contactarte con la vendedora ',
-              buttons: [
-                {
-                  text: 'Cancelar',
-                  role: 'cancel',
-                  handler: () => {},
-                },
-                {
-                  text: 'Confirmar',
-                  role: 'confirm',
-                  handler: () => {
-                    setTimeout(() => {
-                      this.goWhatsapp();
-                    }, 1000);
-                  },
-                },
-              ],
-            });
-
-            await alert.present();
-          });
+          ).subscribe( res => {
+            this.goWhatsapp();
+          })
       }
     }
   }
@@ -161,8 +137,50 @@ export class DetallescarritoComponent implements OnInit {
   }
   goWhatsapp() {
     localStorage.removeItem('products');
+    let dateConcat =
+    this.deliverDate.substring(0, 10) + ' ' + this.hour;
     location.href =
-      `https://api.whatsapp.com/send?phone=993335589&` +
-      'text=Hola soy,%20David%20you%20have%20scheduled%20an%20appointment%20on%20lechuga%20with%20the%20following%20instructions%20&source=&data=';
+    `https://api.whatsapp.com/send?phone=${this.phoneNumber}&` +
+    'text=Hola,%20soy%20' +
+    `${this.nameClient}` +
+    ' por favor ayúdame con estos productos: 🥬 🥬%20'+
+    `${this.productos.map(item => {
+      return `%0A${item.quantity} ${item.measure} ${item.productName}` })}`+
+    '%0AEn esta fecha y hora:%0A'+
+    `${dateConcat}`+
+    '%0APunto de recogida:%0A'+
+    `${this.place_delivery}` +
+    '&source=&data=';
+  }
+
+  async confirmarOrden(){
+    const alert = await this.alertController.create({
+      cssClass: 'app-alert',
+      header: 'Contacta',
+
+      subHeader:
+        'Para completar tu orden debes contactarte con la vendedora ',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {},
+        },
+        {
+          text: 'Confirmar',
+          role: 'confirm',
+          handler: async () => {
+          this.createOrder();
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+  getUser() {
+    this.tabAgricultorasServices.getUser().subscribe((res) => {
+      this.nameClient = res['name'];
+        });
   }
 }

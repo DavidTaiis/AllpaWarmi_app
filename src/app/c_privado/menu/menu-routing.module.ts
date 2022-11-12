@@ -36,6 +36,11 @@ const routes: Routes = [
         path: 'planificacion',
         loadChildren: () => import('./../../c_privado/tab_planificacion/planificacion/planificacion.module').then( m => m.PlanificacionPageModule)
       },
+      {
+        path: 'notificaciones',
+        loadChildren: () => import('./../../c_privado/tab-notificaciones/tab-notificaciones.module').then( m => m.TabNotificacionesPageModule)
+      },
+    
       
     ]
   }

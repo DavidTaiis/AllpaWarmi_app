@@ -1,0 +1,25 @@
+
+
+  <div class="border-top-page">
+    <!-- Contenedor 1 -->
+    <div class="contenedor-header">
+      <ion-icon class="icon-header size-icon" slot="start" src="/assets/iconos/o_parada.svg">
+      </ion-icon>
+      <div class="texto-header">Notificaciones</div>
+    </div>
+  </div>
+<div class=" border-top-page center">
+  <ion-label class="text-color-purple text-bold">Lista de contacto de vendedoras</ion-label>
+</div>
+<ion-card  *ngFor="let item of servicesDriver">
+
+  <ion-item (click)="goWhatsApp(item.phone_number)" style="font-size: 12px;" routerLinkActive="router-link-active" >
+    <ion-chip slot="end" color="success">{{item.status}}</ion-chip>
+    <ion-thumbnail slot="start">
+      <img alt="Silhouette of mountains" src="assets/img/compra.png" />
+    </ion-thumbnail>
+    <ion-label >{{item.seller_name}}
+      <p>{{item.date}}</p>
+      <p>{{item.phone_number}}</p></ion-label>
+  </ion-item>
+</ion-card>

@@ -16,6 +16,10 @@ const routes: Routes = [
         path: 'novedades',
         loadChildren: () => import('./../../c_camioneta/novedades/novedades.module').then( m => m.NovedadesPageModule)
       },
+      {
+        path: 'notificaciones',
+        loadChildren: () => import('./../../c_camioneta/tab-notificaciones/tab-notificaciones.module').then( m => m.TabNotificacionesPageModule)
+      },
     
     ]
   }

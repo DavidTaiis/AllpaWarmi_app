@@ -23,4 +23,10 @@ updateAsociation(data:FormData){
 getAsociation(){
   return this.httpClient.get(`${this.url}lider/getAssociationById`, this.httpOptions)
 }
+addInvitation(id:any){
+  let data = {
+    "id_seller": id
+  }
+  return this.httpClient.post(`${this.url}lider/addInvitation`,data, this.httpOptions)
+}
 }

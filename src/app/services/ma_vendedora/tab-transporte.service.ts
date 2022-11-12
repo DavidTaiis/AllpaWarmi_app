@@ -86,4 +86,12 @@ getReport(start:string, finish:string){
   }
     return this.httpClient.post(`${this.url}seller/getOrdersByDate`,data, this.httpOptions)
   }
+
+  addServiceDriver(idDriver:any, date:any){
+    let data = {
+      'id_driver': idDriver,
+      'date': date
+    }
+      return this.httpClient.post(`${this.url}seller/addServiceDriver`,data, this.httpOptions)
+  }
 }

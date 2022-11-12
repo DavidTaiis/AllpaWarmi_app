@@ -313,6 +313,7 @@ export class GooglemapsComponent implements OnInit {
                 description: this.feature[i].description,
                 user_name: this.feature[i].user_name,
                 phone_number: this.feature[i].phone_number,
+                id_user : this.feature[i].id_user,
               },
             });
             await modal.present();

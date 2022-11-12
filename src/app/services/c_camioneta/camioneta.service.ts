@@ -16,5 +16,9 @@ export class CamionetaService {
     return this.httpClient.post(`${this.url}camioneta/addCamioneta`,data, this.httpOptions)
   }
 
+  getServiceDriver(){
+    return this.httpClient.get(`${this.url}camioneta/getServiceDriverId`, this.httpOptions)
+  }
+
 }
 
