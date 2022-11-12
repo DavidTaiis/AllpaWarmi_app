@@ -20,7 +20,13 @@
         <img alt="Silhouette of mountains" src="{{invitation.photoSeller || 'assets/img/profileDefault.jpg'}}" />
       </ion-thumbnail>
 
-      <ion-label (click)="goWhatsApp(invitation.seller_phone)">
+      <ion-label *ngIf="invitation.status !== 'Aceptada'" (click)="goWhatsApp(invitation.seller_phone)">
+        <div class="text-bold text-color-brown">{{invitation.seller_name}}</div>
+        <div class="text-color-purple">{{invitation.date.slice(0,10)}}</div>
+        <div class="text-color-purple">{{invitation.seller_phone}}</div>
+      </ion-label> 
+      
+      <ion-label *ngIf="invitation.status === 'Aceptada'">
         <div class="text-bold text-color-brown">{{invitation.seller_name}}</div>
         <div class="text-color-purple">{{invitation.date.slice(0,10)}}</div>
         <div class="text-color-purple">{{invitation.seller_phone}}</div>
