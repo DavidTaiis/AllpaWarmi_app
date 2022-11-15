@@ -59,7 +59,7 @@ async updateStatus(id:any, status:any){
 }
 goWhatsApp(phoneNumber){
   location.href =
-  `https://api.whatsapp.com/send?phone=${phoneNumber.substring(1)}&` +
+  `https://api.whatsapp.com/send?phone=593${phoneNumber.substring(1)}&` +
   'text=Hola%20soy,%20' +
   `${this.nameSeller}` +
   ' te invito a formar parte de mi asociación%20'+

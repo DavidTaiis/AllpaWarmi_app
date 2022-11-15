@@ -41,7 +41,7 @@ export class ModalPrivadoPage implements OnInit {
       .addServiceDriver(this.id_user, this.date)
       .subscribe((res) => {
         location.href =
-          `https://api.whatsapp.com/send?phone=${this.phone_number.substring(1)}&` +
+          `https://api.whatsapp.com/send?phone=593${this.phone_number.substring(1)}&` +
           'text=Hola%20soy,%20' +
           `${this.nameSeller}` +
           ' por favor, necesito de su servicio de camioneta%20&source=&data=';

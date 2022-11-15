@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "444796662907",
+    "firebase_url": "https://proyecto-57a73.firebaseio.com",
+    "project_id": "proyecto-57a73",
+    "storage_bucket": "proyecto-57a73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444796662907:android:ec20a3a4d9798a79e5dede",
+        "android_client_info": {
+          "package_name": "com.rtechi.allpawarmi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444796662907-cq123iimsldcuks4sc9embd4oo9e0evl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD62FQ4lLivgc7KfO2JLTDVeU2GtnzRb-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444796662907-cq123iimsldcuks4sc9embd4oo9e0evl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

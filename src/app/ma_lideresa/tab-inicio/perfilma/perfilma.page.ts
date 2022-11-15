@@ -109,7 +109,7 @@ getAsociation(){
 addInvitation(){
   this.liderService.addInvitation(this.id).subscribe(res=> {
     location.href =
-    `https://api.whatsapp.com/send?phone=${this.phone.substring(1)}&` +
+    `https://api.whatsapp.com/send?phone=593${this.phone.substring(1)}&` +
     'text=Hola%20soy,%20' +
     `${this.nameSeller}` +
     ' te invito a formar parte de mi asociación%20'+

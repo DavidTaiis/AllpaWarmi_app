@@ -14,6 +14,6 @@ export class TabInicialPage implements OnInit {
   ngOnInit() {
   }
   async goCar(){
-    location.href = '/consumidor/tab-inicial/carrito';
+    this.router.navigate(['/consumidor/tab-inicial/carrito',1])
 }
 }

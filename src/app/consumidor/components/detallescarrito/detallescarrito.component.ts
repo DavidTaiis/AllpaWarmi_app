@@ -9,6 +9,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detallescarrito',
@@ -27,7 +28,7 @@ export class DetallescarritoComponent implements OnInit {
   hour: any;
   data: any = [];
   phoneNumber: any;
-
+  isUpdated:any;
   ionicForm: FormGroup;
   isSubmitted: true;
   date:any;
@@ -39,7 +40,9 @@ export class DetallescarritoComponent implements OnInit {
     public formBuilder: FormBuilder,
     private navCtrl: NavController,
     private tabAgricultorasServices: TabAgricultorasService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.ionicForm = this.formBuilder.group({
       place_delivery: new FormControl('', [Validators.required]),
@@ -52,7 +55,15 @@ export class DetallescarritoComponent implements OnInit {
     this.getCarProducts();
     this.getTotal();
     this.getData();
-    this.getUser(); 
+    this.getUser();
+    if(this.isUpdated == 1){
+      this.updateCarrito(); 
+    this.isUpdated = 2;
+
+    }
+   
+   
+  
   }
 
   async getCarProducts() {
@@ -140,7 +151,7 @@ export class DetallescarritoComponent implements OnInit {
     let dateConcat =
     this.deliverDate.substring(0, 10) + ' ' + this.hour;
     location.href =
-    `https://api.whatsapp.com/send?phone=${this.phoneNumber}&` +
+    `https://api.whatsapp.com/send?phone=593${this.phoneNumber}&` +
     'text=Hola,%20soy%20' +
     `${this.nameClient}` +
     ' por favor ayúdame con estos productos: 🥬 🥬%20'+
@@ -183,4 +194,11 @@ export class DetallescarritoComponent implements OnInit {
       this.nameClient = res['name'];
         });
   }
+  updateCarrito(){   
+    this.isUpdated = 1;
+    this.router.navigate(['/consumidor/tab-inicial/carrito',2])     
+ 
+  this.ngOnInit();
+  }
+
 }

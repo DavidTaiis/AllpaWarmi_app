@@ -17,7 +17,7 @@ const routes: Routes = [
         loadChildren: () => import('../tab_agricultoras/lista-agricultoras/lista-agricultoras.module').then( m => m.ListaAgricultorasPageModule)
       },
       {
-        path: 'carrito',
+        path: 'carrito/:id',
         loadChildren: () => import('../tab_carrito/carrito/carrito.module').then( m => m.CarritoPageModule)
       },
       {

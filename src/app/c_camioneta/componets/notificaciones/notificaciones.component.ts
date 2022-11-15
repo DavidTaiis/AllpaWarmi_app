@@ -22,7 +22,7 @@ export class NotificacionesComponent implements OnInit {
     })
   }
   goWhatsApp(phoneNumber){
-    location.href = `https://api.whatsapp.com/send?phone=${phoneNumber.substring(1)}&text=Hola, ¿Solicitaste el servicio de camioneta?&source=&data=;`
+    location.href = `https://api.whatsapp.com/send?phone=593${phoneNumber.substring(1)}&text=Hola, ¿Solicitaste el servicio de camioneta?&source=&data=;`
   }
   async updateStatus(id:any){
     const alert = await this.alertController.create({

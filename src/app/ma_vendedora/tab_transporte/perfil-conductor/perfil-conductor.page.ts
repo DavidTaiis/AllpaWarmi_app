@@ -72,7 +72,7 @@ export class PerfilConductorPage implements OnInit {
   
   contactWhatsApp() {  
     this.tabTransporteService.addServiceDriver(this.id, this.date).subscribe(res=>{
-      location.href = `https://api.whatsapp.com/send?phone=${this.phoneNumber}&` +
+      location.href = `https://api.whatsapp.com/send?phone=593${this.phoneNumber}&` +
       'text=Hola%20soy,%20'+`${this.nameSeller}`+' por favor, necesito de su servicio de camioneta%20&source=&data=';
   
     })
