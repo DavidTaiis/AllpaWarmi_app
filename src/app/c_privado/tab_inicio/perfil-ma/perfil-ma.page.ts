@@ -1,5 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
 import { FormGroup,  FormControl, FormBuilder, Validators } from '@angular/forms';
 import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricultoras.service';
 import { ActivatedRoute } from '@angular/router';
@@ -23,7 +22,7 @@ export class PerfilMAPage implements OnInit {
   phoneNumber:any;
   public form: FormGroup;
 
-  constructor(private activatedRoute: ActivatedRoute,public Mapa:MapasService,public fb: FormBuilder,private tabAgricultorasService: TabAgricultorasService) { 
+  constructor(private activatedRoute: ActivatedRoute,public fb: FormBuilder,private tabAgricultorasService: TabAgricultorasService) { 
     this.form = this.fb.group({
       'rating': new FormControl([5])
     });

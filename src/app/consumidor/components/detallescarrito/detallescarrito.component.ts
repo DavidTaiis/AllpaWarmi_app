@@ -3,13 +3,9 @@ import { TabAgricultorasService } from 'src/app/services/consumidor/tab-agricult
 import { ModalController, NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { ProductCar } from 'src/app/models/ProductsCar';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-detallescarrito',

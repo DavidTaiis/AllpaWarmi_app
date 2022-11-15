@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
 import { Router } from '@angular/router';
 import { PrivadoService } from 'src/app/services/c_privado/privado.service';
 
@@ -10,7 +9,7 @@ import { PrivadoService } from 'src/app/services/c_privado/privado.service';
 })
 export class GeolocalizacionSalidaPage implements OnInit {
 
-  constructor(public Mapa:MapasService, private router:Router, private privado: PrivadoService) { }
+  constructor( private router:Router, private privado: PrivadoService) { }
   localizacion:any;
   puntoSelect:any;
   car_plate:any;

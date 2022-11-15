@@ -1,4 +1,5 @@
 <ion-content>
+ 
   <div class="border-top-page">
 
   <div class="contenedor-header">
@@ -22,10 +23,11 @@
   <div *ngIf="valueSelected == 2">
     <app-privado></app-privado>
   </div>
-
+ <div *ngIf="valueSelected != 2">
   <div class="center">
     <ion-card  class="tam-map">
       <app-googlemaps [acopios]="acopios" [modal]="modal" [localizacion]="localizacion" [feature]="feature"></app-googlemaps>
     </ion-card>
+  </div>
   </div>
 </ion-content>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
 import { LiderezaService } from 'src/app/services/ma_lidereza/lidereza.service';
 @Component({
   selector: 'app-tab-inicio',
@@ -10,7 +9,7 @@ export class TabInicioPage implements OnInit {
   modal:any;
   feature:any = [];
 
-  constructor(public Mapa:MapasService, private liderezaService: LiderezaService) { }
+  constructor(private liderezaService: LiderezaService) { }
 
   ngOnInit() {
     this.modal = "HuertoVenta";

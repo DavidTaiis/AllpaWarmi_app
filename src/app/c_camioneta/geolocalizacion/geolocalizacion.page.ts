@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
 import { Router } from '@angular/router';
 import { CamionetaService } from 'src/app/services/c_camioneta/camioneta.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -20,7 +19,7 @@ export class GeolocalizacionPage implements OnInit {
 
   ionicForm: FormGroup;
   isSubmitted:true;
-  constructor(public formBuilder: FormBuilder,public Mapa:MapasService, private router:Router, private camionetaService: CamionetaService) {
+  constructor(public formBuilder: FormBuilder, private router:Router, private camionetaService: CamionetaService) {
     this.ionicForm = this.formBuilder.group({
       'color': new FormControl("",[Validators.required]),
       'car_plate': new FormControl("", [Validators.required]),

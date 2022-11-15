@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MapasService } from 'src/app/services/mapas.service';
 
 @Component({
   selector: 'app-detalles-acopio',
@@ -8,12 +7,9 @@ import { MapasService } from 'src/app/services/mapas.service';
 })
 export class DetallesAcopioPage implements OnInit {
 
-  constructor(public Mapa:MapasService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  async ngAfterViewInit(){
-    this.Mapa.createMap();
-  }
 }
