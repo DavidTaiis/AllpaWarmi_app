@@ -111,5 +111,16 @@ export class PerfilConductorPage implements OnInit {
   
     await alert.present();
   }
+  //rating
+  heartIcons = {
+    empty: '../../../../assets/iconos/lechuga_empty.svg',
+    half: '../../../../assets/iconos/lechuga_mid.svg',
+    full: '../../../../assets/iconos/lechuga_full.svg',
+}
+ratingDisplay: number;
   
+  onRatingSet(rating: number): void {
+    this.ratingDisplay = rating;
+  }
+  // fin rating
 }
