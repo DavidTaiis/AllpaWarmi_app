@@ -8,6 +8,7 @@ import { PerfilConductorPageRoutingModule } from './perfil-conductor-routing.mod
 
 import { PerfilConductorPage } from './perfil-conductor.page';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxStarsModule } from 'ngx-stars'; //agrege para rating
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
+    NgxStarsModule, //agrege modulo para rating
     PerfilConductorPageRoutingModule
   ],
   declarations: [PerfilConductorPage]

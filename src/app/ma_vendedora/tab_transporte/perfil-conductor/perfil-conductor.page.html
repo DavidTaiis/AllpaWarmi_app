@@ -9,38 +9,29 @@
   <div class="contenedor-perfil">
     <div class="imagen-conductor"><img width="125" src="{{image || 'assets/img/profileDefault.jpg'}}" /></div>
     <div class="informacion-conductor">
-      <div class="start-rat">
-        <div class="ion-text-center">
-          <div class="lechugas">
-            <div style="margin-right: 6px;">
-              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
-            </div>
-            <div style="margin-right: 6px;">
-              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
-            </div>
-            <div style="margin-right: 6px;">
-              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
-            </div>
-            <div style="margin-right: 6px;">
-              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
-            </div>
-            <div style="margin-right: 6px;">
-              <ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon>
-            </div>
-          </div>
+      <!-- rating solo lectura -->
+      <div class="contenedor-rating">
+        <!-- add in property [wholeStars]="true" to ngx-stars for integer values -->
+        <!-- [animation]="true" [animationSpeed]="200" for animations icons-->
+        <!-- <div class="ion-text-center text-bold text-color-brown">Califica a este conductor</div> -->
+        <ngx-stars [readonly]="true" [maxStars]="5" [color]="'#f9b233'" [size]="2" [initialStars]="4"
+          [customStarIcons]="heartIcons" (ratingOutput)="onRatingSet($event)"></ngx-stars>
+        <span class="ion-text-center text-bold text-color-brown"  style="font-weight: bold; font-size: 20px; margin: 0; padding: 0;">Calificación {{ ratingDisplay }} de
+          5</span>
+        <div>
         </div>
       </div>
-      <div class="ion-text-center text-bold text-color-brown">{{name}}</div>
-      <div class="ion-text-center text-color-purple">{{phone}}</div>
       <div class="ion-text-center contenedor-datos">
+        <div class="ion-text-center text-bold text-color-brown">{{name}}</div>
+        <div class="ion-text-center text-color-purple">{{phone}}</div>
         <ion-button class=" boton-whatsapp" (click)="confirmWhatsApp()">
           <ion-icon name="logo-whatsapp"></ion-icon>&nbsp;
-            Contactar
+          Contactar
         </ion-button>
       </div>
     </div>
   </div>
-  <div class="descripcion-perfil">
+  <div class="descripcion-perfil" style="margin-top: 1rem">
     <div class="ion-text-center text-bold text-color-brown">Descripción Vehicular</div>
     <ion-grid style="width: 70%;">
       <ion-row>
@@ -57,8 +48,14 @@
       </ion-row>
     </ion-grid>
   </div>
-  <div class="contenedor-rating">
-    <div class="ion-text-center text-bold text-color-brown">Califica a este conductor</div>
+  <!-- calificar rating  -->
+  <div class="contenedor-rating" style="margin-top: 1rem">
+    <!-- add in property [wholeStars]="true" to ngx-stars for integer values -->
+    <!-- [animation]="true" [animationSpeed]="200" for animations icons-->
+    <div class="ion-text-center text-bold text-color-brown ">Califica a este conductor</div>
+    <ngx-stars [readonly]="false" [maxStars]="5" [color]="'#f9b233'" [size]="3" [initialStars]="2.5"
+      [customStarIcons]="heartIcons" (ratingOutput)="onRatingSet($event)"></ngx-stars>
+    <span class="ion-text-center text-bold text-color-brown" style="font-weight: bold; font-size: 20px">Calificación {{ ratingDisplay }} de 5</span>
     <div>
     </div>
   </div>
