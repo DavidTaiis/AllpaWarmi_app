@@ -7,26 +7,20 @@
   </div>
 </div>
 
-<div class="contenedor-total">
-  <div class="datos">
-    <div class="texto-carrito text-color-brown text-bold">Total a pagar</div>
-    <div class="texto-carrito total-a-pagar">$ {{total}}</div>
-  </div>
-</div>
+
 
 <div class="contenedor-list-ventas" id="contenedor-list-ventas">
-  <ion-card class="contenedor-card-p" *ngFor="let product of products">
-    <ion-card-header class="encabezado-card">
-      <ion-card-title class="text-white text-bold">{{product.farmer}}</ion-card-title>
-      <ion-card-subtitle class="text-white">{{product.phone}}</ion-card-subtitle>
 
-    </ion-card-header>
-
+  <ion-card class="contenedor-card-p">
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
+      class="encabezado-card">
+      <div class="e-car">{{farmer}}</div>
+      <div class="e-car">{{phone}}</div>
+    </div>
     <div>
       <ion-card-content class="descripcion-card">
-        <ion-list>
-          <ion-item  lines="none">
-            <!-- <ion-item *ngFor="let product of products"> -->
+        <ion-list *ngFor="let product of products">
+          <ion-item lines="none">
             <ion-thumbnail slot="start">
               <img src="{{product.fotoProduct || 'assets/img/compra.png'}}" />
             </ion-thumbnail>
@@ -52,6 +46,12 @@
   </ion-card>
 
 </div>
+<div class="contenedor-total">
+  <div class="datos">
+    <div class="texto-carrito text-color-brown text-bold">Total a pagar</div>
+    <div class="texto-carrito total-a-pagar text-bold">$ {{total}}</div>
+  </div>
+</div>
 <div class="btn-ordenar">
 
   <ion-button class="boton-warmi-in" id="open-modal" expand="block">Confirme canasta de compras</ion-button>
@@ -66,7 +66,7 @@
       <form [formGroup]="ionicForm">
         <ion-list>
 
-          <ion-radio-group [(ngModel)]="place_delivery" formControlName="place_delivery" 
+          <ion-radio-group [(ngModel)]="place_delivery" formControlName="place_delivery"
             value="Recogida en punto de venta">
             <div class="contenedor-date">
               <ion-item lines="none"
@@ -87,9 +87,9 @@
               </ion-item>
               <span class="error-validate" *ngIf="isSubmitted && errorControl.place_delivery.errors?.required">
                 Este campo es obligatorio.
-               </span>
+              </span>
             </div>
-         
+
           </ion-radio-group>
           <div class="contenedor-date">
             <ion-item lines="none">
@@ -98,34 +98,35 @@
                 <ion-datetime [(ngModel)]="deliverDate" presentation="date" formControlName="deliverDate">
                 </ion-datetime>
               </div>
-           
+
             </ion-item>
             <span class="error-validate" *ngIf="isSubmitted && errorControl.deliverDate.errors?.required">
               Este campo es obligatorio.
-             </span>
+            </span>
           </div>
           <ion-card>
-           
-              <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">* Hora de entrega
-              </ion-label>
-              <ion-select mode="ios" interface="popover" placeholder="Seleccione..."
-                [(ngModel)]="hour" formControlName="hour">
-                <ion-select-option value="08:00">08:00</ion-select-option>
-                <ion-select-option value="09:00">09:00</ion-select-option>
-                <ion-select-option value="10:00">10:00</ion-select-option>
-                <ion-select-option value="11:00">11:00</ion-select-option>
-                <ion-select-option value="12:00">12:00</ion-select-option>
-                <ion-select-option value="13:00">13:00</ion-select-option>
-                <ion-select-option value="14:00">14:00</ion-select-option>
-                <ion-select-option value="15:00">15:00</ion-select-option>
-                <ion-select-option value="16:00">16:00</ion-select-option>
-                <ion-select-option value="17:00">17:00</ion-select-option>
-              </ion-select>
-              <span class="error-validate" *ngIf="isSubmitted && errorControl.hour.errors?.required">
-                Este campo es obligatorio.
-               </span>
+
+            <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">*
+              Hora de entrega
+            </ion-label>
+            <ion-select mode="ios" interface="popover" placeholder="Seleccione..." [(ngModel)]="hour"
+              formControlName="hour">
+              <ion-select-option value="08:00">08:00</ion-select-option>
+              <ion-select-option value="09:00">09:00</ion-select-option>
+              <ion-select-option value="10:00">10:00</ion-select-option>
+              <ion-select-option value="11:00">11:00</ion-select-option>
+              <ion-select-option value="12:00">12:00</ion-select-option>
+              <ion-select-option value="13:00">13:00</ion-select-option>
+              <ion-select-option value="14:00">14:00</ion-select-option>
+              <ion-select-option value="15:00">15:00</ion-select-option>
+              <ion-select-option value="16:00">16:00</ion-select-option>
+              <ion-select-option value="17:00">17:00</ion-select-option>
+            </ion-select>
+            <span class="error-validate" *ngIf="isSubmitted && errorControl.hour.errors?.required">
+              Este campo es obligatorio.
+            </span>
           </ion-card>
-         
+
         </ion-list>
         <div class="btn-ordenar" style="padding: 5px;">
           <ion-button type="submit" (click)="confirmarOrden()" expand="block" class="boton-warmi-in">
