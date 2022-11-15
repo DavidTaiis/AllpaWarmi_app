@@ -76,11 +76,12 @@ getFarmers(){
     
   }
   removeItemCar(productCar:ProductCar){
+
     const products = JSON.parse(localStorage.getItem('products'));
     
     for (let index = 0; index < products.length; index++) {
     
-      if (productCar['id'] === products[index]['id']) {
+      if (productCar['item'] === products[index]['item']) {
         products.splice(index, 1);
         localStorage.setItem('products', JSON.stringify(products));
       }

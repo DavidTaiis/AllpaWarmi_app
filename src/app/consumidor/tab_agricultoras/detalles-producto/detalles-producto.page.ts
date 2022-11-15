@@ -22,6 +22,7 @@ phone:any;
 total:any ;
 measureProductId:any;
 fotoProduct:any;
+item:any= 0;
 
   constructor(private tabAgricultorasService: TabAgricultorasService, private activatedRoute: ActivatedRoute) { }
 
@@ -44,7 +45,7 @@ fotoProduct:any;
       this.phone = this.product[0]['phoneFarmer'];
       this.farmerId = this.product[0]['farmerId'];
       this.fotoProduct = this.product[0]['images'][0] ? this.product[0]['images'][0].url : ""
-
+      console.log(res)
     },
     response => {
       console.log(response['error']['warning'][0]['value'])
@@ -71,8 +72,14 @@ fotoProduct:any;
   }
 
   addCar(){
-
+  
+    if(localStorage.getItem('products')){
+      let productos = JSON.parse(localStorage.getItem('products'))   
+      this.item = productos[productos.length -1].item +1;
+    }
+    
     this.productCar =[{
+      "item": this.item,
       "id": this.measureProductId,
       "quantity": this.quantity,
       "productName": this.productName,
@@ -86,7 +93,8 @@ fotoProduct:any;
     }]
     
     
-    this.tabAgricultorasService.addProduct(this.productCar)
+    this.tabAgricultorasService.addProduct(this.productCar);
+  
   } 
 
 }
