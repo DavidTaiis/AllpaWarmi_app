@@ -28,7 +28,11 @@ export class PerfilConductorPage implements OnInit {
   nameSeller:any;
   phoneSeller:any;
   phoneNumber:any;
-  date:any =new Date().toLocaleDateString();
+  device_token:any;
+  id_user:any;
+  date:any =new Date();
+  
+
   constructor(
     private activatedRoute: ActivatedRoute,
     public fb: FormBuilder,
@@ -43,6 +47,8 @@ export class PerfilConductorPage implements OnInit {
   }
   public form: FormGroup;
   ngOnInit() {
+  console.log(this.date)
+
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.getProfile();
     this.getUser();
@@ -59,6 +65,8 @@ export class PerfilConductorPage implements OnInit {
         this.color = res['color'];
         this.image = res['image'];
         this.phoneNumber = this.phone.substring(1);
+        this.device_token = res['device_token'];
+        this.id_user= res['id_user'];
       
       },
       (response) => {
@@ -71,12 +79,31 @@ export class PerfilConductorPage implements OnInit {
   }
   
   contactWhatsApp() {  
-    this.tabTransporteService.addServiceDriver(this.id, this.date).subscribe(res=>{
+   let  month = '' + (this.date.getMonth() + 1);
+    let day = '' + this.date.getDate(),
+        year = this.date.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    let dateComplete = [year, month, day].join('-');
+    this.tabTransporteService.addServiceDriver(this.id_user, dateComplete).subscribe(res=>{
       location.href = `https://api.whatsapp.com/send?phone=593${this.phoneNumber}&` +
       'text=Hola%20soy,%20'+`${this.nameSeller}`+' por favor, necesito de su servicio de camioneta%20&source=&data=';
   
     })
+
+ 
    
+  }
+  sendNotification(){
+    let title = "Nueva solicitud de carrera";
+    let message = `Hola soy ${this.nameSeller} solicito de tus servicios`
+    this.consumerService.sendNotification(message, title, this.device_token).subscribe(res => {
+      console.log("enviada")
+    })
   }
 
     getUser() {
@@ -102,8 +129,12 @@ export class PerfilConductorPage implements OnInit {
         {
           text: 'Confirmar',
           role: 'confirm',
-          handler: () => {
-          this.contactWhatsApp();
+          handler: async() => {
+            this.sendNotification();
+            setTimeout(() => {
+              this.contactWhatsApp();
+            }, 2000);
+          
           },
         },
       ],

@@ -21,7 +21,9 @@ export class NotificacionesComponent implements OnInit {
       this.servicesDriver = res;
     })
   }
-  goWhatsApp(phoneNumber){
+  goWhatsApp(is_view,phoneNumber){
+
+    is_view = 'TRUE';
     location.href = `https://api.whatsapp.com/send?phone=593${phoneNumber.substring(1)}&text=Hola, ¿Solicitaste el servicio de camioneta?&source=&data=;`
   }
   async updateStatus(id:any){

@@ -178,7 +178,7 @@ export class DetallescarritoComponent implements OnInit {
   sendNotification(){
     let title = "Nuevo pedido";
     let message = `Hola soy, ${this.nameClient} por favor ayúdame con estos productos: 🥬 🥬:`
-    this.tabAgricultorasServices.sendNotification(title, message, this.device_token).subscribe(res => {
+    this.tabAgricultorasServices.sendNotification(message, title, this.device_token).subscribe(res => {
       console.log("enviada")
     })
   }

@@ -15,8 +15,8 @@
         <!-- [animation]="true" [animationSpeed]="200" for animations icons-->
         <!-- <div class="ion-text-center text-bold text-color-brown">Califica a este conductor</div> -->
         <ngx-stars [readonly]="true" [maxStars]="5" [color]="'#f9b233'" [size]="2" [initialStars]="4"
-          [customStarIcons]="heartIcons" (ratingOutput)="onRatingSet($event)"></ngx-stars>
-        <span class="ion-text-center text-bold text-color-brown"  style="font-weight: bold; font-size: 20px; margin: 0; padding: 0;">Calificación {{ ratingDisplay }} de
+          [customStarIcons]="heartIcons"></ngx-stars>
+        <span class="ion-text-center text-bold text-color-brown"  style="font-weight: bold; font-size: 20px; margin: 0; padding: 0;">Calificación 4 de
           5</span>
         <div>
         </div>
@@ -58,5 +58,10 @@
     <span class="ion-text-center text-bold text-color-brown" style="font-weight: bold; font-size: 20px">Calificación {{ ratingDisplay }} de 5</span>
     <div>
     </div>
+  </div>
+  <br>
+  <br>
+  <div class="center">
+    <ion-button [routerLink]="">Calificar</ion-button>
   </div>
 </ion-content>

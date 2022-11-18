@@ -13,13 +13,24 @@
 </div>
 <ion-card  *ngFor="let item of servicesDriver">
 
-  <ion-item  style="font-size: 12px;" routerLinkActive="router-link-active" >
+  <ion-item *ngIf="item.status === 'Completado'" style="font-size: 12px;" routerLinkActive="router-link-active" >
     <ion-chip *ngIf="item.status === 'Completado'"  slot="end" color="success">{{item.status}}</ion-chip>
     <ion-chip *ngIf="item.status !== 'Completado'" (click)="updateStatus(item.id)" slot="end" color="warning">{{item.status}}</ion-chip>
     <ion-thumbnail slot="start">
       <img alt="Silhouette of mountains" src="assets/iconos/o_transporte.svg" />
     </ion-thumbnail>
     <ion-label (click)="goWhatsApp(item.phone_number)" >{{item.seller_name}}
+      <p>{{item.date}}</p>
+      <p>{{item.phone_number}}</p></ion-label>
+  </ion-item>
+
+  <ion-item *ngIf="item.status !== 'Completado'" style="font-size: 12px; --background: rgb(255, 234, 191);" routerLinkActive="router-link-active" >
+    <ion-chip *ngIf="item.status === 'Completado'"  slot="end" color="success">{{item.status}}</ion-chip>
+    <ion-chip *ngIf="item.status !== 'Completado'" (click)="updateStatus(item.id)" slot="end" color="warning">{{item.status}}</ion-chip>
+    <ion-thumbnail slot="start">
+      <img alt="Silhouette of mountains" src="assets/iconos/o_transporte.svg" />
+    </ion-thumbnail>
+    <ion-label (click)="goWhatsApp(item.is_view)" >{{item.seller_name}}
       <p>{{item.date}}</p>
       <p>{{item.phone_number}}</p></ion-label>
   </ion-item>

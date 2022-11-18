@@ -26,7 +26,7 @@ export class AppComponent {
 
   ) {
     this.getUser();
-   /*  this.goPage(); */
+    this.goPage(); 
   }
 
   logout() {
@@ -102,11 +102,19 @@ export class AppComponent {
         break;
 
       case 'Camioneta':
-
+        PushNotifications.addListener('pushNotificationActionPerformed',
+        (notification: ActionPerformed) => {
+          this.navCtrl.navigateForward(['c_camioneta/menu/notificaciones'])
+        }
+      );
         break;
 
       case 'Privado':
-  
+        PushNotifications.addListener('pushNotificationActionPerformed',
+        (notification: ActionPerformed) => {
+          this.navCtrl.navigateForward(['c_privado/menu/notificaciones'])
+        }
+      );
         break;
     }
 

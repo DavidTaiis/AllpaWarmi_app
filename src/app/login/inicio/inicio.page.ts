@@ -88,7 +88,7 @@ export class InicioPage implements OnInit {
     return false;
   } else {
 
- /*   await  PushNotifications.requestPermissions().then(result => {
+   await  PushNotifications.requestPermissions().then(result => {
       if (result.receive === 'granted') {
         // Register with Apple / Google to receive push via APNS/FCM
         PushNotifications.register();
@@ -99,7 +99,7 @@ export class InicioPage implements OnInit {
       await PushNotifications.addListener('registration', (token: Token) => {
       this.device_token = token.value;  
       console.log(this.device_token)
-    }); */
+    }); 
 
 setTimeout(() => {
   switch(this.tipoUsuario){
