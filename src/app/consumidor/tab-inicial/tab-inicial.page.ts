@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab-inicial',
@@ -14,6 +13,7 @@ export class TabInicialPage implements OnInit {
   ngOnInit() {
   }
   async goCar(){
-    this.router.navigate(['/consumidor/tab-inicial/carrito',1])
+    location.href = '/consumidor/tab-inicial/carrito/1';
+    /* this.router.navigate(['/consumidor/tab-inicial/carrito',1]) */
 }
 }

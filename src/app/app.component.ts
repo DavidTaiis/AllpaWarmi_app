@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { TabAgricultorasService } from './services/consumidor/tab-agricultoras.service';
+import { LoginServiceService } from './services/login/login-service.service';
+import {
+  ActionPerformed,
+  PushNotificationSchema,
+  PushNotifications
+} from '@capacitor/push-notifications';
 
 @Component({
   selector: 'app-root',
@@ -16,14 +22,21 @@ export class AppComponent {
   role: any = localStorage.getItem('rol');
   constructor(
     private navCtrl: NavController,
-    private consumerService: TabAgricultorasService
+    private consumerService: TabAgricultorasService,
+
   ) {
     this.getUser();
+   /*  this.goPage(); */
   }
 
   logout() {
-    this.navCtrl.navigateForward('/');
-    localStorage.clear();
+    this.consumerService.logout().subscribe(res => {
+      this.navCtrl.navigateForward('/');
+
+      localStorage.clear();
+    })
+   
+    
   }
 
   getUser() {
@@ -66,5 +79,37 @@ export class AppComponent {
   }
   goFavorites(){
     location.href = 'consumidor/tab-inicial/favoritas';
+  }
+
+  goPage(){
+    switch (this.role) {
+      case 'Consumidor':
+    
+        break;
+      case 'Vendedora':
+        PushNotifications.addListener('pushNotificationActionPerformed',
+        (notification: ActionPerformed) => {
+          this.navCtrl.navigateForward(['ma_vendedora/menu/notificaciones'])
+        }
+      );
+        break;
+      case 'Lidereza':
+   
+        break;
+
+      case 'Acopiadora':
+
+        break;
+
+      case 'Camioneta':
+
+        break;
+
+      case 'Privado':
+  
+        break;
+    }
+
+   
   }
 }

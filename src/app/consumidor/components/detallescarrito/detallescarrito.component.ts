@@ -28,10 +28,12 @@ export class DetallescarritoComponent implements OnInit {
   hour: any;
   data: any = [];
   phoneNumber: any;
+  device_token:any;
   isUpdated:any;
   ionicForm: FormGroup;
   isSubmitted: true;
   date:any;
+  farmerId:any;
   nameClient:any;
   @Input() productos: any;
 
@@ -98,7 +100,11 @@ export class DetallescarritoComponent implements OnInit {
         this.farmer = productos[index]['farmer'];
         this.phone = productos[index]['phone'];
         this.phoneNumber = this.phone.substring(1);
+        this.farmerId = productos[index]['farmerId']
       }
+      this.tabAgricultorasServices.getFarmerId(this.farmerId).subscribe( res => {
+        this.device_token = res['device_token']
+      })
     }
   }
 
@@ -135,7 +141,12 @@ export class DetallescarritoComponent implements OnInit {
             date,
             this.data
           ).subscribe( res => {
+           this.sendNotification();
+
+           setTimeout(() => {
             this.goWhatsapp();
+            
+           }, 2000);
           })
       }
     }
@@ -162,6 +173,14 @@ export class DetallescarritoComponent implements OnInit {
     '%0APunto de recogida:%0A'+
     `${this.place_delivery}` +
     '&source=&data=';
+  }
+
+  sendNotification(){
+    let title = "Nuevo pedido";
+    let message = `Hola soy, ${this.nameClient} por favor ayúdame con estos productos: 🥬 🥬:`
+    this.tabAgricultorasServices.sendNotification(title, message, this.device_token).subscribe(res => {
+      console.log("enviada")
+    })
   }
 
   async confirmarOrden(){

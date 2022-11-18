@@ -143,4 +143,17 @@ getFarmers(){
   getOrderfavorites(){
     return this.httpClient.get(`${this.url}consumer/getOrdersFavorite`, this.httpOptions)
   }
+  logout(){
+    return this.httpClient.post(`${this.url}user/logout`, '',this.httpOptions)
+  }
+  sendNotification(menssage:string,title:string,token:string){
+    let data = {
+      "message": menssage,
+      "title": title,
+      "token": token
+    }
+    console.log(data)
+    return this.httpClient.post(`${this.url}user/notificationPush`, data,this.httpOptions)
+
+  }
 }

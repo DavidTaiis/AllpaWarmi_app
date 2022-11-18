@@ -10,23 +10,24 @@
     <ion-card>
     <ion-segment class="card-tabs-bg" [value]="valueSelected" [scrollable]="true"(ionChange)= "segmentChange($event)">
       <ion-segment-button value="1">
-        <ion-label>Notificaciones</ion-label>
+        <ion-label>Entregas</ion-label>
       </ion-segment-button>
       <ion-segment-button value="2">
         <ion-label>Crear</ion-label>
       </ion-segment-button>
+  
       <ion-segment-button value="3">
-        <ion-label>Entregas</ion-label>
+        <ion-label>Notificaciones</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-card>
-  <div *ngIf="valueSelected == 1">
+  <div *ngIf="valueSelected == 3">
     <app-notificaciones></app-notificaciones>
   </div>
   <div *ngIf="valueSelected == 2">
     <app-crear-notificacion></app-crear-notificacion>
   </div>
-  <div *ngIf="valueSelected == 3">
+  <div *ngIf="valueSelected == 1">
     <app-entregas></app-entregas>
   </div>
 </ion-content>

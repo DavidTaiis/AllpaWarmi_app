@@ -22,10 +22,8 @@
   <div *ngIf="valueSelected == 2">
     <app-privado></app-privado>
   </div>
-
-  <div class="center">
-    <ion-card  class="tam-map">
-      <app-googlemaps [acopios]="acopios" [modal]="modal" [localizacion]="localizacion" [feature]="feature"></app-googlemaps>
-    </ion-card>
+  <div *ngIf="valueSelected == 1">
+    <app-agricultoras></app-agricultoras>
   </div>
+
 </ion-content>

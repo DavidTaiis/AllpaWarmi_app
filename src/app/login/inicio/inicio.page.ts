@@ -3,6 +3,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MenuController, NavController } from '@ionic/angular';
 import { LoginServiceService } from 'src/app/services/login/login-service.service';
 import { AlertController } from '@ionic/angular';
+import {
+  PushNotifications,
+  Token,
+} from '@capacitor/push-notifications';
+
 
 @Component({
   selector: 'app-inicio',
@@ -23,6 +28,7 @@ export class InicioPage implements OnInit {
   accessToken:any;
   rol:any;
   isSubmitted = false;
+  device_token :any = '';
 
   constructor(private alertController: AlertController, public menu : MenuController,private navCtrl: NavController, private loginService: LoginServiceService,public formBuilder: FormBuilder) {
    
@@ -75,16 +81,30 @@ export class InicioPage implements OnInit {
   }
   
 
-  navegacionLogin (){
+  async navegacionLogin (){
     this.isSubmitted = true;
   if (!this.ionicForm.valid) {
     console.log('Please provide all the required values!')
     return false;
   } else {
 
+ /*   await  PushNotifications.requestPermissions().then(result => {
+      if (result.receive === 'granted') {
+        // Register with Apple / Google to receive push via APNS/FCM
+        PushNotifications.register();
+      } else {
+        // Show some error
+      }
+    });
+      await PushNotifications.addListener('registration', (token: Token) => {
+      this.device_token = token.value;  
+      console.log(this.device_token)
+    }); */
+
+setTimeout(() => {
   switch(this.tipoUsuario){
-    case 'Consumidor':
-      this.loginService.autentification(this.cedula,this.contrasena, this.tipoUsuario).subscribe( (val) => {
+    case 'Consumidor': 
+      this.loginService.autentification(this.cedula,this.contrasena, this.tipoUsuario, this.device_token).subscribe( (val) => {
         this.accesToken = val['accessToken'];
         localStorage.setItem('accessToken',this.accesToken)
         location.href = 'consumidor/geolocalizacion-domicilio/2';
@@ -106,9 +126,10 @@ export class InicioPage implements OnInit {
       () => {
           console.log("The POST observable is now completed.");
       });
+    
       break;
     case 'Agricultora':
-      this.loginService.autentification(this.cedula,this.contrasena, this.tipoAgricultora).subscribe( (val) => {
+      this.loginService.autentification(this.cedula,this.contrasena, this.tipoAgricultora, this.device_token).subscribe( (val) => {
         switch (this.tipoAgricultora) {
           case 'Lidereza':
             this.accesToken = val['accessToken'];
@@ -148,7 +169,7 @@ export class InicioPage implements OnInit {
       break;
 
       case 'Conductor':
-        this.loginService.autentification(this.cedula,this.contrasena, this.tipoConductor).subscribe( (val) => {
+        this.loginService.autentification(this.cedula,this.contrasena, this.tipoConductor, this.device_token).subscribe( (val) => {
           switch (this.tipoConductor) {
             case 'Bus':
               this.accesToken = val['accessToken'];
@@ -187,6 +208,9 @@ export class InicioPage implements OnInit {
         break;
 
   }
+}, 1000);
+  
+
   }
    
   }

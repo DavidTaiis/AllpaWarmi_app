@@ -12,7 +12,7 @@ export class LoginServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  autentification(cedula:string, contrasena:string, role:string){
+  autentification(cedula:string, contrasena:string, role:string, device_token:string){
 
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'Application/json' })
@@ -20,7 +20,8 @@ export class LoginServiceService {
     let datos = {
       "identification_card": cedula,
       "password": contrasena,
-      "role" : role
+      "role" : role,
+      "device_token": device_token
     };
    return this.httpClient.post(`${this.url}auth/login`,datos, httpOptions)
   }

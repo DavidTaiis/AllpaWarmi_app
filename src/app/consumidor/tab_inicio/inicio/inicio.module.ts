@@ -7,9 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { InicioPageRoutingModule } from './inicio-routing.module';
 
 import { InicioPage } from './inicio.page';
-import { GooglemapsModule } from './../../../googlemaps/googlemaps/googlemaps.module';
 import { PrivadoModule } from 'src/app/ma_vendedora/componets/privado/privado.module';
-
+import { AgricultorasModule } from '../../components/agricultoras/agricultoras.module';
 
 @NgModule({
  
@@ -18,7 +17,8 @@ import { PrivadoModule } from 'src/app/ma_vendedora/componets/privado/privado.mo
     FormsModule,
     IonicModule,
     InicioPageRoutingModule,
-    GooglemapsModule,PrivadoModule
+    PrivadoModule,
+    AgricultorasModule
   ],
   declarations: [InicioPage]
 })

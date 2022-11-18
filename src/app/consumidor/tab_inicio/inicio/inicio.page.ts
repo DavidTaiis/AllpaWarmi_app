@@ -14,40 +14,17 @@ export class InicioPage implements OnInit {
   localizacion:any;
   valueSelected: string  = "1";
   acopios:any;
-  constructor(public modalController: ModalController, private tabagricultorasService: TabAgricultorasService, private acopiadoraService:AcopiadoraService) { }
+  constructor() { }
   
   async ngOnInit() {
-    this.getAcopios();
-  await this.getGeolocationMa();
 
-  
-  this.modal = "HuertoVenta";
-  this.localizacion = false;
   }
  
-   getGeolocationMa(){
-  
-   this.tabagricultorasService.getGeolocalizacionMa()
-     .subscribe( (res) => {
-      this.feature = null;
-      this.feature = res;
-     },
-     response => {
-       console.log(response['error']['warning'][0]['value'])
-   },
-   () => {
-       console.log("The POST observable is now completed.");
-   });
-   
-   }
+ 
    segmentChange(event: CustomEvent){
     this.valueSelected = event.detail.value;
   }
 
-  getAcopios(){
-    this.acopiadoraService.getAcopios().subscribe( res => {
-      this.acopios = res;
-    })
-  }
+ 
 }
 
