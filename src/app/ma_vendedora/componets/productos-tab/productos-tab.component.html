@@ -1,9 +1,7 @@
 <ion-card *ngFor="let product of products">
   <ion-list>
     <ion-item style="font-size: 12px;" lines="none">
-
       <ion-chip (click)="deleteProduct(product.id)" slot="end" color="danger">Eliminar</ion-chip>
-
       <div *ngIf="product.images != ''" class="imagen-card" >
         <ng-container *ngFor="let item of product.images">
           <ion-thumbnail>
@@ -16,13 +14,10 @@
           <img src="assets/img/compra.png" />
         </ion-thumbnail>
       </div>
-
-
       <ion-label [routerLink]="['/ma_vendedora/menu/productos/agregarProducto/', product.productId]"><div class="text-color-brown text-bold">{{product.product}}</div>
         <div class="text-color-purple">{{product.description}}</div>
         <div class="text-color-purple">{{product.measure}} -- $ {{product.price}}</div>
       </ion-label>
-
     </ion-item>
   </ion-list>
 </ion-card>

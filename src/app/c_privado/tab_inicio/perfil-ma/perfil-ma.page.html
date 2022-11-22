@@ -8,12 +8,6 @@
         <div class="texto-header">Perfil mujer agricultora</div>
       </div>
     </div>
-    <!-- Boton Editar Perfil -->
-   <!--  <div class="icon-end">
-      <ion-button (click)="onClick()" class="boton-warmi-in">
-        <ion-icon slot="icon-only" src="assets/icon/update_date.svg"></ion-icon>
-      </ion-button>
-    </div> -->
   </div>
   <!-- Dato 1 -->
   <div class="datos-personales">
@@ -29,15 +23,13 @@
         <ion-card-subtitle>Venta de productos frescos</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-  <!--       <div class="text-bold text-color-brown">Id:</div>
-        <div class="text-color-purple">{{identification_card}}</div> -->
-        <!--  -->
+
         <div class="text-bold text-color-brown">Teléfono:</div>
         <div class="text-color-purple">{{phone}}</div>
       </ion-card-content>
     </div>
   </div>
-  <!-- Descripcion y start -->
+
   <div class="padding-profile-desc">
     <div class="contenedor-descripcion">
       <div class="text-color-purple">Venta de productos frescos</div>
@@ -53,13 +45,12 @@
     </div>
   </div>
   <!--  -->
-  <ion-card style="width: 98%; height: 30%;"> //corregir mapa de perfil
+  <ion-card style="width: 98%; height: 30%;"> 
     <app-googlemaps [buscador]="buscador" [miUbicacion]="miUbicacion" [feature]="feature"></app-googlemaps>
   </ion-card>
 
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
     <ion-card class="contenedor-card-p">
-      <!-- <ion-card *ngFor="let product of products" class="contenedor-card-p"> -->
       <ion-card-header class="encabezado-card">
         <ion-card-title class="text-white text-bold">Horario</ion-card-title>
       </ion-card-header>
@@ -69,11 +60,7 @@
       </ion-card-content>
     </ion-card>
   </div>
-  <!-- 
-  <ion-card class="ion-padding">
-    <ion-card-title>08:00 -- 17:00</ion-card-title>
-    <ion-card-subtitle>Lunes, martes, jueves</ion-card-subtitle>
-  </ion-card> -->
+
   <div class="btn-ordenar">
     <ion-button class="ion-padding" expand="full" style="--background: #50CD89;"><ion-icon name="logo-whatsapp"></ion-icon> <a href="https://wa.me/593{{phoneNumber}}" style="color: whitesmoke;"> &nbsp;&nbsp; Contactar</a></ion-button>
 

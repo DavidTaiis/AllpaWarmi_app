@@ -98,7 +98,7 @@ export class InicioPage implements OnInit {
     });
       await PushNotifications.addListener('registration', (token: Token) => {
       this.device_token = token.value;  
-      console.log(this.device_token)
+    
     }); 
 
 setTimeout(() => {
@@ -208,7 +208,7 @@ setTimeout(() => {
         break;
 
   }
-}, 1000);
+}, 2000);
   
 
   }

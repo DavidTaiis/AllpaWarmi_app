@@ -8,20 +8,13 @@
         <div class="texto-header">Perfil mujer agricultora</div>
       </div>
     </div>
-    <!-- Boton Editar Perfil -->
-   <!--  <div class="icon-end">
-      <ion-button (click)="onClick()" class="boton-warmi-in">
-        <ion-icon slot="icon-only" src="assets/icon/update_date.svg"></ion-icon>
-      </ion-button>
-    </div> -->
+
   </div>
   <!-- Dato 1 -->
   <div class="datos-personales">
     <div class="imagen-buttom">
       <img class="img-profile" src="{{foto || 'assets/img/profileDefault.jpg'}}" />
-      <!-- <a class="imagen-in-buttom" href="http://">
-        <ion-icon slot="start" src="assets/iconos/camera.svg" class="size-icon-camera"></ion-icon>
-      </a> -->
+
     </div>
     <div>
       <ion-card-header>
@@ -29,9 +22,7 @@
         <ion-card-subtitle>Venta de productos frescos</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-<!--         <div class="text-bold text-color-brown">Id:</div>
-        <div class="text-color-purple">{{identification_card}}</div> -->
-        <!--  -->
+
         <div class="text-bold text-color-brown">Teléfono:</div>
         <div class="text-color-purple">{{phone}}</div>
       </ion-card-content>
@@ -47,7 +38,6 @@
       <div>
 
         <div class="contenedor-valoracion">
-          <!-- <div class="calificación text-bold text-color-brown">Calificación</div> -->
           <div class="lechugas">
             <div style="margin-right: 6px;"><ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon></div>    
             <div style="margin-right: 6px;"><ion-icon class="size-lechuga" slot="start" src="../../../../assets/iconos/lechuga.svg"></ion-icon></div>
@@ -62,9 +52,6 @@
   </div>
 
   <div class="center">
-    <!-- <ion-card style="width: 100%; height: 30vh;">
-      <app-googlemaps [buscador]="buscador"  [miUbicacion]="miUbicacion" [feature]="feature"></app-googlemaps>
-    </ion-card> -->
     <ion-card class="tam-map">
       <app-googlemaps [miUbicacion]="miUbicacion" [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
     </ion-card>

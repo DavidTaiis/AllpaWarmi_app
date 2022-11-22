@@ -14,9 +14,6 @@
     </div>
   </div>
 
-  <!-- <ion-card style="width: 97%; height: 80%;">
-    <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
-  </ion-card> -->
   <div class="center">
     <ion-card class="tam-map">
       <app-googlemaps [localizacion]="localizacion"  (enviar)="recibirData($event)" [feature]="feature" (enviar)="recibirData($event)"></app-googlemaps>

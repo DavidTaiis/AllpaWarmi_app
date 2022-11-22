@@ -14,7 +14,6 @@
   </div>
   <div class="ion-padding" style="text-align:center;">
     <ion-label class="text-color-purple text-bold">Ordenes realizadas:</ion-label>
-   <!--  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button> -->
   </div>
   <!--  -->
   <div class="contenedor-list-ventas" id="contenedor-list-ventas">
@@ -30,17 +29,15 @@
             </ion-thumbnail>
             <ion-label>
               <div class="text-bold text-color-purple">{{order.seller}}</div>
-              <!-- <h3>{{order.seller}}</h3> -->
+
               <ion-grid>
                 <ion-row>
                   <ion-col>
                     <div class="text-color-purple">{{order.deliver_date}}</div>
-                   <!-- <p>{{order.deliver_date}}</p> -->
                   </ion-col>
                   <ion-col class="text-color-purple text-bold" style="text-align: right;">
                     {{order.total}}
                   </ion-col>
-                  <!-- <ion-badge color="warning" style="color: white;">{{order.total}}</ion-badge> -->
                 </ion-row>
               </ion-grid>
             </ion-label>

@@ -14,12 +14,6 @@
       </div>
     </div>
   </div>
-  <!-- <ion-item-divider style="text-align: center; color: black;">
-  <h4>Indica en el mapa la ubicación de la asociación</h4>
-</ion-item-divider> -->
-  <!-- <ion-card style="width: 97%; height: 70%;">
-    <app-googlemaps [localizacion]="localizacion" [feature] = "feature" (enviar)="recibirData($event)"></app-googlemaps>
-  </ion-card> -->
   <div class="center">
     <ion-card class="tam-map">
       <app-googlemaps [localizacion]="localizacion" [feature]="feature" (enviar)="recibirData($event)"></app-googlemaps>
@@ -55,7 +49,6 @@
         <div class="text-center size-text35px text-bold text-color-purple">Ingresa los datos requeridos</div>
         <form>
           <div class="contenedor-item ">
-            <!-- <ion-icon slot="start" class="size-icon" src="/assets/icon/user.svg"></ion-icon> -->
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
                 Nombre del centro de acopio</ion-label>
@@ -63,23 +56,7 @@
               </ion-input>
             </ion-item>
           </div>
-
-          <!-- <ion-list> -->
-          <!-- <ion-card> -->
-          <!-- <ion-item> -->
-          <!-- <ion-label position="stacked">Nombre del centro de acopio</ion-label> -->
-          <!-- <ion-input [(ngModel)]="name" name="name"></ion-input> -->
-          <!-- </ion-item> -->
-          <!-- <ion-card> -->
-
-          <!-- <ion-list class="items">
-                  <ion-label style=" color: var(--warmin-color-purple);" position="floating"
-                    class="texto-center text-bold">* Descripción
-                  </ion-label>
-                  <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
-                </ion-list> -->
           <div class="contenedor-item ">
-            <!-- <ion-icon slot="start" class="size-icon" src="/assets/icon/user.svg"></ion-icon> -->
             <ion-item lines="none" class="input-border-bot item-native-transparency">
               <ion-label style="color: var(--warmin-color-purple);" position="floating" class="text-center text-bold">
                 Descripción</ion-label>
@@ -89,9 +66,7 @@
           </div>
 
           <div class="center-days">
-            <!-- </ion-card> -->
-            <!-- <ion-card> -->
-            <!-- <ion-list class="items"> -->
+    
             <div>
               <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">
                 Días
@@ -106,10 +81,7 @@
                 <ion-select-option value="Sábado">Sábado</ion-select-option>
                 <ion-select-option value="Domingo">Domingo</ion-select-option>
               </ion-select>
-              <!-- </ion-list> -->
-              <!-- </ion-card> -->
-              <!-- <ion-card> -->
-              <!-- <ion-list class="items"> -->
+
               <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">
                 *
                 Hora inicio
@@ -127,10 +99,6 @@
                 <ion-select-option value="16:00">16:00</ion-select-option>
                 <ion-select-option value="17:00">17:00</ion-select-option>
               </ion-select>
-              <!-- </ion-list> -->
-              <!-- </ion-card> -->
-              <!-- <ion-card> -->
-              <!-- <ion-list class="items"> -->
               <ion-label style=" color: var(--warmin-color-purple);" position="floating" class="texto-center text-bold">
                 *
                 Hora fin
@@ -148,11 +116,6 @@
                 <ion-select-option value="16:00">16:00</ion-select-option>
                 <ion-select-option value="17:00">17:00</ion-select-option>
               </ion-select>
-              <!-- </ion-list> -->
-              <!-- </ion-card> -->
-              <!-- </ion-card> -->
-
-              <!-- </ion-list> -->
               <div class="btn-ordenar">
                 <ion-button type="submit" class="boton-warmi-in" (click)="addAcopio()">
                   <ion-icon name="card-outline"></ion-icon>Guardar

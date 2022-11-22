@@ -9,16 +9,10 @@
   </div>
   <div class="ion-padding" style="text-align:center;">
     <ion-label>Ordenes realizadas:</ion-label>
-   <!--  <ion-datetime-button style="text-align: left; margin-top: 10px;" datetime="datetime"></ion-datetime-button> -->
   </div>
-<!--   <ion-modal [keepContentsMounted]="true">
-    <ng-template>
-      <ion-datetime presentation="date" id="datetime"></ion-datetime>
-    </ng-template>
-  </ion-modal> -->
+
   <ion-card *ngFor="let order of orders" [routerLink]="['/c_privado/menu/detalles-entrega', order.id]" >
     <ion-item style="font-size: 12px;">
-      <!-- <ion-chip slot="end" color="success">estado</ion-chip> -->
       <ion-thumbnail slot="start">
         <img alt="Silhouette of mountains" src="assets/img/compra.png" />
       </ion-thumbnail>

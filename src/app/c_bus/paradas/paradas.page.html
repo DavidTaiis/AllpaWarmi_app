@@ -12,41 +12,20 @@
       <ion-label class="text-color-purple text-bold">Información paradas de buses</ion-label>
     </ion-col>
   </ion-row>
-
-
   <div class="center">
     <ion-card class="tam-map">
       <app-googlemaps [modal]="modal" [localizacion]="localizacion" (enviar)="recibirData($event)" [feature]="feature"></app-googlemaps>
     </ion-card>
   </div>
-  <!-- <ion-card class="map">
-    <capacitor-google-maps id="map"></capacitor-google-maps>
-  </ion-card> -->
-
-
   <ion-card>
     <ion-item *ngFor="let parada of feature">
       <ion-chip *ngIf="parada.status === 'ACTIVE'" color="success" slot="end">Disponible</ion-chip>
-      <!-- <ion-thumbnail slot="start">
-        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg" />
-      </ion-thumbnail> -->
-
-      <ion-label>
+   <ion-label>
         <div class="text-bold text-color-brown">{{parada.nameLineBus}}-{{parada.descripcionLineBus}}</div>
-        <!-- <div class="text-color-purple">{{camioneta.description}}</div> -->
+
         <div class="text-color-purple">{{parada.nameStop}}</div>
-        <!-- <div class="text-bold text-color-pinkd">{{camioneta.car_plate}}</div> -->
       </ion-label>
     </ion-item>
   </ion-card>
-
-  <!-- <ion-card class="contenedor-card-parada">
-    <ion-list>
-      <ion-item *ngFor="let parada of feature">      
-        <ion-label class="text-bold text-color-brown">{{parada.nameLineBus}}-{{parada.descripcionLineBus}}<p>{{parada.nameStop}}</p></ion-label>    
-        <ion-chip *ngIf="parada.status === 'ACTIVE'" color="success" slot="end">Disponible</ion-chip>  
-      </ion-item>
-    </ion-list>
-  </ion-card> -->
 
 </ion-content>
