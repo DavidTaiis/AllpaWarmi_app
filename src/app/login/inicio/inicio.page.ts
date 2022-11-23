@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MenuController, NavController } from '@ionic/angular';
 import { LoginServiceService } from 'src/app/services/login/login-service.service';
 import { AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import {
   PushNotifications,
   Token,
@@ -30,7 +31,7 @@ export class InicioPage implements OnInit {
   isSubmitted = false;
   device_token :any = '';
 
-  constructor(private alertController: AlertController, public menu : MenuController,private navCtrl: NavController, private loginService: LoginServiceService,public formBuilder: FormBuilder) {
+  constructor(private loadingCtrl: LoadingController,private alertController: AlertController, public menu : MenuController,private navCtrl: NavController, private loginService: LoginServiceService,public formBuilder: FormBuilder) {
    
     this.ionicForm = this.formBuilder.group({
       'cedula': new FormControl("",[Validators.required, Validators.minLength(10),Validators.pattern('^[0-9]+$')]),
@@ -79,7 +80,14 @@ export class InicioPage implements OnInit {
   ngOnInit() {
    
   }
-  
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Cargando...',
+      spinner: 'circles',
+    });
+
+    loading.present();
+  }
 
   async navegacionLogin (){
     this.isSubmitted = true;
@@ -87,8 +95,9 @@ export class InicioPage implements OnInit {
     console.log('Please provide all the required values!')
     return false;
   } else {
+    this.showLoading();
 
-   await  PushNotifications.requestPermissions().then(result => {
+   /*  await  PushNotifications.requestPermissions().then(result => {
       if (result.receive === 'granted') {
         // Register with Apple / Google to receive push via APNS/FCM
         PushNotifications.register();
@@ -99,7 +108,7 @@ export class InicioPage implements OnInit {
       await PushNotifications.addListener('registration', (token: Token) => {
       this.device_token = token.value;  
     
-    }); 
+    });   */
 
 setTimeout(() => {
   switch(this.tipoUsuario){
@@ -107,11 +116,14 @@ setTimeout(() => {
       this.loginService.autentification(this.cedula,this.contrasena, this.tipoUsuario, this.device_token).subscribe( (val) => {
         this.accesToken = val['accessToken'];
         localStorage.setItem('accessToken',this.accesToken)
-        location.href = 'consumidor/geolocalizacion-domicilio/2';
         localStorage.setItem('rol', this.tipoUsuario)
+        this.loadingCtrl.dismiss();
+        location.href = 'consumidor/geolocalizacion-domicilio/2';
 
       },
      async response => {
+      this.loadingCtrl.dismiss();
+
         const alert = await this.alertController.create({
           // css personalizado
           cssClass:'app-alert',
@@ -135,6 +147,7 @@ setTimeout(() => {
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
             localStorage.setItem('rol', this.tipoAgricultora)
+            this.loadingCtrl.dismiss();
             location.href = 'ma_lideresa/geolocalizacion';
 
             break;
@@ -142,17 +155,23 @@ setTimeout(() => {
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
             localStorage.setItem('rol', this.tipoAgricultora)
+            this.loadingCtrl.dismiss();
+
             location.href = '/ma_acopiadora/geolocalizacion';
             break;
           case 'Vendedora':
             this.accesToken = val['accessToken'];
             localStorage.setItem('accessToken',this.accesToken)
             localStorage.setItem('rol', this.tipoAgricultora)
+            this.loadingCtrl.dismiss();
+
             location.href = '/ma_vendedora/geolocalizacion-huerto/2';
             break;
          }
       },
       async response => {
+        this.loadingCtrl.dismiss();
+
         const alert = await this.alertController.create({
           // css personalizado
           cssClass:'app-alert',
@@ -175,23 +194,31 @@ setTimeout(() => {
               this.accesToken = val['accessToken'];
               localStorage.setItem('accessToken',this.accesToken)
             localStorage.setItem('rol', this.tipoConductor)
+        this.loadingCtrl.dismiss();
+
             location.href = '/c_bus/menu/inicio';
             break;
             case 'Camioneta':
               this.accesToken = val['accessToken'];
               localStorage.setItem('accessToken',this.accesToken)
             localStorage.setItem('rol', this.tipoConductor)
+        this.loadingCtrl.dismiss();
+
             location.href = '/c_camioneta/geolocalizacion';
               break;
             case 'Privado':
               this.accesToken = val['accessToken'];
               localStorage.setItem('accessToken',this.accesToken)
             localStorage.setItem('rol', this.tipoConductor)
+             this.loadingCtrl.dismiss();
+
             location.href = '/c_privado/geolocalizacion-salida';
               break;
             }
         },
        async response => {
+        this.loadingCtrl.dismiss();
+
         const alert = await this.alertController.create({
           // css personalizado
           cssClass:'app-alert',

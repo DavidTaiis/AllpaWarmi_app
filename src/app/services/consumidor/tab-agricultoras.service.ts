@@ -49,11 +49,13 @@ getFarmers(){
   }
    
    getCart(){
+    return new Promise( (resolve,reject) => {
+      this.arrayProdsCar = JSON.parse(localStorage.getItem('products')) ?? "";
+     
+      resolve(this.arrayProdsCar)
 
-    this.arrayProdsCar = JSON.parse(localStorage.getItem('products')) ?? "";
-    return this.arrayProdsCar;
-  
-
+    })
+    
  }
   addProduct(productCar:ProductCar){
     let arrayProds = JSON.parse(localStorage.getItem('products')) ?? "";

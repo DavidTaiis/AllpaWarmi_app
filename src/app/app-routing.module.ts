@@ -123,6 +123,7 @@ const routes: Routes = [
     loadChildren: () => import('./ma_vendedora/modals/modal-privado/modal-privado.module').then( m => m.ModalPrivadoPageModule)
   },
 
+
    
 ];
 

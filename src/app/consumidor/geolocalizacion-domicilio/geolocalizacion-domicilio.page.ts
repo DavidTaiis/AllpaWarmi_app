@@ -68,11 +68,13 @@ export class GeolocalizacionDomicilioPage implements OnInit {
       this.loginService.getGeolocalizacionAuth().subscribe(res => {
         this.pointsGeolocation = res;
         if(this.pointsGeolocation.length > 0){
-          this.navCtrl.navigateForward(['consumidor/tab-inicial/inicio'])
+
+          location.href = 'consumidor/tab-inicial/inicio';
         }
           
       })
     } 
     
   }
+  
 }
